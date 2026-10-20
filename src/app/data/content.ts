@@ -10,9 +10,9 @@ export const profile: Profile = {
   github: 'https://github.com/gyulaimrk',
   location: 'Nyíregyháza, Magyarország',
   intro:
-    'Java és Kotlin alapú backend rendszereket tervezek, tesztelek és tartok karban, mellette AI-konzultánsként segítek a mesterséges intelligencia gyakorlati bevezetésében.',
+    'Java (8-tól 25-ig) és Kotlin alapú backend rendszereket tervezek, tesztelek és tartok karban, mellette AI-konzultánsként segítek a mesterséges intelligencia gyakorlati bevezetésében.',
   letter: [
-    'Senior Java fejlesztőként több mint négy éve dolgozom Java 11 és Java 17 alatt, Spring és Spring Boot alkalmazásokon. Összetett rendszerek tervezésében, kódolásában, tesztelésében és karbantartásában vagyok otthon.',
+    'Senior Java fejlesztőként több mint négy éve dolgozom Java 11 és Java 17 alatt, de a Java 8-tól a 25-ös verzióig magabiztosan írok kódot. Spring és Spring Boot alkalmazásokon dolgozom. Összetett rendszerek tervezésében, kódolásában, tesztelésében és karbantartásában vagyok otthon.',
     'A bevált fejlesztési gyakorlatokat, az objektumorientált elveket és a tervezési mintákat követem, hogy a kód tiszta, karbantartható és hatékony legyen. Fontos számomra a tesztlefedettség: unit-, rendszer- és UI-tesztek.',
     'Szívesen dolgozom csapatban és önállóan is, az ügyfelekkel és más funkciók képviselőivel pedig nyíltan kommunikálok. A tanulás nálam folyamatos: mellékprojektekben próbálom ki az új technológiákat.',
     'Ez az oldal Angularral készült, mert érdekel a másik oldal is.',
@@ -84,9 +84,9 @@ export const skills: Skill[] = [
     text: 'Több Kotlin projekt az Adroit Group-nál, köztük a MOL Limo autóbérlő; adatelérés az Exposed SQL keretrendszerrel.',
   },
   {
-    title: 'Java 11 és 17',
+    title: 'Java 8-tól 25-ig',
     tag: 'Nyelv',
-    text: 'Több mint négy év gyakorlat Java 11 és Java 17 alatt; tanúsítvány Java 8-ból, Java 10/11-ből, tanulmányok Java 17-ről.',
+    text: 'A Java 8-tól a 25-ös verzióig magabiztosan írok kódot; több mint négy év gyakorlat Java 11 és Java 17 alatt. Tanúsítvány Java 8-ból és Java 10/11-ből.',
   },
   {
     title: 'Spring és Spring Boot',
