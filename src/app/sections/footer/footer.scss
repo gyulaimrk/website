@@ -1,0 +1,63 @@
+footer {
+  margin: var(--gap-section) var(--margin) var(--margin);
+}
+.back {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  min-height: 360px;
+  padding: 28px clamp(24px, 6vw, 96px) 24px;
+  background: var(--paper);
+}
+.sign {
+  margin-bottom: 20px;
+  font-size: var(--step-head);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+}
+.message p:last-child {
+  max-width: 36ch;
+}
+address {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+  align-content: start;
+  padding-top: 120px;
+  font-size: var(--step-lead);
+  font-style: normal;
+}
+address a {
+  text-decoration: none;
+}
+address a:hover {
+  color: var(--accent);
+}
+.stamp {
+  position: absolute;
+  top: 28px;
+  right: clamp(24px, 6vw, 96px);
+  width: 88px;
+  aspect-ratio: 3 / 4;
+  border: 6px solid var(--paper);
+}
+.imprint {
+  grid-column: 1 / -1;
+  align-self: end;
+  text-align: center;
+  font-size: var(--step-small);
+  color: var(--muted);
+}
+@media (max-width: 720px) {
+  .back {
+    grid-template-columns: 1fr;
+  }
+  address {
+    padding-top: 0;
+  }
+  .stamp {
+    width: 64px;
+  }
+}

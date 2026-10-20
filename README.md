@@ -5,6 +5,7 @@ Angular 22 (Node.js 24 LTS) alapú, magyar nyelvű portfólió.
 ```bash
 npm install
 npm start        # fejlesztői szerver: http://localhost:4200
+npm test         # egységtesztek (Vitest)
 npm run build    # éles build: dist/portfolio/browser
 ```
 

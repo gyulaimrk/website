@@ -1,0 +1,8 @@
+<section id="eszkoztar">
+  <app-section-heading>Eszköztár</app-section-heading>
+  <div class="deck">
+    @for (skill of skills; track skill.title; let i = $index) {
+      <app-skill-card [skill]="skill" [class.wide]="i === 0" [appReveal]="i" />
+    }
+  </div>
+</section>

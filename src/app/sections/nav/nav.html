@@ -1,0 +1,9 @@
+<header>
+  <a class="mark" href="#top">{{ profile.name }}</a>
+  <nav aria-label="Fő navigáció">
+    @for (link of links; track link.href) {
+      <a [href]="link.href">{{ link.label }}</a>
+    }
+  </nav>
+  <a appButton size="small" [external]="true" [href]="profile.linkedin">LinkedIn</a>
+</header>

@@ -1,0 +1,32 @@
+import { filterTech, jobs, profile, skills, studies } from './content';
+
+describe('content', () => {
+  it('a profil kötelező mezői ki vannak töltve', () => {
+    expect(profile.name).toBeTruthy();
+    expect(profile.email).toContain('@');
+    expect(profile.linkedin).toMatch(/^https:\/\//);
+    expect(profile.headline).toContain(profile.name);
+  });
+
+  it('nem tartalmaz személyes adatot (telefon, születési dátum)', () => {
+    const all = JSON.stringify({ profile, jobs, skills, studies });
+    expect(all).not.toMatch(/\+36\s?\d/);
+    expect(all).not.toMatch(/1997/);
+  });
+
+  it('a szűrő minden technológiája szerepel legalább egy munkahelyen', () => {
+    filterTech.forEach((tech) =>
+      expect(
+        jobs.some((j) => j.tech.includes(tech)),
+        tech,
+      ).toBe(true),
+    );
+  });
+
+  it('a munkahelyek és képességek egyedi azonosítójúak', () => {
+    const keys = jobs.map((j) => j.company + j.period);
+    expect(new Set(keys).size).toBe(keys.length);
+    const titles = skills.map((s) => s.title);
+    expect(new Set(titles).size).toBe(titles.length);
+  });
+});

@@ -1,0 +1,10 @@
+:host {
+  display: block;
+  line-height: 0;
+}
+svg {
+  fill: var(--paper);
+}
+svg.up {
+  transform: scaleY(-1);
+}

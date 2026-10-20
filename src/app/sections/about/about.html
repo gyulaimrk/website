@@ -1,0 +1,16 @@
+<section id="rolam">
+  <div class="sheet" appReveal>
+    <app-section-heading>Rólam</app-section-heading>
+    @for (paragraph of profile.letter; track $index) {
+      <p class="paragraph">{{ paragraph }}</p>
+    }
+    <p class="sign">
+      {{ profile.name }}<span>{{ profile.role }}</span>
+    </p>
+  </div>
+  <app-scallop />
+  <div class="stub">
+    <p>{{ profile.email }}</p>
+    <a appButton [external]="true" [href]="profile.linkedin">Üzenek</a>
+  </div>
+</section>

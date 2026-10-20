@@ -1,7 +1,10 @@
 // A weboldal teljes tartalma itt szerkeszthető (forrás: önéletrajz és LinkedIn-profil).
-export const profile = {
+import { Job, Profile, Skill, Study } from './models';
+
+export const profile: Profile = {
   name: 'Gyulai Márk',
   role: 'Senior Java fejlesztő',
+  headline: 'Gyulai Márk, senior Java fejlesztő',
   email: 'gyulai.mrk2@live.com',
   linkedin: 'https://www.linkedin.com/in/mark-gyulai-6aa690264',
   github: 'https://github.com/gyulaimrk',
@@ -16,33 +19,26 @@ export const profile = {
   ],
 };
 
-export type ArtKind = 'cup' | 'bridge' | 'split' | 'flow' | 'gate' | 'saw';
-
-export interface Job {
-  company: string;
-  role: string;
-  period: string;
-  description: string;
-  tech: string[];
-  art: ArtKind;
-}
 export const jobs: Job[] = [
-  {
-    company: 'GLI Solutions Kft.',
-    role: 'AI Consultant',
-    period: 'AI konzultáció',
-    description:
-      'AI-konzultánsként segítek abban, hogy a mesterséges intelligencia valódi üzleti és fejlesztési problémákra adjon megoldást: használati esetek feltárása, megvalósíthatóság és a megoldások beillesztése a meglévő rendszerekbe.',
-    tech: ['AI', 'MCP', 'Konzultáció'],
-    art: 'flow',
-  },
   {
     company: 'Adroit Group',
     role: 'Senior Software Engineer',
     period: '2025. október – jelenleg',
     description:
-      'Senior szoftvermérnökként több Kotlin projekten dolgozom, köztük a MOL Limo autóbérlő (rent a car) rendszerén. Backend fejlesztés, tervezés és minőségbiztosítás.',
-    tech: ['Kotlin', 'Java', 'Exposed', 'Tesztelés'],
+      'Senior szoftvermérnökként több Kotlin projekten dolgozom: backend fejlesztés, tervezés és minőségbiztosítás, valamint AI-konzultáció.',
+    projects: [
+      {
+        name: 'GLI Solutions',
+        role: 'AI Consultant',
+        text: 'AI-konzultánsként segítek, hogy a mesterséges intelligencia valódi problémákra adjon megoldást: használati esetek feltárása, megvalósíthatóság és beillesztés a meglévő rendszerekbe.',
+      },
+      {
+        name: 'MOL Limo rent a car',
+        url: 'https://rentacar.mollimo.hu/rent/start',
+        text: 'A MOL Limo autóbérlő (rent a car) rendszerének Kotlin backend fejlesztése.',
+      },
+    ],
+    tech: ['Kotlin', 'Java', 'Exposed', 'AI', 'MCP'],
     art: 'gate',
   },
   {
@@ -75,23 +71,17 @@ export const jobs: Job[] = [
 ];
 export const filterTech = ['AI', 'Kotlin', 'Java', 'SQL', 'Selenium', 'Többszálúság'];
 
-export interface Skill {
-  highlight?: boolean;
-  title: string;
-  tag: string;
-  text: string;
-}
 export const skills: Skill[] = [
   {
     highlight: true,
     title: 'AI és MCP',
     tag: 'Mesterséges intelligencia',
-    text: 'AI-konzultánsként dolgozom a GLI Solutions Kft.-nél: használati esetek keresése, megvalósíthatóság és beillesztés a meglévő rendszerekbe. Model Context Protocol (MCP) tanúsítvánnyal.',
+    text: 'AI-konzultánsként dolgozom az Adroit Group GLI Solutions projektjén: használati esetek keresése, megvalósíthatóság és beillesztés a meglévő rendszerekbe. Model Context Protocol (MCP) tanúsítvánnyal.',
   },
   {
     title: 'Kotlin és Exposed',
     tag: 'Nyelv',
-    text: 'Több Kotlin projekt az Adroit Group-nál, köztük a MOL Limo; adatelérés az Exposed SQL keretrendszerrel.',
+    text: 'Több Kotlin projekt az Adroit Group-nál, köztük a MOL Limo autóbérlő; adatelérés az Exposed SQL keretrendszerrel.',
   },
   {
     title: 'Java 11 és 17',
@@ -120,11 +110,6 @@ export const skills: Skill[] = [
   },
 ];
 
-export interface Study {
-  title: string;
-  where: string;
-  period: string;
-}
 export const studies: Study[] = [
   { title: 'Matematika és informatika, BSc', where: 'Miskolci Egyetem', period: '2017 – 2021' },
   { title: 'Java Mentored Education Program', where: 'EPAM Systems', period: '2020 – 2021' },

@@ -1,0 +1,51 @@
+section {
+  position: relative;
+  height: 100svh;
+  min-height: 640px;
+  margin-top: var(--gap-section);
+}
+.bg {
+  position: absolute;
+  inset: 0;
+}
+.visit {
+  position: absolute;
+  top: 60px;
+  right: var(--margin);
+  display: grid;
+  gap: 20px;
+  width: min(420px, calc(100% - 2 * var(--margin)));
+  padding: 32px 32px 0;
+  background: var(--paper);
+}
+h2 {
+  font-size: clamp(2rem, 1.5rem + 1.5vw, 2.75rem);
+}
+p a {
+  color: inherit;
+}
+.visit [appButton] {
+  min-height: 56px;
+  margin: 12px -32px 0;
+}
+@media (max-width: 860px) {
+  section {
+    height: auto;
+    min-height: 0;
+  }
+  .bg {
+    position: static;
+    height: 70svh;
+  }
+  .visit {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: auto;
+    margin: -80px var(--margin) 0;
+    padding: 24px 24px 0;
+  }
+  .visit [appButton] {
+    margin-inline: -24px;
+  }
+}

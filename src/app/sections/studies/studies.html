@@ -1,0 +1,16 @@
+<section id="tanulmanyok">
+  <app-section-heading>Tanulmányok és tanúsítványok</app-section-heading>
+  <ul>
+    @for (study of studies; track study.title; let i = $index) {
+      <li [appReveal]="i % 3">
+        <h3>{{ study.title }}</h3>
+        <p>
+          {{ study.where }}
+          @if (study.period) {
+            · {{ study.period }}
+          }
+        </p>
+      </li>
+    }
+  </ul>
+</section>

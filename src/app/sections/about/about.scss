@@ -1,0 +1,38 @@
+section {
+  width: min(100% - 2 * var(--margin), 720px);
+  margin: var(--gap-section) auto;
+}
+.sheet {
+  display: grid;
+  gap: 22px;
+  padding: clamp(28px, 5vw, 64px);
+  background: var(--paper);
+}
+.paragraph {
+  max-width: 56ch;
+}
+.sign {
+  margin-top: 12px;
+  font-size: var(--step-lead);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.sign span {
+  display: block;
+  font-size: var(--step-small);
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+.stub {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 72px;
+  margin-top: 28px;
+  padding: 16px clamp(20px, 4vw, 40px);
+  background: var(--ink);
+  color: var(--paper);
+}

@@ -1,0 +1,21 @@
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+li {
+  padding: 6px 14px;
+  font-size: var(--step-small);
+  background: var(--chip-bg, var(--paper));
+  color: var(--chip-ink, var(--ink));
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+li.active {
+  background: var(--accent);
+  color: var(--accent-ink);
+}

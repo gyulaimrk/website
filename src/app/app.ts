@@ -1,27 +1,16 @@
 import { Component } from '@angular/core';
-import { Nav } from './sections/nav';
-import { Hero } from './sections/hero';
-import { About } from './sections/about';
-import { Work } from './sections/work';
-import { Stack } from './sections/stack';
-import { Studies } from './sections/studies';
-import { Contact } from './sections/contact';
-import { Footer } from './sections/footer';
+import { About } from './sections/about/about';
+import { Contact } from './sections/contact/contact';
+import { Footer } from './sections/footer/footer';
+import { Hero } from './sections/hero/hero';
+import { Nav } from './sections/nav/nav';
+import { Stack } from './sections/stack/stack';
+import { Studies } from './sections/studies/studies';
+import { Work } from './sections/work/work';
 
 @Component({
   selector: 'app-root',
   imports: [Nav, Hero, About, Work, Stack, Studies, Contact, Footer],
-  template: `
-    <app-nav />
-    <main>
-      <app-hero />
-      <app-about />
-      <app-work />
-      <app-stack />
-      <app-studies />
-      <app-contact />
-    </main>
-    <app-footer />
-  `,
+  templateUrl: './app.html',
 })
 export class App {}

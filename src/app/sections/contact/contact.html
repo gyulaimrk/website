@@ -1,0 +1,12 @@
+<section id="kapcsolat">
+  <app-art class="bg" kind="bridge" label="A Lánchíd sziluettje" />
+  <div class="visit">
+    <h2>Dolgozzunk együtt</h2>
+    <p>{{ profile.location }}<br />{{ profile.role }}, magyar és angol nyelven.</p>
+    <p>
+      A legegyszerűbb a LinkedIn vagy az e-mail:
+      <a [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+    </p>
+    <a appButton variant="ink" [external]="true" [href]="profile.linkedin">Írj a LinkedInen</a>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+section {
+  margin-top: var(--gap-section);
+  padding: 0 var(--margin);
+}
+app-section-heading {
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+.deck {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+}
+app-skill-card {
+  background: var(--paper);
+}
+app-skill-card:nth-child(3n + 2) {
+  background: var(--surface);
+}
+app-skill-card:nth-child(3n) {
+  background: var(--ink);
+  color: var(--paper);
+}
+app-skill-card.wide {
+  grid-column: 1 / -1;
+}

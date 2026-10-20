@@ -1,0 +1,33 @@
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  height: 64px;
+  padding-inline: var(--margin);
+  background: var(--bg);
+}
+.mark {
+  margin-right: auto;
+  font-size: var(--step-lead);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+}
+nav {
+  display: flex;
+  gap: 28px;
+}
+nav a {
+  text-decoration: none;
+}
+nav a:hover {
+  color: var(--accent);
+}
+@media (max-width: 720px) {
+  nav {
+    display: none;
+  }
+}

@@ -51,7 +51,11 @@
                 "input": "public"
               }
             ],
-            "styles": ["@fontsource/hanken-grotesk/400.css", "@fontsource/hanken-grotesk/500.css", "src/styles.scss"]
+            "styles": [
+              "@fontsource/hanken-grotesk/400.css",
+              "@fontsource/hanken-grotesk/500.css",
+              "src/styles.scss"
+            ]
           },
           "configurations": {
             "production": {
@@ -88,6 +92,12 @@
             }
           },
           "defaultConfiguration": "development"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "buildTarget": "::development"
+          }
         }
       }
     }
