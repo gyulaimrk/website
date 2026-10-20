@@ -1,0 +1,26 @@
+<app-island [tone]="tone()" [shape]="shape()">
+  <h3>{{ job().company }}</h3>
+  <p class="role">{{ job().role }}</p>
+  <p class="period">{{ job().period }}</p>
+  <p>{{ job().description }}</p>
+  @if (job().projects; as projects) {
+    <ul class="projects">
+      @for (project of projects; track project.name) {
+        <li>
+          <h4>
+            @if (project.url) {
+              <a [href]="project.url" target="_blank" rel="noopener">{{ project.name }}</a>
+            } @else {
+              {{ project.name }}
+            }
+          </h4>
+          @if (project.role) {
+            <p class="project-role">{{ project.role }}</p>
+          }
+          <p>{{ project.text }}</p>
+        </li>
+      }
+    </ul>
+  }
+  <app-chip-list [items]="job().tech" />
+</app-island>

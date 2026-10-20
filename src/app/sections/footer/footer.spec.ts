@@ -7,8 +7,8 @@ describe('Footer', () => {
     const fixture = TestBed.createComponent(Footer);
     fixture.detectChanges();
     const el = fixture.nativeElement as HTMLElement;
-    const hrefs = [...el.querySelectorAll('address a')].map((a) => a.getAttribute('href'));
-    expect(hrefs).toEqual([profile.linkedin, `mailto:${profile.email}`, profile.github]);
-    expect(el.querySelector('.imprint')?.textContent).toContain(String(new Date().getFullYear()));
+    const hrefs = [...el.querySelectorAll('nav a')].map((a) => a.getAttribute('href'));
+    expect(hrefs).toEqual([profile.linkedin, profile.github, `mailto:${profile.email}`]);
+    expect(el.textContent).toContain(String(new Date().getFullYear()));
   });
 });

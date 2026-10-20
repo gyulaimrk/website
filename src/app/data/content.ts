@@ -9,6 +9,8 @@ export const profile: Profile = {
   linkedin: 'https://www.linkedin.com/in/mark-gyulai-6aa690264',
   github: 'https://github.com/gyulaimrk',
   location: 'Nyíregyháza, Magyarország',
+  tagline: 'Backend rendszerek Javában és Kotlinban, mellette AI-konzultáció.',
+  languages: 'magyar, angol',
   intro:
     'Java (8-tól 25-ig) és Kotlin alapú backend rendszereket tervezek, tesztelek és tartok karban, mellette AI-konzultánsként segítek a mesterséges intelligencia gyakorlati bevezetésében.',
   letter: [
@@ -24,6 +26,7 @@ export const jobs: Job[] = [
     company: 'Adroit Group',
     role: 'Senior Software Engineer',
     period: '2025. október – jelenleg',
+    years: '2025 –',
     description:
       'Senior szoftvermérnökként több Kotlin projekten dolgozom: backend fejlesztés, tervezés és minőségbiztosítás, valamint AI-konzultáció.',
     projects: [
@@ -39,34 +42,33 @@ export const jobs: Job[] = [
       },
     ],
     tech: ['Kotlin', 'Java', 'Exposed', 'AI', 'MCP'],
-    art: 'gate',
   },
   {
     company: 'RDI Software Hungary',
     role: 'Software Engineer',
     period: '2024. augusztus – 2025. október',
+    years: '2024 – 2025',
     description:
       'Egy nagy gyorsétterem-hálózat alkalmazásának fejlesztése és karbantartása: új API-k megvalósítása, hozzájuk unit- és integrációs tesztek, code review, SQL-lekérdezések és külső API-k hívása.',
     tech: ['Java', 'REST API', 'SQL', 'Unit tesztek'],
-    art: 'saw',
   },
   {
     company: 'EPAM Systems',
     role: 'Software Engineer',
     period: '2022. január – 2024. augusztus',
+    years: '2022 – 2024',
     description:
       'Egy amerikai cég (Broadridge) pénzügyi alkalmazásának fejlesztése. Többszálú végrehajtás, domain-driven szemlélet és funkcionális programozás; unit-, rendszer- és elfogadási tesztek, Selenium UI tesztek. Megoldottam párhuzamossági problémákat és javítottam a tesztlefedettséget.',
     tech: ['Java', 'Többszálúság', 'DDD', 'Selenium', 'SQL'],
-    art: 'split',
   },
   {
     company: 'EPAM Systems',
     role: 'Junior Software Engineer',
     period: '2021. július – 2022. január',
+    years: '2021 – 2022',
     description:
       'Egy nyelvvizsgázást támogató webalkalmazás backendjét fejlesztettem. Új funkciók tervezése és megvalósítása, unit tesztek, code review és közben a tudásom folyamatos bővítése.',
     tech: ['Java', 'Backend', 'Unit tesztek'],
-    art: 'cup',
   },
 ];
 export const filterTech = ['AI', 'Kotlin', 'Java', 'SQL', 'Selenium', 'Többszálúság'];
@@ -79,17 +81,17 @@ export const skills: Skill[] = [
     text: 'AI-konzultánsként dolgozom az Adroit Group GLI Solutions projektjén: használati esetek keresése, megvalósíthatóság és beillesztés a meglévő rendszerekbe. Model Context Protocol (MCP) tanúsítvánnyal.',
   },
   {
-    title: 'Kotlin és Exposed',
-    tag: 'Nyelv',
-    text: 'Több Kotlin projekt az Adroit Group-nál, köztük a MOL Limo autóbérlő; adatelérés az Exposed SQL keretrendszerrel.',
-  },
-  {
-    title: 'Java 8-tól 25-ig',
+    title: 'Java 8–25',
     tag: 'Nyelv',
     text: 'A Java 8-tól a 25-ös verzióig magabiztosan írok kódot; több mint négy év gyakorlat Java 11 és Java 17 alatt. Tanúsítvány Java 8-ból és Java 10/11-ből.',
   },
   {
-    title: 'Spring és Spring Boot',
+    title: 'Kotlin',
+    tag: 'Nyelv',
+    text: 'Több Kotlin projekt az Adroit Group-nál, köztük a MOL Limo autóbérlő; adatelérés az Exposed SQL keretrendszerrel.',
+  },
+  {
+    title: 'Spring Boot',
     tag: 'Keretrendszer',
     text: 'REST API-k tervezése és megvalósítása Spring Boot alkalmazásokban, mikroszolgáltatás-architektúrában.',
   },
@@ -99,7 +101,7 @@ export const skills: Skill[] = [
     text: 'JUnit, Mockito, Selenium és Cucumber: unit-, integrációs-, rendszer- és UI-tesztek, magas lefedettséggel.',
   },
   {
-    title: 'Build és eszközök',
+    title: 'Eszközök',
     tag: 'Munkafolyamat',
     text: 'Gradle, Maven, Git, Lombok, SQL, valamint Jira és Confluence a csapatmunkához.',
   },
@@ -111,10 +113,30 @@ export const skills: Skill[] = [
 ];
 
 export const studies: Study[] = [
-  { title: 'Matematika és informatika, BSc', where: 'Miskolci Egyetem', period: '2017 – 2021' },
-  { title: 'Java Mentored Education Program', where: 'EPAM Systems', period: '2020 – 2021' },
-  { title: 'Microservices Foundations', where: 'Tanúsítvány', period: '' },
-  { title: 'Introduction to Model Context Protocol', where: 'Tanúsítvány', period: '' },
-  { title: 'Java 8 for Professionals', where: 'Tanúsítvány', period: '' },
-  { title: 'First Look: Java 10 and Java 11', where: 'Tanúsítvány', period: '' },
+  {
+    kind: 'education',
+    title: 'Matematika és informatika, BSc',
+    where: 'Miskolci Egyetem',
+    period: '2017 – 2021',
+  },
+  {
+    kind: 'education',
+    title: 'Java Mentored Education Program',
+    where: 'EPAM Systems',
+    period: '2020 – 2021',
+  },
+  { kind: 'certificate', title: 'Microservices Foundations', where: 'Tanúsítvány', period: '' },
+  {
+    kind: 'certificate',
+    title: 'Introduction to Model Context Protocol',
+    where: 'Tanúsítvány',
+    period: '',
+  },
+  { kind: 'certificate', title: 'Java 8 for Professionals', where: 'Tanúsítvány', period: '' },
+  {
+    kind: 'certificate',
+    title: 'First Look: Java 10 and Java 11',
+    where: 'Tanúsítvány',
+    period: '',
+  },
 ];

@@ -14,8 +14,8 @@ Magyar nyelvű portfólió oldal, Angular 22 (standalone, signals, zoneless), SC
 Minden komponens saját mappában, négy külön fájllal: `név.ts`, `név.html`, `név.scss`, `név.spec.ts`.
 - `src/app/data/` – `models.ts` (típusok) és `content.ts` (az oldal teljes tartalma), `content.spec.ts`
 - `src/app/core/` – keretrendszer-független segédek (`prefers-reduced-motion`)
-- `src/app/shared/` – újrahasznosítható, tartalomtól független építőelemek: `button` (`a[appButton]`), `chip-list`, `section-heading`, `art` (SVG grafikák), `scallop`, `slideshow`, `reveal` (belépő animáció direktíva)
-- `src/app/sections/` – az oldal szekciói: `nav`, `hero`, `about`, `work` (+ `filter-bar`, `job-band`), `stack` (+ `skill-card`), `studies`, `contact`, `footer`
+- `src/app/shared/` – újrahasznosítható építőelemek: `island` (szerves formájú tartalomhordozó), `button`, `chip-list`, `section-heading`
+- `src/app/sections/` – az oldal szekciói: `nav`, `hero` (név és a Java/Kotlin szigetek), `about`, `route` (+ `route-stop`: az útvonal munkahelyi megállói), `archipelago` (eszköztár), `contact`, `footer`
 - `src/styles.scss` – design tokenek és globális stílus
 - `wrangler.jsonc` – Cloudflare assets konfiguráció; `.github/workflows/ci.yml` – teszt, build és deploy
 

@@ -1,23 +1,15 @@
-<section id="top" class="hero">
-  <div class="card">
-    <svg class="stripe" width="100%" height="56" aria-hidden="true">
-      <defs>
-        <pattern id="bars" width="56" height="56" patternUnits="userSpaceOnUse">
-          <rect width="28" height="56" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="56" fill="url(#bars)" />
-    </svg>
-    <div class="body">
-      <h1>{{ profile.headline }}</h1>
-      <p class="lead">{{ profile.intro }}</p>
-      <a appButton [external]="true" [href]="profile.linkedin">Beszéljünk a LinkedInen</a>
-    </div>
-    <nav aria-label="Ugrás">
-      <a href="#rolam">Rólam</a>
-      <a href="#tapasztalat">Tapasztalat</a>
-      <a href="#eszkoztar">Eszköztár</a>
-    </nav>
+<section id="top">
+  <h1>{{ profile.headline }}</h1>
+  <p class="lead">{{ profile.intro }}</p>
+  <a appButton class="cta" [external]="true" [href]="profile.linkedin">Beszéljünk</a>
+  <div class="islands">
+    <app-island class="java" tone="coral" [shape]="1">
+      <p class="big">Java</p>
+      <p>A 8-as verziótól a 25-ösig magabiztosan.</p>
+    </app-island>
+    <app-island class="kotlin" tone="sun" [shape]="2">
+      <p class="big">Kotlin</p>
+      <p>Az Adroit Group projektjein.</p>
+    </app-island>
   </div>
-  <app-slideshow class="room" [kinds]="kinds" aria-hidden="true" />
 </section>

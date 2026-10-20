@@ -1,16 +1,22 @@
 <section id="rolam">
-  <div class="sheet" appReveal>
+  <app-island tone="foam" [shape]="1" class="letter">
     <app-section-heading>Rólam</app-section-heading>
     @for (paragraph of profile.letter; track $index) {
-      <p class="paragraph">{{ paragraph }}</p>
+      <p>{{ paragraph }}</p>
     }
-    <p class="sign">
-      {{ profile.name }}<span>{{ profile.role }}</span>
-    </p>
-  </div>
-  <app-scallop />
-  <div class="stub">
-    <p>{{ profile.email }}</p>
-    <a appButton [external]="true" [href]="profile.linkedin">Üzenek</a>
-  </div>
+  </app-island>
+  <app-island tone="mint" [shape]="4" class="studies">
+    <h3>Tanulmányok és tanúsítványok</h3>
+    <ul>
+      @for (study of studies; track study.title) {
+        <li>
+          <strong>{{ study.title }}</strong>
+          <span>{{ study.where }}</span>
+          @if (study.period) {
+            <span>{{ study.period }}</span>
+          }
+        </li>
+      }
+    </ul>
+  </app-island>
 </section>

@@ -1,32 +1,27 @@
 header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
   display: flex;
   align-items: center;
-  gap: 28px;
-  height: 64px;
-  padding-inline: var(--margin);
-  background: var(--bg);
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px var(--margin);
 }
 .mark {
-  margin-right: auto;
+  font-family: var(--font-display);
   font-size: var(--step-lead);
-  font-weight: 500;
-  letter-spacing: -0.04em;
   text-decoration: none;
 }
 nav {
   display: flex;
-  gap: 28px;
+  gap: 24px;
+  font-weight: 600;
 }
 nav a {
   text-decoration: none;
 }
 nav a:hover {
-  color: var(--accent);
+  color: var(--sun);
 }
-@media (max-width: 720px) {
+@media (max-width: 760px) {
   nav {
     display: none;
   }

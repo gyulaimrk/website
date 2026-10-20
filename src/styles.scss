@@ -1,20 +1,24 @@
 :root {
-  --bg: #dedad3;
-  --surface: #d3cec6;
-  --paper: #ebe9e5;
-  --ink: #0a0a0a;
-  --muted: #4a4640;
-  --accent: #256f82;
-  --accent-ink: #ffffff;
+  /* A tenger és a szigetek */
+  --sea: #1b3bd6;
+  --deep: #0b1b64;
+  --foam: #f5f7ff;
+  --sun: #ffc933;
+  --mint: #c4efe1;
+  --coral: #ff7f6b;
+  --ink: #0b1b64;
 
-  --step-small: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
+  --font-display: 'Young Serif', Georgia, serif;
+  --font-text: 'Albert Sans', system-ui, sans-serif;
+
+  --step-small: 0.9375rem;
   --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
   --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
-  --step-head: clamp(2.25rem, 1.3rem + 3.6vw, 4.25rem);
-  --step-display: clamp(2.75rem, 1.2rem + 6vw, 6.5rem);
+  --step-head: clamp(2.25rem, 1.2rem + 3.6vw, 4.25rem);
+  --step-display: clamp(3rem, 1rem + 8vw, 9rem);
 
-  --margin: clamp(16px, 2vw, 28px);
-  --gap-section: clamp(72px, 12vw, 200px);
+  --margin: clamp(16px, 3vw, 48px);
+  --gap-section: clamp(72px, 11vw, 176px);
 }
 
 * {
@@ -22,65 +26,42 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 72px;
+  scroll-padding-top: 24px;
 }
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font:
-    400 var(--step-body) / 1.5 'Hanken Grotesk',
-    system-ui,
-    sans-serif;
-  letter-spacing: -0.005em;
+  background: var(--sea);
+  color: var(--foam);
+  font: 400 var(--step-body) / 1.55 var(--font-text);
   -webkit-font-smoothing: antialiased;
 }
 h1,
 h2,
-h3 {
-  font-weight: 500;
+h3,
+h4,
+p {
   margin: 0;
 }
 h1,
-h2 {
-  letter-spacing: -0.05em;
-  line-height: 0.95;
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
   text-wrap: balance;
-}
-h2 {
-  font-size: var(--step-head);
-}
-p {
-  margin: 0;
 }
 a {
   color: inherit;
 }
-img,
-svg {
-  max-width: 100%;
-}
-
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid var(--accent);
+  outline: 3px solid var(--sun);
   outline-offset: 3px;
 }
 ::selection {
-  background: var(--accent);
-  color: var(--accent-ink);
-}
-
-.rv {
-  opacity: 0;
-  transform: translateY(28px);
-}
-.rv-in {
-  opacity: 1;
-  transform: none;
-  transition:
-    opacity 0.7s ease var(--rv-delay, 0ms),
-    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) var(--rv-delay, 0ms);
+  background: var(--sun);
+  color: var(--ink);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -92,9 +73,5 @@ button:focus-visible {
   *::after {
     transition-duration: 0.01ms !important;
     animation: none !important;
-  }
-  .rv {
-    opacity: 1;
-    transform: none;
   }
 }

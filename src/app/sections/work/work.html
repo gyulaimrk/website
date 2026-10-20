@@ -1,9 +1,0 @@
-<section id="tapasztalat">
-  <div class="head">
-    <app-section-heading>Tapasztalat</app-section-heading>
-    <app-filter-bar [options]="filterTech" [(selected)]="selected" />
-  </div>
-  @for (job of jobs; track job.period + job.company; let i = $index) {
-    <app-job-band [job]="job" [index]="i" [dimmed]="isDimmed(job)" [activeTech]="selected()" />
-  }
-</section>

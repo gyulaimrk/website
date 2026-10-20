@@ -1,5 +1,3 @@
-export type ArtKind = 'cup' | 'bridge' | 'split' | 'flow' | 'gate' | 'saw';
-
 export interface Profile {
   name: string;
   role: string;
@@ -9,7 +7,10 @@ export interface Profile {
   linkedin: string;
   github: string;
   location: string;
+  /** Rövid mondat a nyitóképernyőre. */
+  tagline: string;
   intro: string;
+  languages: string;
   letter: string[];
 }
 
@@ -24,10 +25,11 @@ export interface Job {
   company: string;
   role: string;
   period: string;
+  /** Rövid évszám-tartomány a listához. */
+  years: string;
   description: string;
   projects?: JobProject[];
   tech: string[];
-  art: ArtKind;
 }
 
 export interface Skill {
@@ -38,6 +40,7 @@ export interface Skill {
 }
 
 export interface Study {
+  kind: 'education' | 'certificate';
   title: string;
   where: string;
   period: string;

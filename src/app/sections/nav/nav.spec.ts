@@ -3,12 +3,11 @@ import { profile } from '../../data/content';
 import { Nav } from './nav';
 
 describe('Nav', () => {
-  it('megjeleníti a nevet, a menüpontokat és a LinkedIn gombot', () => {
+  it('a nevet és a négy menüpontot mutatja', () => {
     const fixture = TestBed.createComponent(Nav);
     fixture.detectChanges();
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.querySelector('.mark')?.textContent).toContain(profile.name);
-    expect(el.querySelectorAll('nav a').length).toBe(3);
-    expect(el.querySelector('a[appButton]')?.getAttribute('href')).toBe(profile.linkedin);
+    expect(el.querySelector('.mark')?.textContent).toBe(profile.name);
+    expect(el.querySelectorAll('nav a').length).toBe(4);
   });
 });

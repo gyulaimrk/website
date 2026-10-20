@@ -52,8 +52,9 @@
               }
             ],
             "styles": [
-              "@fontsource/hanken-grotesk/400.css",
-              "@fontsource/hanken-grotesk/500.css",
+              "@fontsource/young-serif/400.css",
+              "@fontsource/albert-sans/400.css",
+              "@fontsource/albert-sans/600.css",
               "src/styles.scss"
             ]
           },

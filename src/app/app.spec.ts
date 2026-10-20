@@ -10,9 +10,8 @@ describe('App', () => {
       'app-nav',
       'app-hero',
       'app-about',
-      'app-work',
-      'app-stack',
-      'app-studies',
+      'app-route',
+      'app-archipelago',
       'app-contact',
       'app-footer',
     ].forEach((selector) => expect(el.querySelector(selector), selector).not.toBeNull());

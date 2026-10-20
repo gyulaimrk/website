@@ -4,10 +4,11 @@
   justify-content: center;
   min-height: 52px;
   padding: 0 28px;
-  background: var(--accent);
-  color: var(--accent-ink);
+  border-radius: 999px;
+  background: var(--sun);
+  color: var(--ink);
   font-size: var(--step-body);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
@@ -16,7 +17,7 @@
     background-color 0.18s;
 }
 :host(:hover) {
-  background: var(--ink);
+  background: var(--foam);
   transform: translateY(-2px);
 }
 :host(:active) {
@@ -24,9 +25,10 @@
 }
 :host(.ink) {
   background: var(--ink);
+  color: var(--foam);
 }
 :host(.ink:hover) {
-  background: var(--accent);
+  background: var(--sea);
 }
 :host(.small) {
   min-height: 42px;

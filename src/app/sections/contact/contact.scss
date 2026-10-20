@@ -1,51 +1,26 @@
 section {
-  position: relative;
-  height: 100svh;
-  min-height: 640px;
   margin-top: var(--gap-section);
+  padding: 0 var(--margin);
 }
-.bg {
-  position: absolute;
-  inset: 0;
-}
-.visit {
-  position: absolute;
-  top: 60px;
-  right: var(--margin);
+app-island {
   display: grid;
+  justify-items: start;
   gap: 20px;
-  width: min(420px, calc(100% - 2 * var(--margin)));
-  padding: 32px 32px 0;
-  background: var(--paper);
+  width: min(100%, 880px);
+  margin-inline: auto;
 }
 h2 {
-  font-size: clamp(2rem, 1.5rem + 1.5vw, 2.75rem);
+  font-size: var(--step-head);
 }
-p a {
-  color: inherit;
+p {
+  max-width: 44ch;
 }
-.visit [appButton] {
-  min-height: 56px;
-  margin: 12px -32px 0;
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
-@media (max-width: 860px) {
-  section {
-    height: auto;
-    min-height: 0;
-  }
-  .bg {
-    position: static;
-    height: 70svh;
-  }
-  .visit {
-    position: relative;
-    top: auto;
-    right: auto;
-    width: auto;
-    margin: -80px var(--margin) 0;
-    padding: 24px 24px 0;
-  }
-  .visit [appButton] {
-    margin-inline: -24px;
-  }
+.where {
+  font-size: var(--step-small);
+  font-weight: 600;
 }

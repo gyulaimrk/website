@@ -1,0 +1,20 @@
+<section id="tapasztalat">
+  <app-section-heading>Tapasztalat</app-section-heading>
+  <div class="map">
+    <svg class="path" viewBox="0 0 100 1000" preserveAspectRatio="none" aria-hidden="true">
+      <path
+        d="M50 0 C 90 60, 10 140, 50 200 S 90 340, 50 400 S 10 540, 50 600 S 90 740, 50 800 S 10 940, 50 1000"
+        vector-effect="non-scaling-stroke"
+      />
+    </svg>
+    @for (job of jobs; track job.company + job.period; let i = $index) {
+      <app-route-stop
+        class="stop"
+        [class.right]="i % 2 === 1"
+        [job]="job"
+        [tone]="tones[i % tones.length]"
+        [shape]="shapeFor(i)"
+      />
+    }
+  </div>
+</section>

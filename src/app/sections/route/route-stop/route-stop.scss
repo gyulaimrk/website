@@ -1,0 +1,46 @@
+:host {
+  display: block;
+}
+app-island {
+  display: grid;
+  gap: 12px;
+}
+h3 {
+  font-size: var(--step-head);
+}
+.role {
+  font-size: var(--step-lead);
+  font-weight: 600;
+  line-height: 1.2;
+}
+.period {
+  font-size: var(--step-small);
+  opacity: 0.8;
+}
+.projects {
+  display: grid;
+  gap: 14px;
+  margin: 8px 0;
+  padding: 0;
+  list-style: none;
+}
+.projects li {
+  display: grid;
+  gap: 2px;
+  padding: 14px 18px;
+  border-radius: 22px;
+  background: rgb(255 255 255 / 0.55);
+}
+h4 {
+  font-family: var(--font-text);
+  font-size: var(--step-body);
+  font-weight: 600;
+}
+h4 a {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.project-role {
+  font-size: var(--step-small);
+  font-weight: 600;
+}

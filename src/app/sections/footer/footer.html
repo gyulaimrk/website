@@ -1,20 +1,9 @@
 <footer>
-  <app-scallop [up]="true" />
-  <div class="back">
-    <div class="message">
-      <p class="sign">Köszönöm, hogy itt jártál.</p>
-      <p>
-        Ha tiszta kódot és jó csapatmunkát keresel, írj nyugodtan. Szívesen beszélgetek új
-        lehetőségekről.
-      </p>
-    </div>
-    <address>
-      <app-art class="stamp" kind="cup" label="Bélyeg" />
-      <a [href]="profile.linkedin" target="_blank" rel="noopener">LinkedIn</a>
-      <a [href]="'mailto:' + profile.email">E-mail</a>
-      <a [href]="profile.github" target="_blank" rel="noopener">GitHub</a>
-      <span>{{ profile.location }}</span>
-    </address>
-    <p class="imprint">© {{ year }} {{ profile.name }} · Angularral készült</p>
-  </div>
+  <p class="name">{{ profile.name }}</p>
+  <nav aria-label="Elérhetőségek">
+    <a [href]="profile.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+    <a [href]="profile.github" target="_blank" rel="noopener">GitHub</a>
+    <a [href]="'mailto:' + profile.email">E-mail</a>
+  </nav>
+  <p class="small">Angularral készült, {{ year }}. {{ profile.location }}.</p>
 </footer>

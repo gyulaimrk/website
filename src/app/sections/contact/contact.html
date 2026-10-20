@@ -1,12 +1,14 @@
 <section id="kapcsolat">
-  <app-art class="bg" kind="bridge" label="A Lánchíd sziluettje" />
-  <div class="visit">
+  <app-island tone="foam" [shape]="2">
     <h2>Dolgozzunk együtt</h2>
-    <p>{{ profile.location }}<br />{{ profile.role }}, magyar és angol nyelven.</p>
     <p>
-      A legegyszerűbb a LinkedIn vagy az e-mail:
-      <a [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+      Új projektben, AI-bevezetésben vagy backend fejlesztésben gondolkodsz? Írj, szívesen
+      beszélgetek róla.
     </p>
-    <a appButton variant="ink" [external]="true" [href]="profile.linkedin">Írj a LinkedInen</a>
-  </div>
+    <div class="actions">
+      <a appButton [external]="true" [href]="profile.linkedin">Írj a LinkedInen</a>
+      <a appButton variant="ink" [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+    </div>
+    <p class="where">{{ profile.location }}</p>
+  </app-island>
 </section>
