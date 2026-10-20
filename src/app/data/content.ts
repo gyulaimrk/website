@@ -5,9 +5,9 @@ export const profile = {
   email: 'gyulai.mrk2@live.com',
   linkedin: 'https://www.linkedin.com/in/mark-gyulai-6aa690264',
   github: 'https://github.com/gyulaimrk',
-  location: 'Debrecen, Magyarország',
+  location: 'Nyíregyháza, Magyarország',
   intro:
-    'Java 11 és 17 alapú alkalmazásokat tervezek, tesztelek és tartok karban: tiszta kóddal, alapos tesztelés mellett.',
+    'Java és Kotlin alapú backend rendszereket tervezek, tesztelek és tartok karban, mellette AI-konzultánsként segítek a mesterséges intelligencia gyakorlati bevezetésében.',
   letter: [
     'Senior Java fejlesztőként több mint négy éve dolgozom Java 11 és Java 17 alatt, Spring és Spring Boot alkalmazásokon. Összetett rendszerek tervezésében, kódolásában, tesztelésében és karbantartásában vagyok otthon.',
     'A bevált fejlesztési gyakorlatokat, az objektumorientált elveket és a tervezési mintákat követem, hogy a kód tiszta, karbantartható és hatékony legyen. Fontos számomra a tesztlefedettség: unit-, rendszer- és UI-tesztek.',
@@ -28,12 +28,21 @@ export interface Job {
 }
 export const jobs: Job[] = [
   {
+    company: 'GLI Solutions Kft.',
+    role: 'AI Consultant',
+    period: 'AI konzultáció',
+    description:
+      'AI-konzultánsként segítek abban, hogy a mesterséges intelligencia valódi üzleti és fejlesztési problémákra adjon megoldást: használati esetek feltárása, megvalósíthatóság és a megoldások beillesztése a meglévő rendszerekbe.',
+    tech: ['AI', 'MCP', 'Konzultáció'],
+    art: 'flow',
+  },
+  {
     company: 'Adroit Group',
     role: 'Senior Software Engineer',
     period: '2025. október – jelenleg',
     description:
-      'Senior szoftvermérnökként dolgozom Debrecenben: Java-alapú rendszerek tervezése, fejlesztése és minőségbiztosítása.',
-    tech: ['Java', 'Tervezés', 'Tesztelés'],
+      'Senior szoftvermérnökként több Kotlin projekten dolgozom, köztük a MOL Limo autóbérlő (rent a car) rendszerén. Backend fejlesztés, tervezés és minőségbiztosítás.',
+    tech: ['Kotlin', 'Java', 'Exposed', 'Tesztelés'],
     art: 'gate',
   },
   {
@@ -43,7 +52,7 @@ export const jobs: Job[] = [
     description:
       'Egy nagy gyorsétterem-hálózat alkalmazásának fejlesztése és karbantartása: új API-k megvalósítása, hozzájuk unit- és integrációs tesztek, code review, SQL-lekérdezések és külső API-k hívása.',
     tech: ['Java', 'REST API', 'SQL', 'Unit tesztek'],
-    art: 'flow',
+    art: 'saw',
   },
   {
     company: 'EPAM Systems',
@@ -61,17 +70,29 @@ export const jobs: Job[] = [
     description:
       'Egy nyelvvizsgázást támogató webalkalmazás backendjét fejlesztettem. Új funkciók tervezése és megvalósítása, unit tesztek, code review és közben a tudásom folyamatos bővítése.',
     tech: ['Java', 'Backend', 'Unit tesztek'],
-    art: 'saw',
+    art: 'cup',
   },
 ];
-export const filterTech = ['Java', 'SQL', 'Selenium', 'Többszálúság', 'Unit tesztek'];
+export const filterTech = ['AI', 'Kotlin', 'Java', 'SQL', 'Selenium', 'Többszálúság'];
 
 export interface Skill {
+  highlight?: boolean;
   title: string;
   tag: string;
   text: string;
 }
 export const skills: Skill[] = [
+  {
+    highlight: true,
+    title: 'AI és MCP',
+    tag: 'Mesterséges intelligencia',
+    text: 'AI-konzultánsként dolgozom a GLI Solutions Kft.-nél: használati esetek keresése, megvalósíthatóság és beillesztés a meglévő rendszerekbe. Model Context Protocol (MCP) tanúsítvánnyal.',
+  },
+  {
+    title: 'Kotlin és Exposed',
+    tag: 'Nyelv',
+    text: 'Több Kotlin projekt az Adroit Group-nál, köztük a MOL Limo; adatelérés az Exposed SQL keretrendszerrel.',
+  },
   {
     title: 'Java 11 és 17',
     tag: 'Nyelv',
