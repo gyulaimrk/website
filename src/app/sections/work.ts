@@ -1,15 +1,15 @@
 import { Component, computed, signal } from '@angular/core';
 import { Art } from '../art/art';
 import { Reveal } from '../reveal';
-import { projects } from '../data/content';
+import { filterTech, jobs } from '../data/content';
 
 @Component({
   selector: 'app-work',
   imports: [Art, Reveal],
   template: `
-    <section id="munkak">
+    <section id="tapasztalat">
       <div class="head" appReveal>
-        <h2>Munkáim</h2>
+        <h2>Tapasztalat</h2>
         <div class="filter" role="group" aria-label="Szűrés technológia szerint">
           <button type="button" [class.on]="!tech()" (click)="tech.set(null)">Mind</button>
           @for (t of allTech; track t) {
@@ -19,12 +19,12 @@ import { projects } from '../data/content';
       </div>
 
       <div class="stack">
-        @for (p of projects; track p.name; let i = $index) {
+        @for (p of jobs; track p.period; let i = $index) {
           <article class="band" [class]="'band c' + i" [class.dim]="!matches(p.tech)" [style.--i]="i">
-            <div class="tabs"><h3 class="tab">{{ p.name }}</h3></div>
-            <p class="cat">{{ p.category }}</p>
+            <div class="tabs"><h3 class="tab">{{ p.company }}</h3></div>
+            <p class="cat">{{ p.role }} · {{ p.period }}</p>
             <div class="open">
-              <app-art class="art" [kind]="p.art" [label]="p.name" />
+              <app-art class="art" [kind]="p.art" [label]="p.company" />
               <div class="text">
                 <p>{{ p.description }}</p>
                 <ul>
@@ -79,10 +79,8 @@ import { projects } from '../data/content';
   `,
 })
 export class Work {
-  protected readonly projects = projects;
-  protected readonly allTech = [...new Set(projects.flatMap((p) => p.tech))].filter((t) =>
-    ['Java 21', 'Kafka', 'Spring Boot', 'Kubernetes', 'PostgreSQL'].includes(t),
-  );
+  protected readonly jobs = jobs;
+  protected readonly allTech = filterTech;
   protected readonly tech = signal<string | null>(null);
   protected readonly matches = (t: string[]) => !this.tech() || t.includes(this.tech()!);
   protected toggle(t: string) {

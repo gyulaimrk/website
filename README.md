@@ -10,3 +10,11 @@ npm run build    # éles build: dist/portfolio/browser
 
 A tartalom (szövegek, projektek, linkek) a `src/app/data/content.ts` fájlban szerkeszthető.
 A projektek és a bemutatkozás **minta szöveg**: cseréld a saját adataidra.
+
+## Cloudflare
+Hosting: Cloudflare Workers statikus assetekkel (`wrangler.jsonc`).
+
+```bash
+npm run preview   # build + helyi Cloudflare előnézet
+npm run deploy    # build + éles telepítés (előtte: npx wrangler login)
+```

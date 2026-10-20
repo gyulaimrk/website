@@ -12,11 +12,12 @@ import { profile } from '../data/content';
       <div class="back">
         <div class="msg">
           <p class="sign">Köszönöm, hogy itt jártál.</p>
-          <p>Ha jó csapatot és tiszta kódot keresel, írj nyugodtan. Szívesen beszélgetek új lehetőségekről és érdekes problémákról.</p>
+          <p>Ha tiszta kódot és jó csapatmunkát keresel, írj nyugodtan. Szívesen beszélgetek új lehetőségekről.</p>
         </div>
         <address>
           <app-art class="stamp" kind="cup" label="Bélyeg" />
           <a [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+          <a [href]="'mailto:' + p.email">E-mail</a>
           <a [href]="p.github" target="_blank" rel="noopener">GitHub</a>
           <span>{{ p.location }}</span>
         </address>

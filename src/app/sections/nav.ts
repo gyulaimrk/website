@@ -8,7 +8,7 @@ import { profile } from '../data/content';
       <a class="mark" href="#top">{{ p.name }}</a>
       <nav aria-label="Fő navigáció">
         <a href="#rolam">Rólam</a>
-        <a href="#munkak">Munkáim</a>
+        <a href="#tapasztalat">Tapasztalat</a>
         <a href="#eszkoztar">Eszköztár</a>
       </nav>
       <a class="btn" [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>

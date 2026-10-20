@@ -23,7 +23,7 @@ import { ArtKind, profile } from '../data/content';
         </div>
         <nav aria-label="Ugrás">
           <a href="#rolam">Rólam</a>
-          <a href="#munkak">Munkáim</a>
+          <a href="#tapasztalat">Tapasztalat</a>
           <a href="#eszkoztar">Eszköztár</a>
         </nav>
       </div>

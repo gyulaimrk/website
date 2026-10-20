@@ -17,7 +17,7 @@ import { profile } from '../data/content';
       </div>
       <app-scallop />
       <div class="stub">
-        <p>Dolgozzunk együtt: <a [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a></p>
+        <p>{{ p.email }}</p>
         <a class="btn" [href]="p.linkedin" target="_blank" rel="noopener">Üzenek</a>
       </div>
     </section>

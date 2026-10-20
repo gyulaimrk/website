@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Reveal } from '../reveal';
-import { releases } from '../data/content';
+import { skills } from '../data/content';
 
 @Component({
   selector: 'app-stack',
@@ -9,7 +9,7 @@ import { releases } from '../data/content';
     <section id="eszkoztar">
       <h2 appReveal>Eszköztár</h2>
       <ul class="deck" aria-label="Technológiák">
-        @for (r of releases; track r.title; let i = $index) {
+        @for (r of skills; track r.title; let i = $index) {
           <li [class]="'card t' + (i % 3)" [appReveal]="i">
             <div class="top"><h3>{{ r.title }}</h3><span>{{ r.tag }}</span></div>
             <p>{{ r.text }}</p>
@@ -36,5 +36,5 @@ import { releases } from '../data/content';
   `,
 })
 export class Stack {
-  protected readonly releases = releases;
+  protected readonly skills = skills;
 }

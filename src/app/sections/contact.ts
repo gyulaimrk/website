@@ -10,8 +10,8 @@ import { profile } from '../data/content';
       <app-art class="bg" kind="bridge" label="A Lánchíd sziluettje" />
       <div class="visit">
         <h2>Dolgozzunk együtt</h2>
-        <p>{{ p.location }}<br />Senior Java fejlesztő, backend és integráció.</p>
-        <p>A legegyszerűbb a LinkedIn: ott megtalálsz, és ott is válaszolok.</p>
+        <p>{{ p.location }}<br />Senior Java fejlesztő, magyar és angol nyelven.</p>
+        <p>A legegyszerűbb a LinkedIn vagy az e-mail: <a [href]="'mailto:' + p.email">{{ p.email }}</a></p>
         <a class="btn" [href]="p.linkedin" target="_blank" rel="noopener">Írj a LinkedInen</a>
       </div>
     </section>
@@ -21,6 +21,7 @@ import { profile } from '../data/content';
     .bg { position: absolute; inset: 0; }
     .visit { position: absolute; top: 60px; right: var(--margin); width: min(420px, calc(100% - 2 * var(--margin)));
       background: var(--paper); padding: 32px 32px 0; display: grid; gap: 20px; }
+    a { color: inherit; }
     h2 { font-size: clamp(2rem, 1.5rem + 1.5vw, 2.75rem); }
     .visit .btn { margin: 12px -32px 0; min-height: 56px; background: var(--ink); }
     .visit .btn:hover { background: var(--accent); }

@@ -1,94 +1,114 @@
-// A weboldal teljes tartalma itt szerkeszthető. A "minta" jelölésű részeket cseréld a saját adataidra.
+// A weboldal teljes tartalma itt szerkeszthető (forrás: önéletrajz és LinkedIn-profil).
 export const profile = {
   name: 'Gyulai Márk',
   role: 'Senior Java fejlesztő',
+  email: 'gyulai.mrk2@live.com',
   linkedin: 'https://www.linkedin.com/in/mark-gyulai-6aa690264',
   github: 'https://github.com/gyulaimrk',
-  location: 'Budapest, Magyarország',
+  location: 'Debrecen, Magyarország',
   intro:
-    'Nagy terhelésű, hosszú életű backend rendszereket tervezek és építek Java-ban: Spring, Kafka, Kubernetes.',
+    'Java 11 és 17 alapú alkalmazásokat tervezek, tesztelek és tartok karban: tiszta kóddal, alapos tesztelés mellett.',
   letter: [
-    'Senior Java fejlesztőként olyan rendszereken dolgozom, amelyeknek évekig üzemelniük kell, és közben változniuk is kell. Ezért a tiszta határokat, a tesztelhető kódot és a mérhető működést tartom a legfontosabbnak.',
-    'Szeretem, ha egy csapat közösen érti a rendszert: a tervezési döntéseket leírom, a kódot átnézetem, a tudást megosztom. A legjobb kód az, amit más is magabiztosan továbbvisz.',
-    'A backend mellett kényelmesen mozgok a teljes úton az ötlettől az üzemeltetésig: API-tervezés, adatmodellezés, CI/CD, megfigyelhetőség.',
+    'Senior Java fejlesztőként több mint négy éve dolgozom Java 11 és Java 17 alatt, Spring és Spring Boot alkalmazásokon. Összetett rendszerek tervezésében, kódolásában, tesztelésében és karbantartásában vagyok otthon.',
+    'A bevált fejlesztési gyakorlatokat, az objektumorientált elveket és a tervezési mintákat követem, hogy a kód tiszta, karbantartható és hatékony legyen. Fontos számomra a tesztlefedettség: unit-, rendszer- és UI-tesztek.',
+    'Szívesen dolgozom csapatban és önállóan is, az ügyfelekkel és más funkciók képviselőivel pedig nyíltan kommunikálok. A tanulás nálam folyamatos: mellékprojektekben próbálom ki az új technológiákat.',
     'Ez az oldal Angularral készült, mert érdekel a másik oldal is.',
   ],
 };
 
 export type ArtKind = 'cup' | 'bridge' | 'split' | 'flow' | 'gate' | 'saw';
 
-export interface Project {
-  name: string;
-  category: string;
+export interface Job {
+  company: string;
+  role: string;
+  period: string;
   description: string;
   tech: string[];
   art: ArtKind;
 }
-// Minta projektek.
-export const projects: Project[] = [
+export const jobs: Job[] = [
   {
-    name: 'Fizetési platform',
-    category: 'Monolitból mikroszolgáltatások',
+    company: 'Adroit Group',
+    role: 'Senior Software Engineer',
+    period: '2025. október – jelenleg',
     description:
-      'Egy monolit fizetési rendszer fokozatos szétbontása önálló szolgáltatásokra, üzemszünet nélkül. Tiszta modulhatárok, kompatibilis API-k és adatmigráció lépésről lépésre.',
-    tech: ['Java 21', 'Spring Boot', 'PostgreSQL', 'Kafka'],
-    art: 'split',
-  },
-  {
-    name: 'Rendeléskezelő',
-    category: 'Eseményvezérelt architektúra',
-    description:
-      'Aszinkron, eseményalapú rendeléskezelés idempotens fogyasztókkal és újrapróbálkozási stratégiával, hogy egy kiesés ne veszítsen el egyetlen üzenetet sem.',
-    tech: ['Java 21', 'Kafka', 'Spring Boot', 'Docker'],
-    art: 'flow',
-  },
-  {
-    name: 'API kapu és hitelesítés',
-    category: 'Biztonság és integráció',
-    description:
-      'Központi belépési pont: hitelesítés, jogosultságkezelés és forgalomkorlátozás egy helyen, a mögötte álló szolgáltatások egyszerűsítésére.',
-    tech: ['Spring Cloud Gateway', 'Keycloak', 'OAuth 2', 'Kubernetes'],
+      'Senior szoftvermérnökként dolgozom Debrecenben: Java-alapú rendszerek tervezése, fejlesztése és minőségbiztosítása.',
+    tech: ['Java', 'Tervezés', 'Tesztelés'],
     art: 'gate',
   },
   {
-    name: 'Teljesítmény és megfigyelhetőség',
-    category: 'JVM hangolás',
+    company: 'RDI Software Hungary',
+    role: 'Software Engineer',
+    period: '2024. augusztus – 2025. október',
     description:
-      'Mérés előbb, optimalizálás utána: memóriahasználat, szemétgyűjtés és válaszidők követése, hogy a lassulás okát adatok mutassák meg, ne találgatás.',
-    tech: ['JVM', 'OpenTelemetry', 'Grafana', 'JMH'],
+      'Egy nagy gyorsétterem-hálózat alkalmazásának fejlesztése és karbantartása: új API-k megvalósítása, hozzájuk unit- és integrációs tesztek, code review, SQL-lekérdezések és külső API-k hívása.',
+    tech: ['Java', 'REST API', 'SQL', 'Unit tesztek'],
+    art: 'flow',
+  },
+  {
+    company: 'EPAM Systems',
+    role: 'Software Engineer',
+    period: '2022. január – 2024. augusztus',
+    description:
+      'Egy amerikai cég (Broadridge) pénzügyi alkalmazásának fejlesztése. Többszálú végrehajtás, domain-driven szemlélet és funkcionális programozás; unit-, rendszer- és elfogadási tesztek, Selenium UI tesztek. Megoldottam párhuzamossági problémákat és javítottam a tesztlefedettséget.',
+    tech: ['Java', 'Többszálúság', 'DDD', 'Selenium', 'SQL'],
+    art: 'split',
+  },
+  {
+    company: 'EPAM Systems',
+    role: 'Junior Software Engineer',
+    period: '2021. július – 2022. január',
+    description:
+      'Egy nyelvvizsgázást támogató webalkalmazás backendjét fejlesztettem. Új funkciók tervezése és megvalósítása, unit tesztek, code review és közben a tudásom folyamatos bővítése.',
+    tech: ['Java', 'Backend', 'Unit tesztek'],
     art: 'saw',
   },
 ];
+export const filterTech = ['Java', 'SQL', 'Selenium', 'Többszálúság', 'Unit tesztek'];
 
-export interface Release {
+export interface Skill {
   title: string;
   tag: string;
   text: string;
 }
-export const releases: Release[] = [
+export const skills: Skill[] = [
   {
-    title: 'Java 21',
-    tag: 'LTS',
-    text: 'Record típusok, mintaillesztés és virtuális szálak: kevesebb szószaporítás, egyszerűbb párhuzamosság.',
+    title: 'Java 11 és 17',
+    tag: 'Nyelv',
+    text: 'Több mint négy év gyakorlat Java 11 és Java 17 alatt; tanúsítvány Java 8-ból, Java 10/11-ből, tanulmányok Java 17-ről.',
   },
   {
-    title: 'Spring Boot 3',
+    title: 'Spring és Spring Boot',
     tag: 'Keretrendszer',
-    text: 'Gyors indulás, tiszta konfiguráció, kiforrott biztonsági és adatelérési réteg.',
+    text: 'REST API-k tervezése és megvalósítása Spring Boot alkalmazásokban, mikroszolgáltatás-architektúrában.',
   },
   {
-    title: 'Kafka',
-    tag: 'Üzenetkezelés',
-    text: 'Lazán csatolt szolgáltatások, visszajátszható eseménynapló, kezelhető terhelés.',
+    title: 'Tesztelés',
+    tag: 'Minőség',
+    text: 'JUnit, Mockito, Selenium és Cucumber: unit-, integrációs-, rendszer- és UI-tesztek, magas lefedettséggel.',
   },
   {
-    title: 'Kubernetes',
-    tag: 'Üzemeltetés',
-    text: 'Reprodukálható telepítés, automatikus skálázás, egységes környezet fejlesztéstől élesig.',
+    title: 'Build és eszközök',
+    tag: 'Munkafolyamat',
+    text: 'Gradle, Maven, Git, Lombok, SQL, valamint Jira és Confluence a csapatmunkához.',
   },
   {
-    title: 'PostgreSQL',
-    tag: 'Adat',
-    text: 'Gondos adatmodell, indexek és tranzakciókezelés, amely terhelés alatt is megbízható.',
+    title: 'Tervezés',
+    tag: 'Elvek',
+    text: 'SOLID, clean code, tervezési minták, domain-driven szemlélet és mikroszolgáltatások.',
   },
+];
+
+export interface Study {
+  title: string;
+  where: string;
+  period: string;
+}
+export const studies: Study[] = [
+  { title: 'Matematika és informatika, BSc', where: 'Miskolci Egyetem', period: '2017 – 2021' },
+  { title: 'Java Mentored Education Program', where: 'EPAM Systems', period: '2020 – 2021' },
+  { title: 'Microservices Foundations', where: 'Tanúsítvány', period: '' },
+  { title: 'Introduction to Model Context Protocol', where: 'Tanúsítvány', period: '' },
+  { title: 'Java 8 for Professionals', where: 'Tanúsítvány', period: '' },
+  { title: 'First Look: Java 10 and Java 11', where: 'Tanúsítvány', period: '' },
 ];
