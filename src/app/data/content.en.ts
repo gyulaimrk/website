@@ -30,17 +30,19 @@ const jobs: Content['jobs'] = [
     role: 'Senior Software Engineer',
     period: 'October 2025 – present',
     description:
-      'I work as a senior software engineer on several Kotlin projects. I develop backends, take part in design and care about quality. One of my projects is about AI consulting.',
+      'I work as a senior software engineer on four projects, several of them in Kotlin. I develop backends, take part in design and care about quality. One of my projects is about AI consulting.',
     projects: [
-      {
-        name: 'GLI Solutions',
-        role: 'AI Consultant',
-        text: 'As an AI consultant I help artificial intelligence answer real problems. We find where it is useful, check whether it is feasible, and fit it into the systems that already exist.',
-      },
       {
         name: 'MOL Limo rent a car',
         url: 'https://rentacar.mollimo.hu/rent/start',
         text: 'I develop the backend of the MOL Limo car rental system in Kotlin.',
+      },
+      { name: 'Railjet' },
+      { name: 'Helvo', text: 'A project for a Swiss startup.' },
+      {
+        name: 'GLI Solutions',
+        role: 'AI Consultant',
+        text: 'As an AI consultant I help artificial intelligence answer real problems. We find where it is useful, check whether it is feasible, and fit it into the systems that already exist.',
       },
     ],
     tech: ['Kotlin', 'Java', 'Exposed', 'AI', 'MCP', 'Prompting'],
@@ -50,23 +52,42 @@ const jobs: Content['jobs'] = [
     role: 'Software Engineer',
     period: 'August 2024 – October 2025',
     description:
-      'I worked on the application of a major fast food franchise. I built new APIs for it and wrote their unit and integration tests. I reviewed my colleagues’ code, wrote SQL queries, connected other systems’ APIs and maintained the existing code base.',
-    tech: ['Java', 'REST API', 'SQL', 'Unit tests'],
+      'I worked on the McDonald’s application, in the team that handles user accounts, authentication and authorization. I built new APIs and wrote their unit and integration tests. I reviewed my colleagues’ code, wrote SQL queries, connected other systems’ APIs and maintained the existing code base.',
+    projects: [
+      {
+        name: 'McDonald’s',
+        text: 'User accounts, authentication and authorization: I was a member of the team that handles them.',
+      },
+    ],
+    tech: ['Java', 'REST API', 'SQL', 'Authentication', 'Authorization', 'Unit tests'],
   },
   {
     company: 'EPAM Systems',
     role: 'Software Engineer',
     period: 'January 2022 – August 2024',
     description:
-      'As part of a team, we developed the financial application of an American company, Broadridge. This is where I really learned multi-threaded programming, domain-driven design and the functional approach. I wrote unit, system and acceptance tests, including UI tests with Selenium. I also connected other systems’ APIs, sometimes asynchronously. I solved concurrency bugs and improved test coverage.',
-    tech: ['Java', 'Multithreading', 'DDD', 'Selenium', 'SQL'],
+      'As part of a team, we developed the financial application of Broadridge, an American company. This is where I really learned multi-threaded programming, domain-driven design and the functional approach. I wrote unit, system and acceptance tests, including UI tests with Selenium. I also connected other systems’ APIs, sometimes asynchronously. I solved concurrency bugs and improved test coverage.',
+    projects: [
+      { name: 'Broadridge financial application' },
+      {
+        name: 'Multitenant framework',
+        text: 'The multitenant framework of the Broadridge project, which I worked on as a separate project.',
+      },
+    ],
+    tech: ['Java', 'Multithreading', 'DDD', 'Multitenancy', 'Selenium', 'SQL'],
   },
   {
     company: 'EPAM Systems',
     role: 'Junior Software Engineer',
     period: 'July 2021 – January 2022',
     description:
-      'As a junior developer I built the backend of a web application in which internal exams could be taken safely. I designed and implemented new features, wrote unit tests, took part in code reviews, tested manually, and learned a lot along the way.',
+      'As a junior developer I developed backends: I designed and implemented new features, wrote unit tests, took part in code reviews, tested manually, and learned a lot along the way.',
+    projects: [
+      {
+        name: 'Broadridge internal exam system',
+        text: 'A web application in which internal exams could be taken safely. I built its backend.',
+      },
+    ],
     tech: ['Java', 'Backend', 'Unit tests'],
   },
 ];

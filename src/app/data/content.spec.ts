@@ -58,6 +58,11 @@ describe('content', () => {
       });
     });
 
+    it('a felsorolt projektek száma megegyezik a statisztikában szereplővel', () => {
+      const total = content.jobs.flatMap((job) => job.projects ?? []).length;
+      expect(content.stats.map((s) => s.value)).toContain(String(total));
+    });
+
     it('a statisztikák és a felület szövegei nem üresek', () => {
       content.stats.forEach((s) => {
         expect(s.value).toBeTruthy();

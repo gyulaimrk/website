@@ -44,4 +44,10 @@ describe('JobCard', () => {
   it('a jelenlegi munkahely kiemelt kártyát kap', () => {
     expect(render({}, true).querySelector('app-card')?.classList).toContain('featured');
   });
+
+  it('a leírás nélküli projekt is megjelenik, üres bekezdés nélkül', () => {
+    const el = render({ projects: [{ name: 'Csak név' }] });
+    expect(el.querySelector('.projects h4')?.textContent).toContain('Csak név');
+    expect(el.querySelector('.projects p')).toBeNull();
+  });
 });

@@ -21,7 +21,9 @@
               <span>{{ project.role }}</span>
             }
           </h4>
-          <p>{{ project.text }}</p>
+          @if (project.text) {
+            <p>{{ project.text }}</p>
+          }
         </li>
       }
     </ul>

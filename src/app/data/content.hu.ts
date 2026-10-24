@@ -30,17 +30,19 @@ const jobs: Content['jobs'] = [
     role: 'Senior Software Engineer',
     period: '2025. október – jelenleg',
     description:
-      'Senior szoftvermérnökként dolgozom, és több Kotlin projekten vagyok benne. Backendet fejlesztek, részt veszek a tervezésben, és figyelek a minőségre. Az egyik projektem emellett AI-konzultációról szól.',
+      'Senior szoftvermérnökként négy projekten dolgozom, közülük több Kotlinban készül. Backendet fejlesztek, részt veszek a tervezésben, és figyelek a minőségre. Az egyik projektem AI-konzultációról szól.',
     projects: [
-      {
-        name: 'GLI Solutions',
-        role: 'AI Consultant',
-        text: 'AI-konzultánsként abban segítek, hogy a mesterséges intelligencia valódi problémákra adjon választ. Megkeressük, hol hasznos, megnézzük, megvalósítható-e, és beillesztjük a már meglévő rendszerekbe.',
-      },
       {
         name: 'MOL Limo rent a car',
         url: 'https://rentacar.mollimo.hu/rent/start',
         text: 'A MOL Limo autóbérlő rendszerének backendjét fejlesztem Kotlinban.',
+      },
+      { name: 'Railjet' },
+      { name: 'Helvo', text: 'Egy svájci startup projektje.' },
+      {
+        name: 'GLI Solutions',
+        role: 'AI Consultant',
+        text: 'AI-konzultánsként abban segítek, hogy a mesterséges intelligencia valódi problémákra adjon választ. Megkeressük, hol hasznos, megnézzük, megvalósítható-e, és beillesztjük a már meglévő rendszerekbe.',
       },
     ],
     tech: ['Kotlin', 'Java', 'Exposed', 'AI', 'MCP', 'Prompting'],
@@ -50,26 +52,46 @@ const jobs: Content['jobs'] = [
     role: 'Software Engineer',
     period: '2024. augusztus – 2025. október',
     description:
-      'Egy nagy gyorsétterem-hálózat alkalmazásán dolgoztam. Új API-kat készítettem hozzá, és megírtam a hozzájuk tartozó egység- és integrációs teszteket. Átnéztem a kollégák kódját, SQL-lekérdezéseket írtam, más rendszerek API-jait kötöttem be, és karbantartottam a meglévő kódot.',
-    tech: ['Java', 'REST API', 'SQL', 'Unit tesztek'],
+      'A McDonald’s alkalmazásán dolgoztam, azon belül a felhasználói fiókokkal, az authentikációval és az autorizációval foglalkozó csapatban. Új API-kat készítettem, és megírtam a hozzájuk tartozó egység- és integrációs teszteket. Átnéztem a kollégák kódját, SQL-lekérdezéseket írtam, más rendszerek API-jait kötöttem be, és karbantartottam a meglévő kódot.',
+    projects: [
+      {
+        name: 'McDonald’s',
+        text: 'Felhasználói fiókok, authentikáció és autorizáció: ezzel foglalkozó csapat tagja voltam.',
+      },
+    ],
+    tech: ['Java', 'REST API', 'SQL', 'Authentikáció', 'Autorizáció', 'Unit tesztek'],
   },
   {
     company: 'EPAM Systems',
     role: 'Software Engineer',
     period: '2022. január – 2024. augusztus',
     description:
-      'Egy csapat tagjaként egy amerikai cég, a Broadridge pénzügyi alkalmazását fejlesztettük. Itt tanultam meg igazán a többszálú programozást, a domain-driven tervezést és a funkcionális megközelítést. Egység-, rendszer- és elfogadási teszteket írtam, Seleniummal felületi teszteket is. Más rendszerek API-jait is bekötöttem, időnként aszinkron módon. Megoldottam párhuzamossági hibákat, és javítottam a tesztlefedettséget.',
-    tech: ['Java', 'Többszálúság', 'DDD', 'Selenium', 'SQL'],
+      'Egy csapat tagjaként a Broadridge, egy amerikai cég pénzügyi alkalmazását fejlesztettük. Itt tanultam meg igazán a többszálú programozást, a domain-driven tervezést és a funkcionális megközelítést. Egység-, rendszer- és elfogadási teszteket írtam, Seleniummal felületi teszteket is. Más rendszerek API-jait is bekötöttem, időnként aszinkron módon. Megoldottam párhuzamossági hibákat, és javítottam a tesztlefedettséget.',
+    projects: [
+      { name: 'Broadridge pénzügyi alkalmazás' },
+      {
+        name: 'Multitenant keretrendszer',
+        text: 'A Broadridge-projekt többbérlős (multitenant) keretrendszere, amelyen külön projektként dolgoztam.',
+      },
+    ],
+    tech: ['Java', 'Többszálúság', 'DDD', 'Multitenancy', 'Selenium', 'SQL'],
   },
   {
     company: 'EPAM Systems',
     role: 'Junior Software Engineer',
     period: '2021. július – 2022. január',
     description:
-      'Junior fejlesztőként egy webalkalmazás backendjét építettem, amelyben biztonságosan lehetett belső vizsgákat letenni. Új funkciókat terveztem és valósítottam meg, egységteszteket írtam, részt vettem a kód átnézésében, kézzel is teszteltem, és közben sokat tanultam.',
+      'Junior fejlesztőként backendet fejlesztettem: új funkciókat terveztem és valósítottam meg, egységteszteket írtam, részt vettem a kód átnézésében, kézzel is teszteltem, és közben sokat tanultam.',
+    projects: [
+      {
+        name: 'Broadridge belső vizsgarendszer',
+        text: 'Webalkalmazás, amelyben biztonságosan lehetett belső vizsgákat letenni. Én a backendjét építettem.',
+      },
+    ],
     tech: ['Java', 'Backend', 'Unit tesztek'],
   },
 ];
+
 const skills: Content['skills'] = [
   {
     highlight: true,

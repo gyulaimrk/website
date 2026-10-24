@@ -22,7 +22,7 @@ export interface JobProject {
   name: string;
   role?: string;
   url?: string;
-  text: string;
+  text?: string;
 }
 
 export interface Job {
