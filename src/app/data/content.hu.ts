@@ -105,6 +105,11 @@ const skills: Content['skills'] = [
     tag: 'Elvek',
     text: 'A SOLID elveket, a clean code szemléletet és a tervezési mintákat követem. Közel áll hozzám a domain-driven tervezés és a mikroszolgáltatások világa.',
   },
+  {
+    title: 'Angular',
+    tag: 'Frontend',
+    text: 'Ezt az oldalt is Angular 22-vel építettem: standalone komponensekkel, signalokkal és Vitest tesztekkel. Frontendben mellékprojektekben dolgozom vele, a munkám fő területe a backend.',
+  },
 ];
 
 const studies: Content['studies'] = [

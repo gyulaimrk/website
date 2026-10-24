@@ -106,6 +106,11 @@ const skills: Content['skills'] = [
     tag: 'Principles',
     text: 'I follow the SOLID principles, clean code thinking and design patterns. Domain-driven design and the world of microservices are close to my heart.',
   },
+  {
+    title: 'Angular',
+    tag: 'Frontend',
+    text: 'I built this site with Angular 22 as well, using standalone components, signals and Vitest tests. I work with it on the frontend side in side projects, while my main field at work is the backend.',
+  },
 ];
 
 const studies: Content['studies'] = [
