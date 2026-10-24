@@ -44,4 +44,13 @@ describe('Education', () => {
     expect(exam?.querySelector('span')).toBeNull();
     expect(exam?.textContent?.trim()).toBe('Angol nyelvvizsga, B2');
   });
+
+  it('a mentorprogramnál leírást is mutat, a többi bejegyzésnél nem', () => {
+    const { cards } = render();
+    const items = [...cards[0].querySelectorAll('li')];
+    const program = items.find((li) => li.textContent?.includes('Java Mentored Education Program'));
+    expect(program?.querySelector('p')?.textContent).toContain('Spring');
+    const withDescription = items.filter((li) => li.querySelector('p'));
+    expect(withDescription.length).toBe(contentHu.studies.filter((s) => s.description).length);
+  });
 });

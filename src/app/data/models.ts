@@ -53,6 +53,8 @@ export interface Study {
   title: string;
   where: string;
   period: string;
+  /** Rövid, mondatokban megfogalmazott leírás (csak ahol van mit elmondani). */
+  description?: string;
 }
 
 export interface Stat {

@@ -133,7 +133,9 @@ const studies: Content['studies'] = [
     kind: 'education',
     title: 'Java Mentored Education Program',
     where: 'EPAM Systems',
-    period: '2020 – 2021',
+    period: '2020. szeptember – 2021. július',
+    description:
+      'Sikeresen elvégeztem az EPAM Java Mentored Education Program képzését. A programban megtanultuk a Java nyelvet, és átfogóan foglalkoztunk a verziókezelő rendszerekkel, az agilis fejlesztési módszertanokkal, a tesztelléssel, a clean code elveivel, a tervezési mintákkal és a Spring keretrendszerrel. A frontend fejlesztésből is kaptunk egy kis ízelítőt.',
   },
   { kind: 'education', title: 'Angol nyelvvizsga, B2', where: '', period: '' },
   {

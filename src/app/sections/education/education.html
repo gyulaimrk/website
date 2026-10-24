@@ -13,6 +13,9 @@
             @if (meta(study)) {
               <span>{{ meta(study) }}</span>
             }
+            @if (study.description) {
+              <p>{{ study.description }}</p>
+            }
           </li>
         }
       </ul>

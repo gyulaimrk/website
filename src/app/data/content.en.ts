@@ -134,7 +134,9 @@ const studies: Content['studies'] = [
     kind: 'education',
     title: 'Java Mentored Education Program',
     where: 'EPAM Systems',
-    period: '2020 – 2021',
+    period: 'September 2020 – July 2021',
+    description:
+      'I successfully completed EPAM’s Java Mentored Education Program. We were taught the Java language and covered version control systems, agile development methodologies, testing, clean code, design patterns and the Spring framework in depth, and we got a taste of front end development too.',
   },
   { kind: 'education', title: 'English language exam, B2', where: '', period: '' },
   {

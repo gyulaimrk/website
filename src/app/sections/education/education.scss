@@ -22,6 +22,12 @@ ul {
 li {
   display: grid;
 }
+li p {
+  max-width: 60ch;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: var(--step-small);
+}
 li span {
   color: var(--muted);
   font-size: var(--step-small);
