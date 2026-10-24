@@ -7,9 +7,9 @@ describe('ContentService', () => {
   it('a nyelvváltással együtt cseréli a tartalmat', () => {
     const language = TestBed.inject(LanguageService);
     const service = TestBed.inject(ContentService);
-    language.lang.set('hu');
+    language.use('hu');
     expect(service.content()).toBe(contentHu);
-    language.lang.set('en');
+    language.use('en');
     expect(service.content()).toBe(contentEn);
   });
 });

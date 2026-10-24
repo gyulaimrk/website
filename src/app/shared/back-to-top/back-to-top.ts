@@ -1,11 +1,13 @@
 import { Component, HostListener, inject, signal } from '@angular/core';
 import { ContentService } from '../../core/content.service';
+import { AnchorLink } from '../anchor-link/anchor-link.directive';
 
 const SHOW_AFTER_PX = 700;
 
 /** Lebegő "vissza a tetejére" gomb, amely csak lejjebb görgetve jelenik meg. */
 @Component({
   selector: 'app-back-to-top',
+  imports: [AnchorLink],
   templateUrl: './back-to-top.html',
   styleUrl: './back-to-top.scss',
 })

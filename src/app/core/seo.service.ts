@@ -1,29 +1,69 @@
 import { DOCUMENT } from '@angular/common';
-import { Injectable, effect, inject } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { ContentService } from './content.service';
+import { CONTENTS, LANGS } from '../data/content';
+import { Lang } from '../data/models';
+import { SITE_ORIGIN_TOKEN } from './site.config';
 
-/** A böngészőfül címét és a megosztási metaadatokat az aktuális nyelvhez igazítja. */
+const LOCALES: Record<Lang, string> = { hu: 'hu_HU', en: 'en_US' };
+
+/**
+ * A böngészőfül címét, a leírást, a megosztási adatokat és (ha ismert az oldal címe) a
+ * canonical és hreflang kapcsolatokat az adott nyelvhez igazítja.
+ */
 @Injectable({ providedIn: 'root' })
 export class SeoService {
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
   private readonly document = inject(DOCUMENT);
-  private readonly content = inject(ContentService).content;
+  private readonly origin = inject(SITE_ORIGIN_TOKEN);
 
-  constructor() {
-    effect(() => {
-      const { meta } = this.content().ui;
-      this.title.setTitle(meta.title);
-      this.meta.updateTag({ name: 'description', content: meta.description });
-      this.meta.updateTag({ property: 'og:title', content: meta.title });
-      this.meta.updateTag({ property: 'og:description', content: meta.description });
-      this.meta.updateTag({ name: 'twitter:title', content: meta.title });
-      this.meta.updateTag({ name: 'twitter:description', content: meta.description });
-      this.meta.updateTag({
-        property: 'og:locale',
-        content: this.document.documentElement.lang === 'hu' ? 'hu_HU' : 'en_US',
-      });
-    });
+  /** Az oldal URL-je nyelvenként, vagy üres, amíg nincs megadva az oldal címe. */
+  urlFor(lang: Lang): string {
+    return this.origin ? `${this.origin}/${lang}` : '';
+  }
+
+  update(lang: Lang): void {
+    const { meta } = CONTENTS[lang].ui;
+    this.title.setTitle(meta.title);
+    this.meta.updateTag({ name: 'robots', content: 'index, follow' });
+    this.meta.updateTag({ name: 'description', content: meta.description });
+    this.meta.updateTag({ property: 'og:title', content: meta.title });
+    this.meta.updateTag({ property: 'og:description', content: meta.description });
+    this.meta.updateTag({ property: 'og:locale', content: LOCALES[lang] });
+    this.meta.updateTag({ name: 'twitter:title', content: meta.title });
+    this.meta.updateTag({ name: 'twitter:description', content: meta.description });
+    this.updateLinks(lang);
+  }
+
+  /** Olyan oldalnak (például 404), amelyet a keresők ne indexeljenek. */
+  noindex(title: string): void {
+    this.title.setTitle(title);
+    this.meta.updateTag({ name: 'robots', content: 'noindex' });
+  }
+
+  private updateLinks(lang: Lang) {
+    this.removeLinks('link[rel="canonical"], link[rel="alternate"][hreflang]');
+    const url = this.urlFor(lang);
+    if (!url) {
+      this.meta.removeTag('property="og:url"');
+      return;
+    }
+    this.meta.updateTag({ property: 'og:url', content: url });
+    this.addLink({ rel: 'canonical', href: url });
+    LANGS.forEach((other) =>
+      this.addLink({ rel: 'alternate', hreflang: other, href: this.urlFor(other) }),
+    );
+    this.addLink({ rel: 'alternate', hreflang: 'x-default', href: this.urlFor('hu') });
+  }
+
+  private removeLinks(selector: string) {
+    this.document.head.querySelectorAll(selector).forEach((link) => link.remove());
+  }
+
+  private addLink(attributes: Record<string, string>) {
+    const link = this.document.createElement('link');
+    Object.entries(attributes).forEach(([name, value]) => link.setAttribute(name, value));
+    this.document.head.appendChild(link);
   }
 }

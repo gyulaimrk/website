@@ -36,7 +36,7 @@ describe('Hero', () => {
 
   it('nyelvváltáskor angolra vált', () => {
     const { fixture, el } = render();
-    TestBed.inject(LanguageService).lang.set('en');
+    TestBed.inject(LanguageService).use('en');
     fixture.detectChanges();
     expect(el.querySelector('.greeting')?.textContent).toBe(contentEn.ui.hero.greeting);
     expect(el.querySelector('h1')?.textContent).toContain(contentEn.profile.name);

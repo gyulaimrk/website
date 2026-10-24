@@ -70,7 +70,8 @@ export interface Stat {
 export type Lang = 'hu' | 'en';
 
 export interface NavLink {
-  href: string;
+  /** A cél szekció azonosítója `#` nélkül. */
+  fragment: string;
   label: string;
 }
 

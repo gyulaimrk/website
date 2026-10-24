@@ -1,24 +1,29 @@
-import { AfterViewInit, Component, HostListener, inject, signal } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, HostListener, afterNextRender, inject, signal } from '@angular/core';
 import { ContentService } from '../../core/content.service';
 import { ScrollSpyService } from '../../core/scroll-spy.service';
+import { AnchorLink } from '../../shared/anchor-link/anchor-link.directive';
 import { Button } from '../../shared/button/button';
 import { LanguageToggle } from '../../shared/language-toggle/language-toggle';
 import { ThemeToggle } from '../../shared/theme-toggle/theme-toggle';
 
 @Component({
   selector: 'app-nav',
-  imports: [Button, LanguageToggle, ThemeToggle],
+  imports: [AnchorLink, Button, LanguageToggle, ThemeToggle],
   templateUrl: './nav.html',
   styleUrl: './nav.scss',
 })
-export class Nav implements AfterViewInit {
+export class Nav {
+  private readonly document = inject(DOCUMENT);
   private readonly spy = inject(ScrollSpyService);
   protected readonly content = inject(ContentService).content;
   protected readonly active = this.spy.active;
   protected readonly menuOpen = signal(false);
 
-  ngAfterViewInit() {
-    this.spy.observe([...document.querySelectorAll('main section[id]')]);
+  constructor() {
+    afterNextRender(() =>
+      this.spy.observe([...this.document.querySelectorAll('main section[id]')]),
+    );
   }
 
   protected initials(name: string): string {
@@ -28,8 +33,8 @@ export class Nav implements AfterViewInit {
       .join('');
   }
 
-  protected isActive(href: string): boolean {
-    return href === `#${this.active()}`;
+  protected isActive(fragment: string): boolean {
+    return fragment === this.active();
   }
 
   protected toggleMenu() {

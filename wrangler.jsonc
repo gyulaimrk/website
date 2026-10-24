@@ -4,6 +4,10 @@
   "compatibility_date": "2026-10-20",
   "assets": {
     "directory": "./dist/portfolio/browser",
-    "not_found_handling": "single-page-application"
+    // Nem létező címre a gyökérben lévő 404.html megy ki valódi 404-es státusszal
+    // (a postbuild szkript másolja ide), nem a főoldal 200-zal.
+    "not_found_handling": "404-page",
+    // A /hu és az /en perjel nélkül érhető el, ahogy a linkek hirdetik.
+    "html_handling": "drop-trailing-slash"
   }
 }

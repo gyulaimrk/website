@@ -22,7 +22,7 @@ describe('About', () => {
     const photo = el.querySelector('img.photo') as HTMLImageElement;
     expect(photo.getAttribute('src')).toBe(contentHu.profile.photo.src);
     expect(photo.alt).toBe(contentHu.profile.photo.alt);
-    TestBed.inject(LanguageService).lang.set('en');
+    TestBed.inject(LanguageService).use('en');
     fixture.detectChanges();
     expect(photo.alt).toBe(contentEn.profile.photo.alt);
   });
@@ -30,7 +30,7 @@ describe('About', () => {
   it('a cím és a tények feliratai a nyelvet követik', () => {
     const { fixture, el } = render();
     expect(el.querySelector('h2')?.textContent).toBe(contentHu.ui.about.title);
-    TestBed.inject(LanguageService).lang.set('en');
+    TestBed.inject(LanguageService).use('en');
     fixture.detectChanges();
     expect(el.querySelector('h2')?.textContent).toBe(contentEn.ui.about.title);
     expect(el.querySelector('dt')?.textContent).toBe(contentEn.ui.about.facts.location);

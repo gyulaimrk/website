@@ -21,8 +21,8 @@ describe('content', () => {
       contentHu.jobs.map((j) => j.projects?.map((p) => p.url)),
     );
     expect(contentEn.stats.map((s) => s.value)).toEqual(contentHu.stats.map((s) => s.value));
-    expect(contentEn.ui.nav.links.map((l) => l.href)).toEqual(
-      contentHu.ui.nav.links.map((l) => l.href),
+    expect(contentEn.ui.nav.links.map((l) => l.fragment)).toEqual(
+      contentHu.ui.nav.links.map((l) => l.fragment),
     );
   });
 

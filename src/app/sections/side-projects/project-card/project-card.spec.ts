@@ -32,7 +32,7 @@ describe('ProjectCard', () => {
     expect(link.getAttribute('href')).toBe(project.url);
     expect(link.getAttribute('target')).toBe('_blank');
     expect(link.textContent?.trim()).toBe(contentHu.ui.sideProjects.visit);
-    TestBed.inject(LanguageService).lang.set('en');
+    TestBed.inject(LanguageService).use('en');
     fixture.detectChanges();
     expect(link.textContent?.trim()).toBe(contentEn.ui.sideProjects.visit);
   });

@@ -1,12 +1,13 @@
 import { Component, computed, inject } from '@angular/core';
 import { ContentService } from '../../core/content.service';
+import { AnchorLink } from '../../shared/anchor-link/anchor-link.directive';
 import { Button } from '../../shared/button/button';
 import { CodeEntry, CodeWindow } from '../../shared/code-window/code-window';
 import { Typewriter } from '../../shared/typewriter/typewriter';
 
 @Component({
   selector: 'app-hero',
-  imports: [Button, CodeWindow, Typewriter],
+  imports: [AnchorLink, Button, CodeWindow, Typewriter],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
 })
