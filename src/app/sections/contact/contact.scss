@@ -4,38 +4,25 @@ section {
   padding: 0 var(--gutter);
 }
 .panel {
-  position: relative;
-  overflow: hidden;
   display: grid;
   justify-items: center;
   gap: 20px;
   padding: clamp(40px, 8vw, 96px) clamp(24px, 5vw, 64px);
   border-radius: calc(var(--radius) * 1.6);
-  background: var(--gradient);
+  /* A fény a háttér része, nem külön elem: így a lekerekített sarkokon sehol nem lóg ki. */
+  background:
+    radial-gradient(circle at 85% 0%, rgb(255 255 255 / 0.22), transparent 45%), var(--gradient);
   color: var(--on-accent);
   text-align: center;
 }
-.panel::before {
-  content: '';
-  position: absolute;
-  inset: -40% -10% auto auto;
-  width: 420px;
-  height: 420px;
-  border-radius: 50%;
-  background: rgb(255 255 255 / 0.18);
-  filter: blur(40px);
-}
 h2 {
-  position: relative;
   font-size: var(--step-title);
 }
 p {
-  position: relative;
   max-width: 46ch;
   font-size: var(--step-lead);
 }
 .actions {
-  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
