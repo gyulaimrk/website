@@ -9,6 +9,7 @@ const profile: Content['profile'] = {
   github: 'https://github.com/gyulaimrk',
   location: 'Nyíregyháza, Hungary',
   photo: { src: 'mark-gyulai.jpg', alt: 'Portrait of Márk Gyulai' },
+  cv: 'cv/mark-gyulai-cv.pdf',
   languages: 'Hungarian, English (B2 language exam)',
   license: 'Category B',
   stack: ['Java 8–25', 'Kotlin', 'Spring Boot'],
@@ -370,6 +371,7 @@ const ui: Content['ui'] = {
     greeting: 'Hi, I am',
     nameSuffix: '',
     projects: 'My work',
+    cv: 'Résumé (PDF)',
     linkedin: 'LinkedIn',
     codeNote: 'An illustrative example, not code from work.',
   },
@@ -409,6 +411,7 @@ const ui: Content['ui'] = {
   contact: {
     title: 'Let’s work together',
     text: 'Do you have a project, an AI idea or a backend task? Write to me, I would be glad to talk it through.',
+    cv: 'Download my résumé',
     linkedin: 'Message me on LinkedIn',
   },
   footer: { built: 'Built with Angular.', label: 'Contact links' },

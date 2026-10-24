@@ -9,7 +9,8 @@
     "test": "ng test",
     "preview": "ng build && wrangler dev",
     "deploy": "ng build && wrangler deploy",
-    "postbuild": "node scripts/postbuild.mjs"
+    "postbuild": "node scripts/postbuild.mjs",
+    "cv": "node scripts/build-cv.mjs"
   },
   "private": true,
   "packageManager": "npm@10.9.4",
@@ -31,7 +32,10 @@
     "@angular/build": "^22.2.3",
     "@angular/cli": "^22.2.3",
     "@angular/compiler-cli": "^22.2.0",
+    "@playwright/test": "^1.56.1",
     "@types/node": "^26.6.5",
+    "esbuild": "^0.28.2",
+    "http-server": "^14.1.1",
     "jsdom": "^30.1.3",
     "prettier": "^3.8.1",
     "typescript": "~6.0.2",

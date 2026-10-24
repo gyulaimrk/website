@@ -27,11 +27,11 @@ describe('Hero', () => {
     expect(el.querySelectorAll('.stats li').length).toBe(contentHu.stats.length);
   });
 
-  it('a Munkáim gomb a tapasztalathoz, a LinkedIn gomb a profilra visz', () => {
+  it('a Munkáim gomb a tapasztalathoz, az önéletrajz gomb a PDF-re, a LinkedIn gomb a profilra visz', () => {
     const hrefs = [...render().el.querySelectorAll('a[appButton]')].map((a) =>
       a.getAttribute('href'),
     );
-    expect(hrefs).toEqual(['#tapasztalat', contentHu.profile.linkedin]);
+    expect(hrefs).toEqual(['#tapasztalat', contentHu.profile.cv, contentHu.profile.linkedin]);
   });
 
   it('nyelvváltáskor angolra vált', () => {

@@ -7,6 +7,8 @@ export interface Profile {
   location: string;
   /** Portréfotó a `public/` mappából. */
   photo: { src: string; alt: string };
+  /** A letölthető önéletrajz (PDF) elérési útja a webgyökértől; az `npm run cv` készíti. */
+  cv: string;
   intro: string;
   languages: string;
   /** Jogosítvány kategóriája. */
@@ -116,6 +118,7 @@ export interface Ui {
     greeting: string;
     nameSuffix: string;
     projects: string;
+    cv: string;
     linkedin: string;
     codeNote: string;
   };
@@ -134,7 +137,7 @@ export interface Ui {
     anthropic: string;
     certificates: string;
   };
-  contact: { title: string; text: string; linkedin: string };
+  contact: { title: string; text: string; cv: string; linkedin: string };
   footer: { built: string; label: string };
   backToTop: string;
 }

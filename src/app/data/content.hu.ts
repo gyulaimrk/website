@@ -9,6 +9,7 @@ const profile: Content['profile'] = {
   github: 'https://github.com/gyulaimrk',
   location: 'Nyíregyháza, Magyarország',
   photo: { src: 'mark-gyulai.jpg', alt: 'Gyulai Márk portréfotója' },
+  cv: 'cv/gyulai-mark-oneletrajz.pdf',
   languages: 'magyar, angol (B2 nyelvvizsga)',
   license: 'B kategória',
   stack: ['Java 8–25', 'Kotlin', 'Spring Boot'],
@@ -370,6 +371,7 @@ const ui: Content['ui'] = {
     greeting: 'Szia, én',
     nameSuffix: 'vagyok',
     projects: 'Munkáim',
+    cv: 'Önéletrajz (PDF)',
     linkedin: 'LinkedIn',
     codeNote: 'Szemléltető példa, nem munkahelyi kód.',
   },
@@ -409,6 +411,7 @@ const ui: Content['ui'] = {
   contact: {
     title: 'Dolgozzunk együtt',
     text: 'Van egy projekted, AI-ötleted vagy backend feladatod? Írj nekem, szívesen átbeszélem veled.',
+    cv: 'Önéletrajz letöltése',
     linkedin: 'Írj a LinkedInen',
   },
   footer: { built: 'Angularral készült.', label: 'Elérhetőségek' },

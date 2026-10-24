@@ -14,6 +14,9 @@
       <p class="lead">{{ content().profile.intro }}</p>
       <div class="actions">
         <a appButton appAnchor="tapasztalat">{{ content().ui.hero.projects }}</a>
+        <a appButton variant="ghost" download [href]="content().profile.cv">
+          {{ content().ui.hero.cv }}
+        </a>
         <a appButton variant="ghost" [external]="true" [href]="content().profile.linkedin">
           {{ content().ui.hero.linkedin }}
         </a>
