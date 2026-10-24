@@ -84,8 +84,12 @@ const jobs: Content['jobs'] = [
       'As a junior developer I developed backends: I designed and implemented new features, wrote unit tests, took part in code reviews, tested manually, and learned a lot along the way.',
     projects: [
       {
-        name: 'Broadridge internal exam system',
-        text: 'A web application in which internal exams could be taken safely. I built its backend.',
+        name: 'Internal exam system',
+        text: 'EPAM’s internal exam system: a web application in which exams could be taken safely. I built its backend.',
+      },
+      {
+        name: 'Broadridge financial application',
+        text: 'The same project I later worked on as a Software Engineer.',
       },
     ],
     tech: ['Java', 'Backend', 'Unit tests'],

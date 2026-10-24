@@ -58,8 +58,11 @@ describe('content', () => {
       });
     });
 
-    it('a felsorolt projektek száma megegyezik a statisztikában szereplővel', () => {
-      const total = content.jobs.flatMap((job) => job.projects ?? []).length;
+    it('a különböző projektek száma (az ismétlődő Broadridge-projekt egyszer számít) megegyezik a statisztikában szereplővel', () => {
+      const names = content.jobs
+        .flatMap((job) => job.projects ?? [])
+        .map((project) => project.name);
+      const total = new Set(names).size;
       expect(content.stats.map((s) => s.value)).toContain(String(total));
     });
 

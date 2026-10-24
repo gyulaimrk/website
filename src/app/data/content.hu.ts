@@ -84,8 +84,12 @@ const jobs: Content['jobs'] = [
       'Junior fejlesztőként backendet fejlesztettem: új funkciókat terveztem és valósítottam meg, egységteszteket írtam, részt vettem a kód átnézésében, kézzel is teszteltem, és közben sokat tanultam.',
     projects: [
       {
-        name: 'Broadridge belső vizsgarendszer',
-        text: 'Webalkalmazás, amelyben biztonságosan lehetett belső vizsgákat letenni. Én a backendjét építettem.',
+        name: 'Belső vizsgarendszer',
+        text: 'Az EPAM belső vizsgarendszere: webalkalmazás, amelyben biztonságosan lehetett vizsgázni. Én a backendjét építettem.',
+      },
+      {
+        name: 'Broadridge pénzügyi alkalmazás',
+        text: 'Ugyanezen a projekten dolgoztam később Software Engineerként is.',
       },
     ],
     tech: ['Java', 'Backend', 'Unit tesztek'],
