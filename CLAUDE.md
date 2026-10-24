@@ -13,16 +13,16 @@ Magyar nyelvű portfólió oldal, Angular 22 (standalone, signals, zoneless), SC
 ## Felépítés
 Minden komponens saját mappában, négy külön fájllal: `név.ts`, `név.html`, `név.scss`, `név.spec.ts`.
 - `src/app/data/` – `models.ts` (típusok) és `content.ts` (az oldal teljes tartalma), `content.spec.ts`
-- `src/app/core/` – keretrendszer-független segédek (`prefers-reduced-motion`)
-- `src/app/shared/` – újrahasznosítható építőelemek: `island` (szerves formájú tartalomhordozó), `button`, `chip-list`, `section-heading`
-- `src/app/sections/` – az oldal szekciói: `nav`, `hero` (név és a Java/Kotlin szigetek), `about`, `route` (+ `route-stop`: az útvonal munkahelyi megállói), `archipelago` (eszköztár), `contact`, `footer`
-- `src/styles.scss` – design tokenek és globális stílus
+- `src/app/core/` – `prefers-reduced-motion` segéd és a `ThemeService` (világos/sötét téma)
+- `src/app/shared/` – újrahasznosítható építőelemek: `button`, `card`, `chip-list`, `section-heading`, `reveal` (belépő animáció), `typewriter`, `code-window` (Kotlin kódablak), `theme-toggle`
+- `src/app/sections/` – az oldal szekciói: `nav`, `hero`, `about`, `skills`, `experience` (+ `job-card`: idővonal), `education`, `contact`, `footer`
+- `src/styles.scss` – design tokenek (sötét és világos téma) és globális stílus
 - `wrangler.jsonc` – Cloudflare assets konfiguráció; `.github/workflows/ci.yml` – teszt, build és deploy
 
 ## Szabályok
 - A tartalom csak valós adat lehet (önéletrajz, LinkedIn). Kitalálni nem szabad; ha hiányzik adat, kérdezz. Telefonszám, születési dátum, lakcím nem kerülhet az oldalra.
 - Adroit Group alatt projektként szerepel a GLI Solutions (AI Consultant) és a MOL Limo rent a car; ezekhez nincs külön dátum.
-- Design ("Szigetek" koncepció, frontend-design skill): a Java és a Kotlin valódi szigetek, az oldal a tenger, a tartalom szigeteken áll. Young Serif (cím) és Albert Sans (szöveg), betűk helyben (`@fontsource`). Tokenek: `--sea` (kobalt), `--deep`, `--foam`, `--sun`, `--mint`, `--coral`, `--ink`. Kerülendő: krém és terrakotta, hajszálvonal, azonos kártyák rácsban, kis nagybetűs címke, eyebrow, monospace, nyíl a gombokon, pontokkal tagolt meta-sor. A sziget-sarkok sugara a betűméretből jön (`--r`), hogy a szöveg ne lógjon ki. Mozgás: egyetlen oldalbetöltési jelenet (hero), egyébként csak interakcióra válaszoló mozgás; mozgáscsökkentési tartalék kötelező.
+- Design (modern, hagyományos fejlesztői portfólió): Space Grotesk (cím) és Inter (szöveg), betűk helyben (`@fontsource`). Indigó–lila–ciánkék átmenet kiemelés, üveghatású kártyák, sötét és világos téma (`data-theme`, tokenek a `styles.scss`-ben). Hero: gépelő szerep, Kotlin kódablak, statisztikák. Az idővonal csak időrendhez használható. Mozgás: belépő animáció, lebegő háttérfények, hover; mozgáscsökkentési tartalék kötelező.
 - Kódelvek: SOLID, DRY, KISS. Egy komponens egy felelősség (a szekció összeállít, a kis komponens megjelenít); ismétlődő UI-t shared komponensbe emelj; ne építs többet, mint amit a feladat kér. A szekciók a `data/content.ts`-ből dolgoznak, a hard-kódolt szöveg a komponensekben kerülendő.
 - Minden új komponenshez készül `.html`, `.scss` és `.spec.ts` fájl is (nincs inline template/style). A spec a viselkedést teszteli, nem a megvalósítást.
 - Módosítás után `npm test -- --watch=false` és `npm run build` hibátlan legyen.

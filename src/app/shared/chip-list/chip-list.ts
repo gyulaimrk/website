@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 
-/** Címkék (technológiák) sora; a kiválasztott címke kiemelve. */
+/** Címkék (technológiák) sora. */
 @Component({
   selector: 'app-chip-list',
   templateUrl: './chip-list.html',
@@ -8,5 +8,4 @@ import { Component, input } from '@angular/core';
 })
 export class ChipList {
   readonly items = input.required<readonly string[]>();
-  readonly active = input<string | null>(null);
 }

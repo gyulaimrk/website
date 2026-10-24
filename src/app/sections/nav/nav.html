@@ -1,8 +1,17 @@
 <header>
-  <a class="mark" href="#top">{{ profile.name }}</a>
-  <nav aria-label="Fő navigáció">
-    @for (link of links; track link.href) {
-      <a [href]="link.href">{{ link.label }}</a>
-    }
-  </nav>
+  <div class="bar">
+    <a class="brand" href="#top" aria-label="Ugrás az oldal tetejére">
+      <span class="logo">{{ initials }}</span>
+      <span class="name">{{ profile.name }}</span>
+    </a>
+    <nav aria-label="Fő navigáció">
+      @for (link of links; track link.href) {
+        <a [href]="link.href">{{ link.label }}</a>
+      }
+    </nav>
+    <div class="tools">
+      <app-theme-toggle />
+      <a appButton size="small" href="#kapcsolat">Kapcsolat</a>
+    </div>
+  </div>
 </header>

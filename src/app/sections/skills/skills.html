@@ -1,0 +1,19 @@
+<section id="eszkoztar">
+  <app-section-heading
+    title="Eszköztár"
+    lead="Amivel nap mint nap dolgozom, a nyelvtől a tesztelésig."
+  />
+  <div class="grid">
+    @for (skill of skills; track skill.title; let i = $index) {
+      <app-card
+        [featured]="skill.highlight ?? false"
+        [class.wide]="skill.highlight"
+        [appReveal]="i % 3"
+      >
+        <p class="tag">{{ skill.tag }}</p>
+        <h3>{{ skill.title }}</h3>
+        <p class="text">{{ skill.text }}</p>
+      </app-card>
+    }
+  </div>
+</section>

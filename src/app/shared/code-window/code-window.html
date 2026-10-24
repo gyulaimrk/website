@@ -1,0 +1,17 @@
+<div class="window" role="img" [attr.aria-label]="'Kotlin kódrészlet: ' + fileName()">
+  <div class="bar" aria-hidden="true">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="file">{{ fileName() }}</span>
+  </div>
+  <pre
+    aria-hidden="true"
+  ><code><span class="kw">val</span> developer = <span class="type">Developer</span>(
+@for (line of lines(); track line.key) {  <span class="prop">{{ line.key }}</span> = @switch (line.kind) {
+@case ('list') {<span class="fn">listOf</span>(@for (item of asList(line.value); track item; let last = $last) {<span class="str">"{{ item }}"</span>@if (!last) {, }})}
+@case ('bool') {<span class="kw">{{ line.value }}</span>}
+@default {<span class="str">"{{ line.value }}"</span>}
+},
+})</code></pre>
+</div>

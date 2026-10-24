@@ -1,5 +1,5 @@
 // A weboldal teljes tartalma itt szerkeszthető (forrás: önéletrajz és LinkedIn-profil).
-import { Job, Profile, Skill, Study } from './models';
+import { Job, Profile, Skill, Stat, Study } from './models';
 
 export const profile: Profile = {
   name: 'Gyulai Márk',
@@ -11,6 +11,7 @@ export const profile: Profile = {
   location: 'Nyíregyháza, Magyarország',
   tagline: 'Backend rendszerek Javában és Kotlinban, mellette AI-konzultáció.',
   languages: 'magyar, angol',
+  roles: ['Java fejlesztő', 'Kotlin fejlesztő', 'AI-konzultáns'],
   intro:
     'Java (8-tól 25-ig) és Kotlin alapú backend rendszereket tervezek, tesztelek és tartok karban, mellette AI-konzultánsként segítek a mesterséges intelligencia gyakorlati bevezetésében.',
   letter: [
@@ -139,4 +140,10 @@ export const studies: Study[] = [
     where: 'Tanúsítvány',
     period: '',
   },
+];
+
+export const stats: Stat[] = [
+  { value: '4+', label: 'év Java-tapasztalat' },
+  { value: '8–25', label: 'Java verziók, amelyeken kódolok' },
+  { value: '3', label: 'munkahely: EPAM, RDI, Adroit' },
 ];

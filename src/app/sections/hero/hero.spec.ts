@@ -1,22 +1,31 @@
 import { TestBed } from '@angular/core/testing';
-import { profile } from '../../data/content';
+import { profile, stats } from '../../data/content';
 import { Hero } from './hero';
 
 describe('Hero', () => {
-  it('egyetlen h1 a profil címe, és a Java és a Kotlin szigete látszik', () => {
+  function render() {
+    vi.stubGlobal('matchMedia', () => ({ matches: true }));
     const fixture = TestBed.createComponent(Hero);
     fixture.detectChanges();
-    const el = fixture.nativeElement as HTMLElement;
+    return fixture.nativeElement as HTMLElement;
+  }
+  afterEach(() => vi.unstubAllGlobals());
+
+  it('egyetlen h1-ben köszön és a nevet mutatja', () => {
+    const el = render();
     expect(el.querySelectorAll('h1').length).toBe(1);
-    expect(el.querySelector('h1')?.textContent).toBe(profile.headline);
-    expect(el.querySelectorAll('app-island').length).toBe(2);
+    expect(el.querySelector('h1')?.textContent).toContain(profile.name);
   });
 
-  it('az elsődleges gomb a LinkedInre vezet', () => {
-    const fixture = TestBed.createComponent(Hero);
-    fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('a[appButton]').getAttribute('href')).toBe(
-      profile.linkedin,
-    );
+  it('megmutatja a szerepet, a kódablakot és a statisztikákat', () => {
+    const el = render();
+    expect(el.querySelector('app-typewriter')?.textContent).toContain(profile.roles[0]);
+    expect(el.querySelector('app-code-window code')?.textContent).toContain(profile.role);
+    expect(el.querySelectorAll('.stats li').length).toBe(stats.length);
+  });
+
+  it('a Munkáim gomb a tapasztalathoz, a LinkedIn gomb a profilra visz', () => {
+    const hrefs = [...render().querySelectorAll('a[appButton]')].map((a) => a.getAttribute('href'));
+    expect(hrefs).toEqual(['#tapasztalat', profile.linkedin]);
   });
 });

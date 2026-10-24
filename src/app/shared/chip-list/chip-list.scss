@@ -7,14 +7,10 @@ ul {
   list-style: none;
 }
 li {
-  padding: 4px 14px;
+  padding: 4px 12px;
   border-radius: 999px;
-  background: var(--chip-bg, var(--ink));
-  color: var(--chip-ink, var(--foam));
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--accent);
   font-size: var(--step-small);
-  font-weight: 600;
-}
-li.active {
-  background: var(--sun);
-  color: var(--ink);
+  font-weight: 500;
 }

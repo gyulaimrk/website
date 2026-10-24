@@ -1,28 +1,70 @@
 header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 20px var(--margin);
+  max-width: var(--max);
+  height: 72px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
 }
-.mark {
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--font-display);
-  font-size: var(--step-lead);
+  font-weight: 700;
   text-decoration: none;
+}
+.logo {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--gradient);
+  color: var(--on-accent);
+  font-size: 0.95rem;
 }
 nav {
   display: flex;
-  gap: 24px;
-  font-weight: 600;
+  gap: 8px;
 }
 nav a {
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: var(--step-small);
+  font-weight: 500;
   text-decoration: none;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 }
 nav a:hover {
-  color: var(--sun);
+  background: var(--card);
+  color: var(--text);
 }
-@media (max-width: 760px) {
+.tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+@media (max-width: 900px) {
   nav {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .name {
     display: none;
   }
 }

@@ -1,15 +1,29 @@
 <section id="top">
-  <h1>{{ profile.headline }}</h1>
-  <p class="lead">{{ profile.intro }}</p>
-  <a appButton class="cta" [external]="true" [href]="profile.linkedin">Beszéljünk</a>
-  <div class="islands">
-    <app-island class="java" tone="coral" [shape]="1">
-      <p class="big">Java</p>
-      <p>A 8-as verziótól a 25-ösig magabiztosan.</p>
-    </app-island>
-    <app-island class="kotlin" tone="sun" [shape]="2">
-      <p class="big">Kotlin</p>
-      <p>Az Adroit Group projektjein.</p>
-    </app-island>
+  <div class="glow one" aria-hidden="true"></div>
+  <div class="glow two" aria-hidden="true"></div>
+  <div class="inner">
+    <div class="copy">
+      <p class="greeting">Szia, én</p>
+      <h1>
+        <span class="gradient-text">{{ profile.name }}</span> vagyok
+      </h1>
+      <p class="role">
+        <app-typewriter [words]="profile.roles" />
+      </p>
+      <p class="lead">{{ profile.intro }}</p>
+      <div class="actions">
+        <a appButton href="#tapasztalat">Munkáim</a>
+        <a appButton variant="ghost" [external]="true" [href]="profile.linkedin">LinkedIn</a>
+      </div>
+    </div>
+    <app-code-window class="code" [entries]="code" />
   </div>
+  <ul class="stats">
+    @for (stat of stats; track stat.label) {
+      <li>
+        <strong class="gradient-text">{{ stat.value }}</strong>
+        <span>{{ stat.label }}</span>
+      </li>
+    }
+  </ul>
 </section>

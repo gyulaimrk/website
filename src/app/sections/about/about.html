@@ -1,22 +1,23 @@
 <section id="rolam">
-  <app-island tone="foam" [shape]="1" class="letter">
-    <app-section-heading>Rólam</app-section-heading>
-    @for (paragraph of profile.letter; track $index) {
-      <p>{{ paragraph }}</p>
-    }
-  </app-island>
-  <app-island tone="mint" [shape]="4" class="studies">
-    <h3>Tanulmányok és tanúsítványok</h3>
-    <ul>
-      @for (study of studies; track study.title) {
-        <li>
-          <strong>{{ study.title }}</strong>
-          <span>{{ study.where }}</span>
-          @if (study.period) {
-            <span>{{ study.period }}</span>
-          }
-        </li>
+  <app-section-heading
+    title="Rólam"
+    lead="Backend fejlesztő, aki szereti, ha a rendszer évekig is áttekinthető marad."
+  />
+  <div class="grid">
+    <div class="story" appReveal>
+      @for (paragraph of profile.letter; track $index) {
+        <p>{{ paragraph }}</p>
       }
-    </ul>
-  </app-island>
+    </div>
+    <app-card appReveal="2">
+      <dl>
+        @for (fact of facts; track fact.label) {
+          <div>
+            <dt>{{ fact.label }}</dt>
+            <dd>{{ fact.value }}</dd>
+          </div>
+        }
+      </dl>
+    </app-card>
+  </div>
 </section>

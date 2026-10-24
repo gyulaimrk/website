@@ -1,0 +1,17 @@
+import { TestBed } from '@angular/core/testing';
+import { skills } from '../../data/content';
+import { Skills } from './skills';
+
+describe('Skills', () => {
+  it('minden képességhez kártyát rajzol, a kiemeltet szélesebben és keretesen', () => {
+    const fixture = TestBed.createComponent(Skills);
+    fixture.detectChanges();
+    const cards = [...fixture.nativeElement.querySelectorAll('app-card')] as HTMLElement[];
+    expect(cards.length).toBe(skills.length);
+    cards.forEach((card, i) => {
+      const highlighted = Boolean(skills[i].highlight);
+      expect(card.classList.contains('wide')).toBe(highlighted);
+      expect(card.classList.contains('featured')).toBe(highlighted);
+    });
+  });
+});

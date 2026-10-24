@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { profile } from '../../data/content';
 import { Button } from '../../shared/button/button';
-import { Island } from '../../shared/island/island';
+import { Reveal } from '../../shared/reveal/reveal.directive';
 
 @Component({
   selector: 'app-contact',
-  imports: [Button, Island],
+  imports: [Button, Reveal],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })

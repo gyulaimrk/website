@@ -52,9 +52,11 @@
               }
             ],
             "styles": [
-              "@fontsource/young-serif/400.css",
-              "@fontsource/albert-sans/400.css",
-              "@fontsource/albert-sans/600.css",
+              "@fontsource/inter/400.css",
+              "@fontsource/inter/500.css",
+              "@fontsource/inter/600.css",
+              "@fontsource/space-grotesk/500.css",
+              "@fontsource/space-grotesk/700.css",
               "src/styles.scss"
             ]
           },

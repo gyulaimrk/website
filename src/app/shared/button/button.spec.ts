@@ -4,7 +4,7 @@ import { Button } from './button';
 
 @Component({
   imports: [Button],
-  template: `<a appButton href="/x" [external]="true" variant="ink" size="small">Küldés</a>`,
+  template: `<a appButton href="/x" [external]="true" variant="ghost" size="small">Küldés</a>`,
 })
 class Host {}
 
@@ -16,7 +16,7 @@ describe('Button', () => {
     expect(a.textContent).toContain('Küldés');
     expect(a.getAttribute('target')).toBe('_blank');
     expect(a.getAttribute('rel')).toBe('noopener');
-    expect(a.classList).toContain('ink');
+    expect(a.classList).toContain('ghost');
     expect(a.classList).toContain('small');
   });
 });

@@ -1,0 +1,38 @@
+section {
+  max-width: var(--max);
+  margin: var(--section) auto 0;
+  padding: 0 var(--gutter);
+}
+ol {
+  position: relative;
+  display: grid;
+  gap: 28px;
+  margin: 0;
+  padding: 0 0 0 clamp(28px, 5vw, 56px);
+  list-style: none;
+}
+ol::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 7px;
+  width: 3px;
+  border-radius: 2px;
+  background: var(--gradient);
+  opacity: 0.6;
+}
+li {
+  position: relative;
+}
+li::before {
+  content: '';
+  position: absolute;
+  top: 34px;
+  left: calc(-1 * clamp(28px, 5vw, 56px) + 1px);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: 0 0 0 4px var(--accent);
+}

@@ -1,0 +1,33 @@
+section {
+  max-width: var(--max);
+  margin: var(--section) auto 0;
+  padding: 0 var(--gutter);
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+h3 {
+  margin-bottom: 20px;
+  font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.9rem);
+}
+ul {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+li {
+  display: grid;
+}
+li span {
+  color: var(--muted);
+  font-size: var(--step-small);
+}
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { Job } from '../../../data/models';
-import { RouteStop } from './route-stop';
+import { JobCard } from './job-card';
 
 const job: Job = {
   company: 'Példa Kft.',
@@ -15,10 +15,11 @@ const job: Job = {
   ],
 };
 
-describe('RouteStop', () => {
-  function render(overrides: Partial<Job> = {}) {
-    const fixture = TestBed.createComponent(RouteStop);
+describe('JobCard', () => {
+  function render(overrides: Partial<Job> = {}, current = false) {
+    const fixture = TestBed.createComponent(JobCard);
     fixture.componentRef.setInput('job', { ...job, ...overrides });
+    fixture.componentRef.setInput('current', current);
     fixture.detectChanges();
     return fixture.nativeElement as HTMLElement;
   }
@@ -39,5 +40,9 @@ describe('RouteStop', () => {
 
   it('projektek nélkül nincs projektlista', () => {
     expect(render({ projects: undefined }).querySelector('.projects')).toBeNull();
+  });
+
+  it('a jelenlegi munkahely kiemelt kártyát kap', () => {
+    expect(render({}, true).querySelector('app-card')?.classList).toContain('featured');
   });
 });

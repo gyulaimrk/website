@@ -1,4 +1,4 @@
-import { filterTech, jobs, profile, skills, studies } from './content';
+import { filterTech, jobs, profile, skills, stats, studies } from './content';
 
 describe('content', () => {
   it('a profil kötelező mezői ki vannak töltve', () => {
@@ -28,5 +28,14 @@ describe('content', () => {
     expect(new Set(keys).size).toBe(keys.length);
     const titles = skills.map((s) => s.title);
     expect(new Set(titles).size).toBe(titles.length);
+  });
+
+  it('a statisztikák és a hero szerepei ki vannak töltve', () => {
+    expect(stats.length).toBeGreaterThan(0);
+    stats.forEach((s) => {
+      expect(s.value).toBeTruthy();
+      expect(s.label).toBeTruthy();
+    });
+    expect(profile.roles.length).toBeGreaterThan(0);
   });
 });

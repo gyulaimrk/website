@@ -11,6 +11,8 @@ export interface Profile {
   tagline: string;
   intro: string;
   languages: string;
+  /** A hero gépelő szövegének szerepei. */
+  roles: string[];
   letter: string[];
 }
 
@@ -44,4 +46,9 @@ export interface Study {
   title: string;
   where: string;
   period: string;
+}
+
+export interface Stat {
+  value: string;
+  label: string;
 }
