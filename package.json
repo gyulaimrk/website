@@ -10,7 +10,8 @@
     "preview": "ng build && wrangler dev",
     "deploy": "ng build && wrangler deploy",
     "postbuild": "node scripts/postbuild.mjs",
-    "cv": "node scripts/build-cv.mjs"
+    "cv": "node scripts/build-cv.mjs",
+    "e2e": "playwright test"
   },
   "private": true,
   "packageManager": "npm@10.9.4",

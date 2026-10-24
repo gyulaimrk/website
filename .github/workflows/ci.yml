@@ -17,6 +17,16 @@ jobs:
       - run: npm ci
       - run: npm test -- --watch=false
       - run: npm run build
+      - name: Install the browser for the end-to-end tests
+        run: npx playwright install --with-deps chromium
+      - name: End-to-end tests
+        run: npm run e2e
+      - name: Keep the traces of failed end-to-end tests
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-traces
+          path: e2e/test-output
       - uses: actions/upload-artifact@v4
         with:
           name: site
