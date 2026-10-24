@@ -37,7 +37,7 @@ const jobs: Content['jobs'] = [
         url: 'https://rentacar.mollimo.hu/rent/start',
         text: 'A MOL Limo autóbérlő rendszerének backendjét fejlesztem Kotlinban.',
       },
-      { name: 'Railjet' },
+      { name: 'Railnet' },
       { name: 'Helvo', text: 'Egy svájci startup projektje.' },
       {
         name: 'GLI Solutions',
