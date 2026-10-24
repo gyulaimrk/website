@@ -15,7 +15,7 @@ const profile: Content['profile'] = {
   intro:
     'I build backend systems in Java and Kotlin. I like working on software that stays in use for years and that a team can keep developing with confidence. I also work as an AI consultant, helping companies make artificial intelligence genuinely useful.',
   letter: [
-    'I am a senior Java developer. I have spent more than four years on Java 11 and Java 17, but I feel at home anywhere from Java 8 up to Java 25. I work on Spring and Spring Boot applications, and I like to see the work through from design and coding to tests and maintenance.',
+    'I am a senior Java developer. I have spent more than five years on Java 11 and Java 17, but I feel at home anywhere from Java 8 up to Java 25. I work on Spring and Spring Boot applications, and I like to see the work through from design and coding to tests and maintenance.',
     'I care about code that is easy to understand and maintain. That is why I follow proven design principles and patterns, and why I test a lot: unit tests, system tests and UI tests. Whenever a project needed better test coverage, I was glad to take it on.',
     'I am comfortable working in a team and on my own. I talk openly with clients and with colleagues from other areas, because I believe good software starts with good conversations. I try out new technologies in side projects, so my knowledge keeps getting refreshed. I also use AI deliberately in my work: I write good prompts, build skills, and record in CLAUDE.md files how the assistant should work on a project.',
     'This site is built with Angular, because I am curious about the other side of development too.',
@@ -74,12 +74,12 @@ const skills: Content['skills'] = [
     highlight: true,
     title: 'AI and MCP',
     tag: 'Artificial intelligence',
-    text: 'AI is a natural part of my daily work. I write well-formed prompts, use my own skills, and write CLAUDE.md files so the AI assistant knows a project’s rules and helps consistently. On the GLI Solutions project at Adroit Group I work as an AI consultant: we look for where artificial intelligence helps and how to fit it into existing systems. In March 2026 I earned four Anthropic certificates: Claude API, Model Context Protocol (MCP), agent skills and Claude Code.',
+    text: 'I have used AI in my work for more than three years, and today it is a natural part of my daily work. I write well-formed prompts, use my own skills, and write CLAUDE.md files so the AI assistant knows a project’s rules and helps consistently. On the GLI Solutions project at Adroit Group I work as an AI consultant: we look for where artificial intelligence helps and how to fit it into existing systems. In March 2026 I earned four Anthropic certificates: Claude API, Model Context Protocol (MCP), agent skills and Claude Code.',
   },
   {
     title: 'Java 8–25',
     tag: 'Language',
-    text: 'I write code confidently from Java 8 up to Java 25. Most of my practice, more than four years, is on Java 11 and Java 17. I also hold certificates in Java 8, Java 10 and 11, and Java 17.',
+    text: 'I write code confidently from Java 8 up to Java 25. Most of my practice, more than five years, is on Java 11 and Java 17. I also hold certificates in Java 8, Java 10 and 11, and Java 17.',
   },
   {
     title: 'Kotlin',
@@ -218,7 +218,8 @@ const studies: Content['studies'] = [
 ];
 
 const stats: Content['stats'] = [
-  { value: '4+', label: 'years working with Java 11 and 17' },
+  { value: '5+', label: 'years working with Java 11 and 17' },
+  { value: '3+', label: 'years using AI in my work' },
   { value: '8–25', label: 'Java versions I write code in confidently' },
   { value: '3', label: 'companies so far: EPAM, RDI and Adroit' },
 ];

@@ -15,7 +15,7 @@ const profile: Content['profile'] = {
   intro:
     'Backend rendszereket építek Javában és Kotlinban. Olyan szoftvereken dolgozom szívesen, amelyeket évekig használnak, és amelyeket egy csapat magabiztosan tovább tud fejleszteni. Emellett AI-konzultánsként segítek abban, hogy a mesterséges intelligencia tényleg hasznos legyen egy cégnél.',
   letter: [
-    'Senior Java fejlesztő vagyok. Több mint négy éve dolgozom Java 11 és Java 17 alatt, de a Java 8-tól a 25-ös verzióig mindenhol otthon érzem magam. Spring és Spring Boot alkalmazásokon dolgozom, és szeretem végigvinni a munkát: a tervezéstől a kódoláson és a teszteken át a karbantartásig.',
+    'Senior Java fejlesztő vagyok. Több mint öt éve dolgozom Java 11 és Java 17 alatt, de a Java 8-tól a 25-ös verzióig mindenhol otthon érzem magam. Spring és Spring Boot alkalmazásokon dolgozom, és szeretem végigvinni a munkát: a tervezéstől a kódoláson és a teszteken át a karbantartásig.',
     'Fontos számomra, hogy a kód érthető és karbantartható legyen. Ezért követem a bevált tervezési elveket és mintákat, és sokat tesztelek: egységtesztekkel, rendszertesztekkel és felületi tesztekkel is. Ha egy projektben javítani kellett a tesztlefedettséget, azt mindig szívesen vállaltam.',
     'Jól érzem magam csapatban és önállóan is. Az ügyfelekkel és a más területen dolgozó kollégákkal nyíltan egyeztetek, mert szerintem a jó szoftver jó beszélgetésekkel kezdődik. Új technológiákat mellékprojektekben szoktam kipróbálni, így a tudásom folyamatosan frissül. Az AI-t is tudatosan használom a munkámban: jól promptolok, skilleket építek, és CLAUDE.md fájlokban rögzítem, hogyan dolgozzon az asszisztens a projekten.',
     'Ez az oldal Angularral készült, mert a fejlesztés másik oldala is érdekel.',
@@ -73,12 +73,12 @@ const skills: Content['skills'] = [
     highlight: true,
     title: 'AI és MCP',
     tag: 'Mesterséges intelligencia',
-    text: 'Az AI a napi munkám természetes része. Jól megfogalmazott promptokkal dolgozom, saját skilleket használok, és CLAUDE.md fájlokat írok, hogy az AI-asszisztens ismerje a projekt szabályait, és következetesen segítsen. Az Adroit Group GLI Solutions projektjén AI-konzultánsként azt keressük, hol hasznos a mesterséges intelligencia, és hogyan illeszthető be a meglévő rendszerekbe. 2026 márciusában négy Anthropic-tanúsítványt szereztem: Claude API, Model Context Protocol (MCP), agent skills és Claude Code.',
+    text: 'Több mint három éve használok AI-t a munkámban, ma már a napi munkám természetes része. Jól megfogalmazott promptokkal dolgozom, saját skilleket használok, és CLAUDE.md fájlokat írok, hogy az AI-asszisztens ismerje a projekt szabályait, és következetesen segítsen. Az Adroit Group GLI Solutions projektjén AI-konzultánsként azt keressük, hol hasznos a mesterséges intelligencia, és hogyan illeszthető be a meglévő rendszerekbe. 2026 márciusában négy Anthropic-tanúsítványt szereztem: Claude API, Model Context Protocol (MCP), agent skills és Claude Code.',
   },
   {
     title: 'Java 8–25',
     tag: 'Nyelv',
-    text: 'A Java 8-tól a 25-ös verzióig magabiztosan írok kódot. A legtöbb gyakorlatom, több mint négy év, Java 11 és Java 17 alatt van. Java 8-ból, a 10-es és 11-es, valamint a 17-es verzióból tanúsítványom is van.',
+    text: 'A Java 8-tól a 25-ös verzióig magabiztosan írok kódot. A legtöbb gyakorlatom, több mint öt év, Java 11 és Java 17 alatt van. Java 8-ból, a 10-es és 11-es, valamint a 17-es verzióból tanúsítványom is van.',
   },
   {
     title: 'Kotlin',
@@ -217,7 +217,8 @@ const studies: Content['studies'] = [
 ];
 
 const stats: Content['stats'] = [
-  { value: '4+', label: 'éve dolgozom Java 11 és 17 alatt' },
+  { value: '5+', label: 'éve dolgozom Java 11 és 17 alatt' },
+  { value: '3+', label: 'éve használok AI-t a munkámban' },
   { value: '8–25', label: 'Java verziókon írok magabiztosan kódot' },
   { value: '3', label: 'cégnél dolgoztam: EPAM, RDI és Adroit' },
 ];
