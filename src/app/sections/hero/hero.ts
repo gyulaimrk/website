@@ -2,7 +2,8 @@ import { Component, computed, inject } from '@angular/core';
 import { ContentService } from '../../core/content.service';
 import { AnchorLink } from '../../shared/anchor-link/anchor-link.directive';
 import { Button } from '../../shared/button/button';
-import { CodeEntry, CodeWindow } from '../../shared/code-window/code-window';
+import { CodeFile } from '../../data/models';
+import { CodeWindow } from '../../shared/code-window/code-window';
 import { Typewriter } from '../../shared/typewriter/typewriter';
 
 @Component({
@@ -13,14 +14,19 @@ import { Typewriter } from '../../shared/typewriter/typewriter';
 })
 export class Hero {
   protected readonly content = inject(ContentService).content;
-  protected readonly code = computed<CodeEntry[]>(() => {
-    const { profile } = this.content();
-    return [
-      { key: 'name', value: profile.name },
-      { key: 'role', value: profile.role },
-      { key: 'stack', value: profile.stack },
-      { key: 'ai', value: true },
-      { key: 'location', value: profile.location.split(',')[0] },
-    ];
+  /** A kódablak fájljai: a profilból épített Developer.kt, majd a szemléltető példák. */
+  protected readonly files = computed<CodeFile[]>(() => {
+    const { profile, codeSamples } = this.content();
+    const stack = profile.stack.map((item) => `"${item}"`).join(', ');
+    const developer = [
+      'val developer = Developer(',
+      `    name = "${profile.name}",`,
+      `    role = "${profile.role}",`,
+      `    stack = listOf(${stack}),`,
+      '    ai = true,',
+      `    location = "${profile.location.split(',')[0]}",`,
+      ')',
+    ].join('\n');
+    return [{ name: 'Developer.kt', language: 'kotlin', code: developer }, ...codeSamples];
   });
 }

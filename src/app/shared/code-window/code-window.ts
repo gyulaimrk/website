@@ -1,34 +1,43 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, input, linkedSignal } from '@angular/core';
+import { CodeFile } from '../../data/models';
+import { highlight } from './highlight';
 
-export type CodeValue = string | readonly string[] | boolean;
-export interface CodeEntry {
-  key: string;
-  value: CodeValue;
-}
-
-/** Kotlin-kódablak: kulcs-érték párokból felépített `Developer(...)` példány, színezett tokenekkel. */
+/** Kódablak fülekkel: több fájl között lehet váltani, a kód színezve jelenik meg. */
 @Component({
   selector: 'app-code-window',
   templateUrl: './code-window.html',
   styleUrl: './code-window.scss',
 })
 export class CodeWindow {
-  readonly fileName = input('Developer.kt');
-  readonly entries = input.required<readonly CodeEntry[]>();
-
+  readonly files = input.required<readonly CodeFile[]>();
+  /** A kiválasztott fül; új fájllista esetén az elsőre áll vissza. */
+  protected readonly active = linkedSignal<readonly CodeFile[], number>({
+    source: this.files,
+    computation: () => 0,
+  });
+  protected readonly current = computed(() => this.files()[this.active()]);
   protected readonly lines = computed(() =>
-    this.entries().map((entry) => ({
-      key: entry.key,
-      kind: Array.isArray(entry.value)
-        ? 'list'
-        : typeof entry.value === 'boolean'
-          ? 'bool'
-          : 'text',
-      value: entry.value,
-    })),
+    highlight(this.current().code, this.current().language),
   );
 
-  protected asList(value: CodeValue): readonly string[] {
-    return Array.isArray(value) ? value : [];
+  protected select(index: number) {
+    this.active.set(index);
+  }
+
+  /** Nyilakkal lehet fülek között lépni (Home/End a szélekre). */
+  protected onKeydown(event: KeyboardEvent) {
+    const last = this.files().length - 1;
+    const moves: Record<string, number> = {
+      ArrowRight: Math.min(this.active() + 1, last),
+      ArrowLeft: Math.max(this.active() - 1, 0),
+      Home: 0,
+      End: last,
+    };
+    if (!(event.key in moves)) return;
+    event.preventDefault();
+    this.select(moves[event.key]);
+    (event.currentTarget as HTMLElement)
+      .querySelectorAll<HTMLElement>('[role="tab"]')
+      [this.active()]?.focus();
   }
 }

@@ -3,6 +3,7 @@ import { ContentService } from '../../core/content.service';
 import { LanguageService } from '../../core/language.service';
 import { SeoService } from '../../core/seo.service';
 import { About } from '../../sections/about/about';
+import { AiWorkflow } from '../../sections/ai-workflow/ai-workflow';
 import { Contact } from '../../sections/contact/contact';
 import { Education } from '../../sections/education/education';
 import { Experience } from '../../sections/experience/experience';
@@ -23,6 +24,7 @@ import { BackToTop } from '../../shared/back-to-top/back-to-top';
     Hero,
     About,
     Skills,
+    AiWorkflow,
     Experience,
     SideProjects,
     Education,

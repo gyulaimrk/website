@@ -62,6 +62,30 @@ export interface Study {
   description?: string;
 }
 
+export type CodeLanguage = 'kotlin' | 'markdown';
+
+/** Egy fájl a kódablakban: neve, nyelve és tartalma. */
+export interface CodeFile {
+  name: string;
+  language: CodeLanguage;
+  code: string;
+}
+
+export interface AiPoint {
+  title: string;
+  text: string;
+}
+
+/** A „Hogyan dolgozom AI-val” szekció tartalma. */
+export interface AiWorkflow {
+  title: string;
+  lead: string;
+  points: AiPoint[];
+  /** A projekt valódi CLAUDE.md-jének rövidített részlete. */
+  file: CodeFile;
+  note: string;
+}
+
 export interface Stat {
   value: string;
   label: string;
@@ -88,14 +112,20 @@ export interface Ui {
     closeMenu: string;
   };
   toggles: { toLight: string; toDark: string; toOtherLanguage: string; otherLanguageCode: string };
-  hero: { greeting: string; nameSuffix: string; projects: string; linkedin: string };
+  hero: {
+    greeting: string;
+    nameSuffix: string;
+    projects: string;
+    linkedin: string;
+    codeNote: string;
+  };
   about: {
     title: string;
     lead: string;
     facts: { location: string; role: string; languages: string; license: string; email: string };
   };
   skills: { title: string; lead: string };
-  experience: { title: string; lead: string };
+  experience: { title: string; lead: string; projects: string };
   sideProjects: { title: string; lead: string; visit: string; source: string };
   education: {
     title: string;
@@ -114,6 +144,9 @@ export interface Content {
   profile: Profile;
   jobs: Job[];
   skills: Skill[];
+  aiWorkflow: AiWorkflow;
+  /** Szemléltető kódpéldák a nyitóoldal kódablakába (nem munkahelyi kód). */
+  codeSamples: CodeFile[];
   sideProjects: SideProject[];
   studies: Study[];
   stats: Stat[];

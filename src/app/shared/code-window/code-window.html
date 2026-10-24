@@ -1,17 +1,30 @@
-<div class="window" role="img" [attr.aria-label]="'Kotlin kódrészlet: ' + fileName()">
-  <div class="bar" aria-hidden="true">
-    <span class="dot red"></span>
-    <span class="dot yellow"></span>
-    <span class="dot green"></span>
-    <span class="file">{{ fileName() }}</span>
+<div class="window">
+  <div class="bar">
+    <span class="dot red" aria-hidden="true"></span>
+    <span class="dot yellow" aria-hidden="true"></span>
+    <span class="dot green" aria-hidden="true"></span>
+    <div class="tabs" role="tablist" (keydown)="onKeydown($event)">
+      @for (file of files(); track file.name; let i = $index) {
+        <button
+          type="button"
+          role="tab"
+          [id]="'tab-' + i"
+          [class.on]="i === active()"
+          [attr.aria-selected]="i === active()"
+          [attr.aria-controls]="'panel'"
+          [attr.tabindex]="i === active() ? 0 : -1"
+          (click)="select(i)"
+        >
+          {{ file.name }}
+        </button>
+      }
+    </div>
   </div>
   <pre
-    aria-hidden="true"
-  ><code><span class="kw">val</span> developer = <span class="type">Developer</span>(
-@for (line of lines(); track line.key) {  <span class="prop">{{ line.key }}</span> = @switch (line.kind) {
-@case ('list') {<span class="fn">listOf</span>(@for (item of asList(line.value); track item; let last = $last) {<span class="str">"{{ item }}"</span>@if (!last) {, }})}
-@case ('bool') {<span class="kw">{{ line.value }}</span>}
-@default {<span class="str">"{{ line.value }}"</span>}
-},
-})</code></pre>
+    id="panel"
+    [class.wrap]="current().language === 'markdown'"
+    role="tabpanel"
+    tabindex="0"
+    [attr.aria-labelledby]="'tab-' + active()"
+  ><code>@for (line of lines(); track $index) {<span class="line">@for (token of line; track $index) {<span [class]="token.kind">{{ token.text }}</span>}</span>}</code></pre>
 </div>

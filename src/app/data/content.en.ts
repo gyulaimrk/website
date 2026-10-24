@@ -140,6 +140,78 @@ const skills: Content['skills'] = [
   },
 ];
 
+const codeSamples: Content['codeSamples'] = [
+  {
+    name: 'OrderRepository.kt',
+    language: 'kotlin',
+    code: [
+      '// Exposed: the most recent orders, newest first',
+      'class OrderRepository(private val database: Database) {',
+      '    fun recent(limit: Int = 10): List<Order> = transaction(database) {',
+      '        Orders',
+      '            .selectAll()',
+      '            .orderBy(Orders.createdAt, SortOrder.DESC)',
+      '            .limit(limit)',
+      '            .map { it.toOrder() }',
+      '    }',
+      '}',
+    ].join('\n'),
+  },
+  {
+    name: 'OrderRepositoryTest.kt',
+    language: 'kotlin',
+    code: [
+      'class OrderRepositoryTest {',
+      '    @Test',
+      '    fun `the newest order comes first`() {',
+      '        val orders = repository.recent(limit = 2)',
+      '',
+      '        assertEquals(listOf("C-3", "B-2"), orders.map { it.number })',
+      '    }',
+      '}',
+    ].join('\n'),
+  },
+];
+
+const aiWorkflow: Content['aiWorkflow'] = {
+  title: 'How I work with AI',
+  lead: 'I have used AI in my work for more than three years. This is what it looks like in practice.',
+  points: [
+    {
+      title: 'Precise prompts',
+      text: 'I describe a task together with its context: what the goal is, what to watch out for, and when it is done. That way the assistant gets closer to the right solution on the first try.',
+    },
+    {
+      title: 'CLAUDE.md in every project',
+      text: 'I record a project’s rules, commands and structure in a CLAUDE.md file, so the assistant knows the same things in every session. I built this site that way, and the file is visible in the source code.',
+    },
+    {
+      title: 'My own skills and hooks',
+      text: 'I write skills for repeated tasks, for example editing the content. The lizacover.hu project has six skills and a hook that checks everything before a push.',
+    },
+    {
+      title: 'I check the result',
+      text: 'The AI’s code is protected by tests and the build, and CI runs them on every change. For this site, accessibility and performance were measured as well.',
+    },
+  ],
+  file: {
+    name: 'CLAUDE.md',
+    language: 'markdown',
+    code: [
+      '# Márk Gyulai – portfolio',
+      '',
+      'Angular 22, standalone components, signals. Bilingual: Hungarian and English.',
+      '',
+      '## Rules',
+      '- Text may only live in `content.hu.ts` and `content.en.ts`.',
+      '- Content must be real data only. If data is missing, ask.',
+      '- Every component is its own `.ts`, `.html`, `.scss` and `.spec.ts` file.',
+      '- After a change, `npm test` and `npm run build` must pass.',
+    ].join('\n'),
+  },
+  note: 'The file is taken from the real CLAUDE.md of this site, shortened.',
+};
+
 const sideProjects: Content['sideProjects'] = [
   {
     name: 'lizacover.hu',
@@ -279,6 +351,7 @@ const ui: Content['ui'] = {
     links: [
       { fragment: 'rolam', label: 'About' },
       { fragment: 'eszkoztar', label: 'Skills' },
+      { fragment: 'ai', label: 'AI' },
       { fragment: 'tapasztalat', label: 'Experience' },
       { fragment: 'mellekprojektek', label: 'Side projects' },
       { fragment: 'tanulmanyok', label: 'Education' },
@@ -293,7 +366,13 @@ const ui: Content['ui'] = {
     toOtherLanguage: 'Switch to Hungarian',
     otherLanguageCode: 'HU',
   },
-  hero: { greeting: 'Hi, I am', nameSuffix: '', projects: 'My work', linkedin: 'LinkedIn' },
+  hero: {
+    greeting: 'Hi, I am',
+    nameSuffix: '',
+    projects: 'My work',
+    linkedin: 'LinkedIn',
+    codeNote: 'An illustrative example, not code from work.',
+  },
   about: {
     title: 'About me',
     lead: 'A developer who likes to build systems that are still easy to understand years later.',
@@ -317,6 +396,7 @@ const ui: Content['ui'] = {
   },
   experience: {
     title: 'Experience',
+    projects: 'Projects',
     lead: 'Three companies, four roles, eight projects: I started as a junior developer and today I am a senior.',
   },
   education: {
@@ -335,4 +415,14 @@ const ui: Content['ui'] = {
   backToTop: 'Back to top',
 };
 
-export const contentEn: Content = { profile, jobs, skills, sideProjects, studies, stats, ui };
+export const contentEn: Content = {
+  profile,
+  jobs,
+  skills,
+  aiWorkflow,
+  codeSamples,
+  sideProjects,
+  studies,
+  stats,
+  ui,
+};

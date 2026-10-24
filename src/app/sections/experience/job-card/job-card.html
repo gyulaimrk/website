@@ -8,25 +8,28 @@
   </div>
   <p class="description">{{ job().description }}</p>
   @if (job().projects; as projects) {
-    <ul class="projects">
-      @for (project of projects; track project.name) {
-        <li>
-          <h4>
-            @if (project.url) {
-              <a [href]="project.url" target="_blank" rel="noopener">{{ project.name }}</a>
-            } @else {
-              {{ project.name }}
+    <details class="projects-box" [open]="current()">
+      <summary>{{ content().ui.experience.projects }} ({{ projects.length }})</summary>
+      <ul class="projects">
+        @for (project of projects; track project.name) {
+          <li>
+            <h4>
+              @if (project.url) {
+                <a [href]="project.url" target="_blank" rel="noopener">{{ project.name }}</a>
+              } @else {
+                {{ project.name }}
+              }
+              @if (project.role) {
+                <span>{{ project.role }}</span>
+              }
+            </h4>
+            @if (project.text) {
+              <p>{{ project.text }}</p>
             }
-            @if (project.role) {
-              <span>{{ project.role }}</span>
-            }
-          </h4>
-          @if (project.text) {
-            <p>{{ project.text }}</p>
-          }
-        </li>
-      }
-    </ul>
+          </li>
+        }
+      </ul>
+    </details>
   }
   <app-chip-list [items]="job().tech" />
 </app-card>

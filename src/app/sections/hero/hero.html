@@ -19,7 +19,10 @@
         </a>
       </div>
     </div>
-    <app-code-window class="code" [entries]="code()" />
+    <div class="code">
+      <app-code-window [files]="files()" />
+      <p class="note">{{ content().ui.hero.codeNote }}</p>
+    </div>
   </div>
   <ul class="stats">
     @for (stat of content().stats; track stat.value) {

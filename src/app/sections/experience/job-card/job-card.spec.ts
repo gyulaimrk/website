@@ -50,4 +50,14 @@ describe('JobCard', () => {
     expect(el.querySelector('.projects h4')?.textContent).toContain('Csak név');
     expect(el.querySelector('.projects p')).toBeNull();
   });
+
+  it('a projektek összecsukható listában vannak, a darabszámmal a feliratban', () => {
+    const el = render();
+    expect(el.querySelector('details > summary')?.textContent).toContain('Projektek (2)');
+  });
+
+  it('alapból összecsukott, a jelenlegi munkahelynél nyitott', () => {
+    expect((render({}, false).querySelector('details') as HTMLDetailsElement).open).toBe(false);
+    expect((render({}, true).querySelector('details') as HTMLDetailsElement).open).toBe(true);
+  });
 });

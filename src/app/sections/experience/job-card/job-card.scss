@@ -34,6 +34,44 @@ h3 {
 .description {
   color: var(--muted);
 }
+.projects-box summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+.projects-box summary::-webkit-details-marker {
+  display: none;
+}
+.projects-box summary::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.2s;
+}
+.projects-box[open] summary::after {
+  transform: translateY(2px) rotate(-135deg);
+}
+.projects-box summary:hover {
+  background: var(--card-hover);
+  border-color: var(--accent);
+}
+.projects-box .projects {
+  margin-top: 14px;
+}
 .projects {
   display: grid;
   gap: 12px;

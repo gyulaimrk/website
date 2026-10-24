@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { ContentService } from '../../../core/content.service';
 import { Job } from '../../../data/models';
 import { Card } from '../../../shared/card/card';
 import { ChipList } from '../../../shared/chip-list/chip-list';
@@ -13,4 +14,5 @@ import { ChipList } from '../../../shared/chip-list/chip-list';
 export class JobCard {
   readonly job = input.required<Job>();
   readonly current = input(false);
+  protected readonly content = inject(ContentService).content;
 }

@@ -25,6 +25,7 @@ describe('PortfolioPage', () => {
       'app-hero',
       'app-about',
       'app-skills',
+      'app-ai-workflow',
       'app-experience',
       'app-side-projects',
       'app-education',

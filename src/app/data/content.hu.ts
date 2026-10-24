@@ -140,6 +140,78 @@ const skills: Content['skills'] = [
   },
 ];
 
+const codeSamples: Content['codeSamples'] = [
+  {
+    name: 'OrderRepository.kt',
+    language: 'kotlin',
+    code: [
+      '// Exposed: a legutóbbi rendelések, a legfrissebbel kezdve',
+      'class OrderRepository(private val database: Database) {',
+      '    fun recent(limit: Int = 10): List<Order> = transaction(database) {',
+      '        Orders',
+      '            .selectAll()',
+      '            .orderBy(Orders.createdAt, SortOrder.DESC)',
+      '            .limit(limit)',
+      '            .map { it.toOrder() }',
+      '    }',
+      '}',
+    ].join('\n'),
+  },
+  {
+    name: 'OrderRepositoryTest.kt',
+    language: 'kotlin',
+    code: [
+      'class OrderRepositoryTest {',
+      '    @Test',
+      '    fun `a legfrissebb rendelés van elöl`() {',
+      '        val orders = repository.recent(limit = 2)',
+      '',
+      '        assertEquals(listOf("C-3", "B-2"), orders.map { it.number })',
+      '    }',
+      '}',
+    ].join('\n'),
+  },
+];
+
+const aiWorkflow: Content['aiWorkflow'] = {
+  title: 'Hogyan dolgozom AI-val',
+  lead: 'Több mint három éve használok AI-t a munkámban. Így néz ez ki a gyakorlatban.',
+  points: [
+    {
+      title: 'Pontos promptok',
+      text: 'A feladatot a kontextusával együtt írom le: mi a cél, mire kell figyelni, és mikor kész. Így az asszisztens elsőre közelebb kerül a jó megoldáshoz.',
+    },
+    {
+      title: 'CLAUDE.md minden projektben',
+      text: 'A projekt szabályait, parancsait és szerkezetét egy CLAUDE.md fájlban rögzítem, így az asszisztens minden munkamenetben ugyanazt tudja. Ezt az oldalt is így építettem, a fájl a forráskódban látható.',
+    },
+    {
+      title: 'Saját skillek és hookok',
+      text: 'Az ismétlődő feladatokra skilleket írok, például a tartalom szerkesztésére. A lizacover.hu projektben hat skill és egy push előtti ellenőrző hook is segít.',
+    },
+    {
+      title: 'Az eredményt ellenőrzöm',
+      text: 'Az AI kódját tesztek és build védik, a CI pedig minden változtatásnál lefuttatja őket. Ennél az oldalnál hozzáférhetőségi és teljesítménymérés is volt.',
+    },
+  ],
+  file: {
+    name: 'CLAUDE.md',
+    language: 'markdown',
+    code: [
+      '# Gyulai Márk – portfólió',
+      '',
+      'Angular 22, standalone komponensek, signalok. Kétnyelvű: magyar és angol.',
+      '',
+      '## Szabályok',
+      '- Szöveg csak a `content.hu.ts` és a `content.en.ts` fájlokban lehet.',
+      '- A tartalom csak valós adat lehet. Ha hiányzik adat, kérdezz.',
+      '- Minden komponens külön `.ts`, `.html`, `.scss` és `.spec.ts` fájl.',
+      '- Módosítás után az `npm test` és az `npm run build` hibátlan legyen.',
+    ].join('\n'),
+  },
+  note: 'A fájl ennek az oldalnak a valódi CLAUDE.md-jéből készült, rövidítve.',
+};
+
 const sideProjects: Content['sideProjects'] = [
   {
     name: 'lizacover.hu',
@@ -279,6 +351,7 @@ const ui: Content['ui'] = {
     links: [
       { fragment: 'rolam', label: 'Rólam' },
       { fragment: 'eszkoztar', label: 'Eszköztár' },
+      { fragment: 'ai', label: 'AI' },
       { fragment: 'tapasztalat', label: 'Tapasztalat' },
       { fragment: 'mellekprojektek', label: 'Mellékprojektek' },
       { fragment: 'tanulmanyok', label: 'Tanulmányok' },
@@ -293,7 +366,13 @@ const ui: Content['ui'] = {
     toOtherLanguage: 'Váltás angol nyelvre',
     otherLanguageCode: 'EN',
   },
-  hero: { greeting: 'Szia, én', nameSuffix: 'vagyok', projects: 'Munkáim', linkedin: 'LinkedIn' },
+  hero: {
+    greeting: 'Szia, én',
+    nameSuffix: 'vagyok',
+    projects: 'Munkáim',
+    linkedin: 'LinkedIn',
+    codeNote: 'Szemléltető példa, nem munkahelyi kód.',
+  },
   about: {
     title: 'Rólam',
     lead: 'Egy fejlesztő, aki szívesen épít olyan rendszert, amelyet évek múlva is könnyű megérteni.',
@@ -317,6 +396,7 @@ const ui: Content['ui'] = {
   },
   experience: {
     title: 'Tapasztalat',
+    projects: 'Projektek',
     lead: 'Három cég, négy szerep, nyolc projekt: junior fejlesztőként kezdtem, ma senior vagyok.',
   },
   education: {
@@ -335,4 +415,14 @@ const ui: Content['ui'] = {
   backToTop: 'Vissza a tetejére',
 };
 
-export const contentHu: Content = { profile, jobs, skills, sideProjects, studies, stats, ui };
+export const contentHu: Content = {
+  profile,
+  jobs,
+  skills,
+  aiWorkflow,
+  codeSamples,
+  sideProjects,
+  studies,
+  stats,
+  ui,
+};
