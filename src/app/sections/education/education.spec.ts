@@ -53,4 +53,12 @@ describe('Education', () => {
     const withDescription = items.filter((li) => li.querySelector('p'));
     expect(withDescription.length).toBe(contentHu.studies.filter((s) => s.description).length);
   });
+
+  it('a LinkedIn-profil tanúsítványlistájára is mutat egy link', () => {
+    const fixture = TestBed.createComponent(Education);
+    fixture.detectChanges();
+    const link = fixture.nativeElement.querySelector('a[appButton]') as HTMLAnchorElement;
+    expect(link.getAttribute('href')).toBe(`${contentHu.profile.linkedin}/details/certifications/`);
+    expect(link.textContent).toContain(contentHu.ui.education.allCertificates);
+  });
 });

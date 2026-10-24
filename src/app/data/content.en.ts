@@ -407,6 +407,7 @@ const ui: Content['ui'] = {
     studies: 'Education',
     anthropic: 'Anthropic certificates',
     certificates: 'More certificates',
+    allCertificates: 'All certificates on LinkedIn',
   },
   contact: {
     title: 'Let’s work together',

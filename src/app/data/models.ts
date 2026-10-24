@@ -62,6 +62,8 @@ export interface Study {
   period: string;
   /** Rövid, mondatokban megfogalmazott leírás (csak ahol van mit elmondani). */
   description?: string;
+  /** A tanúsítvány nyilvános oldala, ha van; ezzel a cím linkké válik. */
+  url?: string;
 }
 
 export type CodeLanguage = 'kotlin' | 'markdown';
@@ -136,6 +138,7 @@ export interface Ui {
     studies: string;
     anthropic: string;
     certificates: string;
+    allCertificates: string;
   };
   contact: { title: string; text: string; cv: string; linkedin: string };
   footer: { built: string; label: string };

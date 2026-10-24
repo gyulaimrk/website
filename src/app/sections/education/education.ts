@@ -1,13 +1,14 @@
 import { Component, computed, inject } from '@angular/core';
 import { ContentService } from '../../core/content.service';
-import { Study } from '../../data/models';
+import { Button } from '../../shared/button/button';
 import { Card } from '../../shared/card/card';
 import { Reveal } from '../../shared/reveal/reveal.directive';
 import { SectionHeading } from '../../shared/section-heading/section-heading';
+import { StudyItem } from './study-item/study-item';
 
 @Component({
   selector: 'app-education',
-  imports: [Card, Reveal, SectionHeading],
+  imports: [Button, Card, Reveal, SectionHeading, StudyItem],
   templateUrl: './education.html',
   styleUrl: './education.scss',
 })
@@ -24,8 +25,8 @@ export class Education {
     this.studies().filter((s) => s.kind === 'certificate' && !s.featured),
   );
 
-  /** A kiállító és a dátum egy sorban; ami hiányzik, azt kihagyja. */
-  protected meta(study: Study): string {
-    return [study.where, study.period].filter(Boolean).join(', ');
-  }
+  /** Az összes tanúsítvány a LinkedIn-profilon (az egyes tanúsítványok linkje a `Study.url`). */
+  protected readonly allCertificatesUrl = computed(
+    () => `${this.content().profile.linkedin}/details/certifications/`,
+  );
 }

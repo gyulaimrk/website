@@ -8,15 +8,7 @@
       <h3>{{ content().ui.education.studies }}</h3>
       <ul>
         @for (study of education(); track study.title) {
-          <li>
-            <strong>{{ study.title }}</strong>
-            @if (meta(study)) {
-              <span>{{ meta(study) }}</span>
-            }
-            @if (study.description) {
-              <p>{{ study.description }}</p>
-            }
-          </li>
+          <li appStudyItem [study]="study"></li>
         }
       </ul>
     </app-card>
@@ -24,12 +16,7 @@
       <h3>{{ content().ui.education.anthropic }}</h3>
       <ul>
         @for (study of anthropic(); track study.title) {
-          <li>
-            <strong>{{ study.title }}</strong>
-            @if (meta(study)) {
-              <span>{{ meta(study) }}</span>
-            }
-          </li>
+          <li appStudyItem [study]="study"></li>
         }
       </ul>
     </app-card>
@@ -37,14 +24,14 @@
       <h3>{{ content().ui.education.certificates }}</h3>
       <ul class="columns">
         @for (study of certificates(); track study.title) {
-          <li>
-            <strong>{{ study.title }}</strong>
-            @if (meta(study)) {
-              <span>{{ meta(study) }}</span>
-            }
-          </li>
+          <li appStudyItem [study]="study"></li>
         }
       </ul>
+      <p class="all">
+        <a appButton variant="ghost" size="small" [external]="true" [href]="allCertificatesUrl()">{{
+          content().ui.education.allCertificates
+        }}</a>
+      </p>
     </app-card>
   </div>
 </section>

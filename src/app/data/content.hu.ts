@@ -407,6 +407,7 @@ const ui: Content['ui'] = {
     studies: 'Tanulmányok',
     anthropic: 'Anthropic-tanúsítványok',
     certificates: 'További tanúsítványok',
+    allCertificates: 'Összes tanúsítvány a LinkedInen',
   },
   contact: {
     title: 'Dolgozzunk együtt',
