@@ -17,6 +17,16 @@ describe('About', () => {
     expect(el.querySelector('dl')?.textContent).toContain(contentHu.profile.email);
   });
 
+  it('megmutatja a portréfotót leíró felirattal', () => {
+    const { fixture, el } = render();
+    const photo = el.querySelector('img.photo') as HTMLImageElement;
+    expect(photo.getAttribute('src')).toBe(contentHu.profile.photo.src);
+    expect(photo.alt).toBe(contentHu.profile.photo.alt);
+    TestBed.inject(LanguageService).lang.set('en');
+    fixture.detectChanges();
+    expect(photo.alt).toBe(contentEn.profile.photo.alt);
+  });
+
   it('a cím és a tények feliratai a nyelvet követik', () => {
     const { fixture, el } = render();
     expect(el.querySelector('h2')?.textContent).toBe(contentHu.ui.about.title);

@@ -16,6 +16,17 @@ section {
 .story p {
   max-width: 62ch;
 }
+app-card {
+  display: grid;
+  gap: 24px;
+}
+.photo {
+  width: clamp(120px, 40%, 180px);
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 24px;
+  object-fit: cover;
+}
 dl {
   display: grid;
   gap: 20px;

@@ -5,6 +5,8 @@ export interface Profile {
   linkedin: string;
   github: string;
   location: string;
+  /** Portréfotó a `public/` mappából. */
+  photo: { src: string; alt: string };
   intro: string;
   languages: string;
   /** A hero kódablakában megjelenő technológiák. */

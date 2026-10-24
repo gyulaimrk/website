@@ -8,6 +8,7 @@ const profile: Content['profile'] = {
   linkedin: 'https://www.linkedin.com/in/mark-gyulai-6aa690264',
   github: 'https://github.com/gyulaimrk',
   location: 'Nyíregyháza, Hungary',
+  photo: { src: 'mark-gyulai.jpg', alt: 'Portrait of Márk Gyulai' },
   languages: 'Hungarian, English',
   stack: ['Java 8–25', 'Kotlin', 'Spring Boot'],
   roles: ['Java developer', 'Kotlin developer', 'AI consultant'],

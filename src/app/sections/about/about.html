@@ -7,6 +7,15 @@
       }
     </div>
     <app-card appReveal="2">
+      <img
+        class="photo"
+        [src]="content().profile.photo.src"
+        [alt]="content().profile.photo.alt"
+        width="400"
+        height="400"
+        loading="lazy"
+        decoding="async"
+      />
       <dl>
         @for (fact of facts(); track fact.label) {
           <div>

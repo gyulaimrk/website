@@ -34,6 +34,7 @@ describe('content', () => {
       expect(content.profile.email).toContain('@');
       expect(content.profile.linkedin).toMatch(/^https:\/\//);
       expect(content.profile.roles.length).toBeGreaterThan(0);
+      expect(content.profile.photo.alt).toBeTruthy();
     });
 
     it('nem tartalmaz személyes adatot (telefon, születési dátum)', () => {
