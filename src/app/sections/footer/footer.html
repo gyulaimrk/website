@@ -1,8 +1,8 @@
 <footer>
-  <p>&copy; {{ year }} {{ profile.name }}. Angularral készült.</p>
-  <nav aria-label="Elérhetőségek">
-    <a [href]="profile.linkedin" target="_blank" rel="noopener">LinkedIn</a>
-    <a [href]="profile.github" target="_blank" rel="noopener">GitHub</a>
-    <a [href]="'mailto:' + profile.email">E-mail</a>
+  <p>&copy; {{ year }} {{ content().profile.name }}. {{ content().ui.footer.built }}</p>
+  <nav [attr.aria-label]="content().ui.footer.label">
+    <a [href]="content().profile.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+    <a [href]="content().profile.github" target="_blank" rel="noopener">GitHub</a>
+    <a [href]="'mailto:' + content().profile.email">Email</a>
   </nav>
 </footer>

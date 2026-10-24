@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { skills } from '../../data/content';
+import { Component, inject } from '@angular/core';
+import { ContentService } from '../../core/content.service';
 import { Card } from '../../shared/card/card';
 import { Reveal } from '../../shared/reveal/reveal.directive';
 import { SectionHeading } from '../../shared/section-heading/section-heading';
@@ -11,5 +11,5 @@ import { SectionHeading } from '../../shared/section-heading/section-heading';
   styleUrl: './skills.scss',
 })
 export class Skills {
-  protected readonly skills = skills;
+  protected readonly content = inject(ContentService).content;
 }

@@ -19,3 +19,6 @@ Hosting: Cloudflare Workers statikus assetekkel (`wrangler.jsonc`).
 npm run preview   # build + helyi Cloudflare előnézet
 npm run deploy    # build + éles telepítés (előtte: npx wrangler login)
 ```
+
+## Tartalom és nyelvek
+Az oldal magyarul és angolul is elérhető (a böngésző nyelve vagy a menüsor `EN`/`HU` gombja szerint). A szövegek a `src/app/data/content.hu.ts` és `content.en.ts` fájlokban vannak.

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ContentService } from './core/content.service';
+import { SeoService } from './core/seo.service';
+import { BackToTop } from './shared/back-to-top/back-to-top';
 import { About } from './sections/about/about';
 import { Contact } from './sections/contact/contact';
 import { Education } from './sections/education/education';
@@ -10,7 +13,14 @@ import { Skills } from './sections/skills/skills';
 
 @Component({
   selector: 'app-root',
-  imports: [Nav, Hero, About, Skills, Experience, Education, Contact, Footer],
+  imports: [Nav, Hero, About, Skills, Experience, Education, Contact, Footer, BackToTop],
   templateUrl: './app.html',
+  styleUrl: './app.scss',
 })
-export class App {}
+export class App {
+  protected readonly content = inject(ContentService).content;
+
+  constructor() {
+    inject(SeoService);
+  }
+}

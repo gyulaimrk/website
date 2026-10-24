@@ -1,17 +1,60 @@
 import { TestBed } from '@angular/core/testing';
-import { profile } from '../../data/content';
+import { ScrollSpyService } from '../../core/scroll-spy.service';
+import { contentHu } from '../../data/content';
 import { Nav } from './nav';
 
 describe('Nav', () => {
-  it('a monogramot, a nevet, a menüpontokat és a kapcsolat gombot mutatja', () => {
-    vi.stubGlobal('matchMedia', () => ({ matches: false }));
+  beforeEach(() => vi.stubGlobal('matchMedia', () => ({ matches: false })));
+  afterEach(() => vi.unstubAllGlobals());
+
+  function render() {
     const fixture = TestBed.createComponent(Nav);
     fixture.detectChanges();
-    const el = fixture.nativeElement as HTMLElement;
+    return { fixture, el: fixture.nativeElement as HTMLElement };
+  }
+
+  it('a monogramot, a nevet, a menüpontokat és a kapcsolat gombot mutatja', () => {
+    const { el } = render();
     expect(el.querySelector('.logo')?.textContent).toBe('GM');
-    expect(el.querySelector('.name')?.textContent).toBe(profile.name);
-    expect(el.querySelectorAll('nav a').length).toBe(4);
+    expect(el.querySelector('.name')?.textContent).toBe(contentHu.profile.name);
+    expect(el.querySelectorAll('nav a').length).toBe(contentHu.ui.nav.links.length);
     expect(el.querySelector('a[appButton]')?.getAttribute('href')).toBe('#kapcsolat');
-    vi.unstubAllGlobals();
+  });
+
+  it('a márkalink neve tartalmazza a látható szöveget', () => {
+    const label = render().el.querySelector('.brand')?.getAttribute('aria-label') ?? '';
+    expect(label).toContain(`GM ${contentHu.profile.name}`);
+  });
+
+  it('az Escape billentyű bezárja a mobilmenüt', () => {
+    const { fixture, el } = render();
+    (el.querySelector('.burger') as HTMLButtonElement).click();
+    fixture.detectChanges();
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+    fixture.detectChanges();
+    expect(el.querySelector('nav')?.classList).not.toContain('open');
+  });
+
+  it('az aktív szekció menüpontját megjelöli', () => {
+    const { fixture, el } = render();
+    TestBed.inject(ScrollSpyService).active.set('tapasztalat');
+    fixture.detectChanges();
+    const current = [...el.querySelectorAll('nav a')].filter(
+      (a) => a.getAttribute('aria-current') === 'true',
+    );
+    expect(current.map((a) => a.getAttribute('href'))).toEqual(['#tapasztalat']);
+  });
+
+  it('a mobilmenü gombra nyílik, linkre kattintva bezárul', () => {
+    const { fixture, el } = render();
+    const burger = el.querySelector('.burger') as HTMLButtonElement;
+    expect(burger.getAttribute('aria-expanded')).toBe('false');
+    burger.click();
+    fixture.detectChanges();
+    expect(burger.getAttribute('aria-expanded')).toBe('true');
+    expect(el.querySelector('nav')?.classList).toContain('open');
+    (el.querySelector('nav a') as HTMLAnchorElement).click();
+    fixture.detectChanges();
+    expect(el.querySelector('nav')?.classList).not.toContain('open');
   });
 });

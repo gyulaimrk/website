@@ -5,12 +5,13 @@
   --card-hover: rgb(255 255 255 / 0.09);
   --border: rgb(255 255 255 / 0.1);
   --text: #e8ecff;
-  --muted: #9aa6cf;
+  --muted: #b4bee0;
   --accent: #7c8cff;
   --accent-2: #b36bff;
   --accent-3: #28d9e8;
+  --accent-text: #28d9e8;
   --on-accent: #080d1f;
-  --glow: 0.55;
+  --glow: 0.32;
   --shadow: 0 20px 60px rgb(0 0 0 / 0.35);
   --gradient: linear-gradient(120deg, var(--accent), var(--accent-2) 55%, var(--accent-3));
 
@@ -40,6 +41,7 @@
   --accent: #4f5df0;
   --accent-2: #9b3dff;
   --accent-3: #0aa5b8;
+  --accent-text: #055c69;
   --on-accent: #ffffff;
   --glow: 0.28;
   --shadow: 0 20px 50px rgb(40 50 120 / 0.14);

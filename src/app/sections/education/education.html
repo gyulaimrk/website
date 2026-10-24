@@ -1,13 +1,13 @@
 <section id="tanulmanyok">
   <app-section-heading
-    title="Tanulmányok és tanúsítványok"
-    lead="Egyetemen kezdtem, azóta tanfolyamokkal és tanúsítványokkal tartom frissen a tudásomat."
+    [title]="content().ui.education.title"
+    [lead]="content().ui.education.lead"
   />
   <div class="grid">
     <app-card appReveal>
-      <h3>Tanulmányok</h3>
+      <h3>{{ content().ui.education.studies }}</h3>
       <ul>
-        @for (study of education; track study.title) {
+        @for (study of education(); track study.title) {
           <li>
             <strong>{{ study.title }}</strong>
             <span>{{ study.where }}, {{ study.period }}</span>
@@ -16,9 +16,9 @@
       </ul>
     </app-card>
     <app-card appReveal="2">
-      <h3>Tanúsítványok</h3>
+      <h3>{{ content().ui.education.certificates }}</h3>
       <ul>
-        @for (study of certificates; track study.title) {
+        @for (study of certificates(); track study.title) {
           <li>
             <strong>{{ study.title }}</strong>
           </li>

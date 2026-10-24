@@ -3,7 +3,7 @@ import { ThemeService } from './theme.service';
 
 describe('ThemeService', () => {
   beforeEach(() => {
-    localStorage.clear();
+    localStorage.removeItem('theme');
     vi.stubGlobal('matchMedia', () => ({ matches: false }));
   });
   afterEach(() => vi.unstubAllGlobals());
@@ -24,9 +24,8 @@ describe('ThemeService', () => {
 
   it('váltáskor frissíti a dokumentumot és elmenti a választást', () => {
     const service = TestBed.inject(ThemeService);
-    TestBed.flushEffects?.();
     service.toggle();
-    TestBed.tick?.();
+    TestBed.tick();
     expect(service.theme()).toBe('light');
     expect(localStorage.getItem('theme')).toBe('light');
     expect(document.documentElement.dataset['theme']).toBe('light');

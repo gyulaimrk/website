@@ -1,0 +1,9 @@
+<button
+  type="button"
+  (click)="language.toggle()"
+  [attr.aria-label]="
+    content().ui.toggles.otherLanguageCode + ': ' + content().ui.toggles.toOtherLanguage
+  "
+>
+  {{ content().ui.toggles.otherLanguageCode }}
+</button>

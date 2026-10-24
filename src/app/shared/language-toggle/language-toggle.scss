@@ -1,0 +1,18 @@
+button {
+  min-width: 44px;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--text);
+  font: 600 var(--step-small) / 1 var(--font-text);
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+button:hover {
+  background: var(--card-hover);
+  border-color: var(--accent);
+}

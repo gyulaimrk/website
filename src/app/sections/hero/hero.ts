@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { profile, stats } from '../../data/content';
+import { Component, computed, inject } from '@angular/core';
+import { ContentService } from '../../core/content.service';
 import { Button } from '../../shared/button/button';
 import { CodeEntry, CodeWindow } from '../../shared/code-window/code-window';
 import { Typewriter } from '../../shared/typewriter/typewriter';
@@ -11,13 +11,15 @@ import { Typewriter } from '../../shared/typewriter/typewriter';
   styleUrl: './hero.scss',
 })
 export class Hero {
-  protected readonly profile = profile;
-  protected readonly stats = stats;
-  protected readonly code: CodeEntry[] = [
-    { key: 'name', value: profile.name },
-    { key: 'role', value: profile.role },
-    { key: 'stack', value: ['Java 8–25', 'Kotlin', 'Spring Boot'] },
-    { key: 'ai', value: true },
-    { key: 'location', value: profile.location.split(',')[0] },
-  ];
+  protected readonly content = inject(ContentService).content;
+  protected readonly code = computed<CodeEntry[]>(() => {
+    const { profile } = this.content();
+    return [
+      { key: 'name', value: profile.name },
+      { key: 'role', value: profile.role },
+      { key: 'stack', value: profile.stack },
+      { key: 'ai', value: true },
+      { key: 'location', value: profile.location.split(',')[0] },
+    ];
+  });
 }

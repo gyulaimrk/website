@@ -1,16 +1,14 @@
 export interface Profile {
   name: string;
   role: string;
-  /** Az oldal h1 címe. */
-  headline: string;
   email: string;
   linkedin: string;
   github: string;
   location: string;
-  /** Rövid mondat a nyitóképernyőre. */
-  tagline: string;
   intro: string;
   languages: string;
+  /** A hero kódablakában megjelenő technológiák. */
+  stack: string[];
   /** A hero gépelő szövegének szerepei. */
   roles: string[];
   letter: string[];
@@ -27,8 +25,6 @@ export interface Job {
   company: string;
   role: string;
   period: string;
-  /** Rövid évszám-tartomány a listához. */
-  years: string;
   description: string;
   projects?: JobProject[];
   tech: string[];
@@ -51,4 +47,48 @@ export interface Study {
 export interface Stat {
   value: string;
   label: string;
+}
+
+export type Lang = 'hu' | 'en';
+
+export interface NavLink {
+  href: string;
+  label: string;
+}
+
+/** A felület összes (nem tartalmi) szövege egy nyelven. */
+export interface Ui {
+  meta: { title: string; description: string };
+  skipLink: string;
+  nav: {
+    label: string;
+    home: string;
+    links: NavLink[];
+    contact: string;
+    openMenu: string;
+    closeMenu: string;
+  };
+  toggles: { toLight: string; toDark: string; toOtherLanguage: string; otherLanguageCode: string };
+  hero: { greeting: string; nameSuffix: string; projects: string; linkedin: string };
+  about: {
+    title: string;
+    lead: string;
+    facts: { location: string; role: string; languages: string; email: string };
+  };
+  skills: { title: string; lead: string };
+  experience: { title: string; lead: string };
+  education: { title: string; lead: string; studies: string; certificates: string };
+  contact: { title: string; text: string; linkedin: string };
+  footer: { built: string; label: string };
+  backToTop: string;
+}
+
+/** Egy nyelv teljes tartalma. */
+export interface Content {
+  profile: Profile;
+  jobs: Job[];
+  skills: Skill[];
+  studies: Study[];
+  stats: Stat[];
+  ui: Ui;
 }

@@ -6,7 +6,6 @@ const job: Job = {
   company: 'Példa Kft.',
   role: 'Fejlesztő',
   period: '2024 – 2025',
-  years: '2024 – 2025',
   description: 'Leírás.',
   tech: ['Java', 'SQL'],
   projects: [

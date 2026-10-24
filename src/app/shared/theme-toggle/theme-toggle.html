@@ -2,7 +2,7 @@
   type="button"
   (click)="themeService.toggle()"
   [attr.aria-label]="
-    themeService.theme() === 'dark' ? 'Váltás világos módra' : 'Váltás sötét módra'
+    themeService.theme() === 'dark' ? content().ui.toggles.toLight : content().ui.toggles.toDark
   "
 >
   @if (themeService.theme() === 'dark') {

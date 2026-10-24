@@ -1,12 +1,14 @@
 <section id="kapcsolat">
   <div class="panel" appReveal>
-    <h2>Dolgozzunk együtt</h2>
-    <p>
-      Van egy projekted, AI-ötleted vagy backend feladatod? Írj nekem, szívesen átbeszélem veled.
-    </p>
+    <h2>{{ content().ui.contact.title }}</h2>
+    <p>{{ content().ui.contact.text }}</p>
     <div class="actions">
-      <a appButton [external]="true" [href]="profile.linkedin">Írj a LinkedInen</a>
-      <a appButton variant="ghost" [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+      <a appButton [external]="true" [href]="content().profile.linkedin">{{
+        content().ui.contact.linkedin
+      }}</a>
+      <a appButton variant="ghost" [href]="'mailto:' + content().profile.email">{{
+        content().profile.email
+      }}</a>
     </div>
   </div>
 </section>

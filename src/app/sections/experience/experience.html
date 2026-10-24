@@ -1,10 +1,10 @@
 <section id="tapasztalat">
   <app-section-heading
-    title="Tapasztalat"
-    lead="Három cég, négy szerep: junior fejlesztőként kezdtem, ma senior vagyok."
+    [title]="content().ui.experience.title"
+    [lead]="content().ui.experience.lead"
   />
   <ol>
-    @for (job of jobs; track job.company + job.period; let i = $index) {
+    @for (job of content().jobs; track job.company + job.period; let i = $index) {
       <li appReveal>
         <app-job-card [job]="job" [current]="i === 0" />
       </li>

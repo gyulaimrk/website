@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { profile } from '../../data/content';
+import { Component, computed, inject } from '@angular/core';
+import { ContentService } from '../../core/content.service';
 import { Card } from '../../shared/card/card';
 import { Reveal } from '../../shared/reveal/reveal.directive';
 import { SectionHeading } from '../../shared/section-heading/section-heading';
@@ -11,11 +11,14 @@ import { SectionHeading } from '../../shared/section-heading/section-heading';
   styleUrl: './about.scss',
 })
 export class About {
-  protected readonly profile = profile;
-  protected readonly facts = [
-    { label: 'Helyszín', value: profile.location },
-    { label: 'Szerep', value: profile.role },
-    { label: 'Nyelvek', value: profile.languages },
-    { label: 'E-mail', value: profile.email },
-  ];
+  protected readonly content = inject(ContentService).content;
+  protected readonly facts = computed(() => {
+    const { profile, ui } = this.content();
+    return [
+      { label: ui.about.facts.location, value: profile.location },
+      { label: ui.about.facts.role, value: profile.role },
+      { label: ui.about.facts.languages, value: profile.languages },
+      { label: ui.about.facts.email, value: profile.email },
+    ];
+  });
 }

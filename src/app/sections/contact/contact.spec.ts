@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { profile } from '../../data/content';
+import { contentHu } from '../../data/content';
 import { Contact } from './contact';
 
 describe('Contact', () => {
@@ -9,6 +9,6 @@ describe('Contact', () => {
     const hrefs = [...fixture.nativeElement.querySelectorAll('a[appButton]')].map((a) =>
       a.getAttribute('href'),
     );
-    expect(hrefs).toEqual([profile.linkedin, `mailto:${profile.email}`]);
+    expect(hrefs).toEqual([contentHu.profile.linkedin, `mailto:${contentHu.profile.email}`]);
   });
 });

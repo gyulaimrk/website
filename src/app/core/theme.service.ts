@@ -1,22 +1,20 @@
 import { Injectable, effect, signal } from '@angular/core';
+import { readStored, writeStored } from './storage';
 
 export type Theme = 'dark' | 'light';
 const KEY = 'theme';
+const THEMES: readonly Theme[] = ['dark', 'light'];
 
 /** Világos és sötét téma; a választást megjegyzi, alapból a rendszerbeállítást követi. */
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
-  readonly theme = signal<Theme>(this.initial());
+  readonly theme = signal<Theme>(readStored(KEY, THEMES) ?? this.systemTheme());
 
   constructor() {
     effect(() => {
       const theme = this.theme();
       document.documentElement.dataset['theme'] = theme;
-      try {
-        localStorage.setItem(KEY, theme);
-      } catch {
-        /* a tárolás nem elérhető */
-      }
+      writeStored(KEY, theme);
     });
   }
 
@@ -24,13 +22,7 @@ export class ThemeService {
     this.theme.update((theme) => (theme === 'dark' ? 'light' : 'dark'));
   }
 
-  private initial(): Theme {
-    try {
-      const saved = localStorage.getItem(KEY);
-      if (saved === 'dark' || saved === 'light') return saved;
-    } catch {
-      /* a tárolás nem elérhető */
-    }
+  private systemTheme(): Theme {
     return typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: light)').matches
       ? 'light'
       : 'dark';

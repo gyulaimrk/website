@@ -1,17 +1,47 @@
 <header>
   <div class="bar">
-    <a class="brand" href="#top" aria-label="Ugrás az oldal tetejére">
-      <span class="logo">{{ initials }}</span>
-      <span class="name">{{ profile.name }}</span>
+    <a
+      class="brand"
+      href="#top"
+      [attr.aria-label]="
+        initials(content().profile.name) +
+        ' ' +
+        content().profile.name +
+        ': ' +
+        content().ui.nav.home
+      "
+      (click)="closeMenu()"
+    >
+      <span class="logo" aria-hidden="true">{{ initials(content().profile.name) }}</span>
+      <span class="name">{{ content().profile.name }}</span>
     </a>
-    <nav aria-label="Fő navigáció">
-      @for (link of links; track link.href) {
-        <a [href]="link.href">{{ link.label }}</a>
+    <nav id="site-nav" [class.open]="menuOpen()" [attr.aria-label]="content().ui.nav.label">
+      @for (link of content().ui.nav.links; track link.href) {
+        <a
+          [href]="link.href"
+          [attr.aria-current]="isActive(link.href) ? 'true' : null"
+          (click)="closeMenu()"
+        >
+          {{ link.label }}
+        </a>
       }
     </nav>
     <div class="tools">
+      <app-language-toggle />
       <app-theme-toggle />
-      <a appButton size="small" href="#kapcsolat">Kapcsolat</a>
+      <a appButton size="small" class="cta" href="#kapcsolat">{{ content().ui.nav.contact }}</a>
+      <button
+        type="button"
+        class="burger"
+        aria-controls="site-nav"
+        [attr.aria-expanded]="menuOpen()"
+        [attr.aria-label]="menuOpen() ? content().ui.nav.closeMenu : content().ui.nav.openMenu"
+        (click)="toggleMenu()"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </div>
 </header>

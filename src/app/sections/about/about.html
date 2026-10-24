@@ -1,17 +1,14 @@
 <section id="rolam">
-  <app-section-heading
-    title="Rólam"
-    lead="Egy fejlesztő, aki szívesen épít olyan rendszert, amelyet évek múlva is könnyű megérteni."
-  />
+  <app-section-heading [title]="content().ui.about.title" [lead]="content().ui.about.lead" />
   <div class="grid">
     <div class="story" appReveal>
-      @for (paragraph of profile.letter; track $index) {
+      @for (paragraph of content().profile.letter; track $index) {
         <p>{{ paragraph }}</p>
       }
     </div>
     <app-card appReveal="2">
       <dl>
-        @for (fact of facts; track fact.label) {
+        @for (fact of facts(); track fact.label) {
           <div>
             <dt>{{ fact.label }}</dt>
             <dd>{{ fact.value }}</dd>

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { profile } from '../../data/content';
+import { Component, inject } from '@angular/core';
+import { ContentService } from '../../core/content.service';
 import { Button } from '../../shared/button/button';
 import { Reveal } from '../../shared/reveal/reveal.directive';
 
@@ -10,5 +10,5 @@ import { Reveal } from '../../shared/reveal/reveal.directive';
   styleUrl: './contact.scss',
 })
 export class Contact {
-  protected readonly profile = profile;
+  protected readonly content = inject(ContentService).content;
 }

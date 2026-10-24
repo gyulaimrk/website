@@ -3,23 +3,26 @@
   <div class="glow two" aria-hidden="true"></div>
   <div class="inner">
     <div class="copy">
-      <p class="greeting">Szia, én</p>
+      <p class="greeting">{{ content().ui.hero.greeting }}</p>
       <h1>
-        <span class="gradient-text">{{ profile.name }}</span> vagyok
+        <span class="gradient-text">{{ content().profile.name }}</span>
+        {{ content().ui.hero.nameSuffix }}
       </h1>
       <p class="role">
-        <app-typewriter [words]="profile.roles" />
+        <app-typewriter [words]="content().profile.roles" />
       </p>
-      <p class="lead">{{ profile.intro }}</p>
+      <p class="lead">{{ content().profile.intro }}</p>
       <div class="actions">
-        <a appButton href="#tapasztalat">Munkáim</a>
-        <a appButton variant="ghost" [external]="true" [href]="profile.linkedin">LinkedIn</a>
+        <a appButton href="#tapasztalat">{{ content().ui.hero.projects }}</a>
+        <a appButton variant="ghost" [external]="true" [href]="content().profile.linkedin">
+          {{ content().ui.hero.linkedin }}
+        </a>
       </div>
     </div>
-    <app-code-window class="code" [entries]="code" />
+    <app-code-window class="code" [entries]="code()" />
   </div>
   <ul class="stats">
-    @for (stat of stats; track stat.label) {
+    @for (stat of content().stats; track stat.value) {
       <li>
         <strong class="gradient-text">{{ stat.value }}</strong>
         <span>{{ stat.label }}</span>

@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { skills } from '../../data/content';
+import { contentHu } from '../../data/content';
 import { Skills } from './skills';
 
 describe('Skills', () => {
@@ -7,9 +7,9 @@ describe('Skills', () => {
     const fixture = TestBed.createComponent(Skills);
     fixture.detectChanges();
     const cards = [...fixture.nativeElement.querySelectorAll('app-card')] as HTMLElement[];
-    expect(cards.length).toBe(skills.length);
+    expect(cards.length).toBe(contentHu.skills.length);
     cards.forEach((card, i) => {
-      const highlighted = Boolean(skills[i].highlight);
+      const highlighted = Boolean(contentHu.skills[i].highlight);
       expect(card.classList.contains('wide')).toBe(highlighted);
       expect(card.classList.contains('featured')).toBe(highlighted);
     });

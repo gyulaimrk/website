@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { jobs } from '../../data/content';
+import { Component, inject } from '@angular/core';
+import { ContentService } from '../../core/content.service';
 import { Reveal } from '../../shared/reveal/reveal.directive';
 import { SectionHeading } from '../../shared/section-heading/section-heading';
 import { JobCard } from './job-card/job-card';
@@ -12,5 +12,5 @@ import { JobCard } from './job-card/job-card';
   styleUrl: './experience.scss',
 })
 export class Experience {
-  protected readonly jobs = jobs;
+  protected readonly content = inject(ContentService).content;
 }
