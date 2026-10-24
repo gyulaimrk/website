@@ -118,7 +118,7 @@ const sideProjects: Content['sideProjects'] = [
     name: 'lizacover.hu',
     url: 'https://lizacover.hu',
     description:
-      'The portfolio site of Elizabet Ivanovszki, a graphic designer and illustrator, which I developed. It is a one-page, bilingual site: the Hungarian and English versions have their own addresses so search engines can see both. It is built with Angular 21, the build produces prerendered static pages, and it runs on Cloudflare. The fonts are self-hosted, and analytics loads only after consent.',
+      'A live site: the portfolio of Elizabet Ivanovszki, a graphic designer and illustrator, which I developed. It is a one-page, bilingual site: the Hungarian and English versions have their own addresses so search engines can see both. It is built with Angular 21, the build produces prerendered static pages, and it runs on Cloudflare. The fonts are self-hosted, and analytics loads only after consent.',
     tech: ['Angular 21', 'TypeScript', 'Prerendering', 'Bilingual', 'SEO', 'Cloudflare'],
   },
 ];
