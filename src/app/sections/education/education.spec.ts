@@ -37,4 +37,11 @@ describe('Education', () => {
     const { cards } = render();
     expect(cards[1].textContent).toContain('Anthropic, 2026. március');
   });
+
+  it('ahol nincs kiállító és dátum, ott nem ír üres vesszőt (nyelvvizsga)', () => {
+    const { cards } = render();
+    const exam = [...cards[0].querySelectorAll('li')].find((li) => li.textContent?.includes('B2'));
+    expect(exam?.querySelector('span')).toBeNull();
+    expect(exam?.textContent?.trim()).toBe('Angol nyelvvizsga, B2');
+  });
 });

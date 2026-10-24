@@ -9,7 +9,7 @@ const profile: Content['profile'] = {
   github: 'https://github.com/gyulaimrk',
   location: 'Nyíregyháza, Hungary',
   photo: { src: 'mark-gyulai.jpg', alt: 'Portrait of Márk Gyulai' },
-  languages: 'Hungarian, English',
+  languages: 'Hungarian, English (B2 language exam)',
   stack: ['Java 8–25', 'Kotlin', 'Spring Boot'],
   roles: ['Java developer', 'Kotlin developer', 'AI consultant'],
   intro:
@@ -56,7 +56,7 @@ const jobs: Content['jobs'] = [
     role: 'Software Engineer',
     period: 'January 2022 – August 2024',
     description:
-      'As part of a team, we developed the financial application of an American company, Broadridge. This is where I really learned multi-threaded programming, domain-driven design and the functional approach. I wrote unit, system and acceptance tests, including UI tests with Selenium. I solved concurrency bugs and improved test coverage.',
+      'As part of a team, we developed the financial application of an American company, Broadridge. This is where I really learned multi-threaded programming, domain-driven design and the functional approach. I wrote unit, system and acceptance tests, including UI tests with Selenium. I also connected other systems’ APIs, sometimes asynchronously. I solved concurrency bugs and improved test coverage.',
     tech: ['Java', 'Multithreading', 'DDD', 'Selenium', 'SQL'],
   },
   {
@@ -64,7 +64,7 @@ const jobs: Content['jobs'] = [
     role: 'Junior Software Engineer',
     period: 'July 2021 – January 2022',
     description:
-      'As a junior developer I built the backend of a web application that helps people prepare for language exams. I designed and implemented new features, wrote unit tests, took part in code reviews and learned a lot along the way.',
+      'As a junior developer I built the backend of a web application in which internal exams could be taken safely. I designed and implemented new features, wrote unit tests, took part in code reviews, tested manually, and learned a lot along the way.',
     tech: ['Java', 'Backend', 'Unit tests'],
   },
 ];
@@ -136,6 +136,7 @@ const studies: Content['studies'] = [
     where: 'EPAM Systems',
     period: '2020 – 2021',
   },
+  { kind: 'education', title: 'English language exam, B2', where: '', period: '' },
   {
     kind: 'certificate',
     featured: true,

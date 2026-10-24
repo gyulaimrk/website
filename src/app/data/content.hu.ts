@@ -9,7 +9,7 @@ const profile: Content['profile'] = {
   github: 'https://github.com/gyulaimrk',
   location: 'Nyíregyháza, Magyarország',
   photo: { src: 'mark-gyulai.jpg', alt: 'Gyulai Márk portréfotója' },
-  languages: 'magyar, angol',
+  languages: 'magyar, angol (B2 nyelvvizsga)',
   stack: ['Java 8–25', 'Kotlin', 'Spring Boot'],
   roles: ['Java fejlesztő', 'Kotlin fejlesztő', 'AI-konzultáns'],
   intro:
@@ -56,7 +56,7 @@ const jobs: Content['jobs'] = [
     role: 'Software Engineer',
     period: '2022. január – 2024. augusztus',
     description:
-      'Egy csapat tagjaként egy amerikai cég, a Broadridge pénzügyi alkalmazását fejlesztettük. Itt tanultam meg igazán a többszálú programozást, a domain-driven tervezést és a funkcionális megközelítést. Egység-, rendszer- és elfogadási teszteket írtam, Seleniummal felületi teszteket is. Megoldottam párhuzamossági hibákat, és javítottam a tesztlefedettséget.',
+      'Egy csapat tagjaként egy amerikai cég, a Broadridge pénzügyi alkalmazását fejlesztettük. Itt tanultam meg igazán a többszálú programozást, a domain-driven tervezést és a funkcionális megközelítést. Egység-, rendszer- és elfogadási teszteket írtam, Seleniummal felületi teszteket is. Más rendszerek API-jait is bekötöttem, időnként aszinkron módon. Megoldottam párhuzamossági hibákat, és javítottam a tesztlefedettséget.',
     tech: ['Java', 'Többszálúság', 'DDD', 'Selenium', 'SQL'],
   },
   {
@@ -64,7 +64,7 @@ const jobs: Content['jobs'] = [
     role: 'Junior Software Engineer',
     period: '2021. július – 2022. január',
     description:
-      'Junior fejlesztőként egy nyelvvizsgára készítő webalkalmazás backendjét építettem. Új funkciókat terveztem és valósítottam meg, egységteszteket írtam, részt vettem a kód átnézésében, és közben sokat tanultam.',
+      'Junior fejlesztőként egy webalkalmazás backendjét építettem, amelyben biztonságosan lehetett belső vizsgákat letenni. Új funkciókat terveztem és valósítottam meg, egységteszteket írtam, részt vettem a kód átnézésében, kézzel is teszteltem, és közben sokat tanultam.',
     tech: ['Java', 'Backend', 'Unit tesztek'],
   },
 ];
@@ -135,6 +135,7 @@ const studies: Content['studies'] = [
     where: 'EPAM Systems',
     period: '2020 – 2021',
   },
+  { kind: 'education', title: 'Angol nyelvvizsga, B2', where: '', period: '' },
   {
     kind: 'certificate',
     featured: true,

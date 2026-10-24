@@ -10,7 +10,9 @@
         @for (study of education(); track study.title) {
           <li>
             <strong>{{ study.title }}</strong>
-            <span>{{ study.where }}, {{ study.period }}</span>
+            @if (meta(study)) {
+              <span>{{ meta(study) }}</span>
+            }
           </li>
         }
       </ul>
@@ -21,7 +23,9 @@
         @for (study of anthropic(); track study.title) {
           <li>
             <strong>{{ study.title }}</strong>
-            <span>{{ study.where }}, {{ study.period }}</span>
+            @if (meta(study)) {
+              <span>{{ meta(study) }}</span>
+            }
           </li>
         }
       </ul>
@@ -32,7 +36,9 @@
         @for (study of certificates(); track study.title) {
           <li>
             <strong>{{ study.title }}</strong>
-            <span>{{ study.where }}, {{ study.period }}</span>
+            @if (meta(study)) {
+              <span>{{ meta(study) }}</span>
+            }
           </li>
         }
       </ul>
