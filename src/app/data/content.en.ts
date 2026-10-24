@@ -223,7 +223,7 @@ const stats: Content['stats'] = [
   { value: '5+', label: 'years working with Java 11 and 17' },
   { value: '3+', label: 'years using AI in my work' },
   { value: '8–25', label: 'Java versions I write code in confidently' },
-  { value: '3', label: 'companies so far: EPAM, RDI and Adroit' },
+  { value: '8', label: 'projects across 3 workplaces: EPAM, RDI and Adroit' },
 ];
 
 const ui: Content['ui'] = {
@@ -276,7 +276,7 @@ const ui: Content['ui'] = {
   },
   experience: {
     title: 'Experience',
-    lead: 'Three companies, four roles: I started as a junior developer and today I am a senior.',
+    lead: 'Three companies, four roles, eight projects: I started as a junior developer and today I am a senior.',
   },
   education: {
     title: 'Education and certificates',

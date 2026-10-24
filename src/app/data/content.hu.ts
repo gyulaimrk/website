@@ -222,7 +222,7 @@ const stats: Content['stats'] = [
   { value: '5+', label: 'éve dolgozom Java 11 és 17 alatt' },
   { value: '3+', label: 'éve használok AI-t a munkámban' },
   { value: '8–25', label: 'Java verziókon írok magabiztosan kódot' },
-  { value: '3', label: 'cégnél dolgoztam: EPAM, RDI és Adroit' },
+  { value: '8', label: 'projekten dolgoztam 3 munkahelyen: EPAM, RDI és Adroit' },
 ];
 
 const ui: Content['ui'] = {
@@ -275,7 +275,7 @@ const ui: Content['ui'] = {
   },
   experience: {
     title: 'Tapasztalat',
-    lead: 'Három cég, négy szerep: junior fejlesztőként kezdtem, ma senior vagyok.',
+    lead: 'Három cég, négy szerep, nyolc projekt: junior fejlesztőként kezdtem, ma senior vagyok.',
   },
   education: {
     title: 'Tanulmányok és tanúsítványok',
