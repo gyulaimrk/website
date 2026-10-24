@@ -36,4 +36,20 @@ describe('ProjectCard', () => {
     fixture.detectChanges();
     expect(link.textContent?.trim()).toBe(contentEn.ui.sideProjects.visit);
   });
+
+  it('csak a meglévő linkeket mutatja: forráskód-link élő oldal nélkül', () => {
+    const fixture = TestBed.createComponent(ProjectCard);
+    fixture.componentRef.setInput('project', {
+      name: 'Csak kód',
+      sourceUrl: 'https://github.com/example/repo',
+      description: 'Leírás.',
+      tech: ['Angular'],
+    });
+    fixture.detectChanges();
+    const links = [
+      ...fixture.nativeElement.querySelectorAll('a[appButton]'),
+    ] as HTMLAnchorElement[];
+    expect(links.map((a) => a.getAttribute('href'))).toEqual(['https://github.com/example/repo']);
+    expect(links[0].textContent?.trim()).toBe(contentHu.ui.sideProjects.source);
+  });
 });

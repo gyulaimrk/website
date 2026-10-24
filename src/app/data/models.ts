@@ -43,7 +43,10 @@ export interface Skill {
 
 export interface SideProject {
   name: string;
-  url: string;
+  /** Az élő oldal címe, ha van. */
+  url?: string;
+  /** A forráskód címe, ha nyilvános. */
+  sourceUrl?: string;
   description: string;
   tech: string[];
 }
@@ -92,7 +95,7 @@ export interface Ui {
   };
   skills: { title: string; lead: string };
   experience: { title: string; lead: string };
-  sideProjects: { title: string; lead: string; visit: string };
+  sideProjects: { title: string; lead: string; visit: string; source: string };
   education: {
     title: string;
     lead: string;

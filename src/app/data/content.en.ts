@@ -148,6 +148,21 @@ const sideProjects: Content['sideProjects'] = [
       'A live site: the portfolio of Elizabet Ivanovszki, a graphic designer and illustrator, which I developed. It is a one-page, bilingual site: the Hungarian and English versions have their own addresses so search engines can see both. It is built with Angular 21, the build produces prerendered static pages, and it runs on Cloudflare. The fonts are self-hosted, and analytics loads only after consent.',
     tech: ['Angular 21', 'TypeScript', 'Prerendering', 'Bilingual', 'SEO', 'Cloudflare'],
   },
+  {
+    name: 'This portfolio',
+    sourceUrl: 'https://github.com/gyulaimrk/website',
+    description:
+      'This site is a side project too. I built it with Angular 22, using standalone components and signals. It is available in Hungarian and English, has a dark and a light theme, and I paid attention to accessibility and search engine optimization. Every component is split into its own HTML, SCSS, TypeScript and test file, and the content can be edited in one place per language. GitHub Actions runs the tests and the build, and it is prepared for Cloudflare. I also used an AI assistant (Claude Code) while developing it.',
+    tech: [
+      'Angular 22',
+      'TypeScript',
+      'Vitest',
+      'Bilingual',
+      'Accessibility',
+      'SEO',
+      'GitHub Actions',
+    ],
+  },
 ];
 
 const studies: Content['studies'] = [
@@ -296,8 +311,9 @@ const ui: Content['ui'] = {
   },
   sideProjects: {
     title: 'Side projects',
-    lead: 'I like to build outside of work too. Here is a project I made for someone else.',
+    lead: 'I like to build outside of work too: these are my side projects.',
     visit: 'Visit the site',
+    source: 'Source code on GitHub',
   },
   experience: {
     title: 'Experience',

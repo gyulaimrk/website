@@ -148,6 +148,21 @@ const sideProjects: Content['sideProjects'] = [
       'Élesben is elérhető oldal: Ivanovszki Elizabet grafikus és illusztrátor portfóliója, amelyet én fejlesztettem. Egyoldalas, kétnyelvű oldal: a magyar és az angol változatnak saját címe van, hogy a keresők mindkettőt lássák. Angular 21-gyel készült, a build előre legenerált statikus oldalakat ad, és Cloudflare-en fut. A betűk saját kiszolgálásból jönnek, az analitika pedig csak hozzájárulás után tölt be.',
     tech: ['Angular 21', 'TypeScript', 'Előrenderelés', 'Kétnyelvűség', 'SEO', 'Cloudflare'],
   },
+  {
+    name: 'Ez a portfólió',
+    sourceUrl: 'https://github.com/gyulaimrk/website',
+    description:
+      'Ez az oldal is mellékprojekt. Angular 22-vel építettem, standalone komponensekkel és signalokkal. Magyarul és angolul is elérhető, van sötét és világos témája, és a hozzáférhetőségre és a keresőoptimalizálásra is figyeltem. Minden komponens külön HTML-, SCSS-, TypeScript- és tesztfájlból áll, a tartalom pedig egy helyen, nyelvenként szerkeszthető. A GitHub Actions futtatja a teszteket és a buildet, és Cloudflare-re van előkészítve. A fejlesztésben AI-asszisztenst (Claude Code) is használtam.',
+    tech: [
+      'Angular 22',
+      'TypeScript',
+      'Vitest',
+      'Kétnyelvűség',
+      'Hozzáférhetőség',
+      'SEO',
+      'GitHub Actions',
+    ],
+  },
 ];
 
 const studies: Content['studies'] = [
@@ -296,8 +311,9 @@ const ui: Content['ui'] = {
   },
   sideProjects: {
     title: 'Mellékprojektek',
-    lead: 'Munkán kívül is szívesen építek, itt egy projekt, amelyet másoknak készítettem.',
+    lead: 'Munkán kívül is szívesen építek: ezek a mellékprojektjeim.',
     visit: 'Megnézem az oldalt',
+    source: 'Forráskód a GitHubon',
   },
   experience: {
     title: 'Tapasztalat',

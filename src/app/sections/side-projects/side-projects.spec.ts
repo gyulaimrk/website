@@ -9,6 +9,7 @@ describe('SideProjects', () => {
     const el = fixture.nativeElement as HTMLElement;
     expect(el.querySelectorAll('app-project-card').length).toBe(contentHu.sideProjects.length);
     expect(el.textContent).toContain('lizacover.hu');
+    expect(el.textContent).toContain('Ez a portfólió');
     expect(el.querySelector('h2')?.textContent).toBe(contentHu.ui.sideProjects.title);
   });
 });
