@@ -17,7 +17,7 @@ export const profile: Profile = {
   letter: [
     'Senior Java fejlesztő vagyok. Több mint négy éve dolgozom Java 11 és Java 17 alatt, de a Java 8-tól a 25-ös verzióig mindenhol otthon érzem magam. Spring és Spring Boot alkalmazásokon dolgozom, és szeretem végigvinni a munkát: a tervezéstől a kódoláson és a teszteken át a karbantartásig.',
     'Fontos számomra, hogy a kód érthető és karbantartható legyen. Ezért követem a bevált tervezési elveket és mintákat, és sokat tesztelek: egységtesztekkel, rendszertesztekkel és felületi tesztekkel is. Ha egy projektben javítani kellett a tesztlefedettséget, azt mindig szívesen vállaltam.',
-    'Jól érzem magam csapatban és önállóan is. Az ügyfelekkel és a más területen dolgozó kollégákkal nyíltan egyeztetek, mert szerintem a jó szoftver jó beszélgetésekkel kezdődik. Új technológiákat mellékprojektekben szoktam kipróbálni, így a tudásom folyamatosan frissül.',
+    'Jól érzem magam csapatban és önállóan is. Az ügyfelekkel és a más területen dolgozó kollégákkal nyíltan egyeztetek, mert szerintem a jó szoftver jó beszélgetésekkel kezdődik. Új technológiákat mellékprojektekben szoktam kipróbálni, így a tudásom folyamatosan frissül. Az AI-t is tudatosan használom a munkámban: jól promptolok, skilleket építek, és CLAUDE.md fájlokban rögzítem, hogyan dolgozzon az asszisztens a projekten.',
     'Ez az oldal Angularral készült, mert a fejlesztés másik oldala is érdekel.',
   ],
 };
@@ -42,7 +42,7 @@ export const jobs: Job[] = [
         text: 'A MOL Limo autóbérlő rendszerének backendjét fejlesztem Kotlinban.',
       },
     ],
-    tech: ['Kotlin', 'Java', 'Exposed', 'AI', 'MCP'],
+    tech: ['Kotlin', 'Java', 'Exposed', 'AI', 'MCP', 'Prompting'],
   },
   {
     company: 'RDI Software Hungary',
@@ -77,7 +77,7 @@ export const skills: Skill[] = [
     highlight: true,
     title: 'AI és MCP',
     tag: 'Mesterséges intelligencia',
-    text: 'AI-konzultánsként az Adroit Group GLI Solutions projektjén dolgozom: azt keressük, hol segít a mesterséges intelligencia, és hogyan illeszthető be a meglévő rendszerekbe. A Model Context Protocolból (MCP) tanúsítványt is szereztem.',
+    text: 'Az AI a napi munkám természetes része. Jól megfogalmazott promptokkal dolgozom, saját skilleket használok, és CLAUDE.md fájlokat írok, hogy az AI-asszisztens ismerje a projekt szabályait, és következetesen segítsen. Az Adroit Group GLI Solutions projektjén AI-konzultánsként azt keressük, hol hasznos a mesterséges intelligencia, és hogyan illeszthető be a meglévő rendszerekbe. A Model Context Protocolból (MCP) tanúsítványt is szereztem.',
   },
   {
     title: 'Java 8–25',
@@ -97,7 +97,7 @@ export const skills: Skill[] = [
   {
     title: 'Tesztelés',
     tag: 'Minőség',
-    text: 'A teszteket a munka részének tekintem. JUnit, Mockito, Selenium és Cucumber segítségével írok egység-, integrációs, rendszer- és felületi teszteket.',
+    text: 'Nálam a tesztelés nem utólagos teendő, hanem a munka természetes része. Az egységteszteket JUnittal és Mockitóval írom, a felületet Seleniummal és Cucumberrel járom végig, a rendszer egészét pedig integrációs és rendszertesztekkel fedem le. Egy korábbi projektben a tesztlefedettséget is sikerült javítanom.',
   },
   {
     title: 'Eszközök',
