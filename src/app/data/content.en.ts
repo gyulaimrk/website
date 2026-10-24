@@ -10,6 +10,7 @@ const profile: Content['profile'] = {
   location: 'Nyíregyháza, Hungary',
   photo: { src: 'mark-gyulai.jpg', alt: 'Portrait of Márk Gyulai' },
   languages: 'Hungarian, English (B2 language exam)',
+  license: 'Category B',
   stack: ['Java 8–25', 'Kotlin', 'Spring Boot'],
   roles: ['Java developer', 'Kotlin developer', 'AI consultant'],
   intro:
@@ -18,6 +19,7 @@ const profile: Content['profile'] = {
     'I am a senior Java developer. I have spent more than five years on Java 11 and Java 17, but I feel at home anywhere from Java 8 up to Java 25. I work on Spring and Spring Boot applications, and I like to see the work through from design and coding to tests and maintenance.',
     'I care about code that is easy to understand and maintain. That is why I follow proven design principles and patterns, and why I test a lot: unit tests, system tests and UI tests. Whenever a project needed better test coverage, I was glad to take it on.',
     'I am comfortable working in a team and on my own. I talk openly with clients and with colleagues from other areas, because I believe good software starts with good conversations. I try out new technologies in side projects, so my knowledge keeps getting refreshed. I also use AI deliberately in my work: I write good prompts, build skills, and record in CLAUDE.md files how the assistant should work on a project.',
+    'In my free time I like watching movies, playing games with friends and driving, and I try out new technologies in side projects.',
     'This site is built with Angular, because I am curious about the other side of development too.',
   ],
 };
@@ -255,7 +257,13 @@ const ui: Content['ui'] = {
   about: {
     title: 'About me',
     lead: 'A developer who likes to build systems that are still easy to understand years later.',
-    facts: { location: 'Location', role: 'Role', languages: 'Languages', email: 'Email' },
+    facts: {
+      location: 'Location',
+      role: 'Role',
+      languages: 'Languages',
+      license: 'Driving licence',
+      email: 'Email',
+    },
   },
   skills: {
     title: 'Skills',

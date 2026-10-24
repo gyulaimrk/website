@@ -18,6 +18,7 @@ export class About {
       { label: ui.about.facts.location, value: profile.location },
       { label: ui.about.facts.role, value: profile.role },
       { label: ui.about.facts.languages, value: profile.languages },
+      { label: ui.about.facts.license, value: profile.license },
       { label: ui.about.facts.email, value: profile.email },
     ];
   });

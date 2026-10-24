@@ -10,10 +10,10 @@ describe('About', () => {
     return { fixture, el: fixture.nativeElement as HTMLElement };
   }
 
-  it('a levél minden bekezdését és a négy tényt kirajzolja', () => {
+  it('a levél minden bekezdését és az öt tényt kirajzolja', () => {
     const { el } = render();
     expect(el.querySelectorAll('.story p').length).toBe(contentHu.profile.letter.length);
-    expect(el.querySelectorAll('dl > div').length).toBe(4);
+    expect(el.querySelectorAll('dl > div').length).toBe(5);
     expect(el.querySelector('dl')?.textContent).toContain(contentHu.profile.email);
   });
 

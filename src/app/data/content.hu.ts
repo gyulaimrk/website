@@ -10,6 +10,7 @@ const profile: Content['profile'] = {
   location: 'Nyíregyháza, Magyarország',
   photo: { src: 'mark-gyulai.jpg', alt: 'Gyulai Márk portréfotója' },
   languages: 'magyar, angol (B2 nyelvvizsga)',
+  license: 'B kategória',
   stack: ['Java 8–25', 'Kotlin', 'Spring Boot'],
   roles: ['Java fejlesztő', 'Kotlin fejlesztő', 'AI-konzultáns'],
   intro:
@@ -18,6 +19,7 @@ const profile: Content['profile'] = {
     'Senior Java fejlesztő vagyok. Több mint öt éve dolgozom Java 11 és Java 17 alatt, de a Java 8-tól a 25-ös verzióig mindenhol otthon érzem magam. Spring és Spring Boot alkalmazásokon dolgozom, és szeretem végigvinni a munkát: a tervezéstől a kódoláson és a teszteken át a karbantartásig.',
     'Fontos számomra, hogy a kód érthető és karbantartható legyen. Ezért követem a bevált tervezési elveket és mintákat, és sokat tesztelek: egységtesztekkel, rendszertesztekkel és felületi tesztekkel is. Ha egy projektben javítani kellett a tesztlefedettséget, azt mindig szívesen vállaltam.',
     'Jól érzem magam csapatban és önállóan is. Az ügyfelekkel és a más területen dolgozó kollégákkal nyíltan egyeztetek, mert szerintem a jó szoftver jó beszélgetésekkel kezdődik. Új technológiákat mellékprojektekben szoktam kipróbálni, így a tudásom folyamatosan frissül. Az AI-t is tudatosan használom a munkámban: jól promptolok, skilleket építek, és CLAUDE.md fájlokban rögzítem, hogyan dolgozzon az asszisztens a projekten.',
+    'Szabadidőmben szívesen nézek filmeket, játszom a barátaimmal, vezetek, és új technológiákat próbálok ki mellékprojektekben.',
     'Ez az oldal Angularral készült, mert a fejlesztés másik oldala is érdekel.',
   ],
 };
@@ -254,7 +256,13 @@ const ui: Content['ui'] = {
   about: {
     title: 'Rólam',
     lead: 'Egy fejlesztő, aki szívesen épít olyan rendszert, amelyet évek múlva is könnyű megérteni.',
-    facts: { location: 'Helyszín', role: 'Szerep', languages: 'Nyelvek', email: 'E-mail' },
+    facts: {
+      location: 'Helyszín',
+      role: 'Szerep',
+      languages: 'Nyelvek',
+      license: 'Jogosítvány',
+      email: 'E-mail',
+    },
   },
   skills: {
     title: 'Eszköztár',

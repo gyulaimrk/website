@@ -9,6 +9,8 @@ export interface Profile {
   photo: { src: string; alt: string };
   intro: string;
   languages: string;
+  /** Jogosítvány kategóriája. */
+  license: string;
   /** A hero kódablakában megjelenő technológiák. */
   stack: string[];
   /** A hero gépelő szövegének szerepei. */
@@ -86,7 +88,7 @@ export interface Ui {
   about: {
     title: string;
     lead: string;
-    facts: { location: string; role: string; languages: string; email: string };
+    facts: { location: string; role: string; languages: string; license: string; email: string };
   };
   skills: { title: string; lead: string };
   experience: { title: string; lead: string };
