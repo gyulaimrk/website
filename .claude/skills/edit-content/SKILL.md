@@ -13,4 +13,6 @@ Az oldal minden szövege két fájlban van: `src/app/data/content.hu.ts` (magyar
 3. Munkahely alatti projekt: a `jobs[].projects` listába kerül (név, opcionális `role` és `url`, rövid leírás), külön munkahelyként ne.
 4. A szövegek természetes, folyó nyelven készüljenek (magyarul első személyben, angolul is), ne felsorolásként. A technológia-címkék (`tech`) maradhatnak rövid szavak.
 5. Linkek, e-mail, számok és technológianevek mindkét nyelven azonosak.
-6. Végül futtasd az `npm test -- --watch=false` és az `npm run build` parancsot, és jelezd, ha hibát találnak.
+6. Tanúsítvány linkje: `studies[].url`, csak a felhasználótól kapott valós cím; mindkét nyelven ugyanaz.
+7. Mivel az önéletrajz (PDF) a tartalomból készül, változás után futtasd az `npm run cv` parancsot, és a `public/cv/` fájlokat is commitold.
+8. Végül futtasd az `npm test -- --watch=false`, az `npm run build` és (ha a változás látható funkciót érint) az `npm run e2e` parancsot, és jelezd, ha hibát találnak.
