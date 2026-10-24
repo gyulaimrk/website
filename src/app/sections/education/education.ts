@@ -12,10 +12,14 @@ import { SectionHeading } from '../../shared/section-heading/section-heading';
 })
 export class Education {
   protected readonly content = inject(ContentService).content;
+  private readonly studies = computed(() => this.content().studies);
   protected readonly education = computed(() =>
-    this.content().studies.filter((s) => s.kind === 'education'),
+    this.studies().filter((s) => s.kind === 'education'),
+  );
+  protected readonly anthropic = computed(() =>
+    this.studies().filter((s) => s.kind === 'certificate' && s.featured),
   );
   protected readonly certificates = computed(() =>
-    this.content().studies.filter((s) => s.kind === 'certificate'),
+    this.studies().filter((s) => s.kind === 'certificate' && !s.featured),
   );
 }

@@ -41,6 +41,8 @@ export interface Skill {
 
 export interface Study {
   kind: 'education' | 'certificate';
+  /** Kiemelt tanúsítvány (az Anthropic-é), külön kártyán jelenik meg. */
+  featured?: boolean;
   title: string;
   where: string;
   period: string;
@@ -79,7 +81,13 @@ export interface Ui {
   };
   skills: { title: string; lead: string };
   experience: { title: string; lead: string };
-  education: { title: string; lead: string; studies: string; certificates: string };
+  education: {
+    title: string;
+    lead: string;
+    studies: string;
+    anthropic: string;
+    certificates: string;
+  };
   contact: { title: string; text: string; linkedin: string };
   footer: { built: string; label: string };
   backToTop: string;

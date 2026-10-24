@@ -15,12 +15,24 @@
         }
       </ul>
     </app-card>
-    <app-card appReveal="2">
-      <h3>{{ content().ui.education.certificates }}</h3>
+    <app-card [featured]="true" appReveal="2">
+      <h3>{{ content().ui.education.anthropic }}</h3>
       <ul>
+        @for (study of anthropic(); track study.title) {
+          <li>
+            <strong>{{ study.title }}</strong>
+            <span>{{ study.where }}, {{ study.period }}</span>
+          </li>
+        }
+      </ul>
+    </app-card>
+    <app-card class="wide" appReveal>
+      <h3>{{ content().ui.education.certificates }}</h3>
+      <ul class="columns">
         @for (study of certificates(); track study.title) {
           <li>
             <strong>{{ study.title }}</strong>
+            <span>{{ study.where }}, {{ study.period }}</span>
           </li>
         }
       </ul>

@@ -26,6 +26,13 @@ li span {
   color: var(--muted);
   font-size: var(--step-small);
 }
+app-card.wide {
+  grid-column: 1 / -1;
+}
+.columns {
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: 20px 32px;
+}
 @media (max-width: 760px) {
   .grid {
     grid-template-columns: 1fr;
