@@ -108,7 +108,17 @@ const skills: Content['skills'] = [
   {
     title: 'Angular',
     tag: 'Frontend',
-    text: 'Ezt az oldalt is Angular 22-vel építettem: standalone komponensekkel, signalokkal és Vitest tesztekkel. Frontendben mellékprojektekben dolgozom vele, a munkám fő területe a backend.',
+    text: 'Ezt az oldalt is Angular 22-vel építettem: standalone komponensekkel, signalokkal és Vitest tesztekkel. Frontendben mellékprojektekben dolgozom vele, például a lizacover.hu-n, a munkám fő területe viszont a backend.',
+  },
+];
+
+const sideProjects: Content['sideProjects'] = [
+  {
+    name: 'lizacover.hu',
+    url: 'https://lizacover.hu',
+    description:
+      'Ivanovszki Elizabet grafikus és illusztrátor portfólió-oldala, amelyet én fejlesztettem. Egyoldalas, kétnyelvű oldal: a magyar és az angol változatnak saját címe van, hogy a keresők mindkettőt lássák. Angular 21-gyel készült, a build előre legenerált statikus oldalakat ad, és Cloudflare-en fut. A betűk saját kiszolgálásból jönnek, az analitika pedig csak hozzájárulás után tölt be.',
+    tech: ['Angular 21', 'TypeScript', 'Előrenderelés', 'Kétnyelvűség', 'SEO', 'Cloudflare'],
   },
 ];
 
@@ -223,6 +233,7 @@ const ui: Content['ui'] = {
       { href: '#rolam', label: 'Rólam' },
       { href: '#eszkoztar', label: 'Eszköztár' },
       { href: '#tapasztalat', label: 'Tapasztalat' },
+      { href: '#mellekprojektek', label: 'Mellékprojektek' },
       { href: '#tanulmanyok', label: 'Tanulmányok' },
     ],
     contact: 'Kapcsolat',
@@ -245,6 +256,11 @@ const ui: Content['ui'] = {
     title: 'Eszköztár',
     lead: 'Ezekkel dolgozom a leggyakrabban, a programozási nyelvektől a tesztelésig.',
   },
+  sideProjects: {
+    title: 'Mellékprojektek',
+    lead: 'Munkán kívül is szívesen építek, itt egy projekt, amelyet másoknak készítettem.',
+    visit: 'Megnézem az oldalt',
+  },
   experience: {
     title: 'Tapasztalat',
     lead: 'Három cég, négy szerep: junior fejlesztőként kezdtem, ma senior vagyok.',
@@ -265,4 +281,4 @@ const ui: Content['ui'] = {
   backToTop: 'Vissza a tetejére',
 };
 
-export const contentHu: Content = { profile, jobs, skills, studies, stats, ui };
+export const contentHu: Content = { profile, jobs, skills, sideProjects, studies, stats, ui };

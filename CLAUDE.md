@@ -15,7 +15,7 @@ Minden komponens saját mappában, négy külön fájllal: `név.ts`, `név.html
 - `src/app/data/` – `models.ts` (típusok), `content.hu.ts` és `content.en.ts` (a két nyelv teljes tartalma és felületi szövegei), `content.ts` (`CONTENTS`), `content.spec.ts` (a két nyelv szerkezetének egyezését is ellenőrzi)
 - `src/app/core/` – szolgáltatások: `LanguageService` (nyelv), `ContentService` (az aktuális nyelv tartalma, ebből olvasnak a komponensek), `ThemeService` (téma), `SeoService` (cím és meta), `ScrollSpyService` (aktív menüpont), `storage` (biztonságos localStorage), `prefers-reduced-motion`
 - `src/app/shared/` – újrahasznosítható építőelemek: `button`, `card`, `chip-list`, `section-heading`, `reveal`, `typewriter`, `code-window`, `theme-toggle`, `language-toggle`, `back-to-top`
-- `src/app/sections/` – az oldal szekciói: `nav`, `hero`, `about`, `skills`, `experience` (+ `job-card`), `education`, `contact`, `footer`
+- `src/app/sections/` – az oldal szekciói: `nav`, `hero`, `about`, `skills`, `experience` (+ `job-card`), `side-projects` (+ `project-card`), `education`, `contact`, `footer`
 - `src/styles.scss` – design tokenek (sötét és világos téma) és globális stílus
 - `src/index.html` – statikus SEO (meta, Open Graph, JSON-LD), `public/` – favicon, `og-image.png`, `robots.txt`, `_headers` (gyorsítótár)
 - `wrangler.jsonc` – Cloudflare assets konfiguráció; `.github/workflows/ci.yml` – teszt, build és deploy
@@ -23,6 +23,7 @@ Minden komponens saját mappában, négy külön fájllal: `név.ts`, `név.html
 ## Szabályok
 - Kétnyelvű oldal (magyar és angol). Szöveg nem kerülhet a komponensekbe: minden a `content.hu.ts` és `content.en.ts` fájlokban van, a komponensek a `ContentService`-ből olvasnak. Új szöveg mindkét nyelven kell; a `content.spec.ts` jelzi, ha a két nyelv szerkezete eltér.
 - A tartalom csak valós adat lehet (önéletrajz, LinkedIn). Kitalálni nem szabad; ha hiányzik adat, kérdezz. Telefonszám, születési dátum, lakcím nem kerülhet az oldalra.
+- Mellékprojektként szerepel a lizacover.hu (Ivanovszki Elizabet grafikus portfóliója, `gyulaimrk/ie-fe` repó).
 - Adroit Group alatt projektként szerepel a GLI Solutions (AI Consultant) és a MOL Limo rent a car; ezekhez nincs külön dátum.
 - Design (modern, hagyományos fejlesztői portfólió): Space Grotesk (cím) és Inter (szöveg), betűk helyben (`@fontsource`). Indigó–lila–ciánkék átmenet kiemelés, üveghatású kártyák, sötét és világos téma (`data-theme`, tokenek a `styles.scss`-ben). Hero: gépelő szerep, Kotlin kódablak, statisztikák. Az idővonal csak időrendhez használható. Mozgás: belépő animáció, lebegő háttérfények, hover; mozgáscsökkentési tartalék kötelező.
 - Kódelvek: SOLID, DRY, KISS. Egy komponens egy felelősség (a szekció összeállít, a kis komponens megjelenít); ismétlődő UI-t shared komponensbe emelj; ne építs többet, mint amit a feladat kér. A szekciók a `data/content.ts`-ből dolgoznak, a hard-kódolt szöveg a komponensekben kerülendő.

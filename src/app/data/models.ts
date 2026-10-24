@@ -39,6 +39,13 @@ export interface Skill {
   text: string;
 }
 
+export interface SideProject {
+  name: string;
+  url: string;
+  description: string;
+  tech: string[];
+}
+
 export interface Study {
   kind: 'education' | 'certificate';
   /** Kiemelt tanúsítvány (az Anthropic-é), külön kártyán jelenik meg. */
@@ -81,6 +88,7 @@ export interface Ui {
   };
   skills: { title: string; lead: string };
   experience: { title: string; lead: string };
+  sideProjects: { title: string; lead: string; visit: string };
   education: {
     title: string;
     lead: string;
@@ -98,6 +106,7 @@ export interface Content {
   profile: Profile;
   jobs: Job[];
   skills: Skill[];
+  sideProjects: SideProject[];
   studies: Study[];
   stats: Stat[];
   ui: Ui;

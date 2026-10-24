@@ -50,6 +50,14 @@ describe('content', () => {
       expect(new Set(titles).size).toBe(titles.length);
     });
 
+    it('a mellékprojektek ki vannak töltve, és van élő linkjük', () => {
+      expect(content.sideProjects.length).toBeGreaterThan(0);
+      content.sideProjects.forEach((p) => {
+        expect(p.url).toMatch(/^https:\/\//);
+        expect(p.tech.length).toBeGreaterThan(0);
+      });
+    });
+
     it('a statisztikák és a felület szövegei nem üresek', () => {
       content.stats.forEach((s) => {
         expect(s.value).toBeTruthy();

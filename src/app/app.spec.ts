@@ -21,6 +21,7 @@ describe('App', () => {
       'app-about',
       'app-skills',
       'app-experience',
+      'app-side-projects',
       'app-education',
       'app-contact',
       'app-footer',

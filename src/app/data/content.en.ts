@@ -109,7 +109,17 @@ const skills: Content['skills'] = [
   {
     title: 'Angular',
     tag: 'Frontend',
-    text: 'I built this site with Angular 22 as well, using standalone components, signals and Vitest tests. I work with it on the frontend side in side projects, while my main field at work is the backend.',
+    text: 'I built this site with Angular 22 as well, using standalone components, signals and Vitest tests. I work with it on the frontend side in side projects, such as lizacover.hu, while my main field at work is the backend.',
+  },
+];
+
+const sideProjects: Content['sideProjects'] = [
+  {
+    name: 'lizacover.hu',
+    url: 'https://lizacover.hu',
+    description:
+      'The portfolio site of Elizabet Ivanovszki, a graphic designer and illustrator, which I developed. It is a one-page, bilingual site: the Hungarian and English versions have their own addresses so search engines can see both. It is built with Angular 21, the build produces prerendered static pages, and it runs on Cloudflare. The fonts are self-hosted, and analytics loads only after consent.',
+    tech: ['Angular 21', 'TypeScript', 'Prerendering', 'Bilingual', 'SEO', 'Cloudflare'],
   },
 ];
 
@@ -224,6 +234,7 @@ const ui: Content['ui'] = {
       { href: '#rolam', label: 'About' },
       { href: '#eszkoztar', label: 'Skills' },
       { href: '#tapasztalat', label: 'Experience' },
+      { href: '#mellekprojektek', label: 'Side projects' },
       { href: '#tanulmanyok', label: 'Education' },
     ],
     contact: 'Contact',
@@ -246,6 +257,11 @@ const ui: Content['ui'] = {
     title: 'Skills',
     lead: 'What I use most often, from programming languages to testing.',
   },
+  sideProjects: {
+    title: 'Side projects',
+    lead: 'I like to build outside of work too. Here is a project I made for someone else.',
+    visit: 'Visit the site',
+  },
   experience: {
     title: 'Experience',
     lead: 'Three companies, four roles: I started as a junior developer and today I am a senior.',
@@ -266,4 +282,4 @@ const ui: Content['ui'] = {
   backToTop: 'Back to top',
 };
 
-export const contentEn: Content = { profile, jobs, skills, studies, stats, ui };
+export const contentEn: Content = { profile, jobs, skills, sideProjects, studies, stats, ui };

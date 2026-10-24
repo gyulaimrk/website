@@ -1,0 +1,8 @@
+<app-card>
+  <h3>{{ project().name }}</h3>
+  <p class="description">{{ project().description }}</p>
+  <app-chip-list [items]="project().tech" />
+  <a appButton variant="ghost" [external]="true" [href]="project().url">
+    {{ content().ui.sideProjects.visit }}
+  </a>
+</app-card>

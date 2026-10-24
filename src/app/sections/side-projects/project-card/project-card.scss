@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+app-card {
+  display: grid;
+  justify-items: start;
+  gap: 18px;
+}
+h3 {
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+}
+.description {
+  max-width: 68ch;
+  color: var(--muted);
+}

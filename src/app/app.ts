@@ -9,11 +9,23 @@ import { Experience } from './sections/experience/experience';
 import { Footer } from './sections/footer/footer';
 import { Hero } from './sections/hero/hero';
 import { Nav } from './sections/nav/nav';
+import { SideProjects } from './sections/side-projects/side-projects';
 import { Skills } from './sections/skills/skills';
 
 @Component({
   selector: 'app-root',
-  imports: [Nav, Hero, About, Skills, Experience, Education, Contact, Footer, BackToTop],
+  imports: [
+    Nav,
+    Hero,
+    About,
+    Skills,
+    Experience,
+    SideProjects,
+    Education,
+    Contact,
+    Footer,
+    BackToTop,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
