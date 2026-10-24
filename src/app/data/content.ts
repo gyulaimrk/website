@@ -9,16 +9,16 @@ export const profile: Profile = {
   linkedin: 'https://www.linkedin.com/in/mark-gyulai-6aa690264',
   github: 'https://github.com/gyulaimrk',
   location: 'Nyíregyháza, Magyarország',
-  tagline: 'Backend rendszerek Javában és Kotlinban, mellette AI-konzultáció.',
+  tagline: 'Backend fejlesztő vagyok, és AI-konzultánsként is dolgozom.',
   languages: 'magyar, angol',
   roles: ['Java fejlesztő', 'Kotlin fejlesztő', 'AI-konzultáns'],
   intro:
-    'Java (8-tól 25-ig) és Kotlin alapú backend rendszereket tervezek, tesztelek és tartok karban, mellette AI-konzultánsként segítek a mesterséges intelligencia gyakorlati bevezetésében.',
+    'Backend rendszereket építek Javában és Kotlinban. Olyan szoftvereken dolgozom szívesen, amelyeket évekig használnak, és amelyeket egy csapat magabiztosan tovább tud fejleszteni. Emellett AI-konzultánsként segítek abban, hogy a mesterséges intelligencia tényleg hasznos legyen egy cégnél.',
   letter: [
-    'Senior Java fejlesztőként több mint négy éve dolgozom Java 11 és Java 17 alatt, de a Java 8-tól a 25-ös verzióig magabiztosan írok kódot. Spring és Spring Boot alkalmazásokon dolgozom. Összetett rendszerek tervezésében, kódolásában, tesztelésében és karbantartásában vagyok otthon.',
-    'A bevált fejlesztési gyakorlatokat, az objektumorientált elveket és a tervezési mintákat követem, hogy a kód tiszta, karbantartható és hatékony legyen. Fontos számomra a tesztlefedettség: unit-, rendszer- és UI-tesztek.',
-    'Szívesen dolgozom csapatban és önállóan is, az ügyfelekkel és más funkciók képviselőivel pedig nyíltan kommunikálok. A tanulás nálam folyamatos: mellékprojektekben próbálom ki az új technológiákat.',
-    'Ez az oldal Angularral készült, mert érdekel a másik oldal is.',
+    'Senior Java fejlesztő vagyok. Több mint négy éve dolgozom Java 11 és Java 17 alatt, de a Java 8-tól a 25-ös verzióig mindenhol otthon érzem magam. Spring és Spring Boot alkalmazásokon dolgozom, és szeretem végigvinni a munkát: a tervezéstől a kódoláson és a teszteken át a karbantartásig.',
+    'Fontos számomra, hogy a kód érthető és karbantartható legyen. Ezért követem a bevált tervezési elveket és mintákat, és sokat tesztelek: egységtesztekkel, rendszertesztekkel és felületi tesztekkel is. Ha egy projektben javítani kellett a tesztlefedettséget, azt mindig szívesen vállaltam.',
+    'Jól érzem magam csapatban és önállóan is. Az ügyfelekkel és a más területen dolgozó kollégákkal nyíltan egyeztetek, mert szerintem a jó szoftver jó beszélgetésekkel kezdődik. Új technológiákat mellékprojektekben szoktam kipróbálni, így a tudásom folyamatosan frissül.',
+    'Ez az oldal Angularral készült, mert a fejlesztés másik oldala is érdekel.',
   ],
 };
 
@@ -29,17 +29,17 @@ export const jobs: Job[] = [
     period: '2025. október – jelenleg',
     years: '2025 –',
     description:
-      'Senior szoftvermérnökként több Kotlin projekten dolgozom: backend fejlesztés, tervezés és minőségbiztosítás, valamint AI-konzultáció.',
+      'Senior szoftvermérnökként dolgozom, és több Kotlin projekten vagyok benne. Backendet fejlesztek, részt veszek a tervezésben, és figyelek a minőségre. Az egyik projektem emellett AI-konzultációról szól.',
     projects: [
       {
         name: 'GLI Solutions',
         role: 'AI Consultant',
-        text: 'AI-konzultánsként segítek, hogy a mesterséges intelligencia valódi problémákra adjon megoldást: használati esetek feltárása, megvalósíthatóság és beillesztés a meglévő rendszerekbe.',
+        text: 'AI-konzultánsként abban segítek, hogy a mesterséges intelligencia valódi problémákra adjon választ. Megkeressük, hol hasznos, megnézzük, megvalósítható-e, és beillesztjük a már meglévő rendszerekbe.',
       },
       {
         name: 'MOL Limo rent a car',
         url: 'https://rentacar.mollimo.hu/rent/start',
-        text: 'A MOL Limo autóbérlő (rent a car) rendszerének Kotlin backend fejlesztése.',
+        text: 'A MOL Limo autóbérlő rendszerének backendjét fejlesztem Kotlinban.',
       },
     ],
     tech: ['Kotlin', 'Java', 'Exposed', 'AI', 'MCP'],
@@ -50,7 +50,7 @@ export const jobs: Job[] = [
     period: '2024. augusztus – 2025. október',
     years: '2024 – 2025',
     description:
-      'Egy nagy gyorsétterem-hálózat alkalmazásának fejlesztése és karbantartása: új API-k megvalósítása, hozzájuk unit- és integrációs tesztek, code review, SQL-lekérdezések és külső API-k hívása.',
+      'Egy nagy gyorsétterem-hálózat alkalmazásán dolgoztam. Új API-kat készítettem hozzá, és megírtam a hozzájuk tartozó egység- és integrációs teszteket. Átnéztem a kollégák kódját, SQL-lekérdezéseket írtam, más rendszerek API-jait kötöttem be, és karbantartottam a meglévő kódot.',
     tech: ['Java', 'REST API', 'SQL', 'Unit tesztek'],
   },
   {
@@ -59,7 +59,7 @@ export const jobs: Job[] = [
     period: '2022. január – 2024. augusztus',
     years: '2022 – 2024',
     description:
-      'Egy amerikai cég (Broadridge) pénzügyi alkalmazásának fejlesztése. Többszálú végrehajtás, domain-driven szemlélet és funkcionális programozás; unit-, rendszer- és elfogadási tesztek, Selenium UI tesztek. Megoldottam párhuzamossági problémákat és javítottam a tesztlefedettséget.',
+      'Egy csapat tagjaként egy amerikai cég, a Broadridge pénzügyi alkalmazását fejlesztettük. Itt tanultam meg igazán a többszálú programozást, a domain-driven tervezést és a funkcionális megközelítést. Egység-, rendszer- és elfogadási teszteket írtam, Seleniummal felületi teszteket is. Megoldottam párhuzamossági hibákat, és javítottam a tesztlefedettséget.',
     tech: ['Java', 'Többszálúság', 'DDD', 'Selenium', 'SQL'],
   },
   {
@@ -68,48 +68,46 @@ export const jobs: Job[] = [
     period: '2021. július – 2022. január',
     years: '2021 – 2022',
     description:
-      'Egy nyelvvizsgázást támogató webalkalmazás backendjét fejlesztettem. Új funkciók tervezése és megvalósítása, unit tesztek, code review és közben a tudásom folyamatos bővítése.',
+      'Junior fejlesztőként egy nyelvvizsgára készítő webalkalmazás backendjét építettem. Új funkciókat terveztem és valósítottam meg, egységteszteket írtam, részt vettem a kód átnézésében, és közben sokat tanultam.',
     tech: ['Java', 'Backend', 'Unit tesztek'],
   },
 ];
-export const filterTech = ['AI', 'Kotlin', 'Java', 'SQL', 'Selenium', 'Többszálúság'];
-
 export const skills: Skill[] = [
   {
     highlight: true,
     title: 'AI és MCP',
     tag: 'Mesterséges intelligencia',
-    text: 'AI-konzultánsként dolgozom az Adroit Group GLI Solutions projektjén: használati esetek keresése, megvalósíthatóság és beillesztés a meglévő rendszerekbe. Model Context Protocol (MCP) tanúsítvánnyal.',
+    text: 'AI-konzultánsként az Adroit Group GLI Solutions projektjén dolgozom: azt keressük, hol segít a mesterséges intelligencia, és hogyan illeszthető be a meglévő rendszerekbe. A Model Context Protocolból (MCP) tanúsítványt is szereztem.',
   },
   {
     title: 'Java 8–25',
     tag: 'Nyelv',
-    text: 'A Java 8-tól a 25-ös verzióig magabiztosan írok kódot; több mint négy év gyakorlat Java 11 és Java 17 alatt. Tanúsítvány Java 8-ból és Java 10/11-ből.',
+    text: 'A Java 8-tól a 25-ös verzióig magabiztosan írok kódot. A legtöbb gyakorlatom, több mint négy év, Java 11 és Java 17 alatt van. Java 8-ból és a 10-es, 11-es verzióból tanúsítványom is van.',
   },
   {
     title: 'Kotlin',
     tag: 'Nyelv',
-    text: 'Több Kotlin projekt az Adroit Group-nál, köztük a MOL Limo autóbérlő; adatelérés az Exposed SQL keretrendszerrel.',
+    text: 'Az Adroit Group-nál több Kotlin projekten dolgozom, köztük a MOL Limo autóbérlőn. Az adatbázist az Exposed keretrendszerrel érem el.',
   },
   {
     title: 'Spring Boot',
     tag: 'Keretrendszer',
-    text: 'REST API-k tervezése és megvalósítása Spring Boot alkalmazásokban, mikroszolgáltatás-architektúrában.',
+    text: 'Spring Boot alkalmazásokban tervezek és építek REST API-kat, és dolgoztam mikroszolgáltatás-architektúrában is.',
   },
   {
     title: 'Tesztelés',
     tag: 'Minőség',
-    text: 'JUnit, Mockito, Selenium és Cucumber: unit-, integrációs-, rendszer- és UI-tesztek, magas lefedettséggel.',
+    text: 'A teszteket a munka részének tekintem. JUnit, Mockito, Selenium és Cucumber segítségével írok egység-, integrációs, rendszer- és felületi teszteket.',
   },
   {
     title: 'Eszközök',
     tag: 'Munkafolyamat',
-    text: 'Gradle, Maven, Git, Lombok, SQL, valamint Jira és Confluence a csapatmunkához.',
+    text: 'A build-eket Gradle-lel és Mavennel kezelem, a kódot Gitben tartom. Az SQL-t és a Lombokot rendszeresen használom, a csapatmunkához pedig Jirát és Confluence-t.',
   },
   {
     title: 'Tervezés',
     tag: 'Elvek',
-    text: 'SOLID, clean code, tervezési minták, domain-driven szemlélet és mikroszolgáltatások.',
+    text: 'A SOLID elveket, a clean code szemléletet és a tervezési mintákat követem. Közel áll hozzám a domain-driven tervezés és a mikroszolgáltatások világa.',
   },
 ];
 
@@ -143,7 +141,7 @@ export const studies: Study[] = [
 ];
 
 export const stats: Stat[] = [
-  { value: '4+', label: 'év Java-tapasztalat' },
-  { value: '8–25', label: 'Java verziók, amelyeken kódolok' },
-  { value: '3', label: 'munkahely: EPAM, RDI, Adroit' },
+  { value: '4+', label: 'éve dolgozom Java 11 és 17 alatt' },
+  { value: '8–25', label: 'Java verziókon írok magabiztosan kódot' },
+  { value: '3', label: 'cégnél dolgoztam: EPAM, RDI és Adroit' },
 ];

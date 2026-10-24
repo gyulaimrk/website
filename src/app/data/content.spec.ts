@@ -1,4 +1,4 @@
-import { filterTech, jobs, profile, skills, stats, studies } from './content';
+import { jobs, profile, skills, stats, studies } from './content';
 
 describe('content', () => {
   it('a profil kötelező mezői ki vannak töltve', () => {
@@ -12,15 +12,6 @@ describe('content', () => {
     const all = JSON.stringify({ profile, jobs, skills, studies });
     expect(all).not.toMatch(/\+36\s?\d/);
     expect(all).not.toMatch(/1997/);
-  });
-
-  it('a szűrő minden technológiája szerepel legalább egy munkahelyen', () => {
-    filterTech.forEach((tech) =>
-      expect(
-        jobs.some((j) => j.tech.includes(tech)),
-        tech,
-      ).toBe(true),
-    );
   });
 
   it('a munkahelyek és képességek egyedi azonosítójúak', () => {
