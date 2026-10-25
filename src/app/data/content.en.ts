@@ -39,14 +39,21 @@ const jobs: Content['jobs'] = [
         text: 'I develop the backend of the MOL Limo car rental system in Kotlin.',
       },
       { name: 'Railnet' },
-      { name: 'Helvo', text: 'A project for a Swiss startup.' },
+      {
+        name: 'Helvo',
+        text: 'A backend for frontend application for a Swiss fintech startup, written in Kotlin with Spring Boot 4.',
+        points: [
+          'Documentation-first (design-first) approach: designing the API in OpenAPI',
+          'Connecting the backend to other subsystems and the frontend with artifacts generated from the OpenAPI description',
+        ],
+      },
       {
         name: 'GLI Solutions',
         role: 'AI Consultant',
         text: 'As an AI consultant I help artificial intelligence answer real problems. We find where it is useful, check whether it is feasible, and fit it into the systems that already exist.',
       },
     ],
-    tech: ['Kotlin', 'Java', 'Exposed', 'AI', 'MCP', 'Prompting'],
+    tech: ['Kotlin', 'Java', 'Spring Boot', 'OpenAPI', 'Exposed', 'AI', 'MCP', 'Prompting'],
   },
   {
     company: 'RDI Software Hungary',

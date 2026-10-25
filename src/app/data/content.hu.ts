@@ -39,14 +39,21 @@ const jobs: Content['jobs'] = [
         text: 'A MOL Limo autóbérlő rendszerének backendjét fejlesztem Kotlinban.',
       },
       { name: 'Railnet' },
-      { name: 'Helvo', text: 'Egy svájci startup projektje.' },
+      {
+        name: 'Helvo',
+        text: 'Egy svájci pénzügyi startup backend for frontend alkalmazása, Kotlinban, Spring Boot 4-gyel.',
+        points: [
+          'Dokumentáció-első (design-first) megközelítés: az API tervezése OpenAPI-ban',
+          'A backend összekötése más alrendszerekkel és a frontenddel az OpenAPI-leírásból generált artifactokkal',
+        ],
+      },
       {
         name: 'GLI Solutions',
         role: 'AI Consultant',
         text: 'AI-konzultánsként abban segítek, hogy a mesterséges intelligencia valódi problémákra adjon választ. Megkeressük, hol hasznos, megnézzük, megvalósítható-e, és beillesztjük a már meglévő rendszerekbe.',
       },
     ],
-    tech: ['Kotlin', 'Java', 'Exposed', 'AI', 'MCP', 'Prompting'],
+    tech: ['Kotlin', 'Java', 'Spring Boot', 'OpenAPI', 'Exposed', 'AI', 'MCP', 'Prompting'],
   },
   {
     company: 'RDI Software Hungary',
