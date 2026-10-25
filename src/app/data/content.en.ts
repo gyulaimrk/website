@@ -61,6 +61,7 @@ const jobs: Content['jobs'] = [
         points: [
           'Maintaining existing microservices',
           'Designing and developing new microservices',
+          'Designing API endpoints and tidying up the OpenAPI description file with reusable objects',
           'Finding and fixing bugs based on metrics, traces and logs',
           'Raising test coverage above 90%',
           'Repairing data corrupted by migrations in a NoSQL database with a Python script',

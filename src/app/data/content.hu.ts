@@ -61,6 +61,7 @@ const jobs: Content['jobs'] = [
         points: [
           'Meglévő microservice-ek karbantartása',
           'Új microservice-ek tervezése és fejlesztése',
+          'API-végpontok tervezése, az OpenAPI-leírófájl rendbetétele újrahasznosítható objektumokkal',
           'Hibák felderítése és javítása metrikák, trace-ek és logok alapján',
           'A tesztlefedettség 90% fölé emelése',
           'A migrációk által elrontott adatok javítása NoSQL adatbázisban, Python szkripttel',
