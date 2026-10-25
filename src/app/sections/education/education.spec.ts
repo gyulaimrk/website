@@ -42,7 +42,8 @@ describe('Education', () => {
     const { cards } = render();
     const exam = [...cards[0].querySelectorAll('li')].find((li) => li.textContent?.includes('B2'));
     expect(exam?.querySelector('span')).toBeNull();
-    expect(exam?.textContent?.trim()).toBe('Angol nyelvvizsga, B2');
+    expect(exam?.querySelector('strong')?.textContent).toBe('Angol nyelvvizsga, B2');
+    expect(exam?.querySelector('p')?.textContent).toBe('Középfokú, B2 szintű angol nyelvvizsga.');
   });
 
   it('a mentorprogramnál leírást is mutat, a többi bejegyzésnél nem', () => {

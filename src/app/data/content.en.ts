@@ -401,7 +401,9 @@ const studies: Content['studies'] = [
     kind: 'education',
     title: 'Mathematics and Computer Science, BSc',
     where: 'University of Miskolc',
-    period: '2017 – 2021',
+    period: '2017–2021',
+    description:
+      'During my university studies I gained a foundation in mathematics and computer science, on which I build the analytical, problem-solving approach I apply in software development.',
   },
   {
     kind: 'education',
@@ -409,9 +411,15 @@ const studies: Content['studies'] = [
     where: 'EPAM Systems',
     period: 'September 2020 – July 2021',
     description:
-      'I completed EPAM’s Java Mentored Education Program. Besides the Java language, the program covered version control systems, agile methodologies, testing, clean code, design patterns and the Spring framework, and gave a short introduction to front end development.',
+      'Through EPAM’s Java Mentored Education Program I received a comprehensive introduction to Java-based software development and professional development workflows. Besides the Java language, the training covered version control, agile methodologies, software testing, the principles of Clean Code, design patterns and the Spring framework. As part of the program I also got to know the basics of frontend development.',
   },
-  { kind: 'education', title: 'English language exam, B2', where: '', period: '' },
+  {
+    kind: 'education',
+    title: 'English language exam, B2',
+    where: '',
+    period: '',
+    description: 'An intermediate-level, B2 English language exam.',
+  },
   {
     kind: 'certificate',
     featured: true,
@@ -564,7 +572,7 @@ const ui: Content['ui'] = {
   },
   education: {
     title: 'Education and certificates',
-    lead: 'After university I have kept developing through courses and certificates.',
+    lead: 'I keep developing my professional knowledge, building on my university studies with targeted training and technology certifications.',
     studies: 'Education',
     featured: 'Anthropic certificates',
     certificates: 'More certificates',

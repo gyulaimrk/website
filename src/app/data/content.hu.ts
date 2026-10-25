@@ -401,7 +401,9 @@ const studies: Content['studies'] = [
     kind: 'education',
     title: 'Matematika és informatika, BSc',
     where: 'Miskolci Egyetem',
-    period: '2017 – 2021',
+    period: '2017–2021',
+    description:
+      'Egyetemi tanulmányaim során matematikai és informatikai alapokat szereztem, amelyekre a szoftverfejlesztésben alkalmazott analitikus és problémamegoldó szemléletemet építem.',
   },
   {
     kind: 'education',
@@ -409,9 +411,15 @@ const studies: Content['studies'] = [
     where: 'EPAM Systems',
     period: '2020. szeptember – 2021. július',
     description:
-      'Elvégeztem az EPAM Java Mentored Education Program képzését. A program a Java nyelv mellett a verziókezelő rendszerekkel, az agilis módszertanokkal, a teszteléssel, a clean code elveivel, a tervezési mintákkal és a Spring keretrendszerrel foglalkozott. Rövid betekintést kaptunk a frontend fejlesztésbe is.',
+      'Az EPAM Java Mentored Education Program keretében átfogó bevezetést kaptam a Java-alapú szoftverfejlesztésbe és a professzionális fejlesztői munkafolyamatokba. A képzés a Java nyelv mellett kitért a verziókezelésre, az agilis módszertanokra, a szoftvertesztelésre, a Clean Code alapelveire, a tervezési mintákra és a Spring keretrendszerre. A program részeként a frontendfejlesztés alapjaival is megismerkedtem.',
   },
-  { kind: 'education', title: 'Angol nyelvvizsga, B2', where: '', period: '' },
+  {
+    kind: 'education',
+    title: 'Angol nyelvvizsga, B2',
+    where: '',
+    period: '',
+    description: 'Középfokú, B2 szintű angol nyelvvizsga.',
+  },
   {
     kind: 'certificate',
     featured: true,
@@ -564,7 +572,7 @@ const ui: Content['ui'] = {
   },
   education: {
     title: 'Tanulmányok és tanúsítványok',
-    lead: 'Az egyetem után tanfolyamokkal és tanúsítványokkal bővítem a tudásomat.',
+    lead: 'Folyamatosan fejlesztem szakmai tudásomat egyetemi tanulmányaimra építve, célzott képzésekkel és technológiai tanúsítványok megszerzésével.',
     studies: 'Tanulmányok',
     featured: 'Anthropic-tanúsítványok',
     certificates: 'További tanúsítványok',
