@@ -74,6 +74,7 @@ const jobs: Content['jobs'] = [
       'Java',
       'Microservices',
       'REST API',
+      'OpenAPI',
       'SQL',
       'NoSQL',
       'Python',
