@@ -49,6 +49,18 @@ describe('JobCard', () => {
     expect(items[1].querySelector('.points')).toBeNull();
   });
 
+  it('a projekt eszközeit címkékként mutatja, ha vannak', () => {
+    const el = render({
+      projects: [{ name: 'Alfa', tech: ['Jenkins', 'GitLab'] }, { name: 'Béta' }],
+    });
+    const items = [...el.querySelectorAll('.projects > li')];
+    expect([...items[0].querySelectorAll('.tools li')].map((li) => li.textContent)).toEqual([
+      'Jenkins',
+      'GitLab',
+    ]);
+    expect(items[1].querySelector('.tools')).toBeNull();
+  });
+
   it('projektek nélkül nincs projektlista', () => {
     expect(render({ projects: undefined }).querySelector('.projects')).toBeNull();
   });

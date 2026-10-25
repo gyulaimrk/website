@@ -33,6 +33,9 @@
                 }
               </ul>
             }
+            @if (project.tech; as tech) {
+              <app-chip-list class="tools" [items]="tech" />
+            }
           </li>
         }
       </ul>

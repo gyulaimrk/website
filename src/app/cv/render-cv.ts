@@ -36,6 +36,7 @@ const STYLE = `
   .job-role { color: #3a45a8; font-weight: 600; }
   ul { margin: 3px 0 0; padding-left: 15px; }
   li { margin: 0; }
+  .tools { color: #4b5686; font-size: 8.8pt; }
   .tags { margin-top: 3px; color: #4b5686; font-size: 8.8pt; }
   .skills { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 0; padding: 0; list-style: none; }
   .skills li { padding: 1px 9px; border-radius: 99px; background: #e9ecff; font-weight: 500; }
@@ -68,10 +69,13 @@ export function renderCv(lang: Lang, content: Content, assets: CvAssets): string
       const projects = (job.projects ?? [])
         .map((p) => {
           const label = [p.name, p.role].filter(Boolean).join(' – ');
+          const tools = p.tech?.length
+            ? ` <span class="tools">(${esc(p.tech.join(', '))})</span>`
+            : '';
           const points = p.points?.length
             ? `<ul>${p.points.map((point) => `<li>${esc(point)}</li>`).join('')}</ul>`
             : '';
-          return `<li><strong>${esc(label)}</strong>${p.text ? `: ${esc(p.text)}` : ''}${points}</li>`;
+          return `<li><strong>${esc(label)}</strong>${tools}${p.text ? `: ${esc(p.text)}` : ''}${points}</li>`;
         })
         .join('');
       return `<section class="job">

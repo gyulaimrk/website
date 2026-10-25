@@ -35,6 +35,7 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'MOL Limo rent a car',
+        tech: ['Jenkins', 'GitLab'],
         url: 'https://rentacar.mollimo.hu/rent/start',
         text: 'A MOL Limo autóbérlő rendszerének backendjét fejlesztem Kotlinban. A backend nem csak összesíti az adatokat, hanem számol is, és aszinkron módon szinkronizál egy alrendszerrel.',
         points: [
@@ -50,6 +51,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Helvo',
+        tech: ['GitLab', 'ArgoCD'],
         text: 'A nemzetközi csapatommal egy svájci pénzügyi startup backend for frontend alkalmazását építettük Kotlinban, Spring Boot 4-gyel.',
         points: [
           'Dokumentáció-első (design-first) megközelítés: az API tervezése OpenAPI-ban',
@@ -98,6 +100,7 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'McDonald’s',
+        tech: ['GitHub', 'ArgoCD'],
         text: 'Felhasználói fiókok, authentikáció és autorizáció: ezzel foglalkozó nemzetközi csapat tagja voltam.',
         points: [
           'Meglévő microservice-ek karbantartása',
@@ -132,9 +135,10 @@ const jobs: Content['jobs'] = [
     description:
       'Egy nemzetközi csapat tagjaként a Broadridge, egy amerikai cég pénzügyi alkalmazását fejlesztettük. Itt tanultam meg igazán a többszálú programozást, a domain-driven tervezést és a funkcionális megközelítést. Egység-, rendszer- és elfogadási teszteket írtam, Seleniummal felületi teszteket is. Más rendszerek API-jait is bekötöttem, időnként aszinkron módon. Megoldottam párhuzamossági hibákat, kezeltem az adatbázis-tranzakciókat, és javítottam a tesztlefedettséget.',
     projects: [
-      { name: 'Broadridge pénzügyi alkalmazás' },
+      { name: 'Broadridge pénzügyi alkalmazás', tech: ['Jenkins', 'GitLab'] },
       {
         name: 'Multitenant keretrendszer',
+        tech: ['Jenkins', 'GitLab'],
         text: 'A Broadridge-projekt többbérlős (multitenant) keretrendszere, amelyen külön projektként dolgoztam.',
       },
     ],
@@ -149,6 +153,7 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'Belső vizsgarendszer',
+        tech: ['Jenkins', 'GitLab'],
         text: 'Az EPAM belső vizsgarendszere: webalkalmazás, amelyben biztonságosan lehetett vizsgázni. A csapatommal a backendjét építettük Spring Boot 3-mal és MySQL adatbázissal.',
         points: [
           'Új funkciók tervezése és fejlesztése',
@@ -161,6 +166,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Broadridge pénzügyi alkalmazás',
+        tech: ['Jenkins', 'GitLab'],
         text: 'Ugyanezen a projekten dolgoztam később Software Engineerként is.',
       },
     ],
@@ -198,7 +204,7 @@ const skills: Content['skills'] = [
   {
     title: 'Eszközök',
     tag: 'Munkafolyamat',
-    text: 'A build-eket Gradle-lel és Mavennel kezelem, a kódot Gitben tartom. Dockerből tanúsítványom van. Az SQL-t és a Lombokot rendszeresen használom, a csapatmunkához pedig Jirát és Confluence-t.',
+    text: 'A build-eket Gradle-lel és Mavennel kezelem, a kódot Gitben tartom. Dolgoztam Jenkinsszel, GitLabbal, GitHubbal és GitHub Actionsszel, a kiadásokhoz pedig ArgoCD-t is használtam. Dockerből tanúsítványom van. Az SQL-t és a Lombokot rendszeresen használom, a csapatmunkához pedig Jirát és Confluence-t.',
   },
   {
     title: 'Tervezés',
@@ -284,7 +290,16 @@ const sideProjects: Content['sideProjects'] = [
     url: 'https://lizacover.hu',
     description:
       'Élesben is elérhető oldal: Ivanovszki Elizabet grafikus és illusztrátor portfóliója, amelyet én fejlesztettem. Egyoldalas, kétnyelvű oldal: a magyar és az angol változatnak saját címe van, hogy a keresők mindkettőt lássák. Angular 21-gyel készült, a build előre legenerált statikus oldalakat ad, és Cloudflare-en fut. A betűk saját kiszolgálásból jönnek, az analitika pedig csak hozzájárulás után tölt be.',
-    tech: ['Angular 21', 'TypeScript', 'Előrenderelés', 'Kétnyelvűség', 'SEO', 'Cloudflare'],
+    tech: [
+      'Angular 21',
+      'TypeScript',
+      'Előrenderelés',
+      'Kétnyelvűség',
+      'SEO',
+      'Cloudflare',
+      'GitHub',
+      'GitHub Actions',
+    ],
   },
   {
     name: 'Ez a portfólió',
@@ -298,6 +313,7 @@ const sideProjects: Content['sideProjects'] = [
       'Kétnyelvűség',
       'Hozzáférhetőség',
       'SEO',
+      'GitHub',
       'GitHub Actions',
     ],
   },

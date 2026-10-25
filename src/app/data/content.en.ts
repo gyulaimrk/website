@@ -35,6 +35,7 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'MOL Limo rent a car',
+        tech: ['Jenkins', 'GitLab'],
         url: 'https://rentacar.mollimo.hu/rent/start',
         text: 'I develop the backend of the MOL Limo car rental system in Kotlin. The backend does not just aggregate data: it also performs calculations and synchronizes asynchronously with a subsystem.',
         points: [
@@ -50,6 +51,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Helvo',
+        tech: ['GitLab', 'ArgoCD'],
         text: 'My international team and I built a backend for frontend application for a Swiss fintech startup in Kotlin with Spring Boot 4.',
         points: [
           'Documentation-first (design-first) approach: designing the API in OpenAPI',
@@ -98,6 +100,7 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'McDonald’s',
+        tech: ['GitHub', 'ArgoCD'],
         text: 'User accounts, authentication and authorization: I was a member of the international team that handles them.',
         points: [
           'Maintaining existing microservices',
@@ -132,9 +135,10 @@ const jobs: Content['jobs'] = [
     description:
       'As part of an international team, we developed the financial application of Broadridge, an American company. This is where I really learned multi-threaded programming, domain-driven design and the functional approach. I wrote unit, system and acceptance tests, including UI tests with Selenium. I also connected other systems’ APIs, sometimes asynchronously. I solved concurrency bugs, handled database transactions and improved test coverage.',
     projects: [
-      { name: 'Broadridge financial application' },
+      { name: 'Broadridge financial application', tech: ['Jenkins', 'GitLab'] },
       {
         name: 'Multitenant framework',
+        tech: ['Jenkins', 'GitLab'],
         text: 'The multitenant framework of the Broadridge project, which I worked on as a separate project.',
       },
     ],
@@ -149,6 +153,7 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'Internal exam system',
+        tech: ['Jenkins', 'GitLab'],
         text: 'EPAM’s internal exam system: a web application in which exams could be taken safely. My team and I built its backend with Spring Boot 3 and a MySQL database.',
         points: [
           'Designing and developing new features',
@@ -161,6 +166,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Broadridge financial application',
+        tech: ['Jenkins', 'GitLab'],
         text: 'The same project I later worked on as a Software Engineer.',
       },
     ],
@@ -198,7 +204,7 @@ const skills: Content['skills'] = [
   {
     title: 'Tools',
     tag: 'Workflow',
-    text: 'I manage builds with Gradle and Maven and keep my code in Git. I hold Docker certificates. I use SQL and Lombok regularly, and Jira and Confluence for teamwork.',
+    text: 'I manage builds with Gradle and Maven and keep my code in Git. I have worked with Jenkins, GitLab, GitHub and GitHub Actions, and used ArgoCD for deployments. I hold Docker certificates. I use SQL and Lombok regularly, and Jira and Confluence for teamwork.',
   },
   {
     title: 'Design',
@@ -284,7 +290,16 @@ const sideProjects: Content['sideProjects'] = [
     url: 'https://lizacover.hu',
     description:
       'A live site: the portfolio of Elizabet Ivanovszki, a graphic designer and illustrator, which I developed. It is a one-page, bilingual site: the Hungarian and English versions have their own addresses so search engines can see both. It is built with Angular 21, the build produces prerendered static pages, and it runs on Cloudflare. The fonts are self-hosted, and analytics loads only after consent.',
-    tech: ['Angular 21', 'TypeScript', 'Prerendering', 'Bilingual', 'SEO', 'Cloudflare'],
+    tech: [
+      'Angular 21',
+      'TypeScript',
+      'Prerendering',
+      'Bilingual',
+      'SEO',
+      'Cloudflare',
+      'GitHub',
+      'GitHub Actions',
+    ],
   },
   {
     name: 'This portfolio',
@@ -298,6 +313,7 @@ const sideProjects: Content['sideProjects'] = [
       'Bilingual',
       'Accessibility',
       'SEO',
+      'GitHub',
       'GitHub Actions',
     ],
   },

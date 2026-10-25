@@ -25,6 +25,8 @@ export interface JobProject {
   role?: string;
   url?: string;
   text?: string;
+  /** A projekten használt CI/CD és verziókezelő eszközök. */
+  tech?: string[];
   /** Konkrét feladatok felsorolásként a projekt alatt. */
   points?: string[];
 }
