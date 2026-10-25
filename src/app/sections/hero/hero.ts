@@ -4,12 +4,13 @@ import { AnchorLink } from '../../shared/anchor-link/anchor-link.directive';
 import { Button } from '../../shared/button/button';
 import { CodeFile } from '../../data/models';
 import { CodeWindow } from '../../shared/code-window/code-window';
+import { CountUp } from '../../shared/count-up/count-up.directive';
 import { Typewriter } from '../../shared/typewriter/typewriter';
 import { developerInstance } from './developer-instance';
 
 @Component({
   selector: 'app-hero',
-  imports: [AnchorLink, Button, CodeWindow, Typewriter],
+  imports: [AnchorLink, Button, CodeWindow, CountUp, Typewriter],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
 })

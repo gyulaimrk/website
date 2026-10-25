@@ -39,3 +39,30 @@ test.describe('nyomtatás', () => {
     await expect(page.locator('h1')).toContainText(contentHu.profile.name);
   });
 });
+
+test.describe('számlálás megjelenéskor', () => {
+  test('a statisztikák számai 0-ról nőnek a végértékig, és a végértéken állnak meg', async ({
+    page,
+  }) => {
+    await page.goto('/hu');
+    const values = page.locator('.stats li strong');
+    const finals = contentHu.stats.map((stat) => stat.value);
+
+    // Az animáció végén pontosan a tartalomban szereplő szám áll ott.
+    await expect(values).toHaveText(finals, { timeout: 5000 });
+  });
+
+  test('mozgáscsökkentésnél azonnal a végérték látszik', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto('/hu');
+    await expect(page.locator('.stats li strong')).toHaveText(
+      contentHu.stats.map((stat) => stat.value),
+      { timeout: 500 },
+    );
+  });
+
+  test('a szkript nélküli, kiszolgált HTML a végértékeket tartalmazza', async ({ request }) => {
+    const html = await (await request.get('/hu')).text();
+    contentHu.stats.forEach((stat) => expect(html).toContain(`>${stat.value}</strong>`));
+  });
+});

@@ -30,7 +30,7 @@
   <ul class="stats">
     @for (stat of content().stats; track stat.value) {
       <li>
-        <strong class="gradient-text">{{ stat.value }}</strong>
+        <strong class="gradient-text" [appCountUp]="stat.value">{{ stat.value }}</strong>
         <span>{{ stat.label }}</span>
       </li>
     }

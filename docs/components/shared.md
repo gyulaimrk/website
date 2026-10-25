@@ -48,6 +48,19 @@ visz. A színezést a `highlight()` végzi (Kotlin és Markdown), soronként tok
 
 **Tesztek:** `code-window.spec.ts`, `highlight.spec.ts`.
 
+### `appCountUp` (`CountUp`)
+
+A szövegben lévő számok 0-ról a végértékig nőnek, amikor az elem először a képernyőre ér (kb. 1,1 mp, lassuló
+görbével). Bemenet: `appCountUp`, a végérték szövegként (például `5+` vagy `8–25`; minden egész szám külön nő).
+
+```html
+<strong [appCountUp]="'5+'">5+</strong>
+```
+
+A kiszolgált HTML, a szkript nélküli látogató, a mozgáscsökkentést kérő látogató és a nyomtatás a végértéket
+látja. Az animáció az Angular saját szövegcsomópontját írja, és pontosan a végértéken áll meg. A hero statisztikái
+használják.
+
 ### `app-language-toggle` (`LanguageToggle`)
 
 Nyelvváltó gomb, amely a másik nyelv kódját mutatja (`HU` vagy `EN`), és a `LanguageService.toggle()`-t hívja.
