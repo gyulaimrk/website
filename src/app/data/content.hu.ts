@@ -571,9 +571,10 @@ const ui: Content['ui'] = {
     allCertificates: 'Összes tanúsítvány a LinkedInen',
   },
   contact: {
-    title: 'Dolgozzunk együtt',
-    text: 'Van egy projekted, backend feladatod vagy AI-val kapcsolatos ötleted? Írj nekem, és átbeszéljük.',
-    availability: 'Projektmunkára és másodállásra nyitott vagyok.',
+    title: 'Dolgozzunk együtt!',
+    text: 'Van egy backendfejlesztési projekted, új rendszer építésén dolgozol, vagy a mesterséges intelligencia gyakorlati alkalmazási lehetőségeit keresed? Szívesen egyeztetek az elképzeléseidről, és segítek megtalálni a megfelelő technikai megoldást.',
+    availability:
+      'Nyitott vagyok projektalapú együttműködésre, részmunkaidős megbízásokra és AI-tanácsadási feladatokra is. Vedd fel velem a kapcsolatot, és beszéljük át, hogyan tudnék hozzájárulni a projekted sikeréhez.',
     cv: 'Önéletrajz letöltése',
     linkedin: 'Írj a LinkedInen',
   },

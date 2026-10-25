@@ -571,9 +571,10 @@ const ui: Content['ui'] = {
     allCertificates: 'All certificates on LinkedIn',
   },
   contact: {
-    title: 'Let’s work together',
-    text: 'Do you have a backend task, an AI idea or a project? Get in touch and we can talk it through.',
-    availability: 'I am open to project work and a second job.',
+    title: 'Let’s work together!',
+    text: 'Do you have a backend development project, are you building a new system, or are you looking for practical ways to apply artificial intelligence? I’m happy to talk through your ideas and help you find the right technical solution.',
+    availability:
+      'I’m open to project-based collaboration, part-time engagements and AI consulting. Get in touch, and let’s talk about how I could contribute to the success of your project.',
     cv: 'Download my résumé',
     linkedin: 'Message me on LinkedIn',
   },
