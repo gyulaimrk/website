@@ -19,6 +19,16 @@ describe('highlight', () => {
     ]);
   });
 
+  it('az enum kulcsszó, az enum neve típus', () => {
+    expect(kinds('enum class Role {').slice(0, 5)).toEqual([
+      ['enum', 'keyword'],
+      [' ', 'plain'],
+      ['class', 'keyword'],
+      [' ', 'plain'],
+      ['Role', 'type'],
+    ]);
+  });
+
   it('a megjegyzés a sor végéig megjegyzés, benne a kulcsszó sem színeződik', () => {
     expect(kinds('// val ez megjegyzés')).toEqual([['// val ez megjegyzés', 'comment']]);
   });

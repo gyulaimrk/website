@@ -35,6 +35,7 @@ const KOTLIN_KEYWORDS = new Set([
   'internal',
   'override',
   'data',
+  'enum',
   'true',
   'false',
   'null',
