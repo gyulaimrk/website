@@ -499,7 +499,12 @@ const ui: Content['ui'] = {
     cv: 'Önéletrajz letöltése',
     linkedin: 'Írj a LinkedInen',
   },
-  footer: { built: 'Angularral készült.', label: 'Elérhetőségek' },
+  footer: {
+    built: 'Angularral készült.',
+    label: 'Elérhetőségek',
+    linkedin: 'LinkedIn',
+    email: 'E-mail',
+  },
   backToTop: 'Vissza a tetejére',
 };
 

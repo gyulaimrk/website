@@ -27,18 +27,28 @@ describe('LanguageService', () => {
     expect(service.preferred()).toBe('en');
   });
 
-  it('beállításkor frissíti a dokumentum nyelvét és megjegyzi a választást', () => {
+  it('beállításkor frissíti a dokumentum nyelvét, de nem jegyzi meg', () => {
     const service = TestBed.inject(LanguageService);
     service.use('en');
     TestBed.tick();
     expect(document.documentElement.lang).toBe('en');
+    expect(localStorage.getItem('lang')).toBeNull();
+  });
+
+  it('az útvonal és az átirányítás nem írja felül a megjegyzett nyelvet', async () => {
+    localStorage.setItem('lang', 'en');
+    const service = TestBed.inject(LanguageService);
+    vi.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
+    service.use('hu');
+    await service.navigateTo('hu', { replaceUrl: true });
+    TestBed.tick();
     expect(localStorage.getItem('lang')).toBe('en');
   });
 
-  it('amíg az útvonal nem választott nyelvet, nem írja felül a megjegyzettet', () => {
-    localStorage.setItem('lang', 'en');
-    TestBed.inject(LanguageService);
-    TestBed.tick();
+  it('a tudatos váltást megjegyzi', async () => {
+    const service = TestBed.inject(LanguageService);
+    vi.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
+    await service.toggle();
     expect(localStorage.getItem('lang')).toBe('en');
   });
 

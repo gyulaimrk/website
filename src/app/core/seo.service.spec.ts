@@ -52,6 +52,31 @@ describe('SeoService', () => {
     expect(TestBed.inject(Meta).getTag('property="og:url"')?.content).toBe('https://pelda.hu/en');
   });
 
+  it('megadott oldalcímmel megosztási kép is kerül a címkék közé, enélkül nem', () => {
+    const meta = TestBed.inject(Meta);
+    service().update('hu');
+    expect(meta.getTag('property="og:image"')).toBeNull();
+    expect(meta.getTag('name="twitter:image"')).toBeNull();
+  });
+
+  it('az oldalcím ismeretében az og:image és a twitter:image abszolút cím', () => {
+    TestBed.configureTestingModule({
+      providers: [{ provide: SITE_ORIGIN_TOKEN, useValue: 'https://pelda.hu' }],
+    });
+    service().update('hu');
+    const meta = TestBed.inject(Meta);
+    expect(meta.getTag('property="og:image"')?.content).toBe('https://pelda.hu/og-image.png');
+    expect(meta.getTag('name="twitter:image"')?.content).toBe('https://pelda.hu/og-image.png');
+  });
+
+  it('az og:locale:alternate mindig a másik nyelv', () => {
+    const meta = TestBed.inject(Meta);
+    service().update('hu');
+    expect(meta.getTag('property="og:locale:alternate"')?.content).toBe('en_US');
+    service().update('en');
+    expect(meta.getTag('property="og:locale:alternate"')?.content).toBe('hu_HU');
+  });
+
   it('nyelvváltáskor nem halmozódnak a címkék', () => {
     TestBed.configureTestingModule({
       providers: [{ provide: SITE_ORIGIN_TOKEN, useValue: 'https://pelda.hu' }],

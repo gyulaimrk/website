@@ -1,5 +1,4 @@
-import { isPlatformBrowser } from '@angular/common';
-import { Component, PLATFORM_ID, afterNextRender, inject } from '@angular/core';
+import { Component, afterNextRender, inject } from '@angular/core';
 import { LanguageService } from '../../core/language.service';
 import { LANGS } from '../../data/content';
 import { Lang } from '../../data/models';
@@ -17,7 +16,6 @@ import { Lang } from '../../data/models';
 export class RootRedirect {
   private readonly language = inject(LanguageService);
   protected readonly langs: readonly Lang[] = LANGS;
-  protected readonly browser = isPlatformBrowser(inject(PLATFORM_ID));
 
   constructor() {
     afterNextRender(() =>

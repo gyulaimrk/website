@@ -144,7 +144,7 @@ export interface Ui {
     allCertificates: string;
   };
   contact: { title: string; text: string; cv: string; linkedin: string };
-  footer: { built: string; label: string };
+  footer: { built: string; label: string; linkedin: string; email: string };
   backToTop: string;
 }
 

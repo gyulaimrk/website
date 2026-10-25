@@ -8,8 +8,9 @@ komponensek innen olvasnak, a nyers adatfájlokból nem.
 ### `LanguageService`
 
 Az oldal nyelve. A nyelv az útvonalból következik (`/hu`, `/en`), a `lang` jelet az útvonal őre állítja be a
-`use()`-szal, ami a `<html lang>` attribútumot is frissíti. A látogató utolsó választását csak a gyökércím
-átirányításához jegyzi meg (`preferred()`: a megjegyzett nyelv, különben a böngészőé).
+`use()`-szal, ami a `<html lang>` attribútumot is frissíti. Csak a tudatos váltást (`toggle()`) jegyzi meg, a
+gyökércím átirányításához (`preferred()`: a megjegyzett nyelv, különben a böngészőé); egy nyelvi cím puszta
+megnyitása nem ír a tárba.
 
 | Tagja                       | Mit csinál                        |
 | --------------------------- | --------------------------------- |
@@ -29,13 +30,13 @@ A `languageActivate` (`CanActivateFn`) beállítja az útvonal nyelvét, paramé
 
 Világos és sötét téma. Az első megjelenítés mindig sötét (hidratálás); utána a mentett vagy a rendszer szerinti téma
 kerül rá, a `data-theme` attribútumon keresztül. Ha a látogató az első megjelenítés előtt vált, az ő döntése marad.
-A választást a `storage` segédekkel menti. Az `index.html` kis szkriptje a festés előtt beállítja az attribútumot,
+Csak a tudatos váltást menti a `storage` segédekkel; a rendszer szerinti témát nem. Az `index.html` kis szkriptje a festés előtt beállítja az attribútumot,
 így nincs villanás.
 
 ### `SeoService`
 
 A cím, a leírás, a megosztási adatok és (ha a `SITE_ORIGIN` ki van töltve) a canonical, hreflang és `og:url`
-nyelvenként. `update(lang)` a portfólió oldalhoz, `noindex(title)` a 404-hez, `urlFor(lang)` a nyelv címéhez.
+nyelvenként (a megosztási kép, az `og:url`, a canonical és a hreflang csak ismert `SITE_ORIGIN`-nel). `update(lang)` a portfólió oldalhoz, `noindex(title)` a 404-hez, `urlFor(lang)` a nyelv címéhez.
 
 ### `ScrollSpyService`
 

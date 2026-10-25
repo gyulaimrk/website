@@ -29,13 +29,15 @@ export class ThemeService {
       if (!this.ready()) return;
       const theme = this.theme();
       this.document.documentElement.dataset['theme'] = theme;
-      writeStored(KEY, theme);
     });
   }
 
+  /** A látogató tudatos váltása: csak ezt jegyezzük meg, a rendszer szerinti témát nem. */
   toggle() {
     this.chosen = true;
-    this.theme.update((theme) => (theme === 'dark' ? 'light' : 'dark'));
+    const next: Theme = this.theme() === 'dark' ? 'light' : 'dark';
+    this.theme.set(next);
+    writeStored(KEY, next);
   }
 
   private systemTheme(): Theme {

@@ -10,7 +10,7 @@ const KEY = 'lang';
 
 /**
  * Az oldal nyelve. A nyelv az útvonalból következik (`/hu`, `/en`), a `lang` jelet az
- * útvonal őre állítja be. A látogató utolsó nyelve csak a gyökércím átirányításához
+ * útvonal őre állítja be. A látogató tudatosan választott nyelve csak a gyökércím átirányításához
  * kell, ezért külön megjegyezzük.
  */
 @Injectable({ providedIn: 'root' })
@@ -20,21 +20,16 @@ export class LanguageService {
   private readonly current = signal<Lang>('hu');
   /** Az útvonal által beállított nyelv; amíg nincs útvonal-nyelv, magyar. */
   readonly lang = this.current.asReadonly();
-  /** Igaz, ha a nyelvet az útvonal már kifejezetten beállította (ekkor érdemes megjegyezni). */
-  private readonly chosen = signal(false);
-
   constructor() {
     effect(() => {
       const lang = this.lang();
       this.document.documentElement.lang = lang;
-      if (this.chosen()) writeStored(KEY, lang);
     });
   }
 
   /** Beállítja az oldal nyelvét (az útvonal őre hívja). */
   use(lang: Lang): void {
     this.current.set(lang);
-    this.chosen.set(true);
   }
 
   /** A látogató nyelve: a megjegyzett választás, különben a böngésző nyelve. */
@@ -55,8 +50,11 @@ export class LanguageService {
     });
   }
 
+  /** A látogató tudatos váltása: ezt jegyezzük meg a gyökércím átirányításához. */
   toggle(): Promise<boolean> {
-    return this.navigateTo(this.other());
+    const next = this.other();
+    writeStored(KEY, next);
+    return this.navigateTo(next);
   }
 
   private browserLang(): Lang {

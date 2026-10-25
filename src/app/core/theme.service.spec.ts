@@ -53,4 +53,14 @@ describe('ThemeService', () => {
     expect(document.documentElement.dataset['theme']).toBe('light');
     expect(localStorage.getItem('theme')).toBe('light');
   });
+
+  it('a rendszer szerinti témát nem menti el, csak a tudatos váltást', () => {
+    vi.stubGlobal('matchMedia', () => ({ matches: true }));
+    const service = start();
+    expect(service.theme()).toBe('light');
+    expect(localStorage.getItem('theme')).toBeNull();
+    service.toggle();
+    TestBed.tick();
+    expect(localStorage.getItem('theme')).toBe('dark');
+  });
 });

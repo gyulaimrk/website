@@ -6,6 +6,8 @@ import { Lang } from '../data/models';
 import { SITE_ORIGIN_TOKEN } from './site.config';
 
 const LOCALES: Record<Lang, string> = { hu: 'hu_HU', en: 'en_US' };
+/** A megosztási kép a webgyökérben van (`public/og-image.png`, 1200×630). */
+const SHARE_IMAGE_PATH = '/og-image.png';
 
 /**
  * A böngészőfül címét, a leírást, a megosztási adatokat és (ha ismert az oldal címe) a
@@ -31,9 +33,11 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:title', content: meta.title });
     this.meta.updateTag({ property: 'og:description', content: meta.description });
     this.meta.updateTag({ property: 'og:locale', content: LOCALES[lang] });
+    const other = LANGS.find((candidate) => candidate !== lang) ?? lang;
+    this.meta.updateTag({ property: 'og:locale:alternate', content: LOCALES[other] });
     this.meta.updateTag({ name: 'twitter:title', content: meta.title });
     this.meta.updateTag({ name: 'twitter:description', content: meta.description });
-    this.updateLinks(lang);
+    this.updateSiteUrls(lang);
   }
 
   /** Olyan oldalnak (például 404), amelyet a keresők ne indexeljenek. */
@@ -42,14 +46,20 @@ export class SeoService {
     this.meta.updateTag({ name: 'robots', content: 'noindex' });
   }
 
-  private updateLinks(lang: Lang) {
+  /** Az abszolút címet igénylő adatok (canonical, hreflang, og:url, megosztási kép): csak ismert oldalcímmel. */
+  private updateSiteUrls(lang: Lang) {
     this.removeLinks('link[rel="canonical"], link[rel="alternate"][hreflang]');
     const url = this.urlFor(lang);
     if (!url) {
       this.meta.removeTag('property="og:url"');
+      this.meta.removeTag('property="og:image"');
+      this.meta.removeTag('name="twitter:image"');
       return;
     }
+    const image = `${this.origin}${SHARE_IMAGE_PATH}`;
     this.meta.updateTag({ property: 'og:url', content: url });
+    this.meta.updateTag({ property: 'og:image', content: image });
+    this.meta.updateTag({ name: 'twitter:image', content: image });
     this.addLink({ rel: 'canonical', href: url });
     LANGS.forEach((other) =>
       this.addLink({ rel: 'alternate', hreflang: other, href: this.urlFor(other) }),

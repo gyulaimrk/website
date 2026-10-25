@@ -59,6 +59,17 @@ test.describe('címek és nyelv', () => {
     await expect(page).toHaveURL(/\/en$/);
   });
 
+  test('egy nyelvi cím puszta megnyitása nem írja felül a böngésző nyelvéből adódó alapértéket', async ({
+    browser,
+  }) => {
+    const context = await browser.newContext({ locale: 'hu-HU' });
+    const page = await context.newPage();
+    await page.goto('/en');
+    await page.goto('/');
+    await expect(page).toHaveURL(/\/hu$/);
+    await context.close();
+  });
+
   test('nem létező cím 404-es státuszt kap, de használható oldalt mutat', async ({ page }) => {
     const response = await page.goto('/nincs-ilyen-oldal');
     expect(response?.status()).toBe(404);

@@ -11,6 +11,7 @@ describe('CodeWindow', () => {
   function render(list: CodeFile[] = files) {
     const fixture = TestBed.createComponent(CodeWindow);
     fixture.componentRef.setInput('files', list);
+    fixture.componentRef.setInput('idPrefix', 'demo');
     fixture.detectChanges();
     const el = fixture.nativeElement as HTMLElement;
     return {
@@ -64,5 +65,14 @@ describe('CodeWindow', () => {
     fixture.componentRef.setInput('files', [...files]);
     fixture.detectChanges();
     expect(tabs()[0].getAttribute('aria-selected')).toBe('true');
+  });
+
+  it('az azonosítók az előtagot használják, így két kódablak nem ütközik', () => {
+    const { el, tabs } = render();
+    expect(tabs()[0].id).toBe('demo-tab-0');
+    expect(tabs()[0].getAttribute('aria-controls')).toBe('demo-panel');
+    const panel = el.querySelector('[role="tabpanel"]');
+    expect(panel?.id).toBe('demo-panel');
+    expect(panel?.getAttribute('aria-labelledby')).toBe('demo-tab-0');
   });
 });

@@ -499,7 +499,12 @@ const ui: Content['ui'] = {
     cv: 'Download my résumé',
     linkedin: 'Message me on LinkedIn',
   },
-  footer: { built: 'Built with Angular.', label: 'Contact links' },
+  footer: {
+    built: 'Built with Angular.',
+    label: 'Contact links',
+    linkedin: 'LinkedIn',
+    email: 'Email',
+  },
   backToTop: 'Back to top',
 };
 

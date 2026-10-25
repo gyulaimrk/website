@@ -42,7 +42,7 @@ Címkék (technológiák) sora. Bemenet: `items` (`readonly string[]`, kötelez�
 
 ### `app-code-window` (`CodeWindow`)
 
-Kódablak fülekkel és színezéssel. Bemenet: `files` (`readonly CodeFile[]`, kötelező). A kiválasztott fül új
+Kódablak fülekkel és színezéssel. Bemenetek: `files` (`readonly CodeFile[]`, kötelező) és `idPrefix` (`string`, kötelező): a fülek és a panel azonosítóinak előtagja, mert egy oldalon több kódablak is lehet (a hero-ban `hero-code`, az AI szekcióban `ai-code`). A kiválasztott fül új
 fájllistánál az elsőre áll vissza. A fülek `tablist` szemantikájúak: a nyilak lépnek, a Home és az End a szélekre
 visz. A színezést a `highlight()` végzi (Kotlin és Markdown), soronként tokenekre bontva.
 

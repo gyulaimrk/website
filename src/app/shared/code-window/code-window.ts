@@ -10,6 +10,8 @@ import { highlight } from './highlight';
 })
 export class CodeWindow {
   readonly files = input.required<readonly CodeFile[]>();
+  /** Az azonosítók előtagja: egy oldalon több kódablak is lehet, ezért mindegyiké egyedi. */
+  readonly idPrefix = input.required<string>();
   /** A kiválasztott fül; új fájllista esetén az elsőre áll vissza. */
   protected readonly active = linkedSignal<readonly CodeFile[], number>({
     source: this.files,

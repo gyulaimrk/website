@@ -10,6 +10,16 @@ test.describe('használat a magyar oldalon', () => {
     await expect(page.locator(':focus')).toHaveText(contentHu.ui.skipLink);
   });
 
+  test('nincs két azonos azonosítójú elem az oldalon', async ({ page }) => {
+    const duplicates = await page.evaluate(() => {
+      const seen = new Set<string>();
+      const dup = new Set<string>();
+      document.querySelectorAll('[id]').forEach(({ id }) => (seen.has(id) ? dup : seen).add(id));
+      return [...dup];
+    });
+    expect(duplicates).toEqual([]);
+  });
+
   test('a menü linkje a szekcióhoz görget, az aktív pont jelölt, a cím nem változik', async ({
     page,
   }) => {
