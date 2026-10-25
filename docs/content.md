@@ -34,3 +34,11 @@ Az oldal minden szövege két fájlban van: `src/app/data/content.hu.ts` és `co
 1. `npm test -- --watch=false` és `npm run build`.
 2. `npm run cv`, és a `public/cv/` fájlokat is commitold, mert az önéletrajz a tartalomból készül.
 3. Látható funkció esetén `npm run e2e`.
+
+## A tapasztalat évei
+
+A „több mint 5 éve” és a „3+” jellegű számok nincsenek beírva: a tartalomban `{javaYears}` és `{aiYears}` helyettesítő áll
+(a statisztikában `{javaYears}+`). A `data/experience.ts` a kezdő hónapokból (`EXPERIENCE_START`) számolja a teljes éveket, és a
+`data/content.ts` a betöltéskor cseréli be, ezért a böngészőben mindig az aktuális szám látszik. Az előrenderelt HTML a
+build idejét tükrözi, ezért a `ci.yml` havonta újraépít és telepít. Új kezdő dátumnál az `EXPERIENCE_START`-ot kell
+módosítani.

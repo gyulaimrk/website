@@ -34,6 +34,14 @@ describe('content', () => {
   describe.each(LANGS)('%s', (lang) => {
     const content = CONTENTS[lang];
 
+    it('nincs feloldatlan helyettesítő, és a statisztikában a tapasztalat évei számként állnak', () => {
+      expect(JSON.stringify(content)).not.toMatch(/\{(java|ai)Years\}/);
+      expect(content.stats.slice(0, 2).map((stat) => stat.value)).toEqual([
+        expect.stringMatching(/^\d+\+$/),
+        expect.stringMatching(/^\d+\+$/),
+      ]);
+    });
+
     it('mind a négy Anthropic-tanúsítványnak egyedi, hitelesítő linkje van', () => {
       const urls = content.studies.filter((s) => s.where === 'Anthropic').map((s) => s.url);
       expect(urls).toHaveLength(4);

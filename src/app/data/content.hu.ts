@@ -18,7 +18,7 @@ const profile: Content['profile'] = {
   intro:
     'Backend rendszereket fejlesztek Javában és Kotlinban. Olyan szoftvereket építek, amelyeket évekig használnak, és amelyeket a csapat biztonságosan tovább tud fejleszteni. AI-konzultánsként abban segítek, hogy a cégek a mesterséges intelligenciát a megfelelő helyen és módon használják.',
   letter: [
-    'Senior Java fejlesztő vagyok. Több mint öt éve dolgozom Java 11 és Java 17 alatt, és a Java 8-tól a 25-ös verzióig ismerem a nyelvet. Spring és Spring Boot alkalmazásokat fejlesztek, a tervezéstől a kódoláson és a teszteken át a karbantartásig.',
+    'Senior Java fejlesztő vagyok. Több mint {javaYears} éve dolgozom Java 11 és Java 17 alatt, és a Java 8-tól a 25-ös verzióig ismerem a nyelvet. Spring és Spring Boot alkalmazásokat fejlesztek, a tervezéstől a kódoláson és a teszteken át a karbantartásig.',
     'A kódnak érthetőnek és karbantarthatónak kell lennie. Ezért a clean code, a SOLID, a DRY és a KISS elveit követem, bevált tervezési mintákat használok, és egységteszteket, rendszerteszteket és felületi teszteket is írok. Ahol javítani kellett a tesztlefedettséget, ott ezt is vállaltam.',
     'Csapatban és önállóan is jól dolgozom, agilis szemlélettel. A Broadridge, a McDonald’s és a Helvo projekten nemzetközi csapatokkal dolgoztam, és a különböző országokból érkező kollégákkal való együttműködés számomra magától értetődő. Az ügyfelekkel és a más területen dolgozó kollégákkal rendszeresen és nyíltan egyeztetek. Az EPAM-nál és az RDI-nál junior kollégát is mentoráltam. Új technológiákat mellékprojektekben próbálok ki. Az AI-t tudatosan használom a munkámban: pontos promptokat írok, saját skilleket készítek, és CLAUDE.md fájlokban rögzítem a projekt szabályait az asszisztens számára.',
     'Szabadidőmben szívesen vezetek, filmeket nézek, és a barátaimmal játszom.',
@@ -212,12 +212,12 @@ const skills: Content['skills'] = [
     highlight: true,
     title: 'AI és MCP',
     tag: 'Mesterséges intelligencia',
-    text: 'Több mint három éve használok AI-t a munkámban. Pontos promptokat írok, saját skilleket készítek, és CLAUDE.md fájlokban rögzítem a projekt szabályait, hogy az asszisztens minden munkamenetben ugyanazt tudja. Az Adroit Group GLI Solutions projektjén AI-konzultánsként azt vizsgáljuk, hol hasznos a mesterséges intelligencia, és hogyan illeszthető a meglévő rendszerekbe. 2026 márciusában négy Anthropic-tanúsítványt szereztem: Claude API, Model Context Protocol (MCP), agent skills és Claude Code.',
+    text: 'Több mint {aiYears} éve használok AI-t a munkámban. Pontos promptokat írok, saját skilleket készítek, és CLAUDE.md fájlokban rögzítem a projekt szabályait, hogy az asszisztens minden munkamenetben ugyanazt tudja. Az Adroit Group GLI Solutions projektjén AI-konzultánsként azt vizsgáljuk, hol hasznos a mesterséges intelligencia, és hogyan illeszthető a meglévő rendszerekbe. 2026 márciusában négy Anthropic-tanúsítványt szereztem: Claude API, Model Context Protocol (MCP), agent skills és Claude Code.',
   },
   {
     title: 'Java 8–25',
     tag: 'Nyelv',
-    text: 'A Java 8-tól a 25-ös verzióig ismerem a nyelvet. A legtöbb gyakorlatom, több mint öt év, Java 11 és Java 17 alatt van. Java 8-ból, 10-ből, 11-ből és 17-ből tanúsítványom is van.',
+    text: 'A Java 8-tól a 25-ös verzióig ismerem a nyelvet. A legtöbb gyakorlatom, több mint {javaYears} év, Java 11 és Java 17 alatt van. Java 8-ból, 10-ből, 11-ből és 17-ből tanúsítványom is van.',
   },
   {
     title: 'Kotlin',
@@ -275,7 +275,7 @@ const codeSamples: Content['codeSamples'] = [
 
 const aiWorkflow: Content['aiWorkflow'] = {
   title: 'Hogyan dolgozom AI-val',
-  lead: 'Több mint három éve használok AI-t a munkámban. Ezt a négy szokást követem.',
+  lead: 'Több mint {aiYears} éve használok AI-t a munkámban. Ezt a négy szokást követem.',
   points: [
     {
       title: 'Pontos promptok',
@@ -457,8 +457,8 @@ const studies: Content['studies'] = [
 ];
 
 const stats: Content['stats'] = [
-  { value: '5+', label: 'éve dolgozom Java 11 és 17 alatt' },
-  { value: '3+', label: 'éve használok AI-t a munkámban' },
+  { value: '{javaYears}+', label: 'éve dolgozom Java 11 és 17 alatt' },
+  { value: '{aiYears}+', label: 'éve használok AI-t a munkámban' },
   { value: '8–25', label: 'Java verziót ismerek' },
   { value: '7', label: 'projekten dolgoztam 3 munkahelyen: EPAM, RDI és Adroit' },
 ];

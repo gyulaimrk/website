@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   pull_request:
+  # Havonta újraépül és telepít, hogy a tapasztalat évei (5+, 3+…) az előrenderelt oldalon is frissüljenek.
+  schedule:
+    - cron: '23 5 1 * *'
 
 jobs:
   build:
@@ -36,7 +39,7 @@ jobs:
   deploy:
     # Csak a main ágon fut, és csak ha a Cloudflare titkok be vannak állítva.
     needs: build
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'schedule')
     runs-on: ubuntu-24.04
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

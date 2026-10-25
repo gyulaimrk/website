@@ -33,6 +33,7 @@ test.describe('címek és nyelv', () => {
       expect(html, path).toContain(content.ui.experience.title);
       expect(html, path).toContain(content.jobs[0].company);
       expect(html.match(/<h1[\s>]/g), path).toHaveLength(1);
+      expect(html, path).not.toMatch(/\{(java|ai)Years\}/);
     }
   });
 

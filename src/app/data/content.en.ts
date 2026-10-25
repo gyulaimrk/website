@@ -18,7 +18,7 @@ const profile: Content['profile'] = {
   intro:
     'I develop backend systems in Java and Kotlin. I build software that stays in use for years and that a team can keep developing safely. As an AI consultant, I help companies use artificial intelligence where it fits.',
   letter: [
-    'I am a senior Java developer. I have spent more than five years on Java 11 and Java 17, and I know the language from Java 8 up to Java 25. I develop Spring and Spring Boot applications, from design and coding through testing to maintenance.',
+    'I am a senior Java developer. I have spent more than {javaYears} years on Java 11 and Java 17, and I know the language from Java 8 up to Java 25. I develop Spring and Spring Boot applications, from design and coding through testing to maintenance.',
     'Code has to be easy to understand and maintain. I follow the clean code, SOLID, DRY and KISS principles, use proven design patterns, and write unit, system and UI tests. Where test coverage needed improving, I took that on as well.',
     'I work well in a team and on my own, with an agile mindset. On the Broadridge, McDonald’s and Helvo projects I worked with international teams, and working with colleagues from different countries is second nature to me. I stay in regular, open contact with clients and with colleagues from other areas. At EPAM and at RDI I also mentored a junior colleague. I try out new technologies in side projects. I use AI deliberately in my work: I write precise prompts, build my own skills, and record a project’s rules in CLAUDE.md files for the assistant.',
     'In my free time I like driving, watching movies and playing games with friends.',
@@ -212,12 +212,12 @@ const skills: Content['skills'] = [
     highlight: true,
     title: 'AI and MCP',
     tag: 'Artificial intelligence',
-    text: 'I have used AI in my work for more than three years. I write precise prompts, build my own skills, and record a project’s rules in CLAUDE.md files so the assistant works from the same information in every session. On the GLI Solutions project at Adroit Group I work as an AI consultant: we examine where artificial intelligence helps and how it fits into existing systems. In March 2026 I earned four Anthropic certificates: Claude API, Model Context Protocol (MCP), agent skills and Claude Code.',
+    text: 'I have used AI in my work for more than {aiYears} years. I write precise prompts, build my own skills, and record a project’s rules in CLAUDE.md files so the assistant works from the same information in every session. On the GLI Solutions project at Adroit Group I work as an AI consultant: we examine where artificial intelligence helps and how it fits into existing systems. In March 2026 I earned four Anthropic certificates: Claude API, Model Context Protocol (MCP), agent skills and Claude Code.',
   },
   {
     title: 'Java 8–25',
     tag: 'Language',
-    text: 'I know Java from version 8 up to 25. Most of my practice, more than five years, is on Java 11 and Java 17. I also hold certificates in Java 8, Java 10, Java 11 and Java 17.',
+    text: 'I know Java from version 8 up to 25. Most of my practice, more than {javaYears} years, is on Java 11 and Java 17. I also hold certificates in Java 8, Java 10, Java 11 and Java 17.',
   },
   {
     title: 'Kotlin',
@@ -275,7 +275,7 @@ const codeSamples: Content['codeSamples'] = [
 
 const aiWorkflow: Content['aiWorkflow'] = {
   title: 'How I work with AI',
-  lead: 'I have used AI in my work for more than three years. These are the four habits I follow.',
+  lead: 'I have used AI in my work for more than {aiYears} years. These are the four habits I follow.',
   points: [
     {
       title: 'Precise prompts',
@@ -457,8 +457,8 @@ const studies: Content['studies'] = [
 ];
 
 const stats: Content['stats'] = [
-  { value: '5+', label: 'years working with Java 11 and 17' },
-  { value: '3+', label: 'years using AI in my work' },
+  { value: '{javaYears}+', label: 'years working with Java 11 and 17' },
+  { value: '{aiYears}+', label: 'years using AI in my work' },
   { value: '8–25', label: 'Java versions I know' },
   { value: '7', label: 'projects across 3 workplaces: EPAM, RDI and Adroit' },
 ];
