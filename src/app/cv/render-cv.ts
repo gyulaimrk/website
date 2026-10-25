@@ -20,7 +20,7 @@ const shortUrl = (url: string) => url.replace(/^https?:\/\/(www\.)?/, '').replac
 const STYLE = `
   @page { size: A4; margin: 11mm 13mm; }
   * { box-sizing: border-box; }
-  body { margin: 0; color: #141a38; font: 400 9pt/1.38 'Inter', sans-serif; }
+  body { margin: 0; color: #141a38; font: 400 8.9pt/1.36 'Inter', sans-serif; }
   h1, h2, h3 { font-family: 'Space Grotesk', 'Inter', sans-serif; margin: 0; line-height: 1.15; }
   header { display: flex; gap: 16px; align-items: center; margin-bottom: 14px; }
   header img { width: 26mm; height: 26mm; border-radius: 6mm; object-fit: cover; }
@@ -41,7 +41,7 @@ const STYLE = `
   .skills { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 0; padding: 0; list-style: none; }
   .skills li { padding: 1px 9px; border-radius: 99px; background: #e9ecff; font-weight: 500; }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; align-items: start; }
-  .cols { columns: 2; column-gap: 18px; }
+  .cols { columns: 3; column-gap: 14px; font-size: 8.6pt; }
   .cols .item { margin-bottom: 2px; }
   h3.sub { margin: 8px 0 3px; }
   .item { margin-bottom: 4px; break-inside: avoid; }

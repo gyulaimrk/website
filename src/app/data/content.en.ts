@@ -35,7 +35,7 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'MOL Limo rent a car',
-        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence', 'Plane'],
+        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence'],
         url: 'https://rentacar.mollimo.hu/rent/start',
         text: 'I develop the backend of the MOL Limo car rental system in Kotlin.',
         points: [
@@ -51,7 +51,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Helvo',
-        tech: ['GitLab', 'ArgoCD', 'Jira', 'Confluence', 'Plane'],
+        tech: ['GitLab', 'ArgoCD', 'Jira', 'Confluence'],
         text: 'My international team and I built a backend for frontend application for a Swiss fintech startup in Kotlin with Spring Boot 4.',
         points: [
           'Documentation-first (design-first) approach: designing the API in OpenAPI',
@@ -61,7 +61,7 @@ const jobs: Content['jobs'] = [
       {
         name: 'GLI Solutions',
         role: 'AI Consultant and Developer',
-        tech: ['Azure DevOps', 'Jira', 'Confluence', 'Plane'],
+        tech: ['Azure DevOps', 'Jira', 'Confluence'],
         text: 'As an AI consultant, I look into where artificial intelligence is useful, whether it is feasible and how it fits into existing systems. My team and I also work on the project as developers.',
         points: [
           'Developing a platform that supports manual testing, with a C# and .NET backend, a PostgreSQL database, Node.js and Angular',
@@ -90,6 +90,7 @@ const jobs: Content['jobs'] = [
       'AI',
       'MCP',
       'Prompting',
+      'Plane',
     ],
   },
   {

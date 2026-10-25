@@ -35,7 +35,7 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'MOL Limo rent a car',
-        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence', 'Plane'],
+        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence'],
         url: 'https://rentacar.mollimo.hu/rent/start',
         text: 'A MOL Limo autóbérlő rendszerének backendjét fejlesztem Kotlinban.',
         points: [
@@ -51,7 +51,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Helvo',
-        tech: ['GitLab', 'ArgoCD', 'Jira', 'Confluence', 'Plane'],
+        tech: ['GitLab', 'ArgoCD', 'Jira', 'Confluence'],
         text: 'A nemzetközi csapatommal egy svájci pénzügyi startup backend for frontend alkalmazását építettük Kotlinban, Spring Boot 4-gyel.',
         points: [
           'Dokumentáció-első (design-first) megközelítés: az API tervezése OpenAPI-ban',
@@ -61,7 +61,7 @@ const jobs: Content['jobs'] = [
       {
         name: 'GLI Solutions',
         role: 'AI Consultant és fejlesztő',
-        tech: ['Azure DevOps', 'Jira', 'Confluence', 'Plane'],
+        tech: ['Azure DevOps', 'Jira', 'Confluence'],
         text: 'AI-konzultánsként azt vizsgáljuk, hol hasznos a mesterséges intelligencia, megvalósítható-e, és hogyan illeszthető a meglévő rendszerekbe. Emellett a csapatommal fejlesztőként is dolgozunk a projekten.',
         points: [
           'Manuális tesztelést segítő platform fejlesztése C# és .NET backenddel, PostgreSQL adatbázissal, Node.js-sel és Angularral',
@@ -90,6 +90,7 @@ const jobs: Content['jobs'] = [
       'AI',
       'MCP',
       'Prompting',
+      'Plane',
     ],
   },
   {
