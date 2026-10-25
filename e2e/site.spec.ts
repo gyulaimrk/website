@@ -106,6 +106,12 @@ test.describe('használat a magyar oldalon', () => {
     );
   });
 
+  test('a kapcsolat szekció kiírja az elérhetőséget', async ({ page }) => {
+    await expect(page.locator('#kapcsolat .availability')).toHaveText(
+      contentHu.ui.contact.availability,
+    );
+  });
+
   test('az oldalon nincs telefonszám és születési dátum', async ({ page }) => {
     const text = await page.locator('body').innerText();
     expect(text).not.toMatch(/\+36\s?\d/);

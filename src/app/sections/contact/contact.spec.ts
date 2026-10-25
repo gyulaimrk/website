@@ -23,4 +23,12 @@ describe('Contact', () => {
     expect(cv.hasAttribute('download')).toBe(true);
     expect(cv.textContent).toContain(contentHu.ui.contact.cv);
   });
+
+  it('kiírja, milyen megkeresésre nyitott', () => {
+    const fixture = TestBed.createComponent(Contact);
+    fixture.detectChanges();
+    expect(fixture.nativeElement.querySelector('.availability').textContent).toBe(
+      contentHu.ui.contact.availability,
+    );
+  });
 });

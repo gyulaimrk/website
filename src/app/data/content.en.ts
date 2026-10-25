@@ -528,6 +528,7 @@ const ui: Content['ui'] = {
   contact: {
     title: 'Let’s work together',
     text: 'Do you have a backend task, an AI idea or a project? Get in touch and we can talk it through.',
+    availability: 'I am open to project work and a second job.',
     cv: 'Download my résumé',
     linkedin: 'Message me on LinkedIn',
   },

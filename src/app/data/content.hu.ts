@@ -528,6 +528,7 @@ const ui: Content['ui'] = {
   contact: {
     title: 'Dolgozzunk együtt',
     text: 'Van egy projekted, backend feladatod vagy AI-val kapcsolatos ötleted? Írj nekem, és átbeszéljük.',
+    availability: 'Projektmunkára és másodállásra nyitott vagyok.',
     cv: 'Önéletrajz letöltése',
     linkedin: 'Írj a LinkedInen',
   },
