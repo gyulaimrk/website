@@ -63,6 +63,7 @@ const jobs: Content['jobs'] = [
         points: [
           'Developing a platform that supports manual testing, with a C# and .NET backend, a PostgreSQL database, Node.js and Angular',
           'The platform can be connected to AI agents as an MCP server',
+          'Code-first approach',
           'Handling bugs',
           'Steering the team and the code towards clean code',
           'Implementing repository-level AI skills',

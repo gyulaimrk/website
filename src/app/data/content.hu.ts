@@ -63,6 +63,7 @@ const jobs: Content['jobs'] = [
         points: [
           'Manuális tesztelést segítő platform fejlesztése C# és .NET backenddel, PostgreSQL adatbázissal, Node.js-sel és Angularral',
           'A platform MCP szerverként összekapcsolható AI-ügynökökkel (agentekkel)',
+          'Code-first megközelítés',
           'Hibák kezelése',
           'A csapat és a kód terelése a clean code irányába',
           'Repó szintű AI skillek megvalósítása',
