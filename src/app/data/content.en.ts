@@ -36,7 +36,17 @@ const jobs: Content['jobs'] = [
       {
         name: 'MOL Limo rent a car',
         url: 'https://rentacar.mollimo.hu/rent/start',
-        text: 'I develop the backend of the MOL Limo car rental system in Kotlin.',
+        text: 'I develop the backend of the MOL Limo car rental system in Kotlin. The backend does not just aggregate data: it also performs calculations and synchronizes asynchronously with a subsystem.',
+        points: [
+          'Business logic and calculations in the backend, beyond aggregating data',
+          'Asynchronous synchronization with a subsystem',
+          'Managing a PostgreSQL database',
+          'Implementing a custom OAuth flow and token handling with Spring Security',
+          'Scheduled jobs with Spring’s @Scheduled annotation',
+          'Documentation-first (design-first) approach',
+          'Writing unit and integration tests, and manual testing',
+          'Communicating with the client',
+        ],
       },
       { name: 'Railnet' },
       {
@@ -53,7 +63,18 @@ const jobs: Content['jobs'] = [
         text: 'As an AI consultant I help artificial intelligence answer real problems. We find where it is useful, check whether it is feasible, and fit it into the systems that already exist.',
       },
     ],
-    tech: ['Kotlin', 'Java', 'Spring Boot', 'OpenAPI', 'Exposed', 'AI', 'MCP', 'Prompting'],
+    tech: [
+      'Kotlin',
+      'Java',
+      'Spring Boot',
+      'Spring Security',
+      'PostgreSQL',
+      'OpenAPI',
+      'Exposed',
+      'AI',
+      'MCP',
+      'Prompting',
+    ],
   },
   {
     company: 'RDI Software Hungary',
