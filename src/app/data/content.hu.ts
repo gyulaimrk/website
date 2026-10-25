@@ -15,13 +15,13 @@ const profile: Content['profile'] = {
   stack: ['Java 8–25', 'Kotlin', 'Spring Boot'],
   roles: ['Java fejlesztő', 'Kotlin fejlesztő', 'AI-konzultáns'],
   intro:
-    'Backend rendszereket építek Javában és Kotlinban. Olyan szoftvereken dolgozom szívesen, amelyeket évekig használnak, és amelyeket egy csapat magabiztosan tovább tud fejleszteni. Emellett AI-konzultánsként segítek abban, hogy a mesterséges intelligencia tényleg hasznos legyen egy cégnél.',
+    'Backend rendszereket fejlesztek Javában és Kotlinban. Olyan szoftvereket építek, amelyeket évekig használnak, és amelyeket a csapat biztonságosan tovább tud fejleszteni. AI-konzultánsként abban segítek, hogy a cégek a mesterséges intelligenciát a megfelelő helyen és módon használják.',
   letter: [
-    'Senior Java fejlesztő vagyok. Több mint öt éve dolgozom Java 11 és Java 17 alatt, de a Java 8-tól a 25-ös verzióig mindenhol otthon érzem magam. Spring és Spring Boot alkalmazásokon dolgozom, és szeretem végigvinni a munkát: a tervezéstől a kódoláson és a teszteken át a karbantartásig.',
-    'Fontos számomra, hogy a kód érthető és karbantartható legyen. Ezért követem a clean code, a SOLID, a DRY és a KISS elveit, valamint a bevált tervezési mintákat, és sokat tesztelek: egységtesztekkel, rendszertesztekkel és felületi tesztekkel is. Ha egy projektben javítani kellett a tesztlefedettséget, azt mindig szívesen vállaltam.',
-    'Jól érzem magam csapatban és önállóan is. A Broadridge, a McDonald’s és a Helvo projekten nemzetközi csapatokkal dolgoztam, és számomra természetes, hogy különböző országokból érkező emberekkel működöm együtt. Az ügyfelekkel és a más területen dolgozó kollégákkal nyíltan egyeztetek, mert szerintem a jó szoftver jó beszélgetésekkel kezdődik. Új technológiákat mellékprojektekben szoktam kipróbálni, így a tudásom folyamatosan frissül. Az EPAM-nál és az RDI-nál junior kollégát is mentoráltam. Az AI-t is tudatosan használom a munkámban: jól promptolok, skilleket építek, és CLAUDE.md fájlokban rögzítem, hogyan dolgozzon az asszisztens a projekten.',
-    'Szabadidőmben szívesen nézek filmeket, játszom a barátaimmal, vezetek, és új technológiákat próbálok ki mellékprojektekben.',
-    'Ez az oldal Angularral készült, mert a fejlesztés másik oldala is érdekel.',
+    'Senior Java fejlesztő vagyok. Több mint öt éve dolgozom Java 11 és Java 17 alatt, és a Java 8-tól a 25-ös verzióig ismerem a nyelvet. Spring és Spring Boot alkalmazásokat fejlesztek, a tervezéstől a kódoláson és a teszteken át a karbantartásig.',
+    'A kódnak érthetőnek és karbantarthatónak kell lennie. Ezért a clean code, a SOLID, a DRY és a KISS elveit követem, bevált tervezési mintákat használok, és egységteszteket, rendszerteszteket és felületi teszteket is írok. Ahol javítani kellett a tesztlefedettséget, ott ezt is vállaltam.',
+    'Csapatban és önállóan is jól dolgozom. A Broadridge, a McDonald’s és a Helvo projekten nemzetközi csapatokkal dolgoztam, és a különböző országokból érkező kollégákkal való együttműködés számomra magától értetődő. Az ügyfelekkel és a más területen dolgozó kollégákkal rendszeresen és nyíltan egyeztetek. Az EPAM-nál és az RDI-nál junior kollégát is mentoráltam. Új technológiákat mellékprojektekben próbálok ki. Az AI-t tudatosan használom a munkámban: pontos promptokat írok, saját skilleket készítek, és CLAUDE.md fájlokban rögzítem a projekt szabályait az asszisztens számára.',
+    'Szabadidőmben szívesen vezetek, filmeket nézek, és a barátaimmal játszom.',
+    'Ezt az oldalt Angularral építettem. A frontend is érdekel, bár a fő területem a backend.',
   ],
 };
 
@@ -31,13 +31,13 @@ const jobs: Content['jobs'] = [
     role: 'Senior Software Engineer',
     period: '2025. október – jelenleg',
     description:
-      'Senior szoftvermérnökként három projekten vettem részt, közülük kettő Kotlinban készült. Backendet fejlesztek, részt veszek a tervezésben, és figyelek a minőségre. Az egyik projektem AI-konzultációról szól.',
+      'Három projekten vettem részt, kettő közülük Kotlinban készült. Backendet fejlesztek, részt veszek a tervezésben, és figyelek a minőségre. Az egyik projekt AI-konzultáció.',
     projects: [
       {
         name: 'MOL Limo rent a car',
         tech: ['Jenkins', 'GitLab'],
         url: 'https://rentacar.mollimo.hu/rent/start',
-        text: 'A MOL Limo autóbérlő rendszerének backendjét fejlesztem Kotlinban. A backend nem csak összesíti az adatokat, hanem számol is, és aszinkron módon szinkronizál egy alrendszerrel.',
+        text: 'A MOL Limo autóbérlő rendszerének backendjét fejlesztem Kotlinban.',
         points: [
           'Üzleti logika és számítások a backendben, az adatok összesítése mellett',
           'Aszinkron szinkronizálás egy alrendszerrel',
@@ -61,7 +61,7 @@ const jobs: Content['jobs'] = [
       {
         name: 'GLI Solutions',
         role: 'AI Consultant és fejlesztő',
-        text: 'AI-konzultánsként abban segítek, hogy a mesterséges intelligencia valódi problémákra adjon választ. Megkeressük, hol hasznos, megnézzük, megvalósítható-e, és beillesztjük a már meglévő rendszerekbe. Emellett a csapatommal fejlesztőként is dolgozunk a projekten.',
+        text: 'AI-konzultánsként azt vizsgáljuk, hol hasznos a mesterséges intelligencia, megvalósítható-e, és hogyan illeszthető a meglévő rendszerekbe. Emellett a csapatommal fejlesztőként is dolgozunk a projekten.',
         points: [
           'Manuális tesztelést segítő platform fejlesztése C# és .NET backenddel, PostgreSQL adatbázissal, Node.js-sel és Angularral',
           'A platform MCP szerverként összekapcsolható AI-ügynökökkel (agentekkel)',
@@ -96,12 +96,12 @@ const jobs: Content['jobs'] = [
     role: 'Software Engineer',
     period: '2024. augusztus – 2025. október',
     description:
-      'A McDonald’s alkalmazásán dolgoztam, azon belül a felhasználói fiókokkal, az authentikációval és az autorizációval foglalkozó csapatban. A csapatommal microservice-eket fejlesztettünk és tartottunk karban, és a hozzájuk tartozó egység- és integrációs teszteket is megírtuk. Emellett SQL-lekérdezéseket írtam, és más rendszerek API-jait kötöttem be. Nem hivatalos keretek között, de itt is mentoráltam egy junior munkatársat.',
+      'A McDonald’s alkalmazásán dolgoztam, a felhasználói fiókokkal, az authentikációval és az autorizációval foglalkozó csapatban. A csapatommal microservice-eket fejlesztettünk és tartottunk karban, a hozzájuk tartozó egység- és integrációs tesztekkel együtt. SQL-lekérdezéseket írtam, és más rendszerek API-jait kötöttem be. Nem hivatalosan, de itt is mentoráltam egy junior munkatársat.',
     projects: [
       {
         name: 'McDonald’s',
         tech: ['GitHub', 'ArgoCD'],
-        text: 'Felhasználói fiókok, authentikáció és autorizáció: ezzel foglalkozó nemzetközi csapat tagja voltam.',
+        text: 'Felhasználói fiókok, authentikáció és autorizáció; nemzetközi csapatban dolgoztam.',
         points: [
           'Meglévő microservice-ek karbantartása',
           'Új microservice-ek tervezése és fejlesztése',
@@ -111,7 +111,7 @@ const jobs: Content['jobs'] = [
           'A migrációk által elrontott adatok javítása NoSQL adatbázisban, Python szkripttel',
           'Adatbázis-tranzakciók kezelése',
           'Code review-k',
-          'Google-bejelentkezés megvalósítása a Google SDK-val, a sima API-végpontok helyett',
+          'Google-bejelentkezés a Google SDK-val, a sima API-végpontok helyett',
         ],
       },
     ],
@@ -133,7 +133,7 @@ const jobs: Content['jobs'] = [
     role: 'Software Engineer',
     period: '2022. január – 2024. augusztus',
     description:
-      'Egy nemzetközi csapat tagjaként a Broadridge, egy amerikai cég pénzügyi alkalmazását fejlesztettük. Itt tanultam meg igazán a többszálú programozást, a domain-driven tervezést és a funkcionális megközelítést. Egység-, rendszer- és elfogadási teszteket írtam, Seleniummal felületi teszteket is. Más rendszerek API-jait is bekötöttem, időnként aszinkron módon. Megoldottam párhuzamossági hibákat, kezeltem az adatbázis-tranzakciókat, és javítottam a tesztlefedettséget. Junior fejlesztőt is mentoráltam.',
+      'Egy nemzetközi csapat tagjaként a Broadridge, egy amerikai cég pénzügyi alkalmazását fejlesztettük. Itt ismertem meg alaposan a többszálú programozást, a domain-driven tervezést és a funkcionális megközelítést. Egység-, rendszer- és elfogadási teszteket írtam, valamint Seleniummal felületi teszteket. Más rendszerek API-jait kötöttem be, időnként aszinkron módon. Párhuzamossági hibákat javítottam, adatbázis-tranzakciókat kezeltem, és javítottam a tesztlefedettséget. Junior fejlesztőt is mentoráltam.',
     projects: [
       { name: 'Broadridge pénzügyi alkalmazás', tech: ['Jenkins', 'GitLab'] },
       {
@@ -149,7 +149,7 @@ const jobs: Content['jobs'] = [
     role: 'Junior Software Engineer',
     period: '2021. július – 2022. január',
     description:
-      'Junior fejlesztőként backendet fejlesztettem, és közben sokat tanultam. Az EPAM belső vizsgarendszerén dolgoztam, később ugyanezen a Broadridge-projekten is.',
+      'Junior fejlesztőként backendet fejlesztettem az EPAM belső vizsgarendszerén, később a Broadridge-projekten is.',
     projects: [
       {
         name: 'Belső vizsgarendszer',
@@ -161,13 +161,13 @@ const jobs: Content['jobs'] = [
           'Code review-k',
           'Egységtesztek írása JUnittal',
           'Manuális tesztelés',
-          'A tudásom fejlesztése, új technológiák megtanulása',
+          'Új technológiák elsajátítása, a szaktudásom fejlesztése',
         ],
       },
       {
         name: 'Broadridge pénzügyi alkalmazás',
         tech: ['Jenkins', 'GitLab'],
-        text: 'Ugyanezen a projekten dolgoztam később Software Engineerként is.',
+        text: 'Ugyanezen a projekten később Software Engineerként is dolgoztam.',
       },
     ],
     tech: ['Java', 'Spring Boot 3', 'MySQL', 'JUnit', 'Unit tesztek'],
@@ -179,17 +179,17 @@ const skills: Content['skills'] = [
     highlight: true,
     title: 'AI és MCP',
     tag: 'Mesterséges intelligencia',
-    text: 'Több mint három éve használok AI-t a munkámban, ma már a napi munkám természetes része. Jól megfogalmazott promptokkal dolgozom, saját skilleket használok, és CLAUDE.md fájlokat írok, hogy az AI-asszisztens ismerje a projekt szabályait, és következetesen segítsen. Az Adroit Group GLI Solutions projektjén AI-konzultánsként azt keressük, hol hasznos a mesterséges intelligencia, és hogyan illeszthető be a meglévő rendszerekbe. 2026 márciusában négy Anthropic-tanúsítványt szereztem: Claude API, Model Context Protocol (MCP), agent skills és Claude Code.',
+    text: 'Több mint három éve használok AI-t a munkámban. Pontos promptokat írok, saját skilleket készítek, és CLAUDE.md fájlokban rögzítem a projekt szabályait, hogy az asszisztens minden munkamenetben ugyanazt tudja. Az Adroit Group GLI Solutions projektjén AI-konzultánsként azt vizsgáljuk, hol hasznos a mesterséges intelligencia, és hogyan illeszthető a meglévő rendszerekbe. 2026 márciusában négy Anthropic-tanúsítványt szereztem: Claude API, Model Context Protocol (MCP), agent skills és Claude Code.',
   },
   {
     title: 'Java 8–25',
     tag: 'Nyelv',
-    text: 'A Java 8-tól a 25-ös verzióig magabiztosan írok kódot. A legtöbb gyakorlatom, több mint öt év, Java 11 és Java 17 alatt van. Java 8-ból, a 10-es és 11-es, valamint a 17-es verzióból tanúsítványom is van.',
+    text: 'A Java 8-tól a 25-ös verzióig ismerem a nyelvet. A legtöbb gyakorlatom, több mint öt év, Java 11 és Java 17 alatt van. Java 8-ból, 10-ből, 11-ből és 17-ből tanúsítványom is van.',
   },
   {
     title: 'Kotlin',
     tag: 'Nyelv',
-    text: 'Az Adroit Group-nál több Kotlin projekten dolgoztam, köztük a MOL Limo autóbérlőn és a Helvón. Az adatbázist az Exposed keretrendszerrel érem el.',
+    text: 'Az Adroit Groupnál két Kotlin projekten dolgoztam: a MOL Limo autóbérlőn és a Helvón. Az adatbázist az Exposed keretrendszerrel érem el.',
   },
   {
     title: 'Spring Boot',
@@ -199,22 +199,22 @@ const skills: Content['skills'] = [
   {
     title: 'Tesztelés',
     tag: 'Minőség',
-    text: 'Nálam a tesztelés nem utólagos teendő, hanem a munka természetes része. Az egységteszteket JUnittal és Mockitóval írom, a FIRST elvek (gyors, független, ismételhető, önellenőrző, időben megírt) szerint, a felületet Seleniummal és Cucumberrel járom végig, a rendszer egészét pedig integrációs és rendszertesztekkel fedem le. API-tesztelésből REST Assured tanfolyamot is végeztem. Egy korábbi projektben a tesztlefedettséget is sikerült javítanom.',
+    text: 'A tesztelés a fejlesztés része, nem utólagos lépés. Az egységteszteket JUnittal és Mockitóval írom, a FIRST elvek szerint (gyors, független, ismételhető, önellenőrző, időben megírt). A felületet Seleniummal és Cucumberrel tesztelem, a rendszer egészét integrációs és rendszertesztekkel fedem le. API-tesztelésből REST Assured tanfolyamot végeztem, egy korábbi projektben pedig a tesztlefedettséget is javítottam.',
   },
   {
     title: 'Eszközök',
     tag: 'Munkafolyamat',
-    text: 'A build-eket Gradle-lel és Mavennel kezelem, a kódot Gitben tartom. Dolgoztam Jenkinsszel, GitLabbal, GitHubbal és GitHub Actionsszel, a kiadásokhoz pedig ArgoCD-t is használtam. Dockerből tanúsítványom van. Az SQL-t és a Lombokot rendszeresen használom, a csapatmunkához pedig Jirát és Confluence-t.',
+    text: 'Buildhez Gradle-t és Mavent használok, verziókezelésre Gitet. CI/CD-ben dolgoztam Jenkinsszel, GitLabbal, GitHubbal és GitHub Actionsszel, a kiadásokhoz ArgoCD-t is használtam. Dockerből tanúsítványom van. Rendszeresen használom az SQL-t és a Lombokot, a csapatmunkához pedig a Jirát és a Confluence-t.',
   },
   {
     title: 'Tervezés',
     tag: 'Elvek',
-    text: 'A clean code szemléletet, a SOLID, a DRY és a KISS elveket és a tervezési mintákat követem. Adatbázisnál fontosnak tartom az ACID tulajdonságokat és a gondos tranzakciókezelést. Közel áll hozzám a domain-driven tervezés és a mikroszolgáltatások világa.',
+    text: 'A clean code szemléletet, a SOLID, a DRY és a KISS elveket, valamint a tervezési mintákat követem. Adatbázisnál az ACID tulajdonságokra és a gondos tranzakciókezelésre figyelek. Domain-driven tervezéssel és mikroszolgáltatás-architektúrában is dolgoztam.',
   },
   {
     title: 'Angular',
     tag: 'Frontend',
-    text: 'Ezt az oldalt is Angular 22-vel építettem: standalone komponensekkel, signalokkal és Vitest tesztekkel. Frontendben mellékprojektekben dolgozom vele, például a lizacover.hu-n, a munkám fő területe viszont a backend.',
+    text: 'Ezt az oldalt Angular 22-vel építettem, standalone komponensekkel, signalokkal és Vitest tesztekkel. Angularral készült a lizacover.hu és a GLI Solutions tesztelési platformja is, de a fő területem a backend.',
   },
 ];
 
@@ -236,23 +236,23 @@ const codeSamples: Content['codeSamples'] = [
 
 const aiWorkflow: Content['aiWorkflow'] = {
   title: 'Hogyan dolgozom AI-val',
-  lead: 'Több mint három éve használok AI-t a munkámban. Így néz ez ki a gyakorlatban.',
+  lead: 'Több mint három éve használok AI-t a munkámban. Ezt a négy szokást követem.',
   points: [
     {
       title: 'Pontos promptok',
-      text: 'A feladatot a kontextusával együtt írom le: mi a cél, mire kell figyelni, és mikor kész. Így az asszisztens elsőre közelebb kerül a jó megoldáshoz.',
+      text: 'A feladathoz megadom a kontextust: mi a cél, mire kell figyelni, és mikor tekintem késznek. Így az asszisztens már az első próbálkozásra közelebb kerül a megoldáshoz.',
     },
     {
       title: 'CLAUDE.md minden projektben',
-      text: 'A projekt szabályait, parancsait és szerkezetét egy CLAUDE.md fájlban rögzítem, így az asszisztens minden munkamenetben ugyanazt tudja. Ezt az oldalt is így építettem, a fájl a forráskódban látható.',
+      text: 'A projekt szabályait, parancsait és szerkezetét egy CLAUDE.md fájlban rögzítem, így az asszisztens minden munkamenetben ugyanabból indul ki. Ennek az oldalnak is van ilyen fájlja, a forráskódban megtekinthető.',
     },
     {
       title: 'Saját skillek és hookok',
-      text: 'Az ismétlődő feladatokra skilleket írok, például a tartalom szerkesztésére és a dokumentáció írására. A lizacover.hu projektben hat skill és egy push előtti ellenőrző hook is segít.',
+      text: 'Az ismétlődő feladatokra skilleket írok, például tartalomszerkesztésre és dokumentálásra. A lizacover.hu projektben hat skill és egy push előtti ellenőrző hook működik.',
     },
     {
       title: 'Az eredményt ellenőrzöm',
-      text: 'Az AI kódját tesztek és build védik, a CI pedig minden változtatásnál lefuttatja őket. Ennél az oldalnál hozzáférhetőségi és teljesítménymérés is volt.',
+      text: 'Az AI által írt kódot is tesztek és build ellenőrzik, a CI pedig minden változtatásnál lefuttatja őket. Ennél az oldalnál hozzáférhetőségi és teljesítménymérést is végeztem.',
     },
   ],
   file: {
@@ -281,7 +281,7 @@ const aiWorkflow: Content['aiWorkflow'] = {
       '- Dokumentáció: `docs/`',
     ].join('\n'),
   },
-  note: 'A fájl ennek az oldalnak a valódi CLAUDE.md-jéből készült, rövidítve.',
+  note: 'A részlet ennek az oldalnak a CLAUDE.md fájljából származik, rövidítve.',
 };
 
 const sideProjects: Content['sideProjects'] = [
@@ -289,7 +289,7 @@ const sideProjects: Content['sideProjects'] = [
     name: 'lizacover.hu',
     url: 'https://lizacover.hu',
     description:
-      'Élesben is elérhető oldal: Ivanovszki Elizabet grafikus és illusztrátor portfóliója, amelyet én fejlesztettem. Egyoldalas, kétnyelvű oldal: a magyar és az angol változatnak saját címe van, hogy a keresők mindkettőt lássák. Angular 21-gyel készült, a build előre legenerált statikus oldalakat ad, és Cloudflare-en fut. A betűk saját kiszolgálásból jönnek, az analitika pedig csak hozzájárulás után tölt be.',
+      'Ivanovszki Elizabet grafikus és illusztrátor portfóliója, amelyet én fejlesztettem; élesben is elérhető. Egyoldalas, kétnyelvű oldal: a magyar és az angol változatnak külön címe van, hogy a keresők mindkettőt indexelni tudják. Angular 21-gyel készült, a build előrenderelt statikus oldalakat állít elő, és Cloudflare-en fut. A betűtípusokat az oldal maga szolgálja ki, az analitika pedig csak hozzájárulás után töltődik be.',
     tech: [
       'Angular 21',
       'TypeScript',
@@ -305,7 +305,7 @@ const sideProjects: Content['sideProjects'] = [
     name: 'Ez a portfólió',
     sourceUrl: 'https://github.com/gyulaimrk/website',
     description:
-      'Ez az oldal is mellékprojekt. Angular 22-vel építettem, standalone komponensekkel és signalokkal. Magyarul és angolul is elérhető, van sötét és világos témája, és a hozzáférhetőségre és a keresőoptimalizálásra is figyeltem. Minden komponens külön HTML-, SCSS-, TypeScript- és tesztfájlból áll, a tartalom pedig egy helyen, nyelvenként szerkeszthető. A GitHub Actions futtatja a teszteket és a buildet, és Cloudflare-re van előkészítve. A fejlesztésben AI-asszisztenst (Claude Code) is használtam.',
+      'Ez a portfólió is mellékprojekt. Angular 22-vel készült, standalone komponensekkel és signalokkal. Magyarul és angolul érhető el, van sötét és világos témája, és a hozzáférhetőséget, valamint a keresőoptimalizálást is figyelembe vettem. Minden komponens külön HTML-, SCSS-, TypeScript- és tesztfájlból áll, a tartalom nyelvenként egy helyen szerkeszthető. A GitHub Actions lefuttatja a teszteket és a buildet, a telepítés Cloudflare-re van előkészítve. A fejlesztéshez AI-asszisztenst (Claude Code) is használtam.',
     tech: [
       'Angular 22',
       'TypeScript',
@@ -332,7 +332,7 @@ const studies: Content['studies'] = [
     where: 'EPAM Systems',
     period: '2020. szeptember – 2021. július',
     description:
-      'Sikeresen elvégeztem az EPAM Java Mentored Education Program képzését. A programban megtanultuk a Java nyelvet, és átfogóan foglalkoztunk a verziókezelő rendszerekkel, az agilis fejlesztési módszertanokkal, a tesztelléssel, a clean code elveivel, a tervezési mintákkal és a Spring keretrendszerrel. A frontend fejlesztésből is kaptunk egy kis ízelítőt.',
+      'Elvégeztem az EPAM Java Mentored Education Program képzését. A program a Java nyelv mellett a verziókezelő rendszerekkel, az agilis módszertanokkal, a teszteléssel, a clean code elveivel, a tervezési mintákkal és a Spring keretrendszerrel foglalkozott. Rövid betekintést kaptunk a frontend fejlesztésbe is.',
   },
   { kind: 'education', title: 'Angol nyelvvizsga, B2', where: '', period: '' },
   {
@@ -420,7 +420,7 @@ const studies: Content['studies'] = [
 const stats: Content['stats'] = [
   { value: '5+', label: 'éve dolgozom Java 11 és 17 alatt' },
   { value: '3+', label: 'éve használok AI-t a munkámban' },
-  { value: '8–25', label: 'Java verziókon írok magabiztosan kódot' },
+  { value: '8–25', label: 'Java verziót ismerek' },
   { value: '7', label: 'projekten dolgoztam 3 munkahelyen: EPAM, RDI és Adroit' },
 ];
 
@@ -428,7 +428,7 @@ const ui: Content['ui'] = {
   meta: {
     title: 'Gyulai Márk – Senior Java fejlesztő',
     description:
-      'Gyulai Márk senior Java és Kotlin fejlesztő, AI-konzultáns portfóliója: backend rendszerek, tesztelés és mesterséges intelligencia a gyakorlatban.',
+      'Gyulai Márk senior Java és Kotlin fejlesztő, AI-konzultáns portfóliója: backend rendszerek, tesztelés és mesterséges intelligencia.',
   },
   skipLink: 'Ugrás a tartalomhoz',
   nav: {
@@ -461,7 +461,7 @@ const ui: Content['ui'] = {
   },
   about: {
     title: 'Rólam',
-    lead: 'Egy fejlesztő, aki szívesen épít olyan rendszert, amelyet évek múlva is könnyű megérteni.',
+    lead: 'Olyan rendszereket építek, amelyeket évek múlva is könnyű megérteni és továbbfejleszteni.',
     facts: {
       location: 'Helyszín',
       role: 'Szerep',
@@ -472,22 +472,22 @@ const ui: Content['ui'] = {
   },
   skills: {
     title: 'Eszköztár',
-    lead: 'Ezekkel dolgozom a leggyakrabban, a programozási nyelvektől a tesztelésig.',
+    lead: 'A leggyakrabban használt nyelveim, keretrendszereim és eszközeim.',
   },
   sideProjects: {
     title: 'Mellékprojektek',
-    lead: 'Munkán kívül is szívesen építek: ezek a mellékprojektjeim.',
-    visit: 'Megnézem az oldalt',
+    lead: 'A munkán kívül készült projektjeim.',
+    visit: 'Az oldal megtekintése',
     source: 'Forráskód a GitHubon',
   },
   experience: {
     title: 'Tapasztalat',
     projects: 'Projektek',
-    lead: 'Három cég, négy szerep, hét projekt: junior fejlesztőként kezdtem, ma senior vagyok.',
+    lead: 'Három cég, négy szerep, hét projekt. Junior fejlesztőként kezdtem, ma senior vagyok.',
   },
   education: {
     title: 'Tanulmányok és tanúsítványok',
-    lead: 'Egyetemen kezdtem, azóta tanfolyamokkal és tanúsítványokkal tartom frissen a tudásomat.',
+    lead: 'Az egyetem után tanfolyamokkal és tanúsítványokkal bővítem a tudásomat.',
     studies: 'Tanulmányok',
     featured: 'Anthropic-tanúsítványok',
     certificates: 'További tanúsítványok',
@@ -495,7 +495,7 @@ const ui: Content['ui'] = {
   },
   contact: {
     title: 'Dolgozzunk együtt',
-    text: 'Van egy projekted, AI-ötleted vagy backend feladatod? Írj nekem, szívesen átbeszélem veled.',
+    text: 'Backend feladatod, AI-val kapcsolatos ötleted vagy projekted van? Írj, és megbeszéljük.',
     cv: 'Önéletrajz letöltése',
     linkedin: 'Írj a LinkedInen',
   },

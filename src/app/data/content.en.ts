@@ -15,13 +15,13 @@ const profile: Content['profile'] = {
   stack: ['Java 8–25', 'Kotlin', 'Spring Boot'],
   roles: ['Java developer', 'Kotlin developer', 'AI consultant'],
   intro:
-    'I build backend systems in Java and Kotlin. I like working on software that stays in use for years and that a team can keep developing with confidence. I also work as an AI consultant, helping companies make artificial intelligence genuinely useful.',
+    'I develop backend systems in Java and Kotlin. I build software that stays in use for years and that a team can keep developing safely. As an AI consultant, I help companies use artificial intelligence where it fits.',
   letter: [
-    'I am a senior Java developer. I have spent more than five years on Java 11 and Java 17, but I feel at home anywhere from Java 8 up to Java 25. I work on Spring and Spring Boot applications, and I like to see the work through from design and coding to tests and maintenance.',
-    'I care about code that is easy to understand and maintain. That is why I follow the clean code, SOLID, DRY and KISS principles and proven design patterns, and why I test a lot: unit tests, system tests and UI tests. Whenever a project needed better test coverage, I was glad to take it on.',
-    'I am comfortable working in a team and on my own. On the Broadridge, McDonald’s and Helvo projects I worked with international teams, and working with people from different countries comes naturally to me. I talk openly with clients and with colleagues from other areas, because I believe good software starts with good conversations. I try out new technologies in side projects, so my knowledge keeps getting refreshed. At EPAM and at RDI I also mentored a junior colleague. I also use AI deliberately in my work: I write good prompts, build skills, and record in CLAUDE.md files how the assistant should work on a project.',
-    'In my free time I like watching movies, playing games with friends and driving, and I try out new technologies in side projects.',
-    'This site is built with Angular, because I am curious about the other side of development too.',
+    'I am a senior Java developer. I have spent more than five years on Java 11 and Java 17, and I know the language from Java 8 up to Java 25. I develop Spring and Spring Boot applications, from design and coding through testing to maintenance.',
+    'Code has to be easy to understand and maintain. I follow the clean code, SOLID, DRY and KISS principles, use proven design patterns, and write unit, system and UI tests. Where test coverage needed improving, I took that on as well.',
+    'I work well in a team and on my own. On the Broadridge, McDonald’s and Helvo projects I worked with international teams, and working with colleagues from different countries is second nature to me. I stay in regular, open contact with clients and with colleagues from other areas. At EPAM and at RDI I also mentored a junior colleague. I try out new technologies in side projects. I use AI deliberately in my work: I write precise prompts, build my own skills, and record a project’s rules in CLAUDE.md files for the assistant.',
+    'In my free time I like driving, watching movies and playing games with friends.',
+    'I built this site with Angular. Frontend work interests me too, although my main field is the backend.',
   ],
 };
 
@@ -31,13 +31,13 @@ const jobs: Content['jobs'] = [
     role: 'Senior Software Engineer',
     period: 'October 2025 – present',
     description:
-      'As a senior software engineer I have taken part in three projects, two of them in Kotlin. I develop backends, take part in design and care about quality. One of my projects is about AI consulting.',
+      'I have taken part in three projects, two of them in Kotlin. I develop backends, take part in design and pay attention to quality. One of the projects is AI consulting.',
     projects: [
       {
         name: 'MOL Limo rent a car',
         tech: ['Jenkins', 'GitLab'],
         url: 'https://rentacar.mollimo.hu/rent/start',
-        text: 'I develop the backend of the MOL Limo car rental system in Kotlin. The backend does not just aggregate data: it also performs calculations and synchronizes asynchronously with a subsystem.',
+        text: 'I develop the backend of the MOL Limo car rental system in Kotlin.',
         points: [
           'Business logic and calculations in the backend, beyond aggregating data',
           'Asynchronous synchronization with a subsystem',
@@ -61,7 +61,7 @@ const jobs: Content['jobs'] = [
       {
         name: 'GLI Solutions',
         role: 'AI Consultant and Developer',
-        text: 'As an AI consultant I help artificial intelligence answer real problems. We find where it is useful, check whether it is feasible, and fit it into the systems that already exist. My team and I also work on the project as developers.',
+        text: 'As an AI consultant, I look into where artificial intelligence is useful, whether it is feasible and how it fits into existing systems. My team and I also work on the project as developers.',
         points: [
           'Developing a platform that supports manual testing, with a C# and .NET backend, a PostgreSQL database, Node.js and Angular',
           'The platform can be connected to AI agents as an MCP server',
@@ -96,12 +96,12 @@ const jobs: Content['jobs'] = [
     role: 'Software Engineer',
     period: 'August 2024 – October 2025',
     description:
-      'I worked on the McDonald’s application, in the team that handles user accounts, authentication and authorization. My team and I developed and maintained microservices and wrote their unit and integration tests. I also wrote SQL queries and connected other systems’ APIs. Unofficially, but here too I mentored a junior colleague.',
+      'I worked on the McDonald’s application, in the team responsible for user accounts, authentication and authorization. My team and I developed and maintained microservices, together with their unit and integration tests. I wrote SQL queries and connected other systems’ APIs. Unofficially, I mentored a junior colleague here too.',
     projects: [
       {
         name: 'McDonald’s',
         tech: ['GitHub', 'ArgoCD'],
-        text: 'User accounts, authentication and authorization: I was a member of the international team that handles them.',
+        text: 'User accounts, authentication and authorization; I worked in an international team.',
         points: [
           'Maintaining existing microservices',
           'Designing and developing new microservices',
@@ -111,7 +111,7 @@ const jobs: Content['jobs'] = [
           'Repairing data corrupted by migrations in a NoSQL database with a Python script',
           'Managing database transactions',
           'Code reviews',
-          'Implementing Google login with the Google SDK instead of plain API endpoints',
+          'Google login with the Google SDK instead of plain API endpoints',
         ],
       },
     ],
@@ -133,7 +133,7 @@ const jobs: Content['jobs'] = [
     role: 'Software Engineer',
     period: 'January 2022 – August 2024',
     description:
-      'As part of an international team, we developed the financial application of Broadridge, an American company. This is where I really learned multi-threaded programming, domain-driven design and the functional approach. I wrote unit, system and acceptance tests, including UI tests with Selenium. I also connected other systems’ APIs, sometimes asynchronously. I solved concurrency bugs, handled database transactions and improved test coverage. I also mentored a junior developer.',
+      'As part of an international team, we developed the financial application of Broadridge, an American company. This is where I got to know multithreaded programming, domain-driven design and the functional approach in depth. I wrote unit, system and acceptance tests, as well as UI tests with Selenium. I connected other systems’ APIs, sometimes asynchronously. I fixed concurrency bugs, handled database transactions and improved test coverage. I also mentored a junior developer.',
     projects: [
       { name: 'Broadridge financial application', tech: ['Jenkins', 'GitLab'] },
       {
@@ -149,7 +149,7 @@ const jobs: Content['jobs'] = [
     role: 'Junior Software Engineer',
     period: 'July 2021 – January 2022',
     description:
-      'As a junior developer I developed backends and learned a lot along the way. I worked on EPAM’s internal exam system and later on the same Broadridge project.',
+      'As a junior developer I built backend features for EPAM’s internal exam system, and later worked on the Broadridge project as well.',
     projects: [
       {
         name: 'Internal exam system',
@@ -161,13 +161,13 @@ const jobs: Content['jobs'] = [
           'Code reviews',
           'Writing unit tests with JUnit',
           'Manual testing',
-          'Improving my skills and learning new technologies',
+          'Learning new technologies and developing my skills',
         ],
       },
       {
         name: 'Broadridge financial application',
         tech: ['Jenkins', 'GitLab'],
-        text: 'The same project I later worked on as a Software Engineer.',
+        text: 'I later worked on the same project as a Software Engineer.',
       },
     ],
     tech: ['Java', 'Spring Boot 3', 'MySQL', 'JUnit', 'Unit tests'],
@@ -179,17 +179,17 @@ const skills: Content['skills'] = [
     highlight: true,
     title: 'AI and MCP',
     tag: 'Artificial intelligence',
-    text: 'I have used AI in my work for more than three years, and today it is a natural part of my daily work. I write well-formed prompts, use my own skills, and write CLAUDE.md files so the AI assistant knows a project’s rules and helps consistently. On the GLI Solutions project at Adroit Group I work as an AI consultant: we look for where artificial intelligence helps and how to fit it into existing systems. In March 2026 I earned four Anthropic certificates: Claude API, Model Context Protocol (MCP), agent skills and Claude Code.',
+    text: 'I have used AI in my work for more than three years. I write precise prompts, build my own skills, and record a project’s rules in CLAUDE.md files so the assistant works from the same information in every session. On the GLI Solutions project at Adroit Group I work as an AI consultant: we examine where artificial intelligence helps and how it fits into existing systems. In March 2026 I earned four Anthropic certificates: Claude API, Model Context Protocol (MCP), agent skills and Claude Code.',
   },
   {
     title: 'Java 8–25',
     tag: 'Language',
-    text: 'I write code confidently from Java 8 up to Java 25. Most of my practice, more than five years, is on Java 11 and Java 17. I also hold certificates in Java 8, Java 10 and 11, and Java 17.',
+    text: 'I know Java from version 8 up to 25. Most of my practice, more than five years, is on Java 11 and Java 17. I also hold certificates in Java 8, Java 10, Java 11 and Java 17.',
   },
   {
     title: 'Kotlin',
     tag: 'Language',
-    text: 'At Adroit Group I worked on several Kotlin projects, including the MOL Limo car rental system and Helvo. I access the database with the Exposed framework.',
+    text: 'At Adroit Group I worked on two Kotlin projects: the MOL Limo car rental system and Helvo. I access the database with the Exposed framework.',
   },
   {
     title: 'Spring Boot',
@@ -199,22 +199,22 @@ const skills: Content['skills'] = [
   {
     title: 'Testing',
     tag: 'Quality',
-    text: 'For me testing is not an afterthought but a natural part of the work. I write unit tests with JUnit and Mockito, following the FIRST principles (fast, independent, repeatable, self-validating, timely), walk through the UI with Selenium and Cucumber, and cover the whole system with integration and system tests. I also took a REST Assured course on API testing. On an earlier project I also managed to improve test coverage.',
+    text: 'Testing is part of development, not an afterthought. I write unit tests with JUnit and Mockito, following the FIRST principles (fast, independent, repeatable, self-validating, timely). I test the UI with Selenium and Cucumber and cover the whole system with integration and system tests. I took a REST Assured course on API testing, and on an earlier project I also improved test coverage.',
   },
   {
     title: 'Tools',
     tag: 'Workflow',
-    text: 'I manage builds with Gradle and Maven and keep my code in Git. I have worked with Jenkins, GitLab, GitHub and GitHub Actions, and used ArgoCD for deployments. I hold Docker certificates. I use SQL and Lombok regularly, and Jira and Confluence for teamwork.',
+    text: 'I use Gradle and Maven for builds and Git for version control. I have worked with Jenkins, GitLab, GitHub and GitHub Actions for CI/CD, and used ArgoCD for deployments. I hold Docker certificates. I use SQL and Lombok regularly, and Jira and Confluence for teamwork.',
   },
   {
     title: 'Design',
     tag: 'Principles',
-    text: 'I follow clean code thinking, the SOLID, DRY and KISS principles and design patterns. With databases I care about the ACID properties and careful transaction management. Domain-driven design and the world of microservices are close to my heart.',
+    text: 'I follow clean code thinking, the SOLID, DRY and KISS principles and design patterns. With databases I pay attention to the ACID properties and careful transaction management. I have worked with domain-driven design and in a microservice architecture.',
   },
   {
     title: 'Angular',
     tag: 'Frontend',
-    text: 'I built this site with Angular 22 as well, using standalone components, signals and Vitest tests. I work with it on the frontend side in side projects, such as lizacover.hu, while my main field at work is the backend.',
+    text: 'I built this site with Angular 22, using standalone components, signals and Vitest tests. lizacover.hu and the GLI Solutions testing platform are built with Angular too, but my main field is the backend.',
   },
 ];
 
@@ -236,23 +236,23 @@ const codeSamples: Content['codeSamples'] = [
 
 const aiWorkflow: Content['aiWorkflow'] = {
   title: 'How I work with AI',
-  lead: 'I have used AI in my work for more than three years. This is what it looks like in practice.',
+  lead: 'I have used AI in my work for more than three years. These are the four habits I follow.',
   points: [
     {
       title: 'Precise prompts',
-      text: 'I describe a task together with its context: what the goal is, what to watch out for, and when it is done. That way the assistant gets closer to the right solution on the first try.',
+      text: 'I describe a task together with its context: what the goal is, what to watch out for, and when it counts as done. That way the assistant gets closer to a solution on the first attempt.',
     },
     {
       title: 'CLAUDE.md in every project',
-      text: 'I record a project’s rules, commands and structure in a CLAUDE.md file, so the assistant knows the same things in every session. I built this site that way, and the file is visible in the source code.',
+      text: 'I record a project’s rules, commands and structure in a CLAUDE.md file, so the assistant starts every session from the same information. This site has one too, and it can be viewed in the source code.',
     },
     {
       title: 'My own skills and hooks',
-      text: 'I write skills for repeated tasks, for example editing the content and writing the documentation. The lizacover.hu project has six skills and a hook that checks everything before a push.',
+      text: 'I write skills for repeated tasks, for example editing content and writing documentation. The lizacover.hu project has six skills and a hook that runs checks before every push.',
     },
     {
       title: 'I check the result',
-      text: 'The AI’s code is protected by tests and the build, and CI runs them on every change. For this site, accessibility and performance were measured as well.',
+      text: 'Code written by AI is checked by tests and the build too, and CI runs them on every change. For this site I also measured accessibility and performance.',
     },
   ],
   file: {
@@ -281,7 +281,7 @@ const aiWorkflow: Content['aiWorkflow'] = {
       '- Documentation: `docs/`',
     ].join('\n'),
   },
-  note: 'The file is taken from the real CLAUDE.md of this site, shortened.',
+  note: 'The excerpt comes from this site’s CLAUDE.md, shortened.',
 };
 
 const sideProjects: Content['sideProjects'] = [
@@ -289,7 +289,7 @@ const sideProjects: Content['sideProjects'] = [
     name: 'lizacover.hu',
     url: 'https://lizacover.hu',
     description:
-      'A live site: the portfolio of Elizabet Ivanovszki, a graphic designer and illustrator, which I developed. It is a one-page, bilingual site: the Hungarian and English versions have their own addresses so search engines can see both. It is built with Angular 21, the build produces prerendered static pages, and it runs on Cloudflare. The fonts are self-hosted, and analytics loads only after consent.',
+      'The portfolio of Elizabet Ivanovszki, a graphic designer and illustrator, which I developed; it is live. It is a one-page, bilingual site: the Hungarian and English versions have separate addresses so search engines can index both. It is built with Angular 21, the build produces prerendered static pages, and it runs on Cloudflare. The site serves its own fonts, and analytics loads only after consent.',
     tech: [
       'Angular 21',
       'TypeScript',
@@ -305,7 +305,7 @@ const sideProjects: Content['sideProjects'] = [
     name: 'This portfolio',
     sourceUrl: 'https://github.com/gyulaimrk/website',
     description:
-      'This site is a side project too. I built it with Angular 22, using standalone components and signals. It is available in Hungarian and English, has a dark and a light theme, and I paid attention to accessibility and search engine optimization. Every component is split into its own HTML, SCSS, TypeScript and test file, and the content can be edited in one place per language. GitHub Actions runs the tests and the build, and it is prepared for Cloudflare. I also used an AI assistant (Claude Code) while developing it.',
+      'This portfolio is a side project too. It is built with Angular 22, using standalone components and signals. It is available in Hungarian and English, has a dark and a light theme, and takes accessibility and search engine optimization into account. Every component is split into its own HTML, SCSS, TypeScript and test file, and the content can be edited in one place per language. GitHub Actions runs the tests and the build, and deployment to Cloudflare is prepared. I also used an AI assistant (Claude Code) during development.',
     tech: [
       'Angular 22',
       'TypeScript',
@@ -332,7 +332,7 @@ const studies: Content['studies'] = [
     where: 'EPAM Systems',
     period: 'September 2020 – July 2021',
     description:
-      'I successfully completed EPAM’s Java Mentored Education Program. We were taught the Java language and covered version control systems, agile development methodologies, testing, clean code, design patterns and the Spring framework in depth, and we got a taste of front end development too.',
+      'I completed EPAM’s Java Mentored Education Program. Besides the Java language, the program covered version control systems, agile methodologies, testing, clean code, design patterns and the Spring framework, and gave a short introduction to front end development.',
   },
   { kind: 'education', title: 'English language exam, B2', where: '', period: '' },
   {
@@ -420,7 +420,7 @@ const studies: Content['studies'] = [
 const stats: Content['stats'] = [
   { value: '5+', label: 'years working with Java 11 and 17' },
   { value: '3+', label: 'years using AI in my work' },
-  { value: '8–25', label: 'Java versions I write code in confidently' },
+  { value: '8–25', label: 'Java versions I know' },
   { value: '7', label: 'projects across 3 workplaces: EPAM, RDI and Adroit' },
 ];
 
@@ -428,7 +428,7 @@ const ui: Content['ui'] = {
   meta: {
     title: 'Márk Gyulai – Senior Java Developer',
     description:
-      'Portfolio of Márk Gyulai, a senior Java and Kotlin developer and AI consultant: backend systems, testing and practical artificial intelligence.',
+      'Portfolio of Márk Gyulai, a senior Java and Kotlin developer and AI consultant: backend systems, testing and artificial intelligence.',
   },
   skipLink: 'Skip to content',
   nav: {
@@ -461,7 +461,7 @@ const ui: Content['ui'] = {
   },
   about: {
     title: 'About me',
-    lead: 'A developer who likes to build systems that are still easy to understand years later.',
+    lead: 'I build systems that are still easy to understand and extend years later.',
     facts: {
       location: 'Location',
       role: 'Role',
@@ -472,22 +472,22 @@ const ui: Content['ui'] = {
   },
   skills: {
     title: 'Skills',
-    lead: 'What I use most often, from programming languages to testing.',
+    lead: 'The languages, frameworks and tools I use most often.',
   },
   sideProjects: {
     title: 'Side projects',
-    lead: 'I like to build outside of work too: these are my side projects.',
+    lead: 'Projects I built outside of work.',
     visit: 'Visit the site',
     source: 'Source code on GitHub',
   },
   experience: {
     title: 'Experience',
     projects: 'Projects',
-    lead: 'Three companies, four roles, seven projects: I started as a junior developer and today I am a senior.',
+    lead: 'Three companies, four roles, seven projects. I started as a junior developer and today I am a senior.',
   },
   education: {
     title: 'Education and certificates',
-    lead: 'I started at university and have kept my knowledge fresh with courses and certificates since.',
+    lead: 'After university I have kept developing through courses and certificates.',
     studies: 'Education',
     featured: 'Anthropic certificates',
     certificates: 'More certificates',
@@ -495,7 +495,7 @@ const ui: Content['ui'] = {
   },
   contact: {
     title: 'Let’s work together',
-    text: 'Do you have a project, an AI idea or a backend task? Write to me, I would be glad to talk it through.',
+    text: 'Do you have a backend task, an AI idea or a project? Get in touch and we can talk it through.',
     cv: 'Download my résumé',
     linkedin: 'Message me on LinkedIn',
   },
