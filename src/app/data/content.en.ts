@@ -142,18 +142,25 @@ const jobs: Content['jobs'] = [
     role: 'Junior Software Engineer',
     period: 'July 2021 – January 2022',
     description:
-      'As a junior developer I developed backends: I designed and implemented new features, wrote unit tests, took part in code reviews, tested manually, and learned a lot along the way.',
+      'As a junior developer I developed backends and learned a lot along the way. I worked on EPAM’s internal exam system and later on the same Broadridge project.',
     projects: [
       {
         name: 'Internal exam system',
-        text: 'EPAM’s internal exam system: a web application in which exams could be taken safely. I built its backend.',
+        text: 'EPAM’s internal exam system: a web application in which exams could be taken safely. I built its backend with Spring Boot 3.',
+        points: [
+          'Designing and developing new features',
+          'Code reviews',
+          'Writing unit tests with JUnit',
+          'Manual testing',
+          'Improving my skills and learning new technologies',
+        ],
       },
       {
         name: 'Broadridge financial application',
         text: 'The same project I later worked on as a Software Engineer.',
       },
     ],
-    tech: ['Java', 'Backend', 'Unit tests'],
+    tech: ['Java', 'Spring Boot 3', 'JUnit', 'Unit tests'],
   },
 ];
 

@@ -142,18 +142,25 @@ const jobs: Content['jobs'] = [
     role: 'Junior Software Engineer',
     period: '2021. július – 2022. január',
     description:
-      'Junior fejlesztőként backendet fejlesztettem: új funkciókat terveztem és valósítottam meg, egységteszteket írtam, részt vettem a kód átnézésében, kézzel is teszteltem, és közben sokat tanultam.',
+      'Junior fejlesztőként backendet fejlesztettem, és közben sokat tanultam. Az EPAM belső vizsgarendszerén dolgoztam, később ugyanezen a Broadridge-projekten is.',
     projects: [
       {
         name: 'Belső vizsgarendszer',
-        text: 'Az EPAM belső vizsgarendszere: webalkalmazás, amelyben biztonságosan lehetett vizsgázni. Én a backendjét építettem.',
+        text: 'Az EPAM belső vizsgarendszere: webalkalmazás, amelyben biztonságosan lehetett vizsgázni. Én a backendjét építettem Spring Boot 3-mal.',
+        points: [
+          'Új funkciók tervezése és fejlesztése',
+          'Code review-k',
+          'Egységtesztek írása JUnittal',
+          'Manuális tesztelés',
+          'A tudásom fejlesztése, új technológiák megtanulása',
+        ],
       },
       {
         name: 'Broadridge pénzügyi alkalmazás',
         text: 'Ugyanezen a projekten dolgoztam később Software Engineerként is.',
       },
     ],
-    tech: ['Java', 'Backend', 'Unit tesztek'],
+    tech: ['Java', 'Spring Boot 3', 'JUnit', 'Unit tesztek'],
   },
 ];
 
