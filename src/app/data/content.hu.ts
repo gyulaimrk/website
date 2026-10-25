@@ -19,7 +19,7 @@ const profile: Content['profile'] = {
   letter: [
     'Senior Java fejlesztő vagyok. Több mint öt éve dolgozom Java 11 és Java 17 alatt, de a Java 8-tól a 25-ös verzióig mindenhol otthon érzem magam. Spring és Spring Boot alkalmazásokon dolgozom, és szeretem végigvinni a munkát: a tervezéstől a kódoláson és a teszteken át a karbantartásig.',
     'Fontos számomra, hogy a kód érthető és karbantartható legyen. Ezért követem a clean code, a SOLID, a DRY és a KISS elveit, valamint a bevált tervezési mintákat, és sokat tesztelek: egységtesztekkel, rendszertesztekkel és felületi tesztekkel is. Ha egy projektben javítani kellett a tesztlefedettséget, azt mindig szívesen vállaltam.',
-    'Jól érzem magam csapatban és önállóan is. A Broadridge, a McDonald’s és a Helvo projekten nemzetközi csapatokkal dolgoztam, és számomra természetes, hogy különböző országokból érkező emberekkel működöm együtt. Az ügyfelekkel és a más területen dolgozó kollégákkal nyíltan egyeztetek, mert szerintem a jó szoftver jó beszélgetésekkel kezdődik. Új technológiákat mellékprojektekben szoktam kipróbálni, így a tudásom folyamatosan frissül. Az AI-t is tudatosan használom a munkámban: jól promptolok, skilleket építek, és CLAUDE.md fájlokban rögzítem, hogyan dolgozzon az asszisztens a projekten.',
+    'Jól érzem magam csapatban és önállóan is. A Broadridge, a McDonald’s és a Helvo projekten nemzetközi csapatokkal dolgoztam, és számomra természetes, hogy különböző országokból érkező emberekkel működöm együtt. Az ügyfelekkel és a más területen dolgozó kollégákkal nyíltan egyeztetek, mert szerintem a jó szoftver jó beszélgetésekkel kezdődik. Új technológiákat mellékprojektekben szoktam kipróbálni, így a tudásom folyamatosan frissül. Az EPAM-nál és az RDI-nál junior kollégát is mentoráltam. Az AI-t is tudatosan használom a munkámban: jól promptolok, skilleket építek, és CLAUDE.md fájlokban rögzítem, hogyan dolgozzon az asszisztens a projekten.',
     'Szabadidőmben szívesen nézek filmeket, játszom a barátaimmal, vezetek, és új technológiákat próbálok ki mellékprojektekben.',
     'Ez az oldal Angularral készült, mert a fejlesztés másik oldala is érdekel.',
   ],
@@ -96,7 +96,7 @@ const jobs: Content['jobs'] = [
     role: 'Software Engineer',
     period: '2024. augusztus – 2025. október',
     description:
-      'A McDonald’s alkalmazásán dolgoztam, azon belül a felhasználói fiókokkal, az authentikációval és az autorizációval foglalkozó csapatban. A csapatommal microservice-eket fejlesztettünk és tartottunk karban, és a hozzájuk tartozó egység- és integrációs teszteket is megírtuk. Emellett SQL-lekérdezéseket írtam, és más rendszerek API-jait kötöttem be.',
+      'A McDonald’s alkalmazásán dolgoztam, azon belül a felhasználói fiókokkal, az authentikációval és az autorizációval foglalkozó csapatban. A csapatommal microservice-eket fejlesztettünk és tartottunk karban, és a hozzájuk tartozó egység- és integrációs teszteket is megírtuk. Emellett SQL-lekérdezéseket írtam, és más rendszerek API-jait kötöttem be. Nem hivatalos keretek között, de itt is mentoráltam egy junior munkatársat.',
     projects: [
       {
         name: 'McDonald’s',
@@ -133,7 +133,7 @@ const jobs: Content['jobs'] = [
     role: 'Software Engineer',
     period: '2022. január – 2024. augusztus',
     description:
-      'Egy nemzetközi csapat tagjaként a Broadridge, egy amerikai cég pénzügyi alkalmazását fejlesztettük. Itt tanultam meg igazán a többszálú programozást, a domain-driven tervezést és a funkcionális megközelítést. Egység-, rendszer- és elfogadási teszteket írtam, Seleniummal felületi teszteket is. Más rendszerek API-jait is bekötöttem, időnként aszinkron módon. Megoldottam párhuzamossági hibákat, kezeltem az adatbázis-tranzakciókat, és javítottam a tesztlefedettséget.',
+      'Egy nemzetközi csapat tagjaként a Broadridge, egy amerikai cég pénzügyi alkalmazását fejlesztettük. Itt tanultam meg igazán a többszálú programozást, a domain-driven tervezést és a funkcionális megközelítést. Egység-, rendszer- és elfogadási teszteket írtam, Seleniummal felületi teszteket is. Más rendszerek API-jait is bekötöttem, időnként aszinkron módon. Megoldottam párhuzamossági hibákat, kezeltem az adatbázis-tranzakciókat, és javítottam a tesztlefedettséget. Junior fejlesztőt is mentoráltam.',
     projects: [
       { name: 'Broadridge pénzügyi alkalmazás', tech: ['Jenkins', 'GitLab'] },
       {
