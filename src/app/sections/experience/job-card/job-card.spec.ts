@@ -37,6 +37,18 @@ describe('JobCard', () => {
     expect(links[0].getAttribute('href')).toBe('https://example.com');
   });
 
+  it('a feladatlistát a projekt alatt mutatja, ha van', () => {
+    const el = render({
+      projects: [{ name: 'Alfa', points: ['Első feladat', 'Második feladat'] }, { name: 'Béta' }],
+    });
+    const items = [...el.querySelectorAll('.projects > li')];
+    expect([...items[0].querySelectorAll('.points li')].map((li) => li.textContent)).toEqual([
+      'Első feladat',
+      'Második feladat',
+    ]);
+    expect(items[1].querySelector('.points')).toBeNull();
+  });
+
   it('projektek nélkül nincs projektlista', () => {
     expect(render({ projects: undefined }).querySelector('.projects')).toBeNull();
   });

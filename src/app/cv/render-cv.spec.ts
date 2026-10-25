@@ -51,6 +51,11 @@ describe('renderCv', () => {
     expect(html).toMatch(/<strong>Railnet<\/strong><\/li>/);
   });
 
+  it('a projekt feladatait is felsorolja', () => {
+    const html = renderCv('hu', contentHu, assets);
+    expect(html).toContain('<li>Code review-k</li>');
+  });
+
   it('a nyelvvizsga és a jogosítvány is megjelenik', () => {
     const html = renderCv('hu', contentHu, assets);
     expect(html).toContain('Angol nyelvvizsga, B2');

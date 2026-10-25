@@ -26,6 +26,13 @@
             @if (project.text) {
               <p>{{ project.text }}</p>
             }
+            @if (project.points; as points) {
+              <ul class="points">
+                @for (point of points; track point) {
+                  <li>{{ point }}</li>
+                }
+              </ul>
+            }
           </li>
         }
       </ul>

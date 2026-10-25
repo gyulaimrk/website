@@ -63,7 +63,10 @@ export function renderCv(lang: Lang, content: Content, assets: CvAssets): string
       const projects = (job.projects ?? [])
         .map((p) => {
           const label = [p.name, p.role].filter(Boolean).join(' – ');
-          return `<li><strong>${esc(label)}</strong>${p.text ? `: ${esc(p.text)}` : ''}</li>`;
+          const points = p.points?.length
+            ? `<ul>${p.points.map((point) => `<li>${esc(point)}</li>`).join('')}</ul>`
+            : '';
+          return `<li><strong>${esc(label)}</strong>${p.text ? `: ${esc(p.text)}` : ''}${points}</li>`;
         })
         .join('');
       return `<section class="job">

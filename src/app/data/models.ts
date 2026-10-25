@@ -25,6 +25,8 @@ export interface JobProject {
   role?: string;
   url?: string;
   text?: string;
+  /** Konkrét feladatok felsorolásként a projekt alatt. */
+  points?: string[];
 }
 
 export interface Job {

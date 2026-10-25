@@ -107,3 +107,19 @@ h4 a {
   color: var(--muted);
   font-size: var(--step-small);
 }
+
+.projects .points {
+  display: grid;
+  gap: 4px;
+  margin-top: 6px;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: var(--step-small);
+  list-style: disc;
+}
+.projects .points li {
+  display: list-item;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+}

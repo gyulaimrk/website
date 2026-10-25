@@ -56,6 +56,24 @@ test.describe('használat a magyar oldalon', () => {
     ).toBeVisible();
   });
 
+  test('az Anthropic-tanúsítványok címe a hitelesítő oldalra mutat', async ({ page }) => {
+    const anthropic = contentHu.studies.filter((s) => s.where === 'Anthropic');
+    for (const study of anthropic) {
+      const link = page.locator('#tanulmanyok').getByRole('link', { name: study.title });
+      await expect(link).toHaveAttribute('href', study.url!);
+      await expect(link).toHaveAttribute('target', '_blank');
+    }
+  });
+
+  test('a McDonald’s projekt feladatai nyithatók és olvashatók', async ({ page }) => {
+    const job = contentHu.jobs.find((j) => j.company.startsWith('RDI'))!;
+    const card = page.locator('app-job-card', { hasText: job.company });
+    await card.locator('summary').click();
+    for (const point of job.projects![0].points!) {
+      await expect(card.getByText(point, { exact: true })).toBeVisible();
+    }
+  });
+
   test('az önéletrajz letölthető PDF', async ({ page, request }) => {
     const link = page.locator('#top').getByRole('link', { name: contentHu.ui.hero.cv });
     const href = await link.getAttribute('href');

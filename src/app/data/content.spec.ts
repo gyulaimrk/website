@@ -20,6 +20,10 @@ describe('content', () => {
     expect(contentEn.jobs.map((j) => j.projects?.map((p) => p.url))).toEqual(
       contentHu.jobs.map((j) => j.projects?.map((p) => p.url)),
     );
+    expect(contentEn.studies.map((s) => s.url)).toEqual(contentHu.studies.map((s) => s.url));
+    expect(contentEn.jobs.map((j) => j.projects?.map((p) => p.points?.length))).toEqual(
+      contentHu.jobs.map((j) => j.projects?.map((p) => p.points?.length)),
+    );
     expect(contentEn.stats.map((s) => s.value)).toEqual(contentHu.stats.map((s) => s.value));
     expect(contentEn.ui.nav.links.map((l) => l.fragment)).toEqual(
       contentHu.ui.nav.links.map((l) => l.fragment),
@@ -28,6 +32,13 @@ describe('content', () => {
 
   describe.each(LANGS)('%s', (lang) => {
     const content = CONTENTS[lang];
+
+    it('mind a négy Anthropic-tanúsítványnak egyedi, hitelesítő linkje van', () => {
+      const urls = content.studies.filter((s) => s.where === 'Anthropic').map((s) => s.url);
+      expect(urls).toHaveLength(4);
+      expect(new Set(urls).size).toBe(4);
+      urls.forEach((url) => expect(url).toMatch(/^https:\/\/verify\.skilljar\.com\/c\/[a-z0-9]+$/));
+    });
 
     it('a profil kötelező mezői ki vannak töltve', () => {
       expect(content.profile.name).toBeTruthy();
