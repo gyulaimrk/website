@@ -211,33 +211,16 @@ const skills: Content['skills'] = [
 
 const codeSamples: Content['codeSamples'] = [
   {
-    name: 'OrderRepository.kt',
+    name: 'Developer.kt',
     language: 'kotlin',
     code: [
-      '// Exposed: a legutóbbi rendelések, a legfrissebbel kezdve',
-      'class OrderRepository(private val database: Database) {',
-      '    fun recent(limit: Int = 10): List<Order> = transaction(database) {',
-      '        Orders',
-      '            .selectAll()',
-      '            .orderBy(Orders.createdAt, SortOrder.DESC)',
-      '            .limit(limit)',
-      '            .map { it.toOrder() }',
-      '    }',
-      '}',
-    ].join('\n'),
-  },
-  {
-    name: 'OrderRepositoryTest.kt',
-    language: 'kotlin',
-    code: [
-      'class OrderRepositoryTest {',
-      '    @Test',
-      '    fun `a legfrissebb rendelés van elöl`() {',
-      '        val orders = repository.recent(limit = 2)',
-      '',
-      '        assertEquals(listOf("C-3", "B-2"), orders.map { it.number })',
-      '    }',
-      '}',
+      'data class Developer(',
+      '    val name: String,',
+      '    val role: String,',
+      '    val stack: List<String>,',
+      '    val ai: Boolean,',
+      '    val location: String,',
+      ')',
     ].join('\n'),
   },
 ];
@@ -445,7 +428,6 @@ const ui: Content['ui'] = {
     projects: 'Munkáim',
     cv: 'Önéletrajz (PDF)',
     linkedin: 'LinkedIn',
-    codeNote: 'Szemléltető példa, nem munkahelyi kód.',
   },
   about: {
     title: 'Rólam',

@@ -41,7 +41,7 @@ Minden komponens saját mappában, négy külön fájllal: `név.ts`, `név.html
 - Minden új komponenshez készül `.html`, `.scss` és `.spec.ts` fájl is (nincs inline template/style). A spec a viselkedést teszteli, nem a megvalósítást.
 - Hozzáférhetőség és SEO: egyetlen `h1`, tartalomra ugró link, `aria-current` az aktív menüponton, látható fókusz, a szöveg kontrasztja legalább 4,5:1 mindkét témában (a Lighthouse minden kategóriában 90 fölött). A színeket tokenekből vedd, szövegszínnek `--accent-text`-et használj, ne `--accent-3`-at.
 - Módosítás után `npm test -- --watch=false` és `npm run build` hibátlan legyen.
-- A portréfotó valódi (`public/mark-gyulai.jpg`, a `profile.photo` mutat rá); a tanúsítványoknak és a hero kódablakának szemléltető példái nem munkahelyi kódok (a kódablak ezt jelzi is).
+- A portréfotó valódi (`public/mark-gyulai.jpg`, a `profile.photo` mutat rá); a hero kódablaka két fület mutat: a `Developer` data class (`codeSamples`) és a profilból épített példány (`Main.kt`, `hero.ts`).
 - Önéletrajz: a `profile.cv` útvonalra mutat (`public/cv/*.pdf`), a PDF-et az `npm run cv` készíti a content fájlokból. Tartalmi változás után újra kell gyártani és commitolni. Tanúsítványlink: `Study.url` (csak valós, a felhasználó által megadott cím; kitalálni nem szabad).
 - Tesztelés: egységteszt a viselkedésre (Vitest), E2E a teljes útvonalra (`e2e/`, a content fájlokból olvassa az elvárt szöveget, nem másolja). Új, felhasználó által látható funkcióhoz E2E teszt is jár.
 

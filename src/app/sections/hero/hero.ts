@@ -14,19 +14,21 @@ import { Typewriter } from '../../shared/typewriter/typewriter';
 })
 export class Hero {
   protected readonly content = inject(ContentService).content;
-  /** A kódablak fájljai: a profilból épített Developer.kt, majd a szemléltető példák. */
+  /** A kódablak két fájlja: a Developer data class, majd az ebből a profilból épített példány. */
   protected readonly files = computed<CodeFile[]>(() => {
     const { profile, codeSamples } = this.content();
-    const stack = profile.stack.map((item) => `"${item}"`).join(', ');
+    const stack = profile.stack.map((item) => `        "${item}",`);
     const developer = [
       'val developer = Developer(',
       `    name = "${profile.name}",`,
       `    role = "${profile.role}",`,
-      `    stack = listOf(${stack}),`,
+      '    stack = listOf(',
+      ...stack,
+      '    ),',
       '    ai = true,',
       `    location = "${profile.location.split(',')[0]}",`,
       ')',
     ].join('\n');
-    return [{ name: 'Developer.kt', language: 'kotlin', code: developer }, ...codeSamples];
+    return [...codeSamples, { name: 'Main.kt', language: 'kotlin', code: developer }];
   });
 }

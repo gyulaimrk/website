@@ -124,7 +124,6 @@ export interface Ui {
     projects: string;
     cv: string;
     linkedin: string;
-    codeNote: string;
   };
   about: {
     title: string;
@@ -153,7 +152,7 @@ export interface Content {
   jobs: Job[];
   skills: Skill[];
   aiWorkflow: AiWorkflow;
-  /** Szemléltető kódpéldák a nyitóoldal kódablakába (nem munkahelyi kód). */
+  /** A nyitóoldal kódablakának rögzített fájljai (a Developer data class); a példányt a profilból építjük. */
   codeSamples: CodeFile[];
   sideProjects: SideProject[];
   studies: Study[];

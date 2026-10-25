@@ -84,11 +84,6 @@ h1 {
 .code {
   animation: rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.3s both;
 }
-.note {
-  margin-top: 12px;
-  color: var(--muted);
-  font-size: var(--step-small);
-}
 .stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
