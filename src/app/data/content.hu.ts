@@ -46,6 +46,7 @@ const jobs: Content['jobs'] = [
           'GitLab',
           'Jira',
           'Confluence',
+          'Claude',
         ],
         url: 'https://rentacar.mollimo.hu/rent/start',
         text: 'A MOL Limo autóbérlő rendszerének backendjét fejlesztem Kotlinban.',
@@ -62,7 +63,16 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Helvo',
-        tech: ['Kotlin', 'Spring Boot 4', 'OpenAPI', 'GitLab', 'ArgoCD', 'Jira', 'Confluence'],
+        tech: [
+          'Kotlin',
+          'Spring Boot 4',
+          'OpenAPI',
+          'GitLab',
+          'ArgoCD',
+          'Jira',
+          'Confluence',
+          'Claude',
+        ],
         text: 'A nemzetközi csapatommal egy svájci pénzügyi startup backend for frontend alkalmazását építettük Kotlinban, Spring Boot 4-gyel.',
         points: [
           'Dokumentáció-első (design-first) megközelítés: az API tervezése OpenAPI-ban',
@@ -84,6 +94,7 @@ const jobs: Content['jobs'] = [
           'Azure DevOps',
           'Jira',
           'Confluence',
+          'Claude',
         ],
         text: 'AI-konzultánsként azt vizsgáljuk, hol hasznos a mesterséges intelligencia, megvalósítható-e, és hogyan illeszthető a meglévő rendszerekbe. Emellett a csapatommal fejlesztőként is dolgozunk a projekten.',
         points: [
