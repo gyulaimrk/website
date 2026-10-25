@@ -5,17 +5,17 @@ Az oldal minden szövege két fájlban van: `src/app/data/content.hu.ts` és `co
 
 ## Adatmodell
 
-| Típus         | Mit ír le                                                                                |
-| ------------- | ---------------------------------------------------------------------------------------- |
-| `Profile`     | név, szerep, elérhetőségek, fotó, bemutatkozás, nyelvek, jogosítvány, önéletrajz-útvonal |
-| `Job`         | munkahely: cég, szerep, időszak, leírás, projektek (`JobProject`), technológiák          |
-| `JobProject`  | név, szerep, link, rövid szöveg és konkrét feladatok (`points`)                          |
-| `Skill`       | eszköztár-kártya: cím, címke, szöveg, kiemelés                                           |
-| `SideProject` | mellékprojekt: leírás, élő cím, forráskód, technológiák                                  |
-| `Study`       | tanulmány vagy tanúsítvány: cím, kiállító, időszak, leírás, nyilvános link (`url`)       |
-| `CodeFile`    | a kódablak egy fájlja: név, nyelv, tartalom                                              |
-| `AiWorkflow`  | a „Hogyan dolgozom AI-val” szekció pontjai és a CLAUDE.md részlet                        |
-| `Ui`          | az összes felületi szöveg: menü, gombok, szekciócímek, címkék                            |
+| Típus         | Mit ír le                                                                                                                                                 |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Profile`     | név, szerep, elérhetőségek, fotó, bemutatkozás, nyelvek, jogosítvány, önéletrajz-útvonal                                                                  |
+| `Job`         | munkahely: cég, szerep, időszak, leírás, projektek (`JobProject`), és opcionálisan a munkahelyre jellemző eszközök (`tech`, például a Plane az Adroitnál) |
+| `JobProject`  | név, szerep, link, rövid szöveg, konkrét feladatok (`points`) és a projekten használt technológiák és eszközök (`tech`)                                   |
+| `Skill`       | eszköztár-kártya: cím, címke, szöveg, kiemelés                                                                                                            |
+| `SideProject` | mellékprojekt: leírás, élő cím, forráskód, technológiák                                                                                                   |
+| `Study`       | tanulmány vagy tanúsítvány: cím, kiállító, időszak, leírás, nyilvános link (`url`)                                                                        |
+| `CodeFile`    | a kódablak egy fájlja: név, nyelv, tartalom                                                                                                               |
+| `AiWorkflow`  | a „Hogyan dolgozom AI-val” szekció pontjai és a CLAUDE.md részlet                                                                                         |
+| `Ui`          | az összes felületi szöveg: menü, gombok, szekciócímek, címkék                                                                                             |
 
 ## Szabályok
 
