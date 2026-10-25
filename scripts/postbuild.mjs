@@ -4,10 +4,14 @@
  * 1. A Cloudflare `not_found_handling: "404-page"` beállítása a kimenet gyökerében lévő
  *    `404.html`-t szolgálja ki, valódi 404-es státusszal. Az Angular `404/index.html`-t
  *    készít, ezért ide másoljuk a helyére.
- * 2. Ha a `SITE_ORIGIN` (src/app/core/site-origin.ts) ki van töltve, sitemap.xml készül
+ * 2. A `_headers` fájlba tartalombiztonsági irányelv (CSP) kerül: az oldal csak a saját forrásaiból
+ *    tölthet be, a végrehajtható beágyazott szkripteket pedig a lenyomatuk (hash) engedélyezi.
+ * 3. Ha a `SITE_ORIGIN` (src/app/core/site-origin.ts) ki van töltve, sitemap.xml készül
  *    nyelvváltozatonként, és a robots.txt hivatkozik rá. Üres címnél egyik sem készül el.
  */
-import { access, copyFile, readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { access, copyFile, readFile, readdir, writeFile } from 'node:fs/promises';
+import { join } from 'node:path';
 import { importTs } from './bundle.mjs';
 
 const OUT = 'dist/portfolio/browser';
@@ -44,6 +48,68 @@ async function linkSitemapInRobots(origin) {
   await writeFile(path, `${withoutSitemap}\n\nSitemap: ${origin}/sitemap.xml\n`);
 }
 
+async function htmlFiles(dir) {
+  const entries = await readdir(dir, { withFileTypes: true });
+  const nested = await Promise.all(
+    entries.map((entry) => {
+      const path = join(dir, entry.name);
+      if (entry.isDirectory()) return htmlFiles(path);
+      return entry.name.endsWith('.html') ? [path] : [];
+    }),
+  );
+  return nested.flat();
+}
+
+/** A végrehajtható beágyazott szkriptek sha256-lenyomata (a JSON és a JSON-LD adatblokkokat nem hajtja végre a böngésző). */
+async function inlineScriptHashes(files) {
+  const hashes = new Set();
+  for (const file of files) {
+    const html = await readFile(file, 'utf8');
+    for (const [, attributes, body] of html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/g)) {
+      const executable =
+        !/\ssrc=/.test(attributes) && !/type="(?!text\/javascript|module)/.test(attributes);
+      if (executable && body.trim()) {
+        hashes.add(`'sha256-${createHash('sha256').update(body).digest('base64')}'`);
+      }
+    }
+  }
+  return [...hashes].sort();
+}
+
+/**
+ * A CSP-t a `_headers` `/*` szabályába írja, a többi biztonsági fejléc mellé (egyetlen szabályba,
+ * mert a helyi Cloudflare-szerver nem fésüli össze az azonos mintájú szabályokat). Újrafuttatáskor
+ * lecseréli a korábbi sort, így idempotens.
+ */
+async function writeSecurityHeaders() {
+  const hashes = await inlineScriptHashes(await htmlFiles(OUT));
+  const policy = [
+    "default-src 'self'",
+    `script-src 'self' ${hashes.join(' ')}`,
+    // Az Angular a komponensek stíluslapját beágyazva adja.
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data:",
+    "font-src 'self'",
+    "connect-src 'self'",
+    "object-src 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-ancestors 'none'",
+  ].join('; ');
+  const path = `${OUT}/_headers`;
+  const lines = (await readFile(path, 'utf8'))
+    .split('\n')
+    .filter((line) => !line.trimStart().startsWith('Content-Security-Policy:'));
+  const rule = lines.indexOf('/*');
+  if (rule === -1) {
+    console.error('A _headers fájlban nincs "/*" szabály, ide kerülne a CSP.');
+    process.exit(1);
+  }
+  lines.splice(rule + 1, 0, `  Content-Security-Policy: ${policy}`);
+  await writeFile(path, lines.join('\n'));
+  console.log(`CSP a _headers fájlban (${hashes.length} beágyazott szkript engedélyezve)`);
+}
+
 async function writeSitemap() {
   const { SITE_ORIGIN, LANGS } = await importTs({
     contents: `export { SITE_ORIGIN } from './src/app/core/site-origin';
@@ -59,4 +125,5 @@ export { LANGS } from './src/app/data/content';`,
 }
 
 await copy404();
+await writeSecurityHeaders();
 await writeSitemap();
