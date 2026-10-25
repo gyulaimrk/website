@@ -147,7 +147,7 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'Belső vizsgarendszer',
-        text: 'Az EPAM belső vizsgarendszere: webalkalmazás, amelyben biztonságosan lehetett vizsgázni. Én a backendjét építettem Spring Boot 3-mal.',
+        text: 'Az EPAM belső vizsgarendszere: webalkalmazás, amelyben biztonságosan lehetett vizsgázni. Én a backendjét építettem Spring Boot 3-mal és MySQL adatbázissal.',
         points: [
           'Új funkciók tervezése és fejlesztése',
           'Code review-k',
@@ -161,7 +161,7 @@ const jobs: Content['jobs'] = [
         text: 'Ugyanezen a projekten dolgoztam később Software Engineerként is.',
       },
     ],
-    tech: ['Java', 'Spring Boot 3', 'JUnit', 'Unit tesztek'],
+    tech: ['Java', 'Spring Boot 3', 'MySQL', 'JUnit', 'Unit tesztek'],
   },
 ];
 

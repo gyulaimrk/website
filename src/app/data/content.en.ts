@@ -147,7 +147,7 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'Internal exam system',
-        text: 'EPAM’s internal exam system: a web application in which exams could be taken safely. I built its backend with Spring Boot 3.',
+        text: 'EPAM’s internal exam system: a web application in which exams could be taken safely. I built its backend with Spring Boot 3 and a MySQL database.',
         points: [
           'Designing and developing new features',
           'Code reviews',
@@ -161,7 +161,7 @@ const jobs: Content['jobs'] = [
         text: 'The same project I later worked on as a Software Engineer.',
       },
     ],
-    tech: ['Java', 'Spring Boot 3', 'JUnit', 'Unit tests'],
+    tech: ['Java', 'Spring Boot 3', 'MySQL', 'JUnit', 'Unit tests'],
   },
 ];
 
