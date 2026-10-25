@@ -19,7 +19,7 @@ const profile: Content['profile'] = {
   letter: [
     'I am a senior Java developer. I have spent more than five years on Java 11 and Java 17, and I know the language from Java 8 up to Java 25. I develop Spring and Spring Boot applications, from design and coding through testing to maintenance.',
     'Code has to be easy to understand and maintain. I follow the clean code, SOLID, DRY and KISS principles, use proven design patterns, and write unit, system and UI tests. Where test coverage needed improving, I took that on as well.',
-    'I work well in a team and on my own. On the Broadridge, McDonald’s and Helvo projects I worked with international teams, and working with colleagues from different countries is second nature to me. I stay in regular, open contact with clients and with colleagues from other areas. At EPAM and at RDI I also mentored a junior colleague. I try out new technologies in side projects. I use AI deliberately in my work: I write precise prompts, build my own skills, and record a project’s rules in CLAUDE.md files for the assistant.',
+    'I work well in a team and on my own, with an agile mindset. On the Broadridge, McDonald’s and Helvo projects I worked with international teams, and working with colleagues from different countries is second nature to me. I stay in regular, open contact with clients and with colleagues from other areas. At EPAM and at RDI I also mentored a junior colleague. I try out new technologies in side projects. I use AI deliberately in my work: I write precise prompts, build my own skills, and record a project’s rules in CLAUDE.md files for the assistant.',
     'In my free time I like driving, watching movies and playing games with friends.',
     'I built this site with Angular. Frontend work interests me too, although my main field is the backend.',
   ],
@@ -204,7 +204,7 @@ const skills: Content['skills'] = [
   {
     title: 'Tools',
     tag: 'Workflow',
-    text: 'I use Gradle and Maven for builds and Git for version control. I have worked with Jenkins, GitLab, GitHub and GitHub Actions for CI/CD, and used ArgoCD for deployments. I hold Docker certificates. I use SQL and Lombok regularly, and Jira and Confluence for teamwork.',
+    text: 'I use Gradle and Maven for builds and Git for version control. I have worked with Jenkins, GitLab, GitHub and GitHub Actions for CI/CD, and used ArgoCD for deployments. I hold Docker certificates. I use SQL and Lombok regularly. I work with an agile mindset and use Jira and Confluence for teamwork.',
   },
   {
     title: 'Design',

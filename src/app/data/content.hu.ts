@@ -19,7 +19,7 @@ const profile: Content['profile'] = {
   letter: [
     'Senior Java fejlesztő vagyok. Több mint öt éve dolgozom Java 11 és Java 17 alatt, és a Java 8-tól a 25-ös verzióig ismerem a nyelvet. Spring és Spring Boot alkalmazásokat fejlesztek, a tervezéstől a kódoláson és a teszteken át a karbantartásig.',
     'A kódnak érthetőnek és karbantarthatónak kell lennie. Ezért a clean code, a SOLID, a DRY és a KISS elveit követem, bevált tervezési mintákat használok, és egységteszteket, rendszerteszteket és felületi teszteket is írok. Ahol javítani kellett a tesztlefedettséget, ott ezt is vállaltam.',
-    'Csapatban és önállóan is jól dolgozom. A Broadridge, a McDonald’s és a Helvo projekten nemzetközi csapatokkal dolgoztam, és a különböző országokból érkező kollégákkal való együttműködés számomra magától értetődő. Az ügyfelekkel és a más területen dolgozó kollégákkal rendszeresen és nyíltan egyeztetek. Az EPAM-nál és az RDI-nál junior kollégát is mentoráltam. Új technológiákat mellékprojektekben próbálok ki. Az AI-t tudatosan használom a munkámban: pontos promptokat írok, saját skilleket készítek, és CLAUDE.md fájlokban rögzítem a projekt szabályait az asszisztens számára.',
+    'Csapatban és önállóan is jól dolgozom, agilis szemlélettel. A Broadridge, a McDonald’s és a Helvo projekten nemzetközi csapatokkal dolgoztam, és a különböző országokból érkező kollégákkal való együttműködés számomra magától értetődő. Az ügyfelekkel és a más területen dolgozó kollégákkal rendszeresen és nyíltan egyeztetek. Az EPAM-nál és az RDI-nál junior kollégát is mentoráltam. Új technológiákat mellékprojektekben próbálok ki. Az AI-t tudatosan használom a munkámban: pontos promptokat írok, saját skilleket készítek, és CLAUDE.md fájlokban rögzítem a projekt szabályait az asszisztens számára.',
     'Szabadidőmben szívesen vezetek, filmeket nézek, és a barátaimmal játszom.',
     'Ezt az oldalt Angularral építettem. A frontend is érdekel, bár a fő területem a backend.',
   ],
@@ -204,7 +204,7 @@ const skills: Content['skills'] = [
   {
     title: 'Eszközök',
     tag: 'Munkafolyamat',
-    text: 'Buildhez Gradle-t és Mavent használok, verziókezelésre Gitet. CI/CD-ben dolgoztam Jenkinsszel, GitLabbal, GitHubbal és GitHub Actionsszel, a kiadásokhoz ArgoCD-t is használtam. Dockerből tanúsítványom van. Rendszeresen használom az SQL-t és a Lombokot, a csapatmunkához pedig a Jirát és a Confluence-t.',
+    text: 'Buildhez Gradle-t és Mavent használok, verziókezelésre Gitet. CI/CD-ben dolgoztam Jenkinsszel, GitLabbal, GitHubbal és GitHub Actionsszel, a kiadásokhoz ArgoCD-t is használtam. Dockerből tanúsítványom van. Rendszeresen használom az SQL-t és a Lombokot. Agilis szemlélettel dolgozom, a csapatmunkához a Jirát és a Confluence-t használom.',
   },
   {
     title: 'Tervezés',
