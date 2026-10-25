@@ -22,7 +22,7 @@ const profile: Content['profile'] = {
     'Code has to be easy to understand and maintain. I follow the clean code, SOLID, DRY and KISS principles, use proven design patterns, and write unit, system and UI tests. Where test coverage needed improving, I took that on as well.',
     'I work well in a team and on my own, with an agile mindset. On the Broadridge, McDonald’s and Helvo projects I worked with international teams, and working with colleagues from different countries is second nature to me. I stay in regular, open contact with clients and with colleagues from other areas. At EPAM and at RDI I also mentored a junior colleague. I try out new technologies in side projects. I use AI deliberately in my work: I write precise prompts, build my own skills, and record a project’s rules in CLAUDE.md files for the assistant.',
     'In my free time I like driving, watching movies and playing games with friends.',
-    'I built this site with Angular. Frontend work interests me too, although my main field is the backend.',
+    'Frontend work interests me too, although my main field is the backend.',
   ],
 };
 

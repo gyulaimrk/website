@@ -22,7 +22,7 @@ const profile: Content['profile'] = {
     'A kódnak érthetőnek és karbantarthatónak kell lennie. Ezért a clean code, a SOLID, a DRY és a KISS elveit követem, bevált tervezési mintákat használok, és egységteszteket, rendszerteszteket és felületi teszteket is írok. Ahol javítani kellett a tesztlefedettséget, ott ezt is vállaltam.',
     'Csapatban és önállóan is jól dolgozom, agilis szemlélettel. A Broadridge, a McDonald’s és a Helvo projekten nemzetközi csapatokkal dolgoztam, és a különböző országokból érkező kollégákkal való együttműködés számomra magától értetődő. Az ügyfelekkel és a más területen dolgozó kollégákkal rendszeresen és nyíltan egyeztetek. Az EPAM-nál és az RDI-nál junior kollégát is mentoráltam. Új technológiákat mellékprojektekben próbálok ki. Az AI-t tudatosan használom a munkámban: pontos promptokat írok, saját skilleket készítek, és CLAUDE.md fájlokban rögzítem a projekt szabályait az asszisztens számára.',
     'Szabadidőmben szívesen vezetek, filmeket nézek, és a barátaimmal játszom.',
-    'Ezt az oldalt Angularral építettem. A frontend is érdekel, bár a fő területem a backend.',
+    'A frontend is érdekel, bár a fő területem a backend.',
   ],
 };
 
