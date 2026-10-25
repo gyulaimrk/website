@@ -18,7 +18,7 @@ const profile: Content['profile'] = {
     'I build backend systems in Java and Kotlin. I like working on software that stays in use for years and that a team can keep developing with confidence. I also work as an AI consultant, helping companies make artificial intelligence genuinely useful.',
   letter: [
     'I am a senior Java developer. I have spent more than five years on Java 11 and Java 17, but I feel at home anywhere from Java 8 up to Java 25. I work on Spring and Spring Boot applications, and I like to see the work through from design and coding to tests and maintenance.',
-    'I care about code that is easy to understand and maintain. That is why I follow proven design principles and patterns, and why I test a lot: unit tests, system tests and UI tests. Whenever a project needed better test coverage, I was glad to take it on.',
+    'I care about code that is easy to understand and maintain. That is why I follow the clean code, SOLID, DRY and KISS principles and proven design patterns, and why I test a lot: unit tests, system tests and UI tests. Whenever a project needed better test coverage, I was glad to take it on.',
     'I am comfortable working in a team and on my own. I talk openly with clients and with colleagues from other areas, because I believe good software starts with good conversations. I try out new technologies in side projects, so my knowledge keeps getting refreshed. I also use AI deliberately in my work: I write good prompts, build skills, and record in CLAUDE.md files how the assistant should work on a project.',
     'In my free time I like watching movies, playing games with friends and driving, and I try out new technologies in side projects.',
     'This site is built with Angular, because I am curious about the other side of development too.',
@@ -31,7 +31,7 @@ const jobs: Content['jobs'] = [
     role: 'Senior Software Engineer',
     period: 'October 2025 – present',
     description:
-      'I work as a senior software engineer on three projects, several of them in Kotlin. I develop backends, take part in design and care about quality. One of my projects is about AI consulting.',
+      'As a senior software engineer I have taken part in three projects, two of them in Kotlin. I develop backends, take part in design and care about quality. One of my projects is about AI consulting.',
     projects: [
       {
         name: 'MOL Limo rent a car',
@@ -40,7 +40,7 @@ const jobs: Content['jobs'] = [
         points: [
           'Business logic and calculations in the backend, beyond aggregating data',
           'Asynchronous synchronization with a subsystem',
-          'Managing a PostgreSQL database',
+          'Managing a PostgreSQL database, including transaction management',
           'Implementing a custom OAuth flow and token handling with Spring Security',
           'Scheduled jobs with Spring’s @Scheduled annotation',
           'Documentation-first (design-first) approach',
@@ -50,7 +50,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Helvo',
-        text: 'My team and I are building a backend for frontend application for a Swiss fintech startup in Kotlin with Spring Boot 4.',
+        text: 'My team and I built a backend for frontend application for a Swiss fintech startup in Kotlin with Spring Boot 4.',
         points: [
           'Documentation-first (design-first) approach: designing the API in OpenAPI',
           'Connecting the backend to other subsystems and the frontend with artifacts generated from the OpenAPI description',
@@ -63,6 +63,7 @@ const jobs: Content['jobs'] = [
         points: [
           'Developing a platform that supports manual testing, with a C# and .NET backend, a PostgreSQL database, Node.js and Angular',
           'The platform can be connected to AI agents as an MCP server',
+          'Transaction management in the PostgreSQL database',
           'Code-first approach',
           'Handling bugs',
           'Steering the team and the code towards clean code',
@@ -105,6 +106,7 @@ const jobs: Content['jobs'] = [
           'Finding and fixing bugs based on metrics, traces and logs',
           'Raising test coverage above 90%',
           'Repairing data corrupted by migrations in a NoSQL database with a Python script',
+          'Managing database transactions',
           'Code reviews',
           'Implementing Google login with the Google SDK instead of plain API endpoints',
         ],
@@ -128,7 +130,7 @@ const jobs: Content['jobs'] = [
     role: 'Software Engineer',
     period: 'January 2022 – August 2024',
     description:
-      'As part of a team, we developed the financial application of Broadridge, an American company. This is where I really learned multi-threaded programming, domain-driven design and the functional approach. I wrote unit, system and acceptance tests, including UI tests with Selenium. I also connected other systems’ APIs, sometimes asynchronously. I solved concurrency bugs and improved test coverage.',
+      'As part of a team, we developed the financial application of Broadridge, an American company. This is where I really learned multi-threaded programming, domain-driven design and the functional approach. I wrote unit, system and acceptance tests, including UI tests with Selenium. I also connected other systems’ APIs, sometimes asynchronously. I solved concurrency bugs, handled database transactions and improved test coverage.',
     projects: [
       { name: 'Broadridge financial application' },
       {
@@ -150,6 +152,7 @@ const jobs: Content['jobs'] = [
         text: 'EPAM’s internal exam system: a web application in which exams could be taken safely. My team and I built its backend with Spring Boot 3 and a MySQL database.',
         points: [
           'Designing and developing new features',
+          'Transaction management in the MySQL database',
           'Code reviews',
           'Writing unit tests with JUnit',
           'Manual testing',
@@ -180,7 +183,7 @@ const skills: Content['skills'] = [
   {
     title: 'Kotlin',
     tag: 'Language',
-    text: 'At Adroit Group I work on several Kotlin projects, including the MOL Limo car rental system. I access the database with the Exposed framework.',
+    text: 'At Adroit Group I worked on several Kotlin projects, including the MOL Limo car rental system and Helvo. I access the database with the Exposed framework.',
   },
   {
     title: 'Spring Boot',
@@ -190,7 +193,7 @@ const skills: Content['skills'] = [
   {
     title: 'Testing',
     tag: 'Quality',
-    text: 'For me testing is not an afterthought but a natural part of the work. I write unit tests with JUnit and Mockito, walk through the UI with Selenium and Cucumber, and cover the whole system with integration and system tests. I also took a REST Assured course on API testing. On an earlier project I also managed to improve test coverage.',
+    text: 'For me testing is not an afterthought but a natural part of the work. I write unit tests with JUnit and Mockito, following the FIRST principles (fast, independent, repeatable, self-validating, timely), walk through the UI with Selenium and Cucumber, and cover the whole system with integration and system tests. I also took a REST Assured course on API testing. On an earlier project I also managed to improve test coverage.',
   },
   {
     title: 'Tools',
@@ -200,7 +203,7 @@ const skills: Content['skills'] = [
   {
     title: 'Design',
     tag: 'Principles',
-    text: 'I follow the SOLID principles, clean code thinking and design patterns. Domain-driven design and the world of microservices are close to my heart.',
+    text: 'I follow clean code thinking, the SOLID, DRY and KISS principles and design patterns. With databases I care about the ACID properties and careful transaction management. Domain-driven design and the world of microservices are close to my heart.',
   },
   {
     title: 'Angular',

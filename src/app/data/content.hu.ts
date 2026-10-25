@@ -18,7 +18,7 @@ const profile: Content['profile'] = {
     'Backend rendszereket építek Javában és Kotlinban. Olyan szoftvereken dolgozom szívesen, amelyeket évekig használnak, és amelyeket egy csapat magabiztosan tovább tud fejleszteni. Emellett AI-konzultánsként segítek abban, hogy a mesterséges intelligencia tényleg hasznos legyen egy cégnél.',
   letter: [
     'Senior Java fejlesztő vagyok. Több mint öt éve dolgozom Java 11 és Java 17 alatt, de a Java 8-tól a 25-ös verzióig mindenhol otthon érzem magam. Spring és Spring Boot alkalmazásokon dolgozom, és szeretem végigvinni a munkát: a tervezéstől a kódoláson és a teszteken át a karbantartásig.',
-    'Fontos számomra, hogy a kód érthető és karbantartható legyen. Ezért követem a bevált tervezési elveket és mintákat, és sokat tesztelek: egységtesztekkel, rendszertesztekkel és felületi tesztekkel is. Ha egy projektben javítani kellett a tesztlefedettséget, azt mindig szívesen vállaltam.',
+    'Fontos számomra, hogy a kód érthető és karbantartható legyen. Ezért követem a clean code, a SOLID, a DRY és a KISS elveit, valamint a bevált tervezési mintákat, és sokat tesztelek: egységtesztekkel, rendszertesztekkel és felületi tesztekkel is. Ha egy projektben javítani kellett a tesztlefedettséget, azt mindig szívesen vállaltam.',
     'Jól érzem magam csapatban és önállóan is. Az ügyfelekkel és a más területen dolgozó kollégákkal nyíltan egyeztetek, mert szerintem a jó szoftver jó beszélgetésekkel kezdődik. Új technológiákat mellékprojektekben szoktam kipróbálni, így a tudásom folyamatosan frissül. Az AI-t is tudatosan használom a munkámban: jól promptolok, skilleket építek, és CLAUDE.md fájlokban rögzítem, hogyan dolgozzon az asszisztens a projekten.',
     'Szabadidőmben szívesen nézek filmeket, játszom a barátaimmal, vezetek, és új technológiákat próbálok ki mellékprojektekben.',
     'Ez az oldal Angularral készült, mert a fejlesztés másik oldala is érdekel.',
@@ -31,7 +31,7 @@ const jobs: Content['jobs'] = [
     role: 'Senior Software Engineer',
     period: '2025. október – jelenleg',
     description:
-      'Senior szoftvermérnökként három projekten dolgozom, közülük több Kotlinban készül. Backendet fejlesztek, részt veszek a tervezésben, és figyelek a minőségre. Az egyik projektem AI-konzultációról szól.',
+      'Senior szoftvermérnökként három projekten vettem részt, közülük kettő Kotlinban készült. Backendet fejlesztek, részt veszek a tervezésben, és figyelek a minőségre. Az egyik projektem AI-konzultációról szól.',
     projects: [
       {
         name: 'MOL Limo rent a car',
@@ -40,7 +40,7 @@ const jobs: Content['jobs'] = [
         points: [
           'Üzleti logika és számítások a backendben, az adatok összesítése mellett',
           'Aszinkron szinkronizálás egy alrendszerrel',
-          'PostgreSQL adatbázis kezelése',
+          'PostgreSQL adatbázis kezelése, tranzakciókezelés',
           'Saját OAuth-folyamat és tokenkezelés megvalósítása Spring Security-vel',
           'Ütemezett feladatok a Spring @Scheduled annotációjával',
           'Dokumentáció-első (design-first) megközelítés',
@@ -50,7 +50,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Helvo',
-        text: 'A csapatommal egy svájci pénzügyi startup backend for frontend alkalmazását építjük Kotlinban, Spring Boot 4-gyel.',
+        text: 'A csapatommal egy svájci pénzügyi startup backend for frontend alkalmazását építettük Kotlinban, Spring Boot 4-gyel.',
         points: [
           'Dokumentáció-első (design-first) megközelítés: az API tervezése OpenAPI-ban',
           'A backend összekötése más alrendszerekkel és a frontenddel az OpenAPI-leírásból generált artifactokkal',
@@ -63,6 +63,7 @@ const jobs: Content['jobs'] = [
         points: [
           'Manuális tesztelést segítő platform fejlesztése C# és .NET backenddel, PostgreSQL adatbázissal, Node.js-sel és Angularral',
           'A platform MCP szerverként összekapcsolható AI-ügynökökkel (agentekkel)',
+          'Tranzakciókezelés a PostgreSQL adatbázisban',
           'Code-first megközelítés',
           'Hibák kezelése',
           'A csapat és a kód terelése a clean code irányába',
@@ -105,6 +106,7 @@ const jobs: Content['jobs'] = [
           'Hibák felderítése és javítása metrikák, trace-ek és logok alapján',
           'A tesztlefedettség 90% fölé emelése',
           'A migrációk által elrontott adatok javítása NoSQL adatbázisban, Python szkripttel',
+          'Adatbázis-tranzakciók kezelése',
           'Code review-k',
           'Google-bejelentkezés megvalósítása a Google SDK-val, a sima API-végpontok helyett',
         ],
@@ -128,7 +130,7 @@ const jobs: Content['jobs'] = [
     role: 'Software Engineer',
     period: '2022. január – 2024. augusztus',
     description:
-      'Egy csapat tagjaként a Broadridge, egy amerikai cég pénzügyi alkalmazását fejlesztettük. Itt tanultam meg igazán a többszálú programozást, a domain-driven tervezést és a funkcionális megközelítést. Egység-, rendszer- és elfogadási teszteket írtam, Seleniummal felületi teszteket is. Más rendszerek API-jait is bekötöttem, időnként aszinkron módon. Megoldottam párhuzamossági hibákat, és javítottam a tesztlefedettséget.',
+      'Egy csapat tagjaként a Broadridge, egy amerikai cég pénzügyi alkalmazását fejlesztettük. Itt tanultam meg igazán a többszálú programozást, a domain-driven tervezést és a funkcionális megközelítést. Egység-, rendszer- és elfogadási teszteket írtam, Seleniummal felületi teszteket is. Más rendszerek API-jait is bekötöttem, időnként aszinkron módon. Megoldottam párhuzamossági hibákat, kezeltem az adatbázis-tranzakciókat, és javítottam a tesztlefedettséget.',
     projects: [
       { name: 'Broadridge pénzügyi alkalmazás' },
       {
@@ -150,6 +152,7 @@ const jobs: Content['jobs'] = [
         text: 'Az EPAM belső vizsgarendszere: webalkalmazás, amelyben biztonságosan lehetett vizsgázni. A csapatommal a backendjét építettük Spring Boot 3-mal és MySQL adatbázissal.',
         points: [
           'Új funkciók tervezése és fejlesztése',
+          'Tranzakciókezelés a MySQL adatbázisban',
           'Code review-k',
           'Egységtesztek írása JUnittal',
           'Manuális tesztelés',
@@ -180,7 +183,7 @@ const skills: Content['skills'] = [
   {
     title: 'Kotlin',
     tag: 'Nyelv',
-    text: 'Az Adroit Group-nál több Kotlin projekten dolgozom, köztük a MOL Limo autóbérlőn. Az adatbázist az Exposed keretrendszerrel érem el.',
+    text: 'Az Adroit Group-nál több Kotlin projekten dolgoztam, köztük a MOL Limo autóbérlőn és a Helvón. Az adatbázist az Exposed keretrendszerrel érem el.',
   },
   {
     title: 'Spring Boot',
@@ -190,7 +193,7 @@ const skills: Content['skills'] = [
   {
     title: 'Tesztelés',
     tag: 'Minőség',
-    text: 'Nálam a tesztelés nem utólagos teendő, hanem a munka természetes része. Az egységteszteket JUnittal és Mockitóval írom, a felületet Seleniummal és Cucumberrel járom végig, a rendszer egészét pedig integrációs és rendszertesztekkel fedem le. API-tesztelésből REST Assured tanfolyamot is végeztem. Egy korábbi projektben a tesztlefedettséget is sikerült javítanom.',
+    text: 'Nálam a tesztelés nem utólagos teendő, hanem a munka természetes része. Az egységteszteket JUnittal és Mockitóval írom, a FIRST elvek (gyors, független, ismételhető, önellenőrző, időben megírt) szerint, a felületet Seleniummal és Cucumberrel járom végig, a rendszer egészét pedig integrációs és rendszertesztekkel fedem le. API-tesztelésből REST Assured tanfolyamot is végeztem. Egy korábbi projektben a tesztlefedettséget is sikerült javítanom.',
   },
   {
     title: 'Eszközök',
@@ -200,7 +203,7 @@ const skills: Content['skills'] = [
   {
     title: 'Tervezés',
     tag: 'Elvek',
-    text: 'A SOLID elveket, a clean code szemléletet és a tervezési mintákat követem. Közel áll hozzám a domain-driven tervezés és a mikroszolgáltatások világa.',
+    text: 'A clean code szemléletet, a SOLID, a DRY és a KISS elveket és a tervezési mintákat követem. Adatbázisnál fontosnak tartom az ACID tulajdonságokat és a gondos tranzakciókezelést. Közel áll hozzám a domain-driven tervezés és a mikroszolgáltatások világa.',
   },
   {
     title: 'Angular',
