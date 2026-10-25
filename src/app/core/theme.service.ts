@@ -17,10 +17,12 @@ export class ThemeService {
   private readonly document = inject(DOCUMENT);
   readonly theme = signal<Theme>('dark');
   private readonly ready = signal(false);
+  /** A látogató már választott, mielőtt az első megjelenítés lefutott: az ő döntése marad. */
+  private chosen = false;
 
   constructor() {
     afterNextRender(() => {
-      this.theme.set(readStored(KEY, THEMES) ?? this.systemTheme());
+      if (!this.chosen) this.theme.set(readStored(KEY, THEMES) ?? this.systemTheme());
       this.ready.set(true);
     });
     effect(() => {
@@ -32,6 +34,7 @@ export class ThemeService {
   }
 
   toggle() {
+    this.chosen = true;
     this.theme.update((theme) => (theme === 'dark' ? 'light' : 'dark'));
   }
 

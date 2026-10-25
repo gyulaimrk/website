@@ -43,4 +43,14 @@ describe('ThemeService', () => {
     expect(localStorage.getItem('theme')).toBe('light');
     expect(document.documentElement.dataset['theme']).toBe('light');
   });
+
+  it('az első megjelenítés előtti váltást nem írja felül a mentett vagy a rendszer szerinti téma', () => {
+    localStorage.setItem('theme', 'dark');
+    const service = TestBed.inject(ThemeService);
+    service.toggle();
+    TestBed.tick();
+    expect(service.theme()).toBe('light');
+    expect(document.documentElement.dataset['theme']).toBe('light');
+    expect(localStorage.getItem('theme')).toBe('light');
+  });
 });

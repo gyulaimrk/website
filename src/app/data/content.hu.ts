@@ -50,7 +50,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Helvo',
-        text: 'Egy svájci pénzügyi startup backend for frontend alkalmazása, Kotlinban, Spring Boot 4-gyel.',
+        text: 'A csapatommal egy svájci pénzügyi startup backend for frontend alkalmazását építjük Kotlinban, Spring Boot 4-gyel.',
         points: [
           'Dokumentáció-első (design-first) megközelítés: az API tervezése OpenAPI-ban',
           'A backend összekötése más alrendszerekkel és a frontenddel az OpenAPI-leírásból generált artifactokkal',
@@ -59,7 +59,7 @@ const jobs: Content['jobs'] = [
       {
         name: 'GLI Solutions',
         role: 'AI Consultant és fejlesztő',
-        text: 'AI-konzultánsként abban segítek, hogy a mesterséges intelligencia valódi problémákra adjon választ. Megkeressük, hol hasznos, megnézzük, megvalósítható-e, és beillesztjük a már meglévő rendszerekbe. Emellett fejlesztőként is dolgozom a projekten.',
+        text: 'AI-konzultánsként abban segítek, hogy a mesterséges intelligencia valódi problémákra adjon választ. Megkeressük, hol hasznos, megnézzük, megvalósítható-e, és beillesztjük a már meglévő rendszerekbe. Emellett a csapatommal fejlesztőként is dolgozunk a projekten.',
         points: [
           'Manuális tesztelést segítő platform fejlesztése C# és .NET backenddel, PostgreSQL adatbázissal, Node.js-sel és Angularral',
           'A platform MCP szerverként összekapcsolható AI-ügynökökkel (agentekkel)',
@@ -93,7 +93,7 @@ const jobs: Content['jobs'] = [
     role: 'Software Engineer',
     period: '2024. augusztus – 2025. október',
     description:
-      'A McDonald’s alkalmazásán dolgoztam, azon belül a felhasználói fiókokkal, az authentikációval és az autorizációval foglalkozó csapatban. Microservice-eket fejlesztettem és tartottam karban, és a hozzájuk tartozó egység- és integrációs teszteket is megírtam. Emellett SQL-lekérdezéseket írtam, és más rendszerek API-jait kötöttem be.',
+      'A McDonald’s alkalmazásán dolgoztam, azon belül a felhasználói fiókokkal, az authentikációval és az autorizációval foglalkozó csapatban. A csapatommal microservice-eket fejlesztettünk és tartottunk karban, és a hozzájuk tartozó egység- és integrációs teszteket is megírtuk. Emellett SQL-lekérdezéseket írtam, és más rendszerek API-jait kötöttem be.',
     projects: [
       {
         name: 'McDonald’s',
@@ -147,7 +147,7 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'Belső vizsgarendszer',
-        text: 'Az EPAM belső vizsgarendszere: webalkalmazás, amelyben biztonságosan lehetett vizsgázni. Én a backendjét építettem Spring Boot 3-mal és MySQL adatbázissal.',
+        text: 'Az EPAM belső vizsgarendszere: webalkalmazás, amelyben biztonságosan lehetett vizsgázni. A csapatommal a backendjét építettük Spring Boot 3-mal és MySQL adatbázissal.',
         points: [
           'Új funkciók tervezése és fejlesztése',
           'Code review-k',

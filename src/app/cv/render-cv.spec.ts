@@ -63,4 +63,20 @@ describe('renderCv', () => {
     expect(html).toContain('Angol nyelvvizsga, B2');
     expect(html).toContain(contentHu.profile.license);
   });
+
+  it('a további tanúsítványok közös kiállítóját egyszer, a címben írja ki', () => {
+    const html = renderCv('hu', contentHu, assets);
+    expect(html).toContain('(LinkedIn Learning)');
+    expect(html.match(/LinkedIn Learning/g)).toHaveLength(1);
+  });
+
+  it('eltérő kiállítóknál minden tanúsítványnál kiírja a sajátját', () => {
+    const mixed: Content = structuredClone(contentHu);
+    const other = mixed.studies.find((s) => s.kind === 'certificate' && !s.featured)!;
+    other.where = 'Másik Kft.';
+    const html = renderCv('hu', mixed, assets);
+    expect(html).toContain('Másik Kft.');
+    expect(html).not.toContain('(LinkedIn Learning)');
+    expect(html).toContain('LinkedIn Learning');
+  });
 });

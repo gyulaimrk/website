@@ -50,7 +50,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Helvo',
-        text: 'A backend for frontend application for a Swiss fintech startup, written in Kotlin with Spring Boot 4.',
+        text: 'My team and I are building a backend for frontend application for a Swiss fintech startup in Kotlin with Spring Boot 4.',
         points: [
           'Documentation-first (design-first) approach: designing the API in OpenAPI',
           'Connecting the backend to other subsystems and the frontend with artifacts generated from the OpenAPI description',
@@ -59,7 +59,7 @@ const jobs: Content['jobs'] = [
       {
         name: 'GLI Solutions',
         role: 'AI Consultant and Developer',
-        text: 'As an AI consultant I help artificial intelligence answer real problems. We find where it is useful, check whether it is feasible, and fit it into the systems that already exist. I also work on the project as a developer.',
+        text: 'As an AI consultant I help artificial intelligence answer real problems. We find where it is useful, check whether it is feasible, and fit it into the systems that already exist. My team and I also work on the project as developers.',
         points: [
           'Developing a platform that supports manual testing, with a C# and .NET backend, a PostgreSQL database, Node.js and Angular',
           'The platform can be connected to AI agents as an MCP server',
@@ -93,7 +93,7 @@ const jobs: Content['jobs'] = [
     role: 'Software Engineer',
     period: 'August 2024 – October 2025',
     description:
-      'I worked on the McDonald’s application, in the team that handles user accounts, authentication and authorization. I developed and maintained microservices and wrote their unit and integration tests. I also wrote SQL queries and connected other systems’ APIs.',
+      'I worked on the McDonald’s application, in the team that handles user accounts, authentication and authorization. My team and I developed and maintained microservices and wrote their unit and integration tests. I also wrote SQL queries and connected other systems’ APIs.',
     projects: [
       {
         name: 'McDonald’s',
@@ -147,7 +147,7 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'Internal exam system',
-        text: 'EPAM’s internal exam system: a web application in which exams could be taken safely. I built its backend with Spring Boot 3 and a MySQL database.',
+        text: 'EPAM’s internal exam system: a web application in which exams could be taken safely. My team and I built its backend with Spring Boot 3 and a MySQL database.',
         points: [
           'Designing and developing new features',
           'Code reviews',
