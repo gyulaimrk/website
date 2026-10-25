@@ -8,11 +8,8 @@ describe('Footer', () => {
     fixture.detectChanges();
     const el = fixture.nativeElement as HTMLElement;
     const hrefs = [...el.querySelectorAll('nav a')].map((a) => a.getAttribute('href'));
-    expect(hrefs).toEqual([
-      contentHu.profile.linkedin,
-      contentHu.profile.github,
-      `mailto:${contentHu.profile.email}`,
-    ]);
+    expect(hrefs).toEqual([contentHu.profile.linkedin, `mailto:${contentHu.profile.email}`]);
+    expect(el.querySelector('nav')?.textContent).not.toContain('GitHub');
     expect(el.textContent).toContain(String(new Date().getFullYear()));
   });
 });

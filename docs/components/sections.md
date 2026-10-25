@@ -81,6 +81,6 @@ Kapcsolat panel: LinkedIn, önéletrajz-letöltés (`download` attribútummal) �
 
 ### `app-footer` (`Footer`)
 
-Szerzői jogi sor az aktuális évvel, és a LinkedIn, GitHub és e-mail linkek.
+Szerzői jogi sor az aktuális évvel, és a LinkedIn és e-mail linkek.
 
 **Tesztek:** `footer.spec.ts`: az elérhetőségek és az aktuális év.
