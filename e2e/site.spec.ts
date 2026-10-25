@@ -42,8 +42,9 @@ test.describe('használat a magyar oldalon', () => {
         name: new RegExp(`${contentHu.ui.toggles.toLight}|${contentHu.ui.toggles.toDark}`),
       })
       .click();
+    // A `data-theme` attribútumot egy effect állítja, ezért a változást megvárjuk.
+    await expect(html).not.toHaveAttribute('data-theme', before!);
     const after = await html.getAttribute('data-theme');
-    expect(after).not.toBe(before);
     await page.reload();
     await expect(html).toHaveAttribute('data-theme', after!);
   });

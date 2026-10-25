@@ -8,6 +8,7 @@ Magyar nyelvű portfólió oldal, Angular 22 (standalone, signals, zoneless), SC
 - `npm test -- --watch=false` – egységtesztek (Vitest + jsdom, `ng test`)
 - `npm run build` – éles build (előrenderelt `/hu`, `/en`, `404`, utána a `postbuild` szkript): `dist/portfolio/browser`
 - `npm run e2e` – Playwright E2E tesztek az éles buildre, Cloudflare helyi szerveren (előbb `npm run build`; ha nincs telepített Playwright-böngésző: `E2E_CHROMIUM_PATH=<chromium útvonala>`)
+- `npm run links` – a külső linkek ellenőrzése (a CI-ben hetente fut; a robotokat elutasító oldalakat „nem ellenőrizhető”-ként jelzi)
 - `npm run cv` – a letölthető önéletrajz (PDF) újragyártása a `public/cv/` mappába; tartalomváltozás után kell futtatni, és a PDF-eket commitolni
 - `npm run preview` – build és helyi Cloudflare előnézet (`wrangler dev`)
 - `npm run deploy` – build és telepítés (`wrangler login` kell hozzá)
@@ -59,6 +60,9 @@ Minden komponens saját mappában, négy külön fájllal: `név.ts`, `név.html
 - Minden új komponenshez készül `.html`, `.scss` és `.spec.ts` fájl is (nincs inline template/style). A spec a viselkedést teszteli, nem a megvalósítást.
 - Hozzáférhetőség és SEO: egyetlen `h1`, tartalomra ugró link, `aria-current` az aktív menüponton, látható fókusz, a szöveg kontrasztja legalább 4,5:1 mindkét témában (a Lighthouse minden kategóriában 90 fölött). A színeket tokenekből vedd, szövegszínnek `--accent-text`-et használj, ne `--accent-3`-at.
 - Módosítás után `npm test -- --watch=false` és `npm run build` hibátlan legyen.
+- Biztonság: a `public/_headers` statikus fejléceket ad, a `postbuild` a `Content-Security-Policy`-t számolja (beágyazott szkriptek lenyomata); új külső forrás esetén a `postbuild.mjs` irányelvét is bővíteni kell. Az `e2e/a11y.spec.ts` (axe) és az `e2e/security.spec.ts` védi.
+- Szövegszín tokenek: `--accent-text` (általános szöveg), `--accent-ink` (a címkék indigó színe, a világos témában sötétebb a kontraszt miatt). Nyomtatáskor mindig a világos téma érvényes (`@media print`).
+- `llms.txt`: a `postbuild` generálja a tartalomból (`data/llms-txt.ts`).
 - A portréfotó valódi (`public/mark-gyulai.jpg`, a `profile.photo` mutat rá); a hero kódablaka két fület mutat: alapból a profilból épített példányt (`Main.kt`, `hero.ts`), utána a `Developer` data classt (`codeSamples`).
 - Önéletrajz: a `profile.cv` útvonalra mutat (`public/cv/*.pdf`), a PDF-et az `npm run cv` készíti a content fájlokból. Tartalmi változás után újra kell gyártani és commitolni. Tanúsítványlink: `Study.url` (csak valós, a felhasználó által megadott cím; kitalálni nem szabad).
 - Tesztelés: egységteszt a viselkedésre (Vitest), E2E a teljes útvonalra (`e2e/`, a content fájlokból olvassa az elvárt szöveget, nem másolja). Új, felhasználó által látható funkcióhoz E2E teszt is jár.

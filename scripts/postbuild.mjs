@@ -6,7 +6,8 @@
  *    készít, ezért ide másoljuk a helyére.
  * 2. A `_headers` fájlba tartalombiztonsági irányelv (CSP) kerül: az oldal csak a saját forrásaiból
  *    tölthet be, a végrehajtható beágyazott szkripteket pedig a lenyomatuk (hash) engedélyezi.
- * 3. Ha a `SITE_ORIGIN` (src/app/core/site-origin.ts) ki van töltve, sitemap.xml készül
+ * 3. Az `llms.txt` (rövid, géppel olvasható összefoglaló az AI-eszközöknek) a tartalomfájlokból készül.
+ * 4. Ha a `SITE_ORIGIN` (src/app/core/site-origin.ts) ki van töltve, sitemap.xml készül
  *    nyelvváltozatonként, és a robots.txt hivatkozik rá. Üres címnél egyik sem készül el.
  */
 import { createHash } from 'node:crypto';
@@ -110,6 +111,16 @@ async function writeSecurityHeaders() {
   console.log(`CSP a _headers fájlban (${hashes.length} beágyazott szkript engedélyezve)`);
 }
 
+async function writeLlmsTxt() {
+  const { CONTENTS, SITE_ORIGIN, renderLlmsTxt } = await importTs({
+    contents: `export { CONTENTS } from './src/app/data/content';
+export { SITE_ORIGIN } from './src/app/core/site-origin';
+export { renderLlmsTxt } from './src/app/data/llms-txt';`,
+  });
+  await writeFile(`${OUT}/llms.txt`, renderLlmsTxt(CONTENTS, SITE_ORIGIN));
+  console.log('llms.txt elkészült');
+}
+
 async function writeSitemap() {
   const { SITE_ORIGIN, LANGS } = await importTs({
     contents: `export { SITE_ORIGIN } from './src/app/core/site-origin';
@@ -126,4 +137,5 @@ export { LANGS } from './src/app/data/content';`,
 
 await copy404();
 await writeSecurityHeaders();
+await writeLlmsTxt();
 await writeSitemap();

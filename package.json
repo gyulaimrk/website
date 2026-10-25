@@ -11,7 +11,8 @@
     "deploy": "npm run build && wrangler deploy",
     "postbuild": "node scripts/postbuild.mjs",
     "cv": "node scripts/build-cv.mjs",
-    "e2e": "playwright test"
+    "e2e": "playwright test",
+    "links": "node scripts/check-links.mjs"
   },
   "private": true,
   "packageManager": "npm@10.9.4",

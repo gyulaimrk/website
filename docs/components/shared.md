@@ -38,7 +38,7 @@ Gomb linkként.
 
 ### `app-chip-list` (`ChipList`)
 
-Címkék (technológiák) sora. Bemenet: `items` (`readonly string[]`, kötelező).
+Címkék (technológiák) sora. Bemenet: `items` (`readonly string[]`, kötelező). A szövegszíne az `--accent-ink` token, amely a világos témában a kontraszt miatt sötétebb indigó.
 
 ### `app-code-window` (`CodeWindow`)
 

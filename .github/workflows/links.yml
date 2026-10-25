@@ -1,0 +1,20 @@
+name: Links
+
+# Hetente ellenőrzi, hogy az oldalon szereplő külső linkek (projektek, tanúsítványok, profilok) élnek-e.
+on:
+  schedule:
+    - cron: '17 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  links:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Check external links
+        run: npm run links

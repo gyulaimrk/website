@@ -56,6 +56,15 @@ hidratál eseményismétléssel. Ennek feltételei:
 - A `scripts/postbuild.mjs` a `404.html`-t a kimenet gyökerébe másolja, és `SITE_ORIGIN` esetén sitemapet
   készít, a `robots.txt`-be pedig hivatkozást tesz rá.
 
+## Biztonság, nyomtatás, AI-barát kimenet
+
+- **Fejlécek:** a `_headers` biztonsági fejléceket és a build által számolt `Content-Security-Policy`-t ad
+  ([Fejlesztés](development.md)).
+- **Nyomtatás:** a `styles.scss` `@media print` szabálya mindig a világos témát használja, elrejti a navigációt, a
+  kódablakokat és a díszítő fényeket, és kinyitja az összecsukott részleteket.
+- **`llms.txt`:** a `postbuild` a tartalomfájlokból rövid, géppel olvasható összefoglalót készít az AI-eszközöknek
+  (`src/app/data/llms-txt.ts`).
+
 ## Hozzáférhetőség
 
 Egyetlen `h1`, tartalomra ugró link, `aria-current` az aktív menüponton (`ScrollSpyService`), látható fókusz,
