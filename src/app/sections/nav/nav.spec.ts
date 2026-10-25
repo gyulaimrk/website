@@ -21,9 +21,12 @@ describe('Nav', () => {
     expect(el.querySelector('a[appButton]')?.getAttribute('href')).toBe('#kapcsolat');
   });
 
-  it('a márkalink neve tartalmazza a látható szöveget', () => {
-    const label = render().el.querySelector('.brand')?.getAttribute('aria-label') ?? '';
-    expect(label).toContain(`GM ${contentHu.profile.name}`);
+  it('a márkalink neve a látható nevet és a célját is tartalmazza, aria-label nélkül', () => {
+    const brand = render().el.querySelector('.brand') as HTMLElement;
+    expect(brand.hasAttribute('aria-label')).toBe(false);
+    expect(brand.querySelector('.name')?.textContent).toBe(contentHu.profile.name);
+    expect(brand.querySelector('.logo')?.getAttribute('aria-hidden')).toBe('true');
+    expect(brand.querySelector('.sr-only')?.textContent).toContain(contentHu.ui.nav.home);
   });
 
   it('az Escape billentyű bezárja a mobilmenüt', () => {

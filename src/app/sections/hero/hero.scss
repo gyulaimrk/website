@@ -109,9 +109,9 @@ h1 {
   color: var(--muted);
   font-size: var(--step-small);
 }
+/* Csak elmozdulás, átlátszóság nélkül: az átlátszó elem nem számít tartalmas festésnek, ez késleltetné a betöltésmérést (LCP). */
 @keyframes rise {
   from {
-    opacity: 0;
     transform: translateY(24px);
   }
 }
