@@ -16,7 +16,7 @@ const profile: Content['profile'] = {
   stack: ['Java 8–25', 'Kotlin', 'Spring Boot'],
   roles: ['Java developer', 'Kotlin developer', 'AI consultant'],
   intro:
-    'I develop backend systems in Java and Kotlin. I build software that stays in use for years and that a team can keep developing safely. As an AI consultant, I help companies use artificial intelligence where it fits.',
+    'I’m a backend developer working in Java and Kotlin. I build systems that run reliably for years and that a team can keep developing with confidence. As an AI consultant, I help companies decide where and how artificial intelligence is worth using.',
   letter: [
     'I am a senior Java developer. I have spent more than {javaYears} years on Java 11 and Java 17, and I know the language from Java 8 up to Java 25. I develop Spring and Spring Boot applications, from design and coding through testing to maintenance.',
     'Code has to be easy to understand and maintain. I follow the clean code, SOLID, DRY and KISS principles, use proven design patterns, and write unit, system and UI tests. Where test coverage needed improving, I took that on as well.',

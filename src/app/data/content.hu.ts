@@ -16,7 +16,7 @@ const profile: Content['profile'] = {
   stack: ['Java 8–25', 'Kotlin', 'Spring Boot'],
   roles: ['Java fejlesztő', 'Kotlin fejlesztő', 'AI-konzultáns'],
   intro:
-    'Backend rendszereket fejlesztek Javában és Kotlinban. Olyan szoftvereket építek, amelyeket évekig használnak, és amelyeket a csapat biztonságosan tovább tud fejleszteni. AI-konzultánsként abban segítek, hogy a cégek a mesterséges intelligenciát a megfelelő helyen és módon használják.',
+    'Backend-fejlesztő vagyok Java és Kotlin nyelven. Olyan rendszereket építek, amelyek évekig megbízhatóan működnek, és amelyeket a csapat nyugodtan tovább tud vinni. AI-konzultánsként abban segítek a cégeknek, hogy eldöntsék, hol és hogyan érdemes mesterséges intelligenciát használni.',
   letter: [
     'Senior Java fejlesztő vagyok. Több mint {javaYears} éve dolgozom Java 11 és Java 17 alatt, és a Java 8-tól a 25-ös verzióig ismerem a nyelvet. Spring és Spring Boot alkalmazásokat fejlesztek, a tervezéstől a kódoláson és a teszteken át a karbantartásig.',
     'A kódnak érthetőnek és karbantarthatónak kell lennie. Ezért a clean code, a SOLID, a DRY és a KISS elveit követem, bevált tervezési mintákat használok, és egységteszteket, rendszerteszteket és felületi teszteket is írok. Ahol javítani kellett a tesztlefedettséget, ott ezt is vállaltam.',
