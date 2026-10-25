@@ -18,11 +18,12 @@ const profile: Content['profile'] = {
   intro:
     'I develop backend systems based on Java and Kotlin, with a particular focus on sustainable architecture, maintainability and long-term evolvability. As an AI consultant, I help companies identify the areas where artificial intelligence can create real business value, and I support its practical, goal-oriented adoption.',
   letter: [
-    'I am a senior Java developer. I have spent more than {javaYears} years on Java 11 and Java 17, and I know the language from Java 8 up to Java 25. I develop Spring and Spring Boot applications, from design and coding through testing to maintenance.',
-    'Code has to be easy to understand and maintain. I follow the clean code, SOLID, DRY and KISS principles, use proven design patterns, and write unit, system and UI tests. Where test coverage needed improving, I took that on as well.',
-    'I work well in a team and on my own, with an agile mindset. On the Broadridge, McDonald’s and Helvo projects I worked with international teams, and working with colleagues from different countries is second nature to me. I stay in regular, open contact with clients and with colleagues from other areas. At EPAM and at RDI I also mentored a junior colleague. I try out new technologies in side projects. I use AI deliberately in my work: I write precise prompts, build my own skills, and record a project’s rules in CLAUDE.md files for the assistant.',
-    'In my free time I like driving, watching movies and playing games with friends.',
-    'Frontend work interests me too, although my main field is the backend.',
+    'As a senior Java developer, I have more than {javaYears} years of professional experience building Java-based backend systems. Besides working in Java 11 and Java 17 environments, I know the language features of every version from Java 8 up to Java 25. I work mainly with Spring and Spring Boot, from system design and implementation through testing to the long-term maintenance of applications.',
+    'In development, I pay particular attention to code quality, clear architecture and sustainability. I rely on the principles of Clean Code, SOLID, DRY and KISS, and apply design patterns that fit the problem at hand. I regard testing as an integral part of the development process: I support reliable operation with unit, system and UI tests, and I have also taken part in improving the test coverage of existing systems.',
+    'I work effectively both on my own and in a team, including in agile environments. On the Broadridge, McDonald’s and Helvo projects I gained experience as a member of international teams, so working with colleagues from different professional and cultural backgrounds is a natural part of my everyday work. I value open communication, regular meetings with clients and effective cooperation with neighbouring teams. At EPAM and at RDI I also took part in mentoring junior developers.',
+    'I keep developing my professional knowledge and get to know new technologies through hands-on side projects. I build artificial intelligence into my development process deliberately: I write structured prompts, create my own AI skills, and use CLAUDE.md files to record a project’s technical guidelines and development rules, so that AI assistants fit the project’s expectations consistently.',
+    'Although my main field is backend development, I am also interested in frontend technologies, and I enjoy working on solutions that cover the whole application.',
+    'Outside work, I like driving, watching movies and playing games with friends.',
   ],
 };
 
@@ -514,7 +515,7 @@ const ui: Content['ui'] = {
   },
   about: {
     title: 'About me',
-    lead: 'I build systems that are still easy to understand and extend years later.',
+    lead: 'I aim to build software systems that keep running reliably in the long term, are easy to follow, and that the team can maintain and extend with ease.',
     facts: {
       location: 'Location',
       role: 'Role',

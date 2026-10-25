@@ -18,11 +18,12 @@ const profile: Content['profile'] = {
   intro:
     'Java és Kotlin alapú backend rendszerek fejlesztésével foglalkozom, kiemelt figyelmet fordítva a fenntartható architektúrára, a karbantarthatóságra és a hosszú távú fejleszthetőségre. AI-konzultánsként segítek a vállalatoknak azonosítani azokat a területeket, ahol a mesterséges intelligencia valódi üzleti értéket teremthet, és támogatást nyújtok annak gyakorlati, célorientált alkalmazásában.',
   letter: [
-    'Senior Java fejlesztő vagyok. Több mint {javaYears} éve dolgozom Java 11 és Java 17 alatt, és a Java 8-tól a 25-ös verzióig ismerem a nyelvet. Spring és Spring Boot alkalmazásokat fejlesztek, a tervezéstől a kódoláson és a teszteken át a karbantartásig.',
-    'A kódnak érthetőnek és karbantarthatónak kell lennie. Ezért a clean code, a SOLID, a DRY és a KISS elveit követem, bevált tervezési mintákat használok, és egységteszteket, rendszerteszteket és felületi teszteket is írok. Ahol javítani kellett a tesztlefedettséget, ott ezt is vállaltam.',
-    'Csapatban és önállóan is jól dolgozom, agilis szemlélettel. A Broadridge, a McDonald’s és a Helvo projekten nemzetközi csapatokkal dolgoztam, és a különböző országokból érkező kollégákkal való együttműködés számomra magától értetődő. Az ügyfelekkel és a más területen dolgozó kollégákkal rendszeresen és nyíltan egyeztetek. Az EPAM-nál és az RDI-nál junior kollégát is mentoráltam. Új technológiákat mellékprojektekben próbálok ki. Az AI-t tudatosan használom a munkámban: pontos promptokat írok, saját skilleket készítek, és CLAUDE.md fájlokban rögzítem a projekt szabályait az asszisztens számára.',
-    'Szabadidőmben szívesen vezetek, filmeket nézek, és a barátaimmal játszom.',
-    'A frontend is érdekel, bár a fő területem a backend.',
+    'Senior Java fejlesztőként több mint {javaYears} év szakmai tapasztalattal rendelkezem Java-alapú backend rendszerek fejlesztésében. Java 11 és Java 17 környezetben szerzett tapasztalataim mellett a Java 8-tól a Java 25-ig terjedő verziók nyelvi lehetőségeit is ismerem. Elsősorban Spring és Spring Boot technológiákkal dolgozom, a rendszertervezéstől és a megvalósítástól kezdve a tesztelésen át egészen az alkalmazások hosszú távú karbantartásáig.',
+    'A fejlesztés során kiemelt figyelmet fordítok a kód minőségére, az átlátható architektúrára és a fenntarthatóságra. Munkámban a Clean Code, a SOLID, a DRY és a KISS alapelveire támaszkodom, és az adott problémához illeszkedő tervezési mintákat alkalmazok. A tesztelést a fejlesztési folyamat szerves részének tekintem: egység-, rendszer- és felületi tesztekkel támogatom a megbízható működést, emellett a meglévő rendszerek tesztlefedettségének javításában is vállaltam szerepet.',
+    'Önállóan és csapatban egyaránt hatékonyan dolgozom, agilis környezetben is. A Broadridge, a McDonald’s és a Helvo projektjein nemzetközi csapatok tagjaként szereztem tapasztalatot, így a különböző szakmai és kulturális háttérrel rendelkező kollégákkal való együttműködés a mindennapi munkám természetes része. Fontosnak tartom a nyílt kommunikációt, az ügyfelekkel történő rendszeres egyeztetést és a társterületekkel való hatékony együttműködést. Az EPAM-nál és az RDI-nál junior fejlesztők mentorálásában is részt vettem.',
+    'Folyamatosan fejlesztem a szakmai tudásomat, az új technológiákat pedig gyakorlati mellékprojekteken keresztül ismerem meg. A mesterséges intelligenciát tudatosan építem be a fejlesztési folyamataimba: strukturált promptokat készítek, saját AI-skilleket alakítok ki, és a CLAUDE.md fájlok segítségével rögzítem a projektek technikai irányelveit és fejlesztési szabályait, hogy az AI-asszisztensek következetesen illeszkedjenek a projekt elvárásaihoz.',
+    'Bár a fő szakterületem a backendfejlesztés, a frontendtechnológiák iránt is érdeklődöm, és szívesen dolgozom a teljes alkalmazás működését átfogó megoldásokon.',
+    'A munkán kívül szívesen vezetek, filmeket nézek, és a barátaimmal játszom.',
   ],
 };
 
@@ -514,7 +515,7 @@ const ui: Content['ui'] = {
   },
   about: {
     title: 'Rólam',
-    lead: 'Olyan rendszereket építek, amelyeket évek múlva is könnyű megérteni és továbbfejleszteni.',
+    lead: 'Olyan szoftverrendszerek fejlesztésére törekszem, amelyek hosszú távon is megbízhatóan működnek, átláthatók, és a csapat számára könnyen karbantarthatók, illetve továbbfejleszthetők.',
     facts: {
       location: 'Helyszín',
       role: 'Szerep',
