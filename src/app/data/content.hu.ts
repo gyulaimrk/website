@@ -223,44 +223,66 @@ const jobs: Content['jobs'] = [
 const skills: Content['skills'] = [
   {
     highlight: true,
-    title: 'AI és MCP',
+    title: 'AI és Model Context Protocol (MCP)',
     tag: 'Mesterséges intelligencia',
-    text: 'Több mint {aiYears} éve használok AI-t a munkámban. Pontos promptokat írok, saját skilleket készítek, és CLAUDE.md fájlokban rögzítem a projekt szabályait, hogy az asszisztens minden munkamenetben ugyanazt tudja. Az Adroit Group GLI Solutions projektjén AI-konzultánsként azt vizsgáljuk, hol hasznos a mesterséges intelligencia, és hogyan illeszthető a meglévő rendszerekbe. 2026 márciusában négy Anthropic-tanúsítványt szereztem: Claude API, Model Context Protocol (MCP), agent skills és Claude Code.',
+    paragraphs: [
+      'Több mint {aiYears} éve használok mesterséges intelligenciára épülő eszközöket a fejlesztési munkám támogatására. Strukturált promptokat készítek, saját AI-skilleket fejlesztek, és a CLAUDE.md fájlok segítségével rögzítem a projektek technikai irányelveit és fejlesztési szabályait, biztosítva a következetes munkavégzést az AI-asszisztensekkel.',
+      'Az Adroit Group GLI Solutions projektjén AI-konzultánsként a mesterséges intelligencia gyakorlati alkalmazási lehetőségeit vizsgálom, különös tekintettel az üzleti folyamatokba és a meglévő rendszerekbe történő integrációra.',
+      '2026 márciusában négy Anthropic-tanúsítványt szereztem a Claude API, a Model Context Protocol (MCP), az Agent Skills és a Claude Code témaköreiben.',
+    ],
   },
   {
     title: 'Java 8–25',
-    tag: 'Nyelv',
-    text: 'A Java 8-tól a 25-ös verzióig ismerem a nyelvet. A legtöbb gyakorlatom, több mint {javaYears} év, Java 11 és Java 17 alatt van. Java 8-ból, 10-ből, 11-ből és 17-ből tanúsítványom is van.',
+    tag: 'Programozási nyelvek',
+    paragraphs: [
+      'Több mint {javaYears} év szakmai tapasztalattal rendelkezem Java-alapú alkalmazások fejlesztésében. Legnagyobb gyakorlati tapasztalatom a Java 11 és Java 17 verziókhoz kötődik, emellett a Java 8–25 közötti verziók nyelvi lehetőségeit is ismerem. Java 8, 10, 11 és 17 verziókból külön tanúsítványokkal rendelkezem.',
+    ],
   },
   {
     title: 'Kotlin',
-    tag: 'Nyelv',
-    text: 'Az Adroit Groupnál két Kotlin projekten dolgoztam: a MOL Limo autóbérlőn és a Helvón. Az adatbázist az Exposed keretrendszerrel érem el.',
+    tag: 'Programozási nyelvek',
+    paragraphs: [
+      'Az Adroit Groupnál két Kotlin-alapú projektben vettem részt: a MOL Limo autómegosztó szolgáltatás, valamint a Helvo fejlesztésében. Az adatbázis-hozzáférés megvalósításához az Exposed keretrendszert használom.',
+    ],
   },
   {
     title: 'Spring Boot',
-    tag: 'Keretrendszer',
-    text: 'Spring Boot alkalmazásokban tervezek és építek REST API-kat, és dolgoztam mikroszolgáltatás-architektúrában is.',
+    tag: 'Keretrendszerek és architektúra',
+    paragraphs: [
+      'Spring és Spring Boot alapú backend alkalmazásokat tervezek és fejlesztek, elsősorban REST API-k megvalósítására. Tapasztalatot szereztem mikroszolgáltatás-alapú rendszerek fejlesztésében is, a jól elkülönített felelősségi körök és a hosszú távú karbantarthatóság szem előtt tartásával.',
+    ],
+  },
+  {
+    title: 'Szoftvertervezés és fejlesztési alapelvek',
+    tag: 'Keretrendszerek és architektúra',
+    paragraphs: [
+      'A Clean Code szemléletre, a SOLID, DRY és KISS alapelvekre, valamint a megfelelő tervezési minták alkalmazására építem a fejlesztői munkámat. Az adatbázisok tervezése és használata során kiemelt figyelmet fordítok az ACID-tulajdonságokra, a tranzakciók helyes kezelésére és az adatok konzisztenciájára.',
+      'Domain-Driven Design (DDD) megközelítéssel és mikroszolgáltatás-architektúrában is dolgoztam.',
+    ],
   },
   {
     title: 'Tesztelés',
-    tag: 'Minőség',
-    text: 'A tesztelés a fejlesztés része, nem utólagos lépés. Az egységteszteket JUnittal és Mockitóval írom, a FIRST elvek szerint (gyors, független, ismételhető, önellenőrző, időben megírt). A felületet Seleniummal és Cucumberrel tesztelem, a rendszer egészét integrációs és rendszertesztekkel fedem le. API-tesztelésből REST Assured tanfolyamot végeztem, egy korábbi projektben pedig a tesztlefedettséget is javítottam.',
+    tag: 'Tesztelés és szoftverminőség',
+    paragraphs: [
+      'A tesztelést a fejlesztési folyamat szerves részének tekintem. JUnit és Mockito segítségével egységteszteket készítek, a FIRST alapelveket szem előtt tartva: a tesztek legyenek gyorsak, egymástól függetlenek, megismételhetők, önellenőrzők és időben megírhatók.',
+      'A felületi teszteléshez Seleniummal és Cucumberrel dolgoztam, míg az alkalmazások integrációs és rendszerszintű működését célzott tesztekkel ellenőrzöm. REST Assured témában API-tesztelési képzésen vettem részt, korábbi projektjeim során pedig a tesztlefedettség javításában is szerepet vállaltam.',
+    ],
   },
   {
     title: 'Eszközök',
-    tag: 'Munkafolyamat',
-    text: 'Buildhez Gradle-t és Mavent használok, verziókezelésre Gitet. CI/CD-ben dolgoztam Jenkinsszel, GitLabbal, GitHubbal és GitHub Actionsszel, a kiadásokhoz ArgoCD-t is használtam. Dockerből tanúsítványom van. Rendszeresen használom az SQL-t és a Lombokot. Agilis szemlélettel dolgozom, a csapatmunkához a Jirát, a Confluence-t, a Plane-t és az Azure DevOpsot használom.',
-  },
-  {
-    title: 'Tervezés',
-    tag: 'Elvek',
-    text: 'A clean code szemléletet, a SOLID, a DRY és a KISS elveket, valamint a tervezési mintákat követem. Adatbázisnál az ACID tulajdonságokra és a gondos tranzakciókezelésre figyelek. Domain-driven tervezéssel és mikroszolgáltatás-architektúrában is dolgoztam.',
+    tag: 'Fejlesztői eszközök és munkafolyamatok',
+    paragraphs: [
+      'A buildfolyamatok kialakításához és kezeléséhez Gradle-t és Mavent, a verziókezeléshez Gitet használok. CI/CD-folyamatokban Jenkins, GitLab CI/CD, GitHub és GitHub Actions eszközökkel dolgoztam, a kiadások automatizálásában pedig ArgoCD-t is használtam.',
+      'Dockerrel kapcsolatos tanúsítvánnyal rendelkezem. A mindennapi munkám része az SQL használata és a Lombok alkalmazása. Agilis csapatokban Jirával, Confluence-szel, Plane-nel és Azure DevOpsszal támogatom a feladatkezelést, a dokumentációt és a közös munkát.',
+    ],
   },
   {
     title: 'Angular',
-    tag: 'Frontend',
-    text: 'Ezt az oldalt Angular 22-vel építettem, standalone komponensekkel, signalokkal és Vitest tesztekkel. Angularral készült a lizacover.hu és a GLI Solutions tesztelési platformja is, de a fő területem a backend.',
+    tag: 'Frontendfejlesztés',
+    paragraphs: [
+      'Bár a fő szakterületem a backendfejlesztés, frontendalkalmazások készítésében is van gyakorlati tapasztalatom. Az oldalt Angular 22 használatával, standalone komponensekkel, signalokkal és Vitest-alapú tesztekkel építettem.',
+      'Angular technológiával készült a lizacover.hu weboldal és a GLI Solutions tesztelési platformja is. A frontendfejlesztést a teljes alkalmazás működését átfogó szemlélet részeként kezelem.',
+    ],
   },
 ];
 
@@ -526,7 +548,7 @@ const ui: Content['ui'] = {
   },
   skills: {
     title: 'Eszköztár',
-    lead: 'A leggyakrabban használt nyelveim, keretrendszereim és eszközeim.',
+    lead: 'Azok a programozási nyelvek, keretrendszerek, eszközök és mérnöki alapelvek, amelyekkel a mindennapi fejlesztői munkám során dolgozom.',
   },
   sideProjects: {
     title: 'Mellékprojektek',

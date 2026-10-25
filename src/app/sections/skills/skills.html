@@ -9,7 +9,9 @@
       >
         <p class="tag">{{ skill.tag }}</p>
         <h3>{{ skill.title }}</h3>
-        <p class="text">{{ skill.text }}</p>
+        @for (paragraph of skill.paragraphs; track $index) {
+          <p class="text">{{ paragraph }}</p>
+        }
       </app-card>
     }
   </div>

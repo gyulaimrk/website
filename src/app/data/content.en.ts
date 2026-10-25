@@ -223,44 +223,66 @@ const jobs: Content['jobs'] = [
 const skills: Content['skills'] = [
   {
     highlight: true,
-    title: 'AI and MCP',
+    title: 'AI and Model Context Protocol (MCP)',
     tag: 'Artificial intelligence',
-    text: 'I have used AI in my work for more than {aiYears} years. I write precise prompts, build my own skills, and record a project’s rules in CLAUDE.md files so the assistant works from the same information in every session. On the GLI Solutions project at Adroit Group I work as an AI consultant: we examine where artificial intelligence helps and how it fits into existing systems. In March 2026 I earned four Anthropic certificates: Claude API, Model Context Protocol (MCP), agent skills and Claude Code.',
+    paragraphs: [
+      'For more than {aiYears} years I have used tools built on artificial intelligence to support my development work. I write structured prompts, build my own AI skills, and use CLAUDE.md files to record a project’s technical guidelines and development rules, so that work with AI assistants stays consistent.',
+      'On the GLI Solutions project at Adroit Group, as an AI consultant, I examine the practical uses of artificial intelligence, with particular attention to integrating it into business processes and existing systems.',
+      'In March 2026 I earned four Anthropic certificates, covering the Claude API, the Model Context Protocol (MCP), Agent Skills and Claude Code.',
+    ],
   },
   {
     title: 'Java 8–25',
-    tag: 'Language',
-    text: 'I know Java from version 8 up to 25. Most of my practice, more than {javaYears} years, is on Java 11 and Java 17. I also hold certificates in Java 8, Java 10, Java 11 and Java 17.',
+    tag: 'Programming languages',
+    paragraphs: [
+      'I have more than {javaYears} years of professional experience developing Java-based applications. My deepest hands-on experience is with Java 11 and Java 17, and I also know the language features of the versions from Java 8 to 25. I hold separate certificates in Java 8, 10, 11 and 17.',
+    ],
   },
   {
     title: 'Kotlin',
-    tag: 'Language',
-    text: 'At Adroit Group I worked on two Kotlin projects: the MOL Limo car rental system and Helvo. I access the database with the Exposed framework.',
+    tag: 'Programming languages',
+    paragraphs: [
+      'At Adroit Group I took part in two Kotlin-based projects: the MOL Limo car-sharing service and Helvo. I use the Exposed framework for database access.',
+    ],
   },
   {
     title: 'Spring Boot',
-    tag: 'Framework',
-    text: 'I design and build REST APIs in Spring Boot applications, and I have worked in a microservice architecture too.',
+    tag: 'Frameworks and architecture',
+    paragraphs: [
+      'I design and develop backend applications based on Spring and Spring Boot, mainly implementing REST APIs. I have also worked on microservice-based systems, keeping clear separation of responsibilities and long-term maintainability in mind.',
+    ],
+  },
+  {
+    title: 'Software design and development principles',
+    tag: 'Frameworks and architecture',
+    paragraphs: [
+      'I build my work on Clean Code thinking, the SOLID, DRY and KISS principles, and the appropriate use of design patterns. When designing and using databases, I pay particular attention to the ACID properties, correct transaction handling and data consistency.',
+      'I have also worked with a Domain-Driven Design (DDD) approach and in a microservice architecture.',
+    ],
   },
   {
     title: 'Testing',
-    tag: 'Quality',
-    text: 'Testing is part of development, not an afterthought. I write unit tests with JUnit and Mockito, following the FIRST principles (fast, independent, repeatable, self-validating, timely). I test the UI with Selenium and Cucumber and cover the whole system with integration and system tests. I took a REST Assured course on API testing, and on an earlier project I also improved test coverage.',
+    tag: 'Testing and software quality',
+    paragraphs: [
+      'I regard testing as an integral part of the development process. I write unit tests with JUnit and Mockito, keeping the FIRST principles in mind: tests should be fast, independent, repeatable, self-validating and timely.',
+      'For UI testing I have worked with Selenium and Cucumber, while I verify the integration and system-level behaviour of applications with targeted tests. I attended an API testing course on REST Assured, and on earlier projects I also took a role in improving test coverage.',
+    ],
   },
   {
     title: 'Tools',
-    tag: 'Workflow',
-    text: 'I use Gradle and Maven for builds and Git for version control. I have worked with Jenkins, GitLab, GitHub and GitHub Actions for CI/CD, and used ArgoCD for deployments. I hold Docker certificates. I use SQL and Lombok regularly. I work with an agile mindset and use Jira, Confluence, Plane and Azure DevOps for teamwork.',
-  },
-  {
-    title: 'Design',
-    tag: 'Principles',
-    text: 'I follow clean code thinking, the SOLID, DRY and KISS principles and design patterns. With databases I pay attention to the ACID properties and careful transaction management. I have worked with domain-driven design and in a microservice architecture.',
+    tag: 'Development tools and workflows',
+    paragraphs: [
+      'I use Gradle and Maven to set up and manage build processes and Git for version control. I have worked with Jenkins, GitLab CI/CD, GitHub and GitHub Actions in CI/CD pipelines, and I have also used ArgoCD to automate releases.',
+      'I hold a Docker certificate. SQL and Lombok are part of my everyday work. In agile teams I use Jira, Confluence, Plane and Azure DevOps to support task management, documentation and collaboration.',
+    ],
   },
   {
     title: 'Angular',
-    tag: 'Frontend',
-    text: 'I built this site with Angular 22, using standalone components, signals and Vitest tests. lizacover.hu and the GLI Solutions testing platform are built with Angular too, but my main field is the backend.',
+    tag: 'Frontend development',
+    paragraphs: [
+      'Although my main field is backend development, I also have hands-on experience building frontend applications. I built this site with Angular 22, using standalone components, signals and Vitest-based tests.',
+      'The lizacover.hu website and the GLI Solutions testing platform are built with Angular too. I treat frontend development as part of an approach that covers the whole application.',
+    ],
   },
 ];
 
@@ -526,7 +548,7 @@ const ui: Content['ui'] = {
   },
   skills: {
     title: 'Skills',
-    lead: 'The languages, frameworks and tools I use most often.',
+    lead: 'The programming languages, frameworks, tools and engineering principles I work with in my day-to-day development.',
   },
   sideProjects: {
     title: 'Side projects',

@@ -47,7 +47,7 @@ export interface Skill {
   highlight?: boolean;
   title: string;
   tag: string;
-  text: string;
+  paragraphs: string[];
 }
 
 export interface SideProject {
