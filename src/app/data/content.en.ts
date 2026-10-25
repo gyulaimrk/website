@@ -19,7 +19,7 @@ const profile: Content['profile'] = {
   letter: [
     'I am a senior Java developer. I have spent more than five years on Java 11 and Java 17, but I feel at home anywhere from Java 8 up to Java 25. I work on Spring and Spring Boot applications, and I like to see the work through from design and coding to tests and maintenance.',
     'I care about code that is easy to understand and maintain. That is why I follow the clean code, SOLID, DRY and KISS principles and proven design patterns, and why I test a lot: unit tests, system tests and UI tests. Whenever a project needed better test coverage, I was glad to take it on.',
-    'I am comfortable working in a team and on my own. I talk openly with clients and with colleagues from other areas, because I believe good software starts with good conversations. I try out new technologies in side projects, so my knowledge keeps getting refreshed. I also use AI deliberately in my work: I write good prompts, build skills, and record in CLAUDE.md files how the assistant should work on a project.',
+    'I am comfortable working in a team and on my own. On the Broadridge, McDonald’s and Helvo projects I worked with international teams, and working with people from different countries comes naturally to me. I talk openly with clients and with colleagues from other areas, because I believe good software starts with good conversations. I try out new technologies in side projects, so my knowledge keeps getting refreshed. I also use AI deliberately in my work: I write good prompts, build skills, and record in CLAUDE.md files how the assistant should work on a project.',
     'In my free time I like watching movies, playing games with friends and driving, and I try out new technologies in side projects.',
     'This site is built with Angular, because I am curious about the other side of development too.',
   ],
@@ -50,7 +50,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Helvo',
-        text: 'My team and I built a backend for frontend application for a Swiss fintech startup in Kotlin with Spring Boot 4.',
+        text: 'My international team and I built a backend for frontend application for a Swiss fintech startup in Kotlin with Spring Boot 4.',
         points: [
           'Documentation-first (design-first) approach: designing the API in OpenAPI',
           'Connecting the backend to other subsystems and the frontend with artifacts generated from the OpenAPI description',
@@ -98,7 +98,7 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'McDonald’s',
-        text: 'User accounts, authentication and authorization: I was a member of the team that handles them.',
+        text: 'User accounts, authentication and authorization: I was a member of the international team that handles them.',
         points: [
           'Maintaining existing microservices',
           'Designing and developing new microservices',
@@ -130,7 +130,7 @@ const jobs: Content['jobs'] = [
     role: 'Software Engineer',
     period: 'January 2022 – August 2024',
     description:
-      'As part of a team, we developed the financial application of Broadridge, an American company. This is where I really learned multi-threaded programming, domain-driven design and the functional approach. I wrote unit, system and acceptance tests, including UI tests with Selenium. I also connected other systems’ APIs, sometimes asynchronously. I solved concurrency bugs, handled database transactions and improved test coverage.',
+      'As part of an international team, we developed the financial application of Broadridge, an American company. This is where I really learned multi-threaded programming, domain-driven design and the functional approach. I wrote unit, system and acceptance tests, including UI tests with Selenium. I also connected other systems’ APIs, sometimes asynchronously. I solved concurrency bugs, handled database transactions and improved test coverage.',
     projects: [
       { name: 'Broadridge financial application' },
       {

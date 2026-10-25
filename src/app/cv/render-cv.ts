@@ -18,7 +18,7 @@ const esc = (text: string) => text.replace(/[&<>"']/g, (char) => ESCAPES[char]);
 const shortUrl = (url: string) => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
 
 const STYLE = `
-  @page { size: A4; margin: 12mm 14mm; }
+  @page { size: A4; margin: 11mm 13mm; }
   * { box-sizing: border-box; }
   body { margin: 0; color: #141a38; font: 400 9pt/1.38 'Inter', sans-serif; }
   h1, h2, h3 { font-family: 'Space Grotesk', 'Inter', sans-serif; margin: 0; line-height: 1.15; }

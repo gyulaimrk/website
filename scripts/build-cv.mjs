@@ -8,6 +8,9 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
+// Az önéletrajz legfeljebb ennyi oldalas lehet; ha a tartalom túlnő rajta, a gyártás hibával áll le.
+const MAX_PAGES = 2;
+
 const root = resolve(import.meta.dirname, '..');
 const outDir = join(root, 'public', 'cv');
 
@@ -63,6 +66,12 @@ try {
     await page.setContent(html, { waitUntil: 'load' });
     await page.evaluate(() => document.fonts.ready);
     const pdf = await page.pdf({ format: 'A4', printBackground: true, preferCSSPageSize: true });
+    const pages = (pdf.toString('latin1').match(/\/Type\s*\/Page[^s]/g) ?? []).length;
+    if (pages > MAX_PAGES) {
+      throw new Error(
+        `${fileName}: ${pages} oldalas lett (a határ ${MAX_PAGES}). Rövidítsd a tartalmat, vagy szűkítsd a stílust a render-cv.ts-ben.`,
+      );
+    }
     await writeFile(join(outDir, fileName), pdf);
     console.log(`${lang}: public/cv/${fileName} (${Math.round(pdf.length / 1024)} KB)`);
     await page.close();

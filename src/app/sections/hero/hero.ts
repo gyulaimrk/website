@@ -14,7 +14,7 @@ import { Typewriter } from '../../shared/typewriter/typewriter';
 })
 export class Hero {
   protected readonly content = inject(ContentService).content;
-  /** A kódablak két fájlja: a Developer data class, majd az ebből a profilból épített példány. */
+  /** A kódablak két fájlja: a profilból épített példány (Main.kt, ez az alapértelmezett), majd a Developer data class. */
   protected readonly files = computed<CodeFile[]>(() => {
     const { profile, codeSamples } = this.content();
     const stack = profile.stack.map((item) => `        "${item}",`);
@@ -29,6 +29,6 @@ export class Hero {
       `    location = "${profile.location.split(',')[0]}",`,
       ')',
     ].join('\n');
-    return [...codeSamples, { name: 'Main.kt', language: 'kotlin', code: developer }];
+    return [{ name: 'Main.kt', language: 'kotlin', code: developer }, ...codeSamples];
   });
 }
