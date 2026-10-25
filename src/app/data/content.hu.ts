@@ -350,6 +350,7 @@ const sideProjects: Content['sideProjects'] = [
       'Cloudflare',
       'GitHub',
       'GitHub Actions',
+      'Claude',
     ],
   },
   {
@@ -366,6 +367,7 @@ const sideProjects: Content['sideProjects'] = [
       'SEO',
       'GitHub',
       'GitHub Actions',
+      'Claude',
     ],
   },
 ];
