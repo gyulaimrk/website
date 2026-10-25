@@ -24,7 +24,7 @@ describe('content', () => {
     expect(contentEn.jobs.map((j) => j.projects?.map((p) => p.points?.length))).toEqual(
       contentHu.jobs.map((j) => j.projects?.map((p) => p.points?.length)),
     );
-    expect(contentEn.profile.roleConstant).toBe(contentHu.profile.roleConstant);
+    expect(contentEn.profile.roleConstants).toEqual(contentHu.profile.roleConstants);
     expect(contentEn.stats.map((s) => s.value)).toEqual(contentHu.stats.map((s) => s.value));
     expect(contentEn.ui.nav.links.map((l) => l.fragment)).toEqual(
       contentHu.ui.nav.links.map((l) => l.fragment),

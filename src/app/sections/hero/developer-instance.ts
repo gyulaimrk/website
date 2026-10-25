@@ -6,7 +6,9 @@ export function developerInstance(profile: Profile): CodeFile {
   const code = [
     'val developer = Developer(',
     `    name = "${profile.name}",`,
-    `    role = Role.${profile.roleConstant},`,
+    '    roles = listOf(',
+    ...profile.roleConstants.map((constant) => `        Role.${constant},`),
+    '    ),',
     '    stack = listOf(',
     ...profile.stack.map((item) => `        "${item}",`),
     '    ),',

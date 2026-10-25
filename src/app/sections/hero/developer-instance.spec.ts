@@ -8,10 +8,12 @@ describe('developerInstance', () => {
     expect(file.language).toBe('kotlin');
   });
 
-  it('a profil nevét, szerepét (enum-értékként) és minden stack-elemét kiírja', () => {
+  it('a profil nevét, minden szerepét (enum-értékként) és minden stack-elemét kiírja', () => {
     const { code } = developerInstance(contentHu.profile);
     expect(code).toContain(`name = "${contentHu.profile.name}"`);
-    expect(code).toContain(`role = Role.${contentHu.profile.roleConstant}`);
+    contentHu.profile.roleConstants.forEach((constant) =>
+      expect(code).toContain(`Role.${constant},`),
+    );
     contentHu.profile.stack.forEach((item) => expect(code).toContain(`"${item}"`));
   });
 
@@ -25,12 +27,13 @@ describe('developerInstance', () => {
     expect(developerInstance(contentEn.profile).code).toContain(contentEn.profile.name);
   });
 
-  it('a szerep olyan enum-érték, amely a Developer.kt mintában is szerepel', () => {
-    const { code } = developerInstance(contentHu.profile);
+  it('minden szerep olyan enum-érték, amely a Developer.kt mintában is szerepel', () => {
     const sample = contentHu.codeSamples[0].code;
     expect(sample).toContain('enum class Role {');
-    expect(sample).toMatch(new RegExp(`\\b${contentHu.profile.roleConstant},`));
-    expect(code).toContain(`Role.${contentHu.profile.roleConstant}`);
+    expect(contentHu.profile.roleConstants.length).toBeGreaterThan(1);
+    contentHu.profile.roleConstants.forEach((constant) =>
+      expect(sample).toMatch(new RegExp(`\\b${constant},`)),
+    );
   });
 
   it('a mezői megegyeznek a Developer data class mezőivel', () => {

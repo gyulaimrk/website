@@ -1,8 +1,8 @@
 export interface Profile {
   name: string;
   role: string;
-  /** A szerep a hero kódablakában: a `Role` enum egyik értéke a `Developer.kt` mintából. */
-  roleConstant: string;
+  /** A szerepek a hero kódablakában: a `Role` enum értékei a `Developer.kt` mintából. */
+  roleConstants: string[];
   email: string;
   linkedin: string;
   github: string;

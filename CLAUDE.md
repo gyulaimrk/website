@@ -64,7 +64,7 @@ Minden komponens saját mappában, négy külön fájllal: `név.ts`, `név.html
 - Biztonság: a `public/_headers` statikus fejléceket ad, a `postbuild` a `Content-Security-Policy`-t számolja (beágyazott szkriptek lenyomata); új külső forrás esetén a `postbuild.mjs` irányelvét is bővíteni kell. Az `e2e/a11y.spec.ts` (axe) és az `e2e/security.spec.ts` védi.
 - Szövegszín tokenek: `--accent-text` (általános szöveg), `--accent-ink` (a címkék indigó színe, a világos témában sötétebb a kontraszt miatt). Nyomtatáskor mindig a világos téma érvényes (`@media print`).
 - `llms.txt`: a `postbuild` generálja a tartalomból (`data/llms-txt.ts`).
-- A portréfotó valódi (`public/mark-gyulai.jpg`, a `profile.photo` mutat rá); a hero kódablaka két fület mutat: alapból a profilból épített példányt (`Main.kt`, `developer-instance.ts`), utána a `Developer` data classt a `Role` enummal (`codeSamples`); a szerep a `profile.roleConstant` (a `Role` egyik értéke).
+- A portréfotó valódi (`public/mark-gyulai.jpg`, a `profile.photo` mutat rá); a hero kódablaka két fület mutat: alapból a profilból épített példányt (`Main.kt`, `developer-instance.ts`), utána a `Developer` data classt a `Role` enummal (`codeSamples`); a szerepek a `profile.roleConstants` (a `Role` enum értékei, a `Developer.roles` lista).
 - Önéletrajz: a `profile.cv` útvonalra mutat (`public/cv/*.pdf`), a PDF-et az `npm run cv` készíti a content fájlokból. Tartalmi változás után újra kell gyártani és commitolni. Tanúsítványlink: `Study.url` (csak valós, a felhasználó által megadott cím; kitalálni nem szabad).
 - Tesztelés: egységteszt a viselkedésre (Vitest), E2E a teljes útvonalra (`e2e/`, a content fájlokból olvassa az elvárt szöveget, nem másolja). Új, felhasználó által látható funkcióhoz E2E teszt is jár.
 

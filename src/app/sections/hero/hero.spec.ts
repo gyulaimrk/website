@@ -33,7 +33,9 @@ describe('Hero', () => {
     expect(tabs[0].getAttribute('aria-selected')).toBe('true');
     const code = el.querySelector('app-code-window code')?.textContent ?? '';
     expect(code).toContain(`name = "${contentHu.profile.name}"`);
-    expect(code).toContain(`role = Role.${contentHu.profile.roleConstant}`);
+    contentHu.profile.roleConstants.forEach((constant) =>
+      expect(code).toContain(`Role.${constant}`),
+    );
     contentHu.profile.stack.forEach((item) => expect(code).toContain(`"${item}"`));
   });
 

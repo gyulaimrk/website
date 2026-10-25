@@ -4,7 +4,7 @@ import { Content } from './models';
 const profile: Content['profile'] = {
   name: 'Márk Gyulai',
   role: 'Senior Java Developer',
-  roleConstant: 'SENIOR_JAVA_DEVELOPER',
+  roleConstants: ['SENIOR_JAVA_DEVELOPER', 'KOTLIN_DEVELOPER', 'AI_CONSULTANT'],
   email: 'gyulai.mrk2@live.com',
   linkedin: 'https://www.linkedin.com/in/mark-gyulai-6aa690264',
   github: 'https://github.com/gyulaimrk',
@@ -264,7 +264,7 @@ const codeSamples: Content['codeSamples'] = [
       '',
       'data class Developer(',
       '    val name: String,',
-      '    val role: Role,',
+      '    val roles: List<Role>,',
       '    val stack: List<String>,',
       '    val ai: Boolean,',
       '    val location: String,',
