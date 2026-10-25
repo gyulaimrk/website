@@ -18,9 +18,9 @@ const esc = (text: string) => text.replace(/[&<>"']/g, (char) => ESCAPES[char]);
 const shortUrl = (url: string) => url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
 
 const STYLE = `
-  @page { size: A4; margin: 14mm 15mm; }
+  @page { size: A4; margin: 12mm 14mm; }
   * { box-sizing: border-box; }
-  body { margin: 0; color: #141a38; font: 400 9.6pt/1.45 'Inter', sans-serif; }
+  body { margin: 0; color: #141a38; font: 400 9.2pt/1.4 'Inter', sans-serif; }
   h1, h2, h3 { font-family: 'Space Grotesk', 'Inter', sans-serif; margin: 0; line-height: 1.15; }
   header { display: flex; gap: 16px; align-items: center; margin-bottom: 14px; }
   header img { width: 26mm; height: 26mm; border-radius: 6mm; object-fit: cover; }
