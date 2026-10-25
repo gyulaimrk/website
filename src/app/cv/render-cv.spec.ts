@@ -47,8 +47,10 @@ describe('renderCv', () => {
   });
 
   it('a leírás nélküli projektet is felsorolja, kettőspont nélkül', () => {
-    const html = renderCv('hu', contentHu, assets);
-    expect(html).toMatch(/<strong>Railnet<\/strong><\/li>/);
+    const bare: Content = structuredClone(contentHu);
+    bare.jobs[0].projects = [{ name: 'Csak név' }];
+    const html = renderCv('hu', bare, assets);
+    expect(html).toContain('<strong>Csak név</strong></li>');
   });
 
   it('a projekt feladatait is felsorolja', () => {

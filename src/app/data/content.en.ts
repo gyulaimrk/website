@@ -31,7 +31,7 @@ const jobs: Content['jobs'] = [
     role: 'Senior Software Engineer',
     period: 'October 2025 – present',
     description:
-      'I work as a senior software engineer on four projects, several of them in Kotlin. I develop backends, take part in design and care about quality. One of my projects is about AI consulting.',
+      'I work as a senior software engineer on three projects, several of them in Kotlin. I develop backends, take part in design and care about quality. One of my projects is about AI consulting.',
     projects: [
       {
         name: 'MOL Limo rent a car',
@@ -48,7 +48,6 @@ const jobs: Content['jobs'] = [
           'Communicating with the client',
         ],
       },
-      { name: 'Railnet' },
       {
         name: 'Helvo',
         text: 'A backend for frontend application for a Swiss fintech startup, written in Kotlin with Spring Boot 4.',
@@ -389,7 +388,7 @@ const stats: Content['stats'] = [
   { value: '5+', label: 'years working with Java 11 and 17' },
   { value: '3+', label: 'years using AI in my work' },
   { value: '8–25', label: 'Java versions I write code in confidently' },
-  { value: '8', label: 'projects across 3 workplaces: EPAM, RDI and Adroit' },
+  { value: '7', label: 'projects across 3 workplaces: EPAM, RDI and Adroit' },
 ];
 
 const ui: Content['ui'] = {
@@ -452,7 +451,7 @@ const ui: Content['ui'] = {
   experience: {
     title: 'Experience',
     projects: 'Projects',
-    lead: 'Three companies, four roles, eight projects: I started as a junior developer and today I am a senior.',
+    lead: 'Three companies, four roles, seven projects: I started as a junior developer and today I am a senior.',
   },
   education: {
     title: 'Education and certificates',
