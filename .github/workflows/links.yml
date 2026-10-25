@@ -6,6 +6,10 @@ on:
     - cron: '17 6 * * 1'
   workflow_dispatch:
 
+# Alapból csak olvasási jog; a Cloudflare-titkokat külön kapja a telepítés.
+permissions:
+  contents: read
+
 jobs:
   links:
     runs-on: ubuntu-24.04

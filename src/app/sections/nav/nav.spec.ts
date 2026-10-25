@@ -18,7 +18,7 @@ describe('Nav', () => {
     expect(el.querySelector('.logo')?.textContent).toBe('GM');
     expect(el.querySelector('.name')?.textContent).toBe(contentHu.profile.name);
     expect(el.querySelectorAll('nav a').length).toBe(contentHu.ui.nav.links.length);
-    expect(el.querySelector('a[appButton]')?.getAttribute('href')).toBe('#kapcsolat');
+    expect(el.querySelector('a[appButton]')?.getAttribute('href')).toBe('/hu#kapcsolat');
   });
 
   it('a márkalink neve a látható nevet és a célját is tartalmazza, aria-label nélkül', () => {
@@ -26,7 +26,10 @@ describe('Nav', () => {
     expect(brand.hasAttribute('aria-label')).toBe(false);
     expect(brand.querySelector('.name')?.textContent).toBe(contentHu.profile.name);
     expect(brand.querySelector('.logo')?.getAttribute('aria-hidden')).toBe('true');
-    expect(brand.querySelector('.sr-only')?.textContent).toContain(contentHu.ui.nav.home);
+    expect(brand.querySelector('.name')?.getAttribute('aria-hidden')).toBe('true');
+    expect(brand.querySelector('.sr-only')?.textContent).toBe(
+      `${contentHu.profile.name}: ${contentHu.ui.nav.home}`,
+    );
   });
 
   it('az Escape billentyű bezárja a mobilmenüt', () => {
@@ -45,7 +48,7 @@ describe('Nav', () => {
     const current = [...el.querySelectorAll('nav a')].filter(
       (a) => a.getAttribute('aria-current') === 'true',
     );
-    expect(current.map((a) => a.getAttribute('href'))).toEqual(['#tapasztalat']);
+    expect(current.map((a) => a.getAttribute('href'))).toEqual(['/hu#tapasztalat']);
   });
 
   it('a mobilmenü gombra nyílik, linkre kattintva bezárul', () => {

@@ -13,12 +13,14 @@ describe('BackToTop', () => {
     fixture.detectChanges();
     const link = fixture.nativeElement.querySelector('a') as HTMLAnchorElement;
     expect(link.classList).not.toContain('visible');
-    expect(link.getAttribute('href')).toBe('#top');
+    expect(link.getAttribute('aria-hidden')).toBe('true');
+    expect(link.getAttribute('href')).toBe('/hu#top');
     expect(link.getAttribute('aria-label')).toBe(contentHu.ui.backToTop);
 
     scrollTo(1200);
     fixture.detectChanges();
     expect(link.classList).toContain('visible');
+    expect(link.hasAttribute('aria-hidden')).toBe(false);
     scrollTo(0);
     fixture.detectChanges();
     expect(link.classList).not.toContain('visible');

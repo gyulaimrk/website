@@ -28,7 +28,7 @@ describe('AnchorLink', () => {
   }
 
   it('az azonosítóból készíti a href-et', () => {
-    expect(render().links[0].getAttribute('href')).toBe('#cel');
+    expect(render().links[0].getAttribute('href')).toBe('/hu#cel');
   });
 
   it('kattintásra az elemhez görget, és megakadályozza az alapértelmezett ugrást', () => {

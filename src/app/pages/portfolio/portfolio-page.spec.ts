@@ -38,7 +38,7 @@ describe('PortfolioPage', () => {
 
   it('van tartalomra ugró link, és a main a célja', () => {
     const { el } = render();
-    expect(el.querySelector('.skip')?.getAttribute('href')).toBe('#main');
+    expect(el.querySelector('.skip')?.getAttribute('href')).toBe('/hu#main');
     expect(el.querySelector('main')?.id).toBe('main');
   });
 

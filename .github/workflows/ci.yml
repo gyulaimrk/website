@@ -8,6 +8,10 @@ on:
   schedule:
     - cron: '23 5 1 * *'
 
+# Alapból csak olvasási jog; a Cloudflare-titkokat külön kapja a telepítés.
+permissions:
+  contents: read
+
 jobs:
   build:
     # Rögzített futtató: az ubuntu-latest már 26.04, amit a Playwright 1.56 nem támogat.

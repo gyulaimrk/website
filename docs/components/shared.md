@@ -5,7 +5,7 @@
 ### `a[appAnchor]` (`AnchorLink`)
 
 Oldalon belüli ugrás. A `<base href="/">` miatt a sima `#id` link nem működik, ezért minden belső ugráshoz ezt
-használd.
+használd. A `href` a nyelv valódi címe (`/hu#id`), így szkript nélkül is a jó oldalra visz.
 
 | Bemenet     | Típus    | Jelentés                                    |
 | ----------- | -------- | ------------------------------------------- |
@@ -20,7 +20,7 @@ célnak van `tabindex`-e.
 
 ### `app-back-to-top` (`BackToTop`)
 
-Lebegő gomb, amely az oldalon lejjebb görgetve jelenik meg, és a tetejére visz (`appAnchor`-ral).
+Lebegő gomb, amely az oldalon lejjebb görgetve jelenik meg, és a tetejére visz (`appAnchor`-ral). Rejtve `visibility: hidden` és `aria-hidden`, így a képernyőolvasó és a Tab sem éri el.
 
 ### `a[appButton]` (`Button`)
 

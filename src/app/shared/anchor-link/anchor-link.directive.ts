@@ -1,21 +1,24 @@
 import { DOCUMENT } from '@angular/common';
 import { Directive, HostListener, inject, input } from '@angular/core';
+import { LanguageService } from '../../core/language.service';
 import { prefersReducedMotion } from '../../core/prefers-reduced-motion';
 
 /**
  * Oldalon belüli ugrás egy elemre: `<a appAnchor="rolam">`.
  *
- * A sima `href="#id"` a `<base href="/">` miatt a gyökércímre vinne, ezért a kattintást
- * itt kezeljük: a böngésző az útvonal érintése nélkül az elemhez görget.
+ * A sima `href="#id"` a `<base href="/">` miatt a gyökércímre vinne. Ezért a `href` a nyelv valódi
+ * címe (`/hu#id`), így szkript nélkül is a jó oldalra visz; a kattintást itt kezeljük, és a
+ * böngésző az útvonal érintése nélkül az elemhez görget.
  */
 @Directive({
   selector: 'a[appAnchor]',
-  host: { '[attr.href]': '"#" + appAnchor()' },
+  host: { '[attr.href]': '"/" + language.lang() + "#" + appAnchor()' },
 })
 export class AnchorLink {
   /** A cél elem azonosítója, `#` nélkül. */
   readonly appAnchor = input.required<string>();
   private readonly document = inject(DOCUMENT);
+  protected readonly language = inject(LanguageService);
 
   @HostListener('click', ['$event'])
   protected onClick(event: Event) {

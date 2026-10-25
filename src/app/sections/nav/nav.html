@@ -2,8 +2,8 @@
   <div class="bar">
     <a class="brand" appAnchor="top" (click)="closeMenu()">
       <span class="logo" aria-hidden="true">{{ initials(content().profile.name) }}</span>
-      <span class="name">{{ content().profile.name }}</span>
-      <span class="sr-only">: {{ content().ui.nav.home }}</span>
+      <span class="name" aria-hidden="true">{{ content().profile.name }}</span>
+      <span class="sr-only">{{ content().profile.name }}: {{ content().ui.nav.home }}</span>
     </a>
     <nav id="site-nav" [class.open]="menuOpen()" [attr.aria-label]="content().ui.nav.label">
       @for (link of content().ui.nav.links; track link.fragment) {

@@ -20,6 +20,14 @@ describe('Hero', () => {
     expect(el.querySelector('.greeting')?.textContent).toBe(contentHu.ui.hero.greeting);
   });
 
+  it('a gépelő szerepeket a képernyőolvasó teljes listaként kapja, az animált rész rejtett', () => {
+    const { el } = render();
+    expect(el.querySelector('.role .sr-only')?.textContent).toBe(
+      contentHu.profile.roles.join(', '),
+    );
+    expect(el.querySelector('.role [aria-hidden="true"] app-typewriter')).not.toBeNull();
+  });
+
   it('megmutatja a szerepet és a statisztikákat', () => {
     const { el } = render();
     expect(el.querySelector('app-typewriter')?.textContent).toContain(contentHu.profile.roles[0]);
@@ -52,7 +60,7 @@ describe('Hero', () => {
     const hrefs = [...render().el.querySelectorAll('a[appButton]')].map((a) =>
       a.getAttribute('href'),
     );
-    expect(hrefs).toEqual(['#tapasztalat', contentHu.profile.cv, contentHu.profile.linkedin]);
+    expect(hrefs).toEqual(['/hu#tapasztalat', contentHu.profile.cv, contentHu.profile.linkedin]);
   });
 
   it('nyelvváltáskor angolra vált', () => {

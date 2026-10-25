@@ -11,17 +11,22 @@ a {
   background: var(--gradient);
   color: var(--on-accent);
   box-shadow: 0 10px 30px color-mix(in srgb, var(--accent) 40%, transparent);
+  /* Rejtve kikerül a hozzáférhetőségi fából és a Tab-sorrendből is. */
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
   transform: translateY(12px);
   transition:
     opacity 0.25s,
-    transform 0.25s;
+    transform 0.25s,
+    visibility 0s 0.25s;
 }
 a.visible {
+  visibility: visible;
   opacity: 1;
   pointer-events: auto;
   transform: none;
+  transition-delay: 0s;
 }
 svg {
   width: 22px;

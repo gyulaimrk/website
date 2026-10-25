@@ -38,6 +38,10 @@
   margin-left: 12px;
   overflow-x: auto;
 }
+.tabs button:focus-visible {
+  /* A fülsáv görget, ezért a gyűrű belül marad, különben levágná a szegély. */
+  outline-offset: -4px;
+}
 .tabs button {
   flex: none;
   min-height: 48px;

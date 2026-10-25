@@ -9,7 +9,8 @@
         {{ content().ui.hero.nameSuffix }}
       </h1>
       <p class="role">
-        <app-typewriter [words]="content().profile.roles" />
+        <span class="sr-only">{{ content().profile.roles.join(', ') }}</span>
+        <span aria-hidden="true"><app-typewriter [words]="content().profile.roles" /></span>
       </p>
       <p class="lead">{{ content().profile.intro }}</p>
       <div class="actions">
