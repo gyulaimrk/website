@@ -28,6 +28,7 @@ describe('AiWorkflow', () => {
     TestBed.inject(LanguageService).use('en');
     fixture.detectChanges();
     expect(el.querySelector('h2')?.textContent).toBe(contentEn.aiWorkflow.title);
-    expect(el.querySelector('code')?.textContent).toContain('Rules');
+    expect(el.querySelector('.heading')?.textContent).toContain('Márk Gyulai');
+    expect(el.querySelector('code')?.textContent).toContain('Commands');
   });
 });

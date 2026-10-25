@@ -12,6 +12,20 @@ Magyar nyelvű portfólió oldal, Angular 22 (standalone, signals, zoneless), SC
 - `npm run preview` – build és helyi Cloudflare előnézet (`wrangler dev`)
 - `npm run deploy` – build és telepítés (`wrangler login` kell hozzá)
 
+## Hol találod mit
+- **Dokumentáció:** `docs/` (indexe: `docs/README.md`): architektúra, fejlesztés, tartalom, és részegységenként a `docs/components/`. Frissítése a `/document-components` skillel.
+- **Skillek:** `.claude/skills/`: `edit-content` (tartalom mindkét nyelven), `document-components` (dokumentáció), `project-conventions` (háttértudás).
+- **Ágens:** `.claude/agents/a11y-reviewer.md` (hozzáférhetőségi átvizsgálás).
+- **Hookok:** `.claude/hooks/` (formázás, védelem, build- és tesztellenőrzés a kör végén); beállításuk a `.claude/settings.json`-ban van.
+- **Tartalom:** `src/app/data/content.hu.ts` és `content.en.ts`; **tesztek:** a komponensek mellett `*.spec.ts`, az E2E tesztek az `e2e/` mappában.
+
+## Konvenciók röviden
+- Kétnyelvű oldal: szöveg csak a tartalomfájlokban van, a komponensek a `ContentService`-ből olvasnak.
+- A tartalom csak valós adat lehet; hiányzó adatnál kérdezni kell.
+- Minden komponens standalone, külön `.ts`, `.html`, `.scss` és `.spec.ts` fájllal.
+- SOLID, DRY, KISS; egy komponens egy felelősség.
+- Módosítás után az egységteszt és a build hibátlan legyen; látható funkcióhoz E2E teszt is jár.
+
 ## Felépítés
 Minden komponens saját mappában, négy külön fájllal: `név.ts`, `név.html`, `név.scss`, `név.spec.ts`. Minden komponens standalone.
 - `src/app/data/` – `models.ts` (típusok), `content.hu.ts` és `content.en.ts` (a két nyelv teljes tartalma és felületi szövegei), `content.ts` (`CONTENTS`), `content.spec.ts` (a két nyelv szerkezetének egyezését is ellenőrzi)
@@ -49,6 +63,6 @@ Minden komponens saját mappában, négy külön fájllal: `név.ts`, `név.html
 
 ## Claude-automatizálás
 - `.claude/settings.json` hookok: Prettier formázás szerkesztés után, generált fájlok (`package-lock.json`, `dist/`, `.env`) védelme, `ng build` ellenőrzés a kör végén.
-- Skillek: `/edit-content` (tartalom szerkesztése mindkét nyelven), `project-conventions` (háttértudás).
+- Skillek: `/edit-content` (tartalom szerkesztése mindkét nyelven), `/document-components` (részegységek dokumentálása a `docs/` mappában), `project-conventions` (háttértudás).
 - Ágens: `a11y-reviewer` (hozzáférhetőségi átvizsgálás).
 - `.mcp.json`: context7 és Playwright MCP.

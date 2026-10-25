@@ -12,6 +12,10 @@ npm run e2e               # E2E tesztek (Playwright), előbb: npm run build
 npm run cv                # a letölthető önéletrajz (PDF) újragyártása
 ```
 
+## Dokumentáció
+A részletes dokumentáció a [`docs/`](docs/README.md) mappában van: architektúra, fejlesztés, tartalom és részegységenként a komponensek.
+A projekt szabályai a `CLAUDE.md`-ben, a Claude Code skillek a `.claude/skills/` mappában vannak.
+
 ## Tartalom
 Minden szöveg a `src/app/data/content.hu.ts` és `content.en.ts` fájlban van, a két nyelv szerkezete azonos
 kell legyen (a `content.spec.ts` ellenőrzi). Tartalomváltozás után futtasd az `npm run cv` parancsot,
