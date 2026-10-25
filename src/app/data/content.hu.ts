@@ -264,9 +264,10 @@ const skills: Content['skills'] = [
     title: 'Tesztelés',
     tag: 'Tesztelés és szoftverminőség',
     paragraphs: [
-      'A tesztelést a fejlesztési folyamat szerves részének tekintem. JUnit és Mockito segítségével egységteszteket készítek, a FIRST alapelveket szem előtt tartva: a tesztek legyenek gyorsak, egymástól függetlenek, megismételhetők, önellenőrzők és időben megírhatók.',
-      'A felületi teszteléshez Seleniummal és Cucumberrel dolgoztam, míg az alkalmazások integrációs és rendszerszintű működését célzott tesztekkel ellenőrzöm. REST Assured témában API-tesztelési képzésen vettem részt, korábbi projektjeim során pedig a tesztlefedettség javításában is szerepet vállaltam.',
+      'A tesztelést a fejlesztési folyamat szerves részének tekintem. Az egységteszteket a FIRST alapelvek szerint írom: gyorsak, függetlenek, megismételhetők, önellenőrzők és időben megírtak.',
+      'Felületi, integrációs és rendszerszintű tesztekkel is ellenőrzöm az alkalmazások működését. REST Assured témában API-tesztelési képzésen vettem részt, korábbi projektjeimen pedig a tesztlefedettség javításában is szerepet vállaltam.',
     ],
+    chips: ['JUnit', 'Mockito', 'Selenium', 'Cucumber', 'FIRST'],
   },
   {
     title: 'Eszközök',

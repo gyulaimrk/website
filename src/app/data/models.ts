@@ -48,6 +48,8 @@ export interface Skill {
   title: string;
   tag: string;
   paragraphs: string[];
+  /** Technológiák címkeként a szöveg alatt, ha a kártyának van ilyen. */
+  chips?: string[];
 }
 
 export interface SideProject {

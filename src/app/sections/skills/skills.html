@@ -12,6 +12,9 @@
         @for (paragraph of skill.paragraphs; track $index) {
           <p class="text">{{ paragraph }}</p>
         }
+        @if (skill.chips) {
+          <app-chip-list class="chips" [items]="skill.chips" />
+        }
       </app-card>
     }
   </div>

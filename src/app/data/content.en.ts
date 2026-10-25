@@ -264,9 +264,10 @@ const skills: Content['skills'] = [
     title: 'Testing',
     tag: 'Testing and software quality',
     paragraphs: [
-      'I regard testing as an integral part of the development process. I write unit tests with JUnit and Mockito, keeping the FIRST principles in mind: tests should be fast, independent, repeatable, self-validating and timely.',
-      'For UI testing I have worked with Selenium and Cucumber, while I verify the integration and system-level behaviour of applications with targeted tests. I attended an API testing course on REST Assured, and on earlier projects I also took a role in improving test coverage.',
+      'I regard testing as an integral part of the development process. I write unit tests following the FIRST principles: fast, independent, repeatable, self-validating and timely.',
+      'I also verify applications with UI, integration and system-level tests. I attended an API testing course on REST Assured, and on earlier projects I also took a role in improving test coverage.',
     ],
+    chips: ['JUnit', 'Mockito', 'Selenium', 'Cucumber', 'FIRST'],
   },
   {
     title: 'Tools',

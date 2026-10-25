@@ -23,6 +23,10 @@ h3 {
 .text {
   color: var(--muted);
 }
+.chips {
+  display: block;
+  margin-top: 16px;
+}
 .text + .text {
   margin-top: 12px;
 }

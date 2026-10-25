@@ -24,4 +24,16 @@ describe('Skills', () => {
       expect(texts).toEqual(contentHu.skills[i].paragraphs);
     });
   });
+
+  it('a címkéket a szöveg alatt mutatja, ha a kártyának vannak', () => {
+    const fixture = TestBed.createComponent(Skills);
+    fixture.detectChanges();
+    const cards = [...fixture.nativeElement.querySelectorAll('app-card')] as HTMLElement[];
+    cards.forEach((card, i) => {
+      const chips = [...card.querySelectorAll('app-chip-list li')].map((li) =>
+        li.textContent?.trim(),
+      );
+      expect(chips).toEqual(contentHu.skills[i].chips ?? []);
+    });
+  });
 });

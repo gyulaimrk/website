@@ -28,7 +28,7 @@ A fotó lusta betöltésű, rögzített mérettel.
 
 ### `app-skills` (`Skills`)
 
-Az eszköztár kártyái: csoportcímke, cím és egy vagy több bekezdés (`paragraphs`). A kiemelt kártya (`highlight`) széles és színátmenetes keretű.
+Az eszköztár kártyái: csoportcímke, cím és egy vagy több bekezdés (`paragraphs`), és ha van, technológiacímkék (`chips`, a Tesztelés kártyán). A kiemelt kártya (`highlight`) széles és színátmenetes keretű.
 
 **Tesztek:** `skills.spec.ts`: minden képességhez kártya, a kiemelt szélesebb és keretes.
 
