@@ -124,6 +124,7 @@ const jobs: Content['jobs'] = [
           'ArgoCD',
           'Jira',
           'Confluence',
+          'Copilot',
         ],
         text: 'User accounts, authentication and authorization; I worked in an international team.',
         points: [
@@ -159,11 +160,12 @@ const jobs: Content['jobs'] = [
           'GitLab',
           'Jira',
           'Confluence',
+          'Copilot',
         ],
       },
       {
         name: 'Multitenant framework',
-        tech: ['Java', 'Multitenancy', 'Jenkins', 'GitLab', 'Jira', 'Confluence'],
+        tech: ['Java', 'Multitenancy', 'Jenkins', 'GitLab', 'Jira', 'Confluence', 'Copilot'],
         text: 'The multitenant framework of the Broadridge project, which I worked on as a separate project.',
       },
     ],
@@ -187,6 +189,7 @@ const jobs: Content['jobs'] = [
           'GitLab',
           'Jira',
           'Confluence',
+          'Copilot',
         ],
         text: 'EPAM’s internal exam system: a web application in which exams could be taken safely. My team and I built its backend with Spring Boot 3 and a MySQL database.',
         points: [
@@ -200,7 +203,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Broadridge financial application',
-        tech: ['Java', 'Jenkins', 'GitLab', 'Jira', 'Confluence'],
+        tech: ['Java', 'Jenkins', 'GitLab', 'Jira', 'Confluence', 'Copilot'],
         text: 'I later worked on the same project as a Software Engineer.',
       },
     ],

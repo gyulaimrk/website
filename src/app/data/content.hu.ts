@@ -124,6 +124,7 @@ const jobs: Content['jobs'] = [
           'ArgoCD',
           'Jira',
           'Confluence',
+          'Copilot',
         ],
         text: 'Felhasználói fiókok, authentikáció és autorizáció; nemzetközi csapatban dolgoztam.',
         points: [
@@ -159,11 +160,12 @@ const jobs: Content['jobs'] = [
           'GitLab',
           'Jira',
           'Confluence',
+          'Copilot',
         ],
       },
       {
         name: 'Multitenant keretrendszer',
-        tech: ['Java', 'Multitenancy', 'Jenkins', 'GitLab', 'Jira', 'Confluence'],
+        tech: ['Java', 'Multitenancy', 'Jenkins', 'GitLab', 'Jira', 'Confluence', 'Copilot'],
         text: 'A Broadridge-projekt többbérlős (multitenant) keretrendszere, amelyen külön projektként dolgoztam.',
       },
     ],
@@ -187,6 +189,7 @@ const jobs: Content['jobs'] = [
           'GitLab',
           'Jira',
           'Confluence',
+          'Copilot',
         ],
         text: 'Az EPAM belső vizsgarendszere: webalkalmazás, amelyben biztonságosan lehetett vizsgázni. A csapatommal a backendjét építettük Spring Boot 3-mal és MySQL adatbázissal.',
         points: [
@@ -200,7 +203,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Broadridge pénzügyi alkalmazás',
-        tech: ['Java', 'Jenkins', 'GitLab', 'Jira', 'Confluence'],
+        tech: ['Java', 'Jenkins', 'GitLab', 'Jira', 'Confluence', 'Copilot'],
         text: 'Ugyanezen a projekten később Software Engineerként is dolgoztam.',
       },
     ],
