@@ -27,7 +27,7 @@ const STYLE = `
   h1 { font-size: 24pt; }
   .role { margin-top: 2px; color: #3a45a8; font-size: 12pt; font-weight: 600; }
   .contact { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 2px 14px; color: #4b5686; font-size: 9pt; }
-  h2 { margin: 10px 0 5px; padding-bottom: 3px; border-bottom: 1.5px solid #7c8cff; color: #3a45a8; font-size: 11.5pt; break-after: avoid; }
+  h2 { margin: 10px 0 5px; padding-bottom: 3px; border-bottom: 1.5px solid #2563eb; color: #1d3f9e; font-size: 11.5pt; break-after: avoid; }
   p { margin: 0; }
   .job { margin-bottom: 6px; break-inside: avoid; }
   .job-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }

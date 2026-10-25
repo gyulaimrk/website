@@ -1,17 +1,17 @@
 :root {
-  --bg: #080d1f;
-  --bg-soft: #0e1530;
+  --bg: #071226;
+  --bg-soft: #0c1b38;
   --card: rgb(255 255 255 / 0.05);
   --card-hover: rgb(255 255 255 / 0.09);
   --border: rgb(255 255 255 / 0.1);
-  --text: #e8ecff;
-  --muted: #b4bee0;
-  --accent: #7c8cff;
-  --accent-2: #b36bff;
+  --text: #e6f0ff;
+  --muted: #b1c4e6;
+  --accent: #6aa5ff;
+  --accent-2: #3d82f6;
   --accent-3: #28d9e8;
   --accent-text: #28d9e8;
-  --accent-ink: #7c8cff;
-  --on-accent: #080d1f;
+  --accent-ink: #7db3ff;
+  --on-accent: #071226;
   --glow: 0.32;
   --shadow: 0 20px 60px rgb(0 0 0 / 0.35);
   --gradient: linear-gradient(120deg, var(--accent), var(--accent-2) 55%, var(--accent-3));
@@ -33,21 +33,21 @@
 }
 /* A világos téma tokenjei: a képernyős világos téma és a nyomtatás is ezt használja. */
 @mixin light-theme {
-  --bg: #f5f7ff;
+  --bg: #f2f7ff;
   --bg-soft: #ffffff;
   --card: rgb(255 255 255 / 0.85);
   --card-hover: #ffffff;
-  --border: rgb(20 30 80 / 0.1);
-  --text: #121a3d;
-  --muted: #4b5686;
-  --accent: #4f5df0;
-  --accent-2: #9b3dff;
+  --border: rgb(15 40 100 / 0.1);
+  --text: #0f1d3d;
+  --muted: #46567f;
+  --accent: #2563eb;
+  --accent-2: #1d56d8;
   --accent-3: #087587;
   --accent-text: #055c69;
-  --accent-ink: #3f4bd8;
+  --accent-ink: #1d4ed8;
   --on-accent: #ffffff;
   --glow: 0.28;
-  --shadow: 0 20px 50px rgb(40 50 120 / 0.14);
+  --shadow: 0 20px 50px rgb(30 70 150 / 0.14);
   color-scheme: light;
 }
 :root[data-theme='light'] {
