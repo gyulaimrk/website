@@ -55,7 +55,8 @@ describe('renderCv', () => {
 
   it('a projekt eszközeit zárójelben a név után írja ki', () => {
     const html = renderCv('hu', contentHu, assets);
-    expect(html).toContain('<span class="tools">(Jenkins, GitLab)</span>');
+    const project = contentHu.jobs.flatMap((job) => job.projects ?? []).find((p) => p.tech?.length);
+    expect(html).toContain(`<span class="tools">(${project?.tech?.join(', ')})</span>`);
   });
 
   it('a projekt feladatait is felsorolja', () => {

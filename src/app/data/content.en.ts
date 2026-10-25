@@ -35,7 +35,7 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'MOL Limo rent a car',
-        tech: ['Jenkins', 'GitLab'],
+        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence', 'Plane'],
         url: 'https://rentacar.mollimo.hu/rent/start',
         text: 'I develop the backend of the MOL Limo car rental system in Kotlin.',
         points: [
@@ -51,7 +51,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Helvo',
-        tech: ['GitLab', 'ArgoCD'],
+        tech: ['GitLab', 'ArgoCD', 'Jira', 'Confluence', 'Plane'],
         text: 'My international team and I built a backend for frontend application for a Swiss fintech startup in Kotlin with Spring Boot 4.',
         points: [
           'Documentation-first (design-first) approach: designing the API in OpenAPI',
@@ -61,6 +61,7 @@ const jobs: Content['jobs'] = [
       {
         name: 'GLI Solutions',
         role: 'AI Consultant and Developer',
+        tech: ['Azure DevOps', 'Jira', 'Confluence', 'Plane'],
         text: 'As an AI consultant, I look into where artificial intelligence is useful, whether it is feasible and how it fits into existing systems. My team and I also work on the project as developers.',
         points: [
           'Developing a platform that supports manual testing, with a C# and .NET backend, a PostgreSQL database, Node.js and Angular',
@@ -100,7 +101,7 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'McDonald’s',
-        tech: ['GitHub', 'ArgoCD'],
+        tech: ['GitHub', 'ArgoCD', 'Jira', 'Confluence'],
         text: 'User accounts, authentication and authorization; I worked in an international team.',
         points: [
           'Maintaining existing microservices',
@@ -135,10 +136,13 @@ const jobs: Content['jobs'] = [
     description:
       'As part of an international team, we developed the financial application of Broadridge, an American company. This is where I got to know multithreaded programming, domain-driven design and the functional approach in depth. I wrote unit, system and acceptance tests, as well as UI tests with Selenium. I connected other systems’ APIs, sometimes asynchronously. I fixed concurrency bugs, handled database transactions and improved test coverage. I also mentored a junior developer.',
     projects: [
-      { name: 'Broadridge financial application', tech: ['Jenkins', 'GitLab'] },
+      {
+        name: 'Broadridge financial application',
+        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence'],
+      },
       {
         name: 'Multitenant framework',
-        tech: ['Jenkins', 'GitLab'],
+        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence'],
         text: 'The multitenant framework of the Broadridge project, which I worked on as a separate project.',
       },
     ],
@@ -153,7 +157,7 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'Internal exam system',
-        tech: ['Jenkins', 'GitLab'],
+        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence'],
         text: 'EPAM’s internal exam system: a web application in which exams could be taken safely. My team and I built its backend with Spring Boot 3 and a MySQL database.',
         points: [
           'Designing and developing new features',
@@ -166,7 +170,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Broadridge financial application',
-        tech: ['Jenkins', 'GitLab'],
+        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence'],
         text: 'I later worked on the same project as a Software Engineer.',
       },
     ],
@@ -204,7 +208,7 @@ const skills: Content['skills'] = [
   {
     title: 'Tools',
     tag: 'Workflow',
-    text: 'I use Gradle and Maven for builds and Git for version control. I have worked with Jenkins, GitLab, GitHub and GitHub Actions for CI/CD, and used ArgoCD for deployments. I hold Docker certificates. I use SQL and Lombok regularly. I work with an agile mindset and use Jira and Confluence for teamwork.',
+    text: 'I use Gradle and Maven for builds and Git for version control. I have worked with Jenkins, GitLab, GitHub and GitHub Actions for CI/CD, and used ArgoCD for deployments. I hold Docker certificates. I use SQL and Lombok regularly. I work with an agile mindset and use Jira, Confluence, Plane and Azure DevOps for teamwork.',
   },
   {
     title: 'Design',
