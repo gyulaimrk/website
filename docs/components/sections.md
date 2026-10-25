@@ -34,10 +34,10 @@ Az eszköztár kártyái: csoportcímke, cím és egy vagy több bekezdés (`par
 
 ### `app-ai-workflow` (`AiWorkflow`)
 
-„Hogyan dolgozom AI-val”: négy pont kártyákon, mellette kódablakban a valódi `CLAUDE.md` rövidített részlete és
+„Hogyan dolgozom AI-val”: öt pont kártyákon (egy vagy több bekezdéssel), mellette kódablakban a valódi `CLAUDE.md` rövidített részlete és
 egy megjegyzés.
 
-**Tesztek:** `ai-workflow.spec.ts`: mind a négy pont, a színezett CLAUDE.md részlet a megjegyzéssel, nyelvváltás.
+**Tesztek:** `ai-workflow.spec.ts`: mind az öt pont bekezdésenként, a színezett CLAUDE.md részlet a megjegyzéssel, nyelvváltás.
 
 ### `app-experience` (`Experience`) és `app-job-card` (`JobCard`)
 

@@ -311,23 +311,41 @@ const codeSamples: Content['codeSamples'] = [
 
 const aiWorkflow: Content['aiWorkflow'] = {
   title: 'How I work with AI',
-  lead: 'I have used AI in my work for more than {aiYears} years. These are the four habits I follow.',
+  lead: 'For more than {aiYears} years I have used tools built on artificial intelligence to support my development work. For me, AI is not a substitute for engineering thinking but a tool that makes development more efficient and consistent. To that end, I follow five principles.',
   points: [
     {
-      title: 'Precise prompts',
-      text: 'I describe a task together with its context: what the goal is, what to watch out for, and when it counts as done. That way the assistant gets closer to a solution on the first attempt.',
+      title: 'Precisely defined tasks',
+      paragraphs: [
+        'For every task I provide the necessary context, the desired outcome, the technical constraints and the acceptance criteria. This way the AI assistant does not merely react to an instruction; it supports the work with an understanding of the problem and the project’s requirements.',
+      ],
     },
     {
-      title: 'CLAUDE.md in every project',
-      text: 'I record a project’s rules, commands and structure in a CLAUDE.md file, so the assistant starts every session from the same information. This site has one too, and it can be viewed in the source code.',
+      title: 'Project instructions in CLAUDE.md',
+      paragraphs: [
+        'I document a project’s structure, technology decisions, development rules and frequently used commands in CLAUDE.md files. This ensures that the AI assistant works with the project’s specifics in mind and applies the recorded guidelines consistently across sessions.',
+        'The source code of this website also contains such project instructions, which can be viewed in the repository.',
+      ],
     },
     {
-      title: 'My own skills and hooks',
-      text: 'I write skills for repeated tasks, for example editing content and writing documentation. The lizacover.hu project has six skills and a hook that runs checks before every push.',
+      title: 'Custom skills and automated checks',
+      paragraphs: [
+        'For recurring tasks I create my own AI skills that follow defined workflows and working rules. Where needed, I complement them with automated hooks, so that certain checks run automatically at the right steps of development.',
+        'In the lizacover.hu project, six custom skills and a pre-push check hook support the development and content-management workflow.',
+      ],
     },
     {
-      title: 'I check the result',
-      text: 'Code written by AI is checked by tests and the build too, and CI runs them on every change. For this site I also measured accessibility and performance.',
+      title: 'Verified, testable results',
+      paragraphs: [
+        'I hold AI-generated code to the same quality standards as my own work. Tests and the build verify that it works, and CI automatically runs the configured checks on every change.',
+        'For this website, besides functional checks I also paid attention to accessibility and performance. AI involvement does not replace review: the developer remains responsible for the final result.',
+      ],
+    },
+    {
+      title: 'Security and control',
+      paragraphs: [
+        'When using AI, I treat security as an integral part of the development process. I make sure the assistant works only with the access and information needed to complete the task. I do not handle secret keys, credentials or sensitive information in ordinary project instructions, and I deliberately limit permissions and the scope of automated actions.',
+        'I also review code and changes suggested by AI from a security point of view. I consider input validation, access control, dependency security and the proper handling of sensitive data especially important. Automation does not mean unlimited access: for critical operations I use checkpoints, and the final decision stays in the developer’s hands.',
+      ],
     },
   ],
   file: {

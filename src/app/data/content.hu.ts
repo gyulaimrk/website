@@ -311,23 +311,41 @@ const codeSamples: Content['codeSamples'] = [
 
 const aiWorkflow: Content['aiWorkflow'] = {
   title: 'Hogyan dolgozom AI-val',
-  lead: 'Több mint {aiYears} éve használok AI-t a munkámban. Ezt a négy szokást követem.',
+  lead: 'Több mint {aiYears} éve használok mesterséges intelligenciára épülő eszközöket a fejlesztői munkám támogatására. Számomra az AI nem a mérnöki gondolkodás helyettesítője, hanem egy eszköz, amellyel hatékonyabbá és következetesebbé tehető a fejlesztés. Ennek érdekében öt alapelvet követek.',
   points: [
     {
-      title: 'Pontos promptok',
-      text: 'A feladathoz megadom a kontextust: mi a cél, mire kell figyelni, és mikor tekintem késznek. Így az asszisztens már az első próbálkozásra közelebb kerül a megoldáshoz.',
+      title: 'Pontosan meghatározott feladatok',
+      paragraphs: [
+        'Minden feladathoz megadom a szükséges kontextust, a kívánt eredményt, a technikai megkötéseket és az elfogadási feltételeket. Így az AI-asszisztens nem csupán egy utasításra reagál, hanem a probléma megértésével és a projekt követelményeinek figyelembevételével segíti a munkát.',
+      ],
     },
     {
-      title: 'CLAUDE.md minden projektben',
-      text: 'A projekt szabályait, parancsait és szerkezetét egy CLAUDE.md fájlban rögzítem, így az asszisztens minden munkamenetben ugyanabból indul ki. Ennek az oldalnak is van ilyen fájlja, a forráskódban megtekinthető.',
+      title: 'Projektutasítások a CLAUDE.md segítségével',
+      paragraphs: [
+        'A projekt struktúráját, technológiai döntéseit, fejlesztési szabályait és gyakran használt parancsait CLAUDE.md fájlokban dokumentálom. Ez biztosítja, hogy az AI-asszisztens a projekt sajátosságait figyelembe véve dolgozzon, és a különböző munkamenetek során is következetesen alkalmazza a rögzített irányelveket.',
+        'Ennek a weboldalnak a forráskódja szintén tartalmaz ilyen projektutasításokat, amelyek a repositoryban megtekinthetők.',
+      ],
     },
     {
-      title: 'Saját skillek és hookok',
-      text: 'Az ismétlődő feladatokra skilleket írok, például tartalomszerkesztésre és dokumentálásra. A lizacover.hu projektben hat skill és egy push előtti ellenőrző hook működik.',
+      title: 'Saját skillek és automatizált ellenőrzések',
+      paragraphs: [
+        'Az ismétlődő feladatokhoz saját AI-skilleket készítek, amelyek meghatározott munkafolyamatokat és feladatvégzési szabályokat követnek. Ezeket szükség szerint automatizált hookokkal egészítem ki, hogy bizonyos ellenőrzések a megfelelő fejlesztési lépéseknél automatikusan lefussanak.',
+        'A lizacover.hu projektben hat saját skill és egy push előtti ellenőrző hook támogatja a fejlesztési és tartalomkezelési folyamatokat.',
+      ],
     },
     {
-      title: 'Az eredményt ellenőrzöm',
-      text: 'Az AI által írt kódot is tesztek és build ellenőrzik, a CI pedig minden változtatásnál lefuttatja őket. Ennél az oldalnál hozzáférhetőségi és teljesítménymérést is végeztem.',
+      title: 'Ellenőrzött, tesztelhető eredmények',
+      paragraphs: [
+        'Az AI által generált kódot ugyanazoknak a minőségi elvárásoknak vetem alá, mint a saját fejlesztéseimet. A tesztek és a buildfolyamat ellenőrzik a működést, a CI pedig minden változtatásnál automatikusan lefuttatja a beállított ellenőrzéseket.',
+        'A weboldal esetében a funkcionális ellenőrzések mellett a hozzáférhetőségre és a teljesítményre is figyelmet fordítottam. Az AI közreműködése nem helyettesíti a felülvizsgálatot: a végső eredményért továbbra is a fejlesztő felel.',
+      ],
+    },
+    {
+      title: 'Biztonság és kontroll',
+      paragraphs: [
+        'Az AI használata során a biztonságot a fejlesztési folyamat szerves részének tekintem. Figyelek arra, hogy az asszisztens csak a feladat elvégzéséhez szükséges hozzáférésekkel és információkkal dolgozzon. Nem kezelek titkos kulcsokat, hozzáférési adatokat vagy érzékeny információkat közönséges projektutasításokban, és a jogosultságokat, valamint az automatizált műveletek hatókörét tudatosan korlátozom.',
+        'Az AI által javasolt kódot és módosításokat biztonsági szempontból is felülvizsgálom. Különösen fontosnak tartom a bemeneti adatok ellenőrzését, a jogosultságkezelést, a függőségek biztonságát és az érzékeny adatok megfelelő kezelését. Az automatizálás nem jelent korlátlan hozzáférést: a kritikus műveleteknél ellenőrzési pontokat alkalmazok, és a végső döntés a fejlesztő kezében marad.',
+      ],
     },
   ],
   file: {

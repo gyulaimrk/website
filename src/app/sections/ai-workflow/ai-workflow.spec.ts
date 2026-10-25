@@ -10,9 +10,11 @@ describe('AiWorkflow', () => {
     return { fixture, el: fixture.nativeElement as HTMLElement };
   }
 
-  it('mind a négy gyakorlati pontot kirajzolja', () => {
+  it('mind az öt gyakorlati pontot kirajzolja, bekezdésenként', () => {
     const { el } = render();
-    expect(el.querySelectorAll('app-card h3').length).toBe(4);
+    expect(el.querySelectorAll('app-card h3').length).toBe(5);
+    const texts = [...el.querySelectorAll('app-card p')].map((p) => p.textContent);
+    expect(texts).toEqual(contentHu.aiWorkflow.points.flatMap((point) => point.paragraphs));
     expect(el.querySelector('h2')?.textContent).toBe(contentHu.aiWorkflow.title);
   });
 

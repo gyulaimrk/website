@@ -20,6 +20,9 @@ h3 {
 .points p {
   color: var(--muted);
 }
+.points p + p {
+  margin-top: 12px;
+}
 .file {
   position: sticky;
   top: 96px;

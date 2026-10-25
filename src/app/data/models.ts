@@ -86,7 +86,7 @@ export interface CodeFile {
 
 export interface AiPoint {
   title: string;
-  text: string;
+  paragraphs: string[];
 }
 
 /** A „Hogyan dolgozom AI-val” szekció tartalma. */

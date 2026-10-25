@@ -5,7 +5,9 @@
       @for (point of workflow().points; track point.title; let i = $index) {
         <app-card [appReveal]="i">
           <h3>{{ point.title }}</h3>
-          <p>{{ point.text }}</p>
+          @for (paragraph of point.paragraphs; track $index) {
+            <p>{{ paragraph }}</p>
+          }
         </app-card>
       }
     </div>
