@@ -171,7 +171,6 @@ const jobs: Content['jobs'] = [
           'GitLab',
           'Jira',
           'Confluence',
-          'Copilot',
         ],
       },
       {
@@ -200,7 +199,6 @@ const jobs: Content['jobs'] = [
           'GitLab',
           'Jira',
           'Confluence',
-          'Copilot',
         ],
         text: 'EPAM’s internal exam system: a web application in which exams could be taken safely. My team and I built its backend with Spring Boot 3 and a MySQL database.',
         points: [
@@ -214,7 +212,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Broadridge financial application',
-        tech: ['Java', 'Jenkins', 'GitLab', 'Jira', 'Confluence', 'Copilot'],
+        tech: ['Java', 'Jenkins', 'GitLab', 'Jira', 'Confluence'],
         text: 'I later worked on the same project as a Software Engineer.',
       },
     ],

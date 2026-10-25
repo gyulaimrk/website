@@ -171,7 +171,6 @@ const jobs: Content['jobs'] = [
           'GitLab',
           'Jira',
           'Confluence',
-          'Copilot',
         ],
       },
       {
@@ -200,7 +199,6 @@ const jobs: Content['jobs'] = [
           'GitLab',
           'Jira',
           'Confluence',
-          'Copilot',
         ],
         text: 'Az EPAM belső vizsgarendszere: webalkalmazás, amelyben biztonságosan lehetett vizsgázni. A csapatommal a backendjét építettük Spring Boot 3-mal és MySQL adatbázissal.',
         points: [
@@ -214,7 +212,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Broadridge pénzügyi alkalmazás',
-        tech: ['Java', 'Jenkins', 'GitLab', 'Jira', 'Confluence', 'Copilot'],
+        tech: ['Java', 'Jenkins', 'GitLab', 'Jira', 'Confluence'],
         text: 'Ugyanezen a projekten később Software Engineerként is dolgoztam.',
       },
     ],
