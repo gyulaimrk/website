@@ -35,7 +35,17 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'MOL Limo rent a car',
-        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence'],
+        tech: [
+          'Kotlin',
+          'Spring Boot',
+          'Spring Security',
+          'PostgreSQL',
+          'Exposed',
+          'Jenkins',
+          'GitLab',
+          'Jira',
+          'Confluence',
+        ],
         url: 'https://rentacar.mollimo.hu/rent/start',
         text: 'I develop the backend of the MOL Limo car rental system in Kotlin.',
         points: [
@@ -51,7 +61,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Helvo',
-        tech: ['GitLab', 'ArgoCD', 'Jira', 'Confluence'],
+        tech: ['Kotlin', 'Spring Boot 4', 'OpenAPI', 'GitLab', 'ArgoCD', 'Jira', 'Confluence'],
         text: 'My international team and I built a backend for frontend application for a Swiss fintech startup in Kotlin with Spring Boot 4.',
         points: [
           'Documentation-first (design-first) approach: designing the API in OpenAPI',
@@ -61,7 +71,19 @@ const jobs: Content['jobs'] = [
       {
         name: 'GLI Solutions',
         role: 'AI Consultant and Developer',
-        tech: ['Azure DevOps', 'Jira', 'Confluence'],
+        tech: [
+          'C#',
+          '.NET',
+          'Node.js',
+          'Angular',
+          'PostgreSQL',
+          'AI',
+          'MCP',
+          'Prompting',
+          'Azure DevOps',
+          'Jira',
+          'Confluence',
+        ],
         text: 'As an AI consultant, I look into where artificial intelligence is useful, whether it is feasible and how it fits into existing systems. My team and I also work on the project as developers.',
         points: [
           'Developing a platform that supports manual testing, with a C# and .NET backend, a PostgreSQL database, Node.js and Angular',
@@ -75,23 +97,7 @@ const jobs: Content['jobs'] = [
         ],
       },
     ],
-    tech: [
-      'Kotlin',
-      'Java',
-      '.NET',
-      'C#',
-      'Node.js',
-      'Angular',
-      'Spring Boot',
-      'Spring Security',
-      'PostgreSQL',
-      'OpenAPI',
-      'Exposed',
-      'AI',
-      'MCP',
-      'Prompting',
-      'Plane',
-    ],
+    tech: ['Plane'],
   },
   {
     company: 'RDI Software Hungary',
@@ -102,7 +108,22 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'McDonald’s',
-        tech: ['GitHub', 'ArgoCD', 'Jira', 'Confluence'],
+        tech: [
+          'Java',
+          'Microservices',
+          'REST API',
+          'OpenAPI',
+          'SQL',
+          'NoSQL',
+          'Python',
+          'Authentication',
+          'Authorization',
+          'Unit tests',
+          'GitHub',
+          'ArgoCD',
+          'Jira',
+          'Confluence',
+        ],
         text: 'User accounts, authentication and authorization; I worked in an international team.',
         points: [
           'Maintaining existing microservices',
@@ -117,18 +138,6 @@ const jobs: Content['jobs'] = [
         ],
       },
     ],
-    tech: [
-      'Java',
-      'Microservices',
-      'REST API',
-      'OpenAPI',
-      'SQL',
-      'NoSQL',
-      'Python',
-      'Authentication',
-      'Authorization',
-      'Unit tests',
-    ],
   },
   {
     company: 'EPAM Systems',
@@ -139,15 +148,24 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'Broadridge financial application',
-        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence'],
+        tech: [
+          'Java',
+          'Multithreading',
+          'DDD',
+          'Selenium',
+          'SQL',
+          'Jenkins',
+          'GitLab',
+          'Jira',
+          'Confluence',
+        ],
       },
       {
         name: 'Multitenant framework',
-        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence'],
+        tech: ['Java', 'Multitenancy', 'Jenkins', 'GitLab', 'Jira', 'Confluence'],
         text: 'The multitenant framework of the Broadridge project, which I worked on as a separate project.',
       },
     ],
-    tech: ['Java', 'Multithreading', 'DDD', 'Multitenancy', 'Selenium', 'SQL'],
   },
   {
     company: 'EPAM Systems',
@@ -158,7 +176,17 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'Internal exam system',
-        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence'],
+        tech: [
+          'Java',
+          'Spring Boot 3',
+          'MySQL',
+          'JUnit',
+          'Unit tests',
+          'Jenkins',
+          'GitLab',
+          'Jira',
+          'Confluence',
+        ],
         text: 'EPAM’s internal exam system: a web application in which exams could be taken safely. My team and I built its backend with Spring Boot 3 and a MySQL database.',
         points: [
           'Designing and developing new features',
@@ -171,11 +199,10 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Broadridge financial application',
-        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence'],
+        tech: ['Java', 'Jenkins', 'GitLab', 'Jira', 'Confluence'],
         text: 'I later worked on the same project as a Software Engineer.',
       },
     ],
-    tech: ['Java', 'Spring Boot 3', 'MySQL', 'JUnit', 'Unit tests'],
   },
 ];
 

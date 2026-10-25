@@ -82,7 +82,7 @@ export function renderCv(lang: Lang, content: Content, assets: CvAssets): string
         <div class="job-head"><h3>${esc(job.company)} <span class="job-role">${esc(job.role)}</span></h3><span class="meta">${esc(job.period)}</span></div>
         <p>${esc(job.description)}</p>
         ${projects ? `<ul>${projects}</ul>` : ''}
-        <p class="tags">${esc(job.tech.join(', '))}</p>
+        ${job.tech?.length ? `<p class="tags">${esc(job.tech.join(', '))}</p>` : ''}
       </section>`;
     })
     .join('');

@@ -31,6 +31,11 @@ describe('JobCard', () => {
     expect(el.querySelectorAll('app-chip-list li').length).toBe(2);
   });
 
+  it('munkahely-szintű címkék nélkül nem rajzol címkesort a kártya aljára', () => {
+    const el = render({ tech: undefined, projects: undefined });
+    expect(el.querySelector('app-card > app-chip-list')).toBeNull();
+  });
+
   it('csak a linkes projekt kattintható', () => {
     const links = render().querySelectorAll('.projects a');
     expect(links.length).toBe(1);

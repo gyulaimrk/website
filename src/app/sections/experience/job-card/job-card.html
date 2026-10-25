@@ -41,5 +41,7 @@
       </ul>
     </details>
   }
-  <app-chip-list [items]="job().tech" />
+  @if (job().tech; as tech) {
+    <app-chip-list [items]="tech" />
+  }
 </app-card>

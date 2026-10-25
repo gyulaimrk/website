@@ -35,7 +35,17 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'MOL Limo rent a car',
-        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence'],
+        tech: [
+          'Kotlin',
+          'Spring Boot',
+          'Spring Security',
+          'PostgreSQL',
+          'Exposed',
+          'Jenkins',
+          'GitLab',
+          'Jira',
+          'Confluence',
+        ],
         url: 'https://rentacar.mollimo.hu/rent/start',
         text: 'A MOL Limo autóbérlő rendszerének backendjét fejlesztem Kotlinban.',
         points: [
@@ -51,7 +61,7 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Helvo',
-        tech: ['GitLab', 'ArgoCD', 'Jira', 'Confluence'],
+        tech: ['Kotlin', 'Spring Boot 4', 'OpenAPI', 'GitLab', 'ArgoCD', 'Jira', 'Confluence'],
         text: 'A nemzetközi csapatommal egy svájci pénzügyi startup backend for frontend alkalmazását építettük Kotlinban, Spring Boot 4-gyel.',
         points: [
           'Dokumentáció-első (design-first) megközelítés: az API tervezése OpenAPI-ban',
@@ -61,7 +71,19 @@ const jobs: Content['jobs'] = [
       {
         name: 'GLI Solutions',
         role: 'AI Consultant és fejlesztő',
-        tech: ['Azure DevOps', 'Jira', 'Confluence'],
+        tech: [
+          'C#',
+          '.NET',
+          'Node.js',
+          'Angular',
+          'PostgreSQL',
+          'AI',
+          'MCP',
+          'Prompting',
+          'Azure DevOps',
+          'Jira',
+          'Confluence',
+        ],
         text: 'AI-konzultánsként azt vizsgáljuk, hol hasznos a mesterséges intelligencia, megvalósítható-e, és hogyan illeszthető a meglévő rendszerekbe. Emellett a csapatommal fejlesztőként is dolgozunk a projekten.',
         points: [
           'Manuális tesztelést segítő platform fejlesztése C# és .NET backenddel, PostgreSQL adatbázissal, Node.js-sel és Angularral',
@@ -75,23 +97,7 @@ const jobs: Content['jobs'] = [
         ],
       },
     ],
-    tech: [
-      'Kotlin',
-      'Java',
-      '.NET',
-      'C#',
-      'Node.js',
-      'Angular',
-      'Spring Boot',
-      'Spring Security',
-      'PostgreSQL',
-      'OpenAPI',
-      'Exposed',
-      'AI',
-      'MCP',
-      'Prompting',
-      'Plane',
-    ],
+    tech: ['Plane'],
   },
   {
     company: 'RDI Software Hungary',
@@ -102,7 +108,22 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'McDonald’s',
-        tech: ['GitHub', 'ArgoCD', 'Jira', 'Confluence'],
+        tech: [
+          'Java',
+          'Microservice',
+          'REST API',
+          'OpenAPI',
+          'SQL',
+          'NoSQL',
+          'Python',
+          'Authentikáció',
+          'Autorizáció',
+          'Unit tesztek',
+          'GitHub',
+          'ArgoCD',
+          'Jira',
+          'Confluence',
+        ],
         text: 'Felhasználói fiókok, authentikáció és autorizáció; nemzetközi csapatban dolgoztam.',
         points: [
           'Meglévő microservice-ek karbantartása',
@@ -117,18 +138,6 @@ const jobs: Content['jobs'] = [
         ],
       },
     ],
-    tech: [
-      'Java',
-      'Microservice',
-      'REST API',
-      'OpenAPI',
-      'SQL',
-      'NoSQL',
-      'Python',
-      'Authentikáció',
-      'Autorizáció',
-      'Unit tesztek',
-    ],
   },
   {
     company: 'EPAM Systems',
@@ -137,14 +146,26 @@ const jobs: Content['jobs'] = [
     description:
       'Egy nemzetközi csapat tagjaként a Broadridge, egy amerikai cég pénzügyi alkalmazását fejlesztettük. Itt ismertem meg alaposan a többszálú programozást, a domain-driven tervezést és a funkcionális megközelítést. Egység-, rendszer- és elfogadási teszteket írtam, valamint Seleniummal felületi teszteket. Más rendszerek API-jait kötöttem be, időnként aszinkron módon. Párhuzamossági hibákat javítottam, adatbázis-tranzakciókat kezeltem, és javítottam a tesztlefedettséget. Junior fejlesztőt is mentoráltam.',
     projects: [
-      { name: 'Broadridge pénzügyi alkalmazás', tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence'] },
+      {
+        name: 'Broadridge pénzügyi alkalmazás',
+        tech: [
+          'Java',
+          'Többszálúság',
+          'DDD',
+          'Selenium',
+          'SQL',
+          'Jenkins',
+          'GitLab',
+          'Jira',
+          'Confluence',
+        ],
+      },
       {
         name: 'Multitenant keretrendszer',
-        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence'],
+        tech: ['Java', 'Multitenancy', 'Jenkins', 'GitLab', 'Jira', 'Confluence'],
         text: 'A Broadridge-projekt többbérlős (multitenant) keretrendszere, amelyen külön projektként dolgoztam.',
       },
     ],
-    tech: ['Java', 'Többszálúság', 'DDD', 'Multitenancy', 'Selenium', 'SQL'],
   },
   {
     company: 'EPAM Systems',
@@ -155,7 +176,17 @@ const jobs: Content['jobs'] = [
     projects: [
       {
         name: 'Belső vizsgarendszer',
-        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence'],
+        tech: [
+          'Java',
+          'Spring Boot 3',
+          'MySQL',
+          'JUnit',
+          'Unit tesztek',
+          'Jenkins',
+          'GitLab',
+          'Jira',
+          'Confluence',
+        ],
         text: 'Az EPAM belső vizsgarendszere: webalkalmazás, amelyben biztonságosan lehetett vizsgázni. A csapatommal a backendjét építettük Spring Boot 3-mal és MySQL adatbázissal.',
         points: [
           'Új funkciók tervezése és fejlesztése',
@@ -168,11 +199,10 @@ const jobs: Content['jobs'] = [
       },
       {
         name: 'Broadridge pénzügyi alkalmazás',
-        tech: ['Jenkins', 'GitLab', 'Jira', 'Confluence'],
+        tech: ['Java', 'Jenkins', 'GitLab', 'Jira', 'Confluence'],
         text: 'Ugyanezen a projekten később Software Engineerként is dolgoztam.',
       },
     ],
-    tech: ['Java', 'Spring Boot 3', 'MySQL', 'JUnit', 'Unit tesztek'],
   },
 ];
 

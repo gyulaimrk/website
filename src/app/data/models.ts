@@ -37,7 +37,8 @@ export interface Job {
   period: string;
   description: string;
   projects?: JobProject[];
-  tech: string[];
+  /** A munkahelyre jellemző, egyik projekthez sem tartozó eszközök. */
+  tech?: string[];
 }
 
 export interface Skill {
