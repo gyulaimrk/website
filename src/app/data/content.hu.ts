@@ -61,7 +61,8 @@ const jobs: Content['jobs'] = [
         role: 'AI Consultant és fejlesztő',
         text: 'AI-konzultánsként abban segítek, hogy a mesterséges intelligencia valódi problémákra adjon választ. Megkeressük, hol hasznos, megnézzük, megvalósítható-e, és beillesztjük a már meglévő rendszerekbe. Emellett fejlesztőként is dolgozom a projekten.',
         points: [
-          'Backend fejlesztése .NET-tel és C#-ban',
+          'Manuális tesztelést segítő platform fejlesztése C# és .NET backenddel, PostgreSQL adatbázissal, Node.js-sel és Angularral',
+          'A platform MCP szerverként összekapcsolható AI-ügynökökkel (agentekkel)',
           'Hibák kezelése',
           'A csapat és a kód terelése a clean code irányába',
           'Repó szintű AI skillek megvalósítása',
@@ -74,6 +75,8 @@ const jobs: Content['jobs'] = [
       'Java',
       '.NET',
       'C#',
+      'Node.js',
+      'Angular',
       'Spring Boot',
       'Spring Security',
       'PostgreSQL',

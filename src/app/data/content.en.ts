@@ -61,7 +61,8 @@ const jobs: Content['jobs'] = [
         role: 'AI Consultant and Developer',
         text: 'As an AI consultant I help artificial intelligence answer real problems. We find where it is useful, check whether it is feasible, and fit it into the systems that already exist. I also work on the project as a developer.',
         points: [
-          'Developing the backend with .NET and C#',
+          'Developing a platform that supports manual testing, with a C# and .NET backend, a PostgreSQL database, Node.js and Angular',
+          'The platform can be connected to AI agents as an MCP server',
           'Handling bugs',
           'Steering the team and the code towards clean code',
           'Implementing repository-level AI skills',
@@ -74,6 +75,8 @@ const jobs: Content['jobs'] = [
       'Java',
       '.NET',
       'C#',
+      'Node.js',
+      'Angular',
       'Spring Boot',
       'Spring Security',
       'PostgreSQL',
