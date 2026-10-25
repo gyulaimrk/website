@@ -1,4 +1,4 @@
-import { CONTENTS } from '../data/content';
+import { CONTENTS, LANGS } from '../data/content';
 import { Lang } from '../data/models';
 import { CvAssets, renderCv } from './render-cv';
 
@@ -8,5 +8,8 @@ export function renderAllCv(assets: CvAssets): Record<Lang, { html: string; file
     html: renderCv(lang, CONTENTS[lang], assets),
     fileName: CONTENTS[lang].profile.cv.split('/').pop() as string,
   });
-  return { hu: entry('hu'), en: entry('en') };
+  return Object.fromEntries(LANGS.map((lang) => [lang, entry(lang)])) as Record<
+    Lang,
+    { html: string; fileName: string }
+  >;
 }

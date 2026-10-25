@@ -15,7 +15,7 @@ mobilon hamburger. Az aktív menüponton `aria-current="true"` van (a `ScrollSpy
 
 Bemutatkozás: köszönés, a név az egyetlen `h1`-ben, gépelő szerep (`app-typewriter`), bemutatkozó szöveg, három
 gomb (Munkáim, önéletrajz letöltése, LinkedIn), statisztikák. A kódablak két fülét a komponens állítja össze: az
-első a profilból épített `Main.kt` (alapértelmezett), a második a `Developer.kt` data class (`codeSamples`).
+első a profilból épített `Main.kt` (alapértelmezett, a `developerInstance()` függvény készíti a `developer-instance.ts`-ben), a második a `Developer.kt` data class (`codeSamples`).
 
 **Tesztek:** `hero.spec.ts`: egyetlen `h1`, szerep és statisztikák, a két fül sorrendje és tartalma, a gombok hivatkozásai, nyelvváltás.
 

@@ -489,7 +489,7 @@ const ui: Content['ui'] = {
     title: 'Education and certificates',
     lead: 'I started at university and have kept my knowledge fresh with courses and certificates since.',
     studies: 'Education',
-    anthropic: 'Anthropic certificates',
+    featured: 'Anthropic certificates',
     certificates: 'More certificates',
     allCertificates: 'All certificates on LinkedIn',
   },

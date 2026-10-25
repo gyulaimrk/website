@@ -5,6 +5,7 @@ import { Button } from '../../shared/button/button';
 import { CodeFile } from '../../data/models';
 import { CodeWindow } from '../../shared/code-window/code-window';
 import { Typewriter } from '../../shared/typewriter/typewriter';
+import { developerInstance } from './developer-instance';
 
 @Component({
   selector: 'app-hero',
@@ -14,21 +15,9 @@ import { Typewriter } from '../../shared/typewriter/typewriter';
 })
 export class Hero {
   protected readonly content = inject(ContentService).content;
-  /** A kódablak két fájlja: a profilból épített példány (Main.kt, ez az alapértelmezett), majd a Developer data class. */
+  /** A kódablak két fájlja: a profilból épített példány (ez az alapértelmezett), majd a Developer data class. */
   protected readonly files = computed<CodeFile[]>(() => {
     const { profile, codeSamples } = this.content();
-    const stack = profile.stack.map((item) => `        "${item}",`);
-    const developer = [
-      'val developer = Developer(',
-      `    name = "${profile.name}",`,
-      `    role = "${profile.role}",`,
-      '    stack = listOf(',
-      ...stack,
-      '    ),',
-      '    ai = true,',
-      `    location = "${profile.location.split(',')[0]}",`,
-      ')',
-    ].join('\n');
-    return [{ name: 'Main.kt', language: 'kotlin', code: developer }, ...codeSamples];
+    return [developerInstance(profile), ...codeSamples];
   });
 }

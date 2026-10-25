@@ -52,7 +52,7 @@ hidratál eseményismétléssel. Ennek feltételei:
 
 - Statikus meta, Open Graph és JSON-LD az `index.html`-ben.
 - A `SeoService` nyelvenként igazítja a címet és a leírást, és a canonical, hreflang és `og:url` címkéket csak
-  akkor teszi ki, ha a `SITE_ORIGIN` (`core/site.config.ts`) ki van töltve. Amíg üres, a sitemap sem készül.
+  akkor teszi ki, ha a `SITE_ORIGIN` (`core/site-origin.ts`) ki van töltve. Amíg üres, a sitemap sem készül.
 - A `scripts/postbuild.mjs` a `404.html`-t a kimenet gyökerébe másolja, és `SITE_ORIGIN` esetén sitemapet
   készít, a `robots.txt`-be pedig hivatkozást tesz rá.
 

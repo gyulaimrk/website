@@ -489,7 +489,7 @@ const ui: Content['ui'] = {
     title: 'Tanulmányok és tanúsítványok',
     lead: 'Egyetemen kezdtem, azóta tanfolyamokkal és tanúsítványokkal tartom frissen a tudásomat.',
     studies: 'Tanulmányok',
-    anthropic: 'Anthropic-tanúsítványok',
+    featured: 'Anthropic-tanúsítványok',
     certificates: 'További tanúsítványok',
     allCertificates: 'Összes tanúsítvány a LinkedInen',
   },

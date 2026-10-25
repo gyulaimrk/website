@@ -33,5 +33,5 @@ A GitHub Actions (`.github/workflows/ci.yml`) minden pushra teszteli és buildel
 E2E teszteket, és a `main` ágon telepít, ha a `CLOUDFLARE_API_TOKEN` és a `CLOUDFLARE_ACCOUNT_ID` titkok be vannak állítva.
 
 ## Élesítés előtt
-Az oldal végleges címét egyszer kell megadni: `src/app/core/site.config.ts`, `SITE_ORIGIN` (`https://…`,
+Az oldal végleges címét egyszer kell megadni: `src/app/core/site-origin.ts`, `SITE_ORIGIN` (`https://…`,
 záró perjel nélkül). Ettől lesz canonical, hreflang, `og:url` és sitemap. Addig ezek kimaradnak.

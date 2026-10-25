@@ -85,7 +85,7 @@ export interface AiPoint {
 }
 
 /** A „Hogyan dolgozom AI-val” szekció tartalma. */
-export interface AiWorkflow {
+export interface AiWorkflowContent {
   title: string;
   lead: string;
   points: AiPoint[];
@@ -139,7 +139,7 @@ export interface Ui {
     title: string;
     lead: string;
     studies: string;
-    anthropic: string;
+    featured: string;
     certificates: string;
     allCertificates: string;
   };
@@ -153,7 +153,7 @@ export interface Content {
   profile: Profile;
   jobs: Job[];
   skills: Skill[];
-  aiWorkflow: AiWorkflow;
+  aiWorkflow: AiWorkflowContent;
   /** A nyitóoldal kódablakának rögzített fájljai (a Developer data class); a példányt a profilból építjük. */
   codeSamples: CodeFile[];
   sideProjects: SideProject[];

@@ -33,17 +33,17 @@ Az `npm run cv` ugyanígy a `CHROME_PATH` változót használja.
 A `.github/workflows/ci.yml` minden pull requestre és a `main` ágra lefuttatja: telepítés, egységtesztek, build,
 a Playwright-böngésző telepítése, E2E tesztek. A futtató `ubuntu-24.04`, mert az `ubuntu-latest` már olyan
 verzió, amelyet a használt Playwright nem támogat. A `main` ágon, ha a `CLOUDFLARE_API_TOKEN` és a
-`CLOUDFLARE_ACCOUNT_ID` titok be van állítva, a build után telepít is.
+`CLOUDFLARE_ACCOUNT_ID` titok be van állítva, telepít is: a build job által legyártott és letesztelt artifactot tölti le, nem épít újra.
 
 ## Kitelepítés
 
 Az oldal Cloudflare Workers statikus assetként fut (`wrangler.jsonc`: `404-page`, `drop-trailing-slash`).
-Élesítés előtt egyszer meg kell adni az oldal címét a `src/app/core/site.config.ts`-ben (`SITE_ORIGIN`,
+Élesítés előtt egyszer meg kell adni az oldal címét a `src/app/core/site-origin.ts`-ben (`SITE_ORIGIN`,
 `https://…`, záró perjel nélkül): ettől lesz canonical, hreflang, `og:url` és sitemap.
 
 ## Önéletrajz (PDF)
 
-A `scripts/build-cv.mjs` esbuilddel lefordítja a `src/app/cv/` kódját, a két nyelv tartalmából HTML-t készít, és
+A `scripts/build-cv.mjs` (a `scripts/bundle.mjs` segítségével, esbuilddel) lefordítja a `src/app/cv/` kódját, a két nyelv tartalmából HTML-t készít, és
 a Playwright Chromiummal PDF-be nyomtatja. A PDF-ek verziózottak, ezért tartalomváltozás után újra kell
 gyártani és commitolni őket. A gyártás hibával leáll, ha egy PDF kettőnél több oldalas lenne.
 

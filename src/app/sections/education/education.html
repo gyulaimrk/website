@@ -13,9 +13,9 @@
       </ul>
     </app-card>
     <app-card [featured]="true" appReveal="2">
-      <h3>{{ content().ui.education.anthropic }}</h3>
+      <h3>{{ content().ui.education.featured }}</h3>
       <ul>
-        @for (study of anthropic(); track study.title) {
+        @for (study of featuredCertificates(); track study.title) {
           <li appStudyItem [study]="study"></li>
         }
       </ul>

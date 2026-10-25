@@ -43,10 +43,10 @@ nyelvenként (a megosztási kép, az `og:url`, a canonical és a hreflang csak i
 Megfigyeli, melyik szekció van a képernyő felső részén. Az `observe(sections)` indítja, az `active` jel adja az
 azonosítót (hash nélkül). A menü az `aria-current` jelöléshez használja.
 
-### `site.config.ts`
+### `site-origin.ts` és `site.config.ts`
 
 `SITE_ORIGIN`: az éles cím (`https://…`, záró perjel nélkül), amíg üres, a canonical, hreflang, `og:url` és a
-sitemap kimarad. A `SITE_ORIGIN_TOKEN` injektálhatóan adja, hogy a tesztek más értéket adhassanak.
+sitemap kimarad. A `site-origin.ts` tiszta érték, ezért a `scripts/postbuild.mjs` is ugyanezt használja (esbuilddel betöltve, nem szövegkereséssel). A `site.config.ts` `SITE_ORIGIN_TOKEN` néven injektálhatóan adja, hogy a tesztek más értéket adhassanak.
 
 ### `storage.ts`
 

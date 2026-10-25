@@ -18,7 +18,7 @@ export class Education {
   protected readonly education = computed(() =>
     this.studies().filter((s) => s.kind === 'education'),
   );
-  protected readonly anthropic = computed(() =>
+  protected readonly featuredCertificates = computed(() =>
     this.studies().filter((s) => s.kind === 'certificate' && s.featured),
   );
   protected readonly certificates = computed(() =>

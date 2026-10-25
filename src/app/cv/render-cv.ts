@@ -58,7 +58,7 @@ const studyLine = (study: Study, compact = false) => {
 export function renderCv(lang: Lang, content: Content, assets: CvAssets): string {
   const { profile, jobs, skills, studies, sideProjects, ui } = content;
   const education = studies.filter((s) => s.kind === 'education');
-  const anthropic = studies.filter((s) => s.kind === 'certificate' && s.featured);
+  const featured = studies.filter((s) => s.kind === 'certificate' && s.featured);
   const others = studies.filter((s) => s.kind === 'certificate' && !s.featured);
   // Ha minden további tanúsítványt ugyanaz adott ki, a kiállító csak egyszer, a címben szerepel.
   const issuers = [...new Set(others.map((s) => s.where).filter(Boolean))];
@@ -126,7 +126,7 @@ export function renderCv(lang: Lang, content: Content, assets: CvAssets): string
   <h2>${esc(ui.education.title)}</h2>
   <div class="two">
     <div>${education.map((study) => studyLine(study)).join('')}<div class="item"><strong>${esc(ui.about.facts.languages)}</strong><br><span>${esc(profile.languages)}</span></div><div class="item"><strong>${esc(ui.about.facts.license)}</strong><br><span>${esc(profile.license)}</span></div></div>
-    <div><h3 class="sub" style="margin-top:0">${esc(ui.education.anthropic)}</h3>${anthropic.map((study) => studyLine(study)).join('')}</div>
+    <div><h3 class="sub" style="margin-top:0">${esc(ui.education.featured)}</h3>${featured.map((study) => studyLine(study)).join('')}</div>
   </div>
   <h3 class="sub">${esc(ui.education.certificates)}${sharedIssuer ? ` <span>(${esc(sharedIssuer)})</span>` : ''}</h3>
   <div class="cols">${others.map((study) => studyLine(study, !!sharedIssuer)).join('')}</div>

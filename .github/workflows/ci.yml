@@ -48,7 +48,11 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      - run: npm run build
+      # Pontosan azt telepítjük, amit a build job már legyártott és letesztelt.
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: dist/portfolio/browser
       - name: Deploy to Cloudflare
         if: env.CLOUDFLARE_API_TOKEN != ''
         run: npx wrangler deploy
