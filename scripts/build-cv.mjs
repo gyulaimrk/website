@@ -7,7 +7,7 @@ import { join } from 'node:path';
 import { importTs, root } from './bundle.mjs';
 
 // Az önéletrajz legfeljebb ennyi oldalas lehet; ha a tartalom túlnő rajta, a gyártás hibával áll le.
-const MAX_PAGES = 2;
+const MAX_PAGES = 3;
 
 const outDir = join(root, 'public', 'cv');
 

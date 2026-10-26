@@ -20,7 +20,9 @@
         @for (fact of facts(); track fact.label) {
           <div>
             <dt>{{ fact.label }}</dt>
-            <dd>{{ fact.value }}</dd>
+            @for (value of fact.values; track value) {
+              <dd>{{ value }}</dd>
+            }
           </div>
         }
       </dl>

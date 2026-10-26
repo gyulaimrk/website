@@ -55,7 +55,7 @@ A projekt neve link, ha van `url`; a rövid szöveg és a feladatlista (`points`
 
 ### `app-side-projects` (`SideProjects`) és `app-project-card` (`ProjectCard`)
 
-A mellékprojektek listája. A `ProjectCard` egy projekt kártyája (`project` bemenet, kötelező): leírás, technológiák, és
+A mellékprojektek listája. A `ProjectCard` egy projekt kártyája (`project` bemenet, kötelező): leírás (bekezdésenként), technológiák, és
 az élő cím (`url`) vagy a forráskód (`sourceUrl`) gombja, ha van.
 
 **Tesztek:** `side-projects.spec.ts` (kártya minden mellékprojekthez), `project-card.spec.ts` (új lapon nyíló linkek, csak a meglévők).

@@ -8,8 +8,7 @@ describe('SideProjects', () => {
     fixture.detectChanges();
     const el = fixture.nativeElement as HTMLElement;
     expect(el.querySelectorAll('app-project-card').length).toBe(contentHu.sideProjects.length);
-    expect(el.textContent).toContain('lizacover.hu');
-    expect(el.textContent).toContain('Ez a portfólió');
+    contentHu.sideProjects.forEach((project) => expect(el.textContent).toContain(project.name));
     expect(el.querySelector('h2')?.textContent).toBe(contentHu.ui.sideProjects.title);
   });
 });

@@ -9,9 +9,9 @@ Az oldal minden szövege két fájlban van: `src/app/data/content.hu.ts` és `co
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Profile`     | név, szerep, elérhetőségek, fotó, bemutatkozás, nyelvek, jogosítvány, önéletrajz-útvonal, a hero kódablakában használt `roleConstants` (a `Role` enum értékei) |
 | `Job`         | munkahely: cég, szerep, időszak, leírás, projektek (`JobProject`), és opcionálisan a munkahelyre jellemző eszközök (`tech`, például a Plane az Adroitnál)      |
-| `JobProject`  | név, szerep, link, rövid szöveg, konkrét feladatok (`points`) és a projekten használt technológiák és eszközök (`tech`)                                        |
+| `JobProject`  | név, alcím (`subtitle`), link, rövid szöveg, konkrét feladatok (`points`) és a projekten használt technológiák és eszközök (`tech`)                                        |
 | `Skill`       | eszköztár-kártya: cím, címke, szöveg, kiemelés                                                                                                                 |
-| `SideProject` | mellékprojekt: leírás, élő cím, forráskód, technológiák                                                                                                        |
+| `SideProject` | mellékprojekt: leírás bekezdésekben (`paragraphs`), élő cím, forráskód, technológiák                                                                                                        |
 | `Study`       | tanulmány vagy tanúsítvány: cím, kiállító, időszak, leírás, nyilvános link (`url`)                                                                             |
 | `CodeFile`    | a kódablak egy fájlja: név, nyelv, tartalom                                                                                                                    |
 | `AiWorkflow`  | a „Hogyan dolgozom AI-val” szekció pontjai és a CLAUDE.md részlet                                                                                              |

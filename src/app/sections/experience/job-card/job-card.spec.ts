@@ -9,7 +9,7 @@ const job: Job = {
   description: 'Leírás.',
   tech: ['Java', 'SQL'],
   projects: [
-    { name: 'Alfa', role: 'Tanácsadó', text: 'Szöveg.' },
+    { name: 'Alfa', subtitle: 'Tanácsadás', text: 'Szöveg.' },
     { name: 'Béta', url: 'https://example.com', text: 'Link.' },
   ],
 };
@@ -34,6 +34,12 @@ describe('JobCard', () => {
   it('munkahely-szintű címkék nélkül nem rajzol címkesort a kártya aljára', () => {
     const el = render({ tech: undefined, projects: undefined });
     expect(el.querySelector('app-card > app-chip-list')).toBeNull();
+  });
+
+  it('a projekt alcíme a neve mellett áll, ha van', () => {
+    const items = [...render().querySelectorAll('.projects > li')];
+    expect(items[0].querySelector('h4 span')?.textContent).toBe('Tanácsadás');
+    expect(items[1].querySelector('h4 span')).toBeNull();
   });
 
   it('csak a linkes projekt kattintható', () => {

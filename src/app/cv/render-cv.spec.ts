@@ -31,11 +31,22 @@ describe('renderCv', () => {
     });
   });
 
-  it('a kapcsolati sorban az e-mail, a LinkedIn és a GitHub szerepel, rövidítve', () => {
+  it('a kapcsolati sorban az e-mail és a LinkedIn szerepel, rövidítve', () => {
     const html = renderCv('hu', contentHu, assets);
     expect(html).toContain('linkedin.com/in/mark-gyulai-6aa690264');
-    expect(html).toContain('github.com/gyulaimrk');
     expect(html).toContain(contentHu.profile.email);
+  });
+
+  it('a nyelveket listaként sorolja fel', () => {
+    const html = renderCv('hu', contentHu, assets);
+    contentHu.profile.languages.forEach((language) =>
+      expect(html).toContain(`<li>${language}</li>`),
+    );
+  });
+
+  it('nincs benne GitHub-link (sem a profil, sem a mellékprojektek forráskódja)', () => {
+    const html = renderCv('hu', contentHu, assets);
+    expect(html).not.toContain('github.com');
   });
 
   it('a szöveget HTML-ben biztonságosan kezeli (nem enged be címkéket)', () => {
@@ -61,7 +72,8 @@ describe('renderCv', () => {
 
   it('a projekt feladatait is felsorolja', () => {
     const html = renderCv('hu', contentHu, assets);
-    expect(html).toContain('<li>Code review-k</li>');
+    const point = contentHu.jobs[0].projects![0].points![0];
+    expect(html).toContain(`<li>${point}</li>`);
   });
 
   it('a nyelvvizsga és a jogosítvány is megjelenik', () => {

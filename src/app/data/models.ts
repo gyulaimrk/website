@@ -12,7 +12,8 @@ export interface Profile {
   /** A letölthető önéletrajz (PDF) elérési útja a webgyökértől; az `npm run cv` készíti. */
   cv: string;
   intro: string;
-  languages: string;
+  /** Beszélt nyelvek, nyelvenként egy elem. */
+  languages: string[];
   /** Jogosítvány kategóriája. */
   license: string;
   /** A hero kódablakában megjelenő technológiák. */
@@ -24,7 +25,8 @@ export interface Profile {
 
 export interface JobProject {
   name: string;
-  role?: string;
+  /** A projekt rövid megnevezése a név mellett (például „Autóbérlési rendszer”). */
+  subtitle?: string;
   url?: string;
   text?: string;
   /** A projekten használt CI/CD és verziókezelő eszközök. */
@@ -58,7 +60,7 @@ export interface SideProject {
   url?: string;
   /** A forráskód címe, ha nyilvános. */
   sourceUrl?: string;
-  description: string;
+  paragraphs: string[];
   tech: string[];
 }
 
@@ -149,7 +151,7 @@ export interface Ui {
     allCertificates: string;
   };
   contact: { title: string; text: string; availability: string; cv: string; linkedin: string };
-  footer: { built: string; label: string; linkedin: string; email: string };
+  footer: { label: string; linkedin: string; email: string };
   backToTop: string;
 }
 

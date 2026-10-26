@@ -15,11 +15,11 @@ export class About {
   protected readonly facts = computed(() => {
     const { profile, ui } = this.content();
     return [
-      { label: ui.about.facts.location, value: profile.location },
-      { label: ui.about.facts.role, value: profile.role },
-      { label: ui.about.facts.languages, value: profile.languages },
-      { label: ui.about.facts.license, value: profile.license },
-      { label: ui.about.facts.email, value: profile.email },
+      { label: ui.about.facts.location, values: [profile.location] },
+      { label: ui.about.facts.role, values: [profile.role] },
+      { label: ui.about.facts.languages, values: profile.languages },
+      { label: ui.about.facts.license, values: [profile.license] },
+      { label: ui.about.facts.email, values: [profile.email] },
     ];
   });
 }

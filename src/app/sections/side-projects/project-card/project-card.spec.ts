@@ -7,7 +7,7 @@ import { ProjectCard } from './project-card';
 const project: SideProject = {
   name: 'Példa',
   url: 'https://example.com',
-  description: 'Leírás.',
+  paragraphs: ['Első bekezdés.', 'Második bekezdés.'],
   tech: ['Angular', 'SEO'],
 };
 
@@ -19,10 +19,13 @@ describe('ProjectCard', () => {
     return { fixture, el: fixture.nativeElement as HTMLElement };
   }
 
-  it('kirajzolja a nevet, a leírást és a technológiákat', () => {
+  it('kirajzolja a nevet, a leírás bekezdéseit és a technológiákat', () => {
     const { el } = render();
     expect(el.querySelector('h3')?.textContent).toBe('Példa');
-    expect(el.querySelector('.description')?.textContent).toBe('Leírás.');
+    expect([...el.querySelectorAll('.description')].map((p) => p.textContent)).toEqual([
+      'Első bekezdés.',
+      'Második bekezdés.',
+    ]);
     expect(el.querySelectorAll('app-chip-list li').length).toBe(2);
   });
 
@@ -42,7 +45,7 @@ describe('ProjectCard', () => {
     fixture.componentRef.setInput('project', {
       name: 'Csak kód',
       sourceUrl: 'https://github.com/example/repo',
-      description: 'Leírás.',
+      paragraphs: ['Leírás.'],
       tech: ['Angular'],
     });
     fixture.detectChanges();

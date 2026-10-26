@@ -80,10 +80,10 @@ describe('content', () => {
       });
     });
 
-    it('a különböző projektek száma (az ismétlődő Broadridge-projekt egyszer számít) megegyezik a statisztikában szereplővel', () => {
+    it('a különböző projektek száma (a két szerepnél is szereplő projekt egyszer számít) megegyezik a statisztikában szereplővel', () => {
       const names = content.jobs
         .flatMap((job) => job.projects ?? [])
-        .map((project) => project.name);
+        .map((project) => `${project.name} – ${project.subtitle ?? ''}`);
       const total = new Set(names).size;
       expect(content.stats.map((s) => s.value)).toContain(String(total));
     });

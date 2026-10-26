@@ -17,6 +17,16 @@ describe('About', () => {
     expect(el.querySelector('dl')?.textContent).toContain(contentHu.profile.email);
   });
 
+  it('a nyelveket külön sorokban sorolja fel', () => {
+    const { el } = render();
+    const fact = [...el.querySelectorAll('dl > div')].find(
+      (div) => div.querySelector('dt')?.textContent === contentHu.ui.about.facts.languages,
+    )!;
+    expect([...fact.querySelectorAll('dd')].map((dd) => dd.textContent)).toEqual(
+      contentHu.profile.languages,
+    );
+  });
+
   it('megmutatja a portréfotót leíró felirattal', () => {
     const { fixture, el } = render();
     const photo = el.querySelector('img.photo') as HTMLImageElement;

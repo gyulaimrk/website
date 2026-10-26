@@ -29,8 +29,9 @@ const STYLE = `
   .contact { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 2px 14px; color: #4b5686; font-size: 9pt; }
   h2 { margin: 10px 0 5px; padding-bottom: 3px; border-bottom: 1.5px solid #2563eb; color: #1d3f9e; font-size: 11.5pt; break-after: avoid; }
   p { margin: 0; }
-  .job { margin-bottom: 6px; break-inside: avoid; }
-  .job-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+  .job { margin-bottom: 6px; }
+  .job li li { break-inside: avoid; }
+  .job-head { display: flex; break-after: avoid; justify-content: space-between; gap: 12px; align-items: baseline; }
   h3 { font-size: 10.8pt; }
   .meta { color: #4b5686; font-size: 9pt; white-space: nowrap; }
   .job-role { color: #3a45a8; font-weight: 600; }
@@ -46,6 +47,7 @@ const STYLE = `
   h3.sub { margin: 8px 0 3px; }
   .item { margin-bottom: 4px; break-inside: avoid; }
   .item span { color: #4b5686; font-size: 8.8pt; }
+  .langs { margin: 1px 0 0; color: #4b5686; font-size: 8.8pt; }
 `;
 
 const studyLine = (study: Study, compact = false) => {
@@ -68,7 +70,7 @@ export function renderCv(lang: Lang, content: Content, assets: CvAssets): string
     .map((job) => {
       const projects = (job.projects ?? [])
         .map((p) => {
-          const label = [p.name, p.role].filter(Boolean).join(' – ');
+          const label = [p.name, p.subtitle].filter(Boolean).join(' – ');
           const tools = p.tech?.length
             ? ` <span class="tools">(${esc(p.tech.join(', '))})</span>`
             : '';
@@ -89,7 +91,7 @@ export function renderCv(lang: Lang, content: Content, assets: CvAssets): string
 
   const sideHtml = sideProjects
     .map((p) => {
-      const link = p.url ?? p.sourceUrl;
+      const link = p.url;
       return `<div class="item"><strong>${esc(p.name)}</strong>${link && shortUrl(link) !== p.name ? ` <span>${esc(shortUrl(link))}</span>` : ''}</div>`;
     })
     .join('');
@@ -107,7 +109,7 @@ export function renderCv(lang: Lang, content: Content, assets: CvAssets): string
     <div>
       <h1>${esc(profile.name)}</h1>
       <p class="role">${esc(profile.role)}</p>
-      <p class="contact"><span>${esc(profile.email)}</span><span>${esc(shortUrl(profile.linkedin))}</span><span>${esc(shortUrl(profile.github))}</span><span>${esc(profile.location)}</span></p>
+      <p class="contact"><span>${esc(profile.email)}</span><span>${esc(shortUrl(profile.linkedin))}</span><span>${esc(profile.location)}</span></p>
     </div>
   </header>
 
@@ -125,7 +127,7 @@ export function renderCv(lang: Lang, content: Content, assets: CvAssets): string
 
   <h2>${esc(ui.education.title)}</h2>
   <div class="two">
-    <div>${education.map((study) => studyLine(study)).join('')}<div class="item"><strong>${esc(ui.about.facts.languages)}</strong><br><span>${esc(profile.languages)}</span></div><div class="item"><strong>${esc(ui.about.facts.license)}</strong><br><span>${esc(profile.license)}</span></div></div>
+    <div>${education.map((study) => studyLine(study)).join('')}<div class="item"><strong>${esc(ui.about.facts.languages)}</strong><ul class="langs">${profile.languages.map((language) => `<li>${esc(language)}</li>`).join('')}</ul></div><div class="item"><strong>${esc(ui.about.facts.license)}</strong><br><span>${esc(profile.license)}</span></div></div>
     <div><h3 class="sub" style="margin-top:0">${esc(ui.education.featured)}</h3>${featured.map((study) => studyLine(study)).join('')}</div>
   </div>
   <h3 class="sub">${esc(ui.education.certificates)}${sharedIssuer ? ` <span>(${esc(sharedIssuer)})</span>` : ''}</h3>
