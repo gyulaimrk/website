@@ -4,7 +4,7 @@ import { RouterTestingHarness } from '@angular/router/testing';
 import { LanguageService } from './core/language.service';
 import { routes } from './app.routes';
 
-describe('útvonalak', () => {
+describe('routes', () => {
   beforeEach(() => {
     vi.stubGlobal('matchMedia', () => ({ matches: true }));
     TestBed.configureTestingModule({ providers: [provideRouter(routes)] });
@@ -18,20 +18,20 @@ describe('útvonalak', () => {
     return harness.routeNativeElement as HTMLElement;
   }
 
-  it('a /hu a magyar portfóliót mutatja', async () => {
+  it('/hu shows the Hungarian portfolio', async () => {
     const el = await open('/hu');
     expect(el.querySelector('h1')?.textContent).toContain('Gyulai Márk');
     expect(TestBed.inject(LanguageService).lang()).toBe('hu');
     expect(document.documentElement.lang).toBe('hu');
   });
 
-  it('az /en az angol portfóliót mutatja, a név sorrendje is az angolé', async () => {
+  it('/en shows the English portfolio, including the English name order', async () => {
     const el = await open('/en');
     expect(el.querySelector('h1')?.textContent).toContain('Márk Gyulai');
     expect(TestBed.inject(LanguageService).lang()).toBe('en');
   });
 
-  it('nyelvváltáskor ugyanaz az oldalpéldány marad, csak a tartalma változik', async () => {
+  it('the same page instance stays on a language switch, only its content changes', async () => {
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl('/hu');
     harness.detectChanges();
@@ -45,12 +45,12 @@ describe('útvonalak', () => {
     expect(TestBed.inject(LanguageService).lang()).toBe('en');
   });
 
-  it('ismeretlen cím 404-es oldalt ad, nem irányít át', async () => {
+  it('an unknown address gives a 404 page and does not redirect', async () => {
     const el = await open('/valami');
     expect(el.textContent).toContain('404');
   });
 
-  it('a gyökércím a látogató nyelvére viszi', async () => {
+  it('the root address takes the visitor to their language', async () => {
     localStorage.setItem('lang', 'en');
     const harness = await RouterTestingHarness.create();
     await harness.navigateByUrl('/');

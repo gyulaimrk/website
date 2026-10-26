@@ -4,7 +4,7 @@ import { CodeWindow } from './code-window';
 
 const files: CodeFile[] = [
   { name: 'A.kt', language: 'kotlin', code: 'val a = "x"\n\nfun b()' },
-  { name: 'B.md', language: 'markdown', code: '# Cím\n- elem' },
+  { name: 'B.md', language: 'markdown', code: '# Title\n- item' },
 ];
 
 describe('CodeWindow', () => {
@@ -22,29 +22,29 @@ describe('CodeWindow', () => {
     };
   }
 
-  it('az első fájlt mutatja színezve, soronként', () => {
+  it('shows the first file highlighted, line by line', () => {
     const { el } = render();
     expect(el.querySelectorAll('.line').length).toBe(3);
     expect(el.querySelector('.keyword')?.textContent).toBe('val');
     expect(el.querySelector('.string')?.textContent).toBe('"x"');
   });
 
-  it('minden fájlhoz fület készít, az elsőt jelöli kiválasztottnak', () => {
+  it('makes a tab for every file and marks the first as selected', () => {
     const { tabs } = render();
     expect(tabs().map((t) => t.textContent?.trim())).toEqual(['A.kt', 'B.md']);
     expect(tabs().map((t) => t.getAttribute('aria-selected'))).toEqual(['true', 'false']);
   });
 
-  it('a fülre kattintva másik fájlt mutat, a nyelvének megfelelő színezéssel', () => {
+  it('clicking a tab shows another file, with the highlighting of its language', () => {
     const { fixture, el, tabs, code } = render();
     tabs()[1].click();
     fixture.detectChanges();
-    expect(code()).toContain('# Cím');
-    expect(el.querySelector('.heading')?.textContent).toBe('# Cím');
+    expect(code()).toContain('# Title');
+    expect(el.querySelector('.heading')?.textContent).toBe('# Title');
     expect(tabs()[1].getAttribute('aria-selected')).toBe('true');
   });
 
-  it('nyílbillentyűkkel lehet fülek között lépni, a szélen megáll', () => {
+  it('arrow keys move between the tabs and stop at the edge', () => {
     const { fixture, el, tabs } = render();
     const list = el.querySelector('[role="tablist"]') as HTMLElement;
     list.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
@@ -58,7 +58,7 @@ describe('CodeWindow', () => {
     expect(tabs()[0].getAttribute('aria-selected')).toBe('true');
   });
 
-  it('új fájllistánál visszaáll az első fülre', () => {
+  it('resets to the first tab for a new file list', () => {
     const { fixture, tabs } = render();
     tabs()[1].click();
     fixture.detectChanges();
@@ -67,7 +67,7 @@ describe('CodeWindow', () => {
     expect(tabs()[0].getAttribute('aria-selected')).toBe('true');
   });
 
-  it('az azonosítók az előtagot használják, így két kódablak nem ütközik', () => {
+  it('the ids use the prefix, so two code windows do not collide', () => {
     const { el, tabs } = render();
     expect(tabs()[0].id).toBe('demo-tab-0');
     expect(tabs()[0].getAttribute('aria-controls')).toBe('demo-panel');

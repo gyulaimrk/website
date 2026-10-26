@@ -6,8 +6,8 @@ const LABELS: Record<Lang, { page: string; cv: string }> = {
 };
 
 /**
- * Az `llms.txt` tartalma: rövid, géppel olvasható összefoglaló az AI-keresőknek és -asszisztenseknek.
- * Minden adat a tartalomfájlokból jön; `origin` nélkül a hivatkozások a webgyökérhez viszonyítottak.
+ * The content of `llms.txt`: a short, machine-readable summary for AI search engines and assistants.
+ * All data comes from the content files; without `origin` the links are relative to the web root.
  */
 export function renderLlmsTxt(contents: Record<Lang, Content>, origin = ''): string {
   const langs = Object.keys(contents) as Lang[];

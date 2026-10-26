@@ -5,9 +5,9 @@ import { SideProject } from '../../../data/models';
 import { ProjectCard } from './project-card';
 
 const project: SideProject = {
-  name: 'Példa',
+  name: 'Example',
   url: 'https://example.com',
-  paragraphs: ['Első bekezdés.', 'Második bekezdés.'],
+  paragraphs: ['First paragraph.', 'Second paragraph.'],
   tech: ['Angular', 'SEO'],
 };
 
@@ -19,17 +19,17 @@ describe('ProjectCard', () => {
     return { fixture, el: fixture.nativeElement as HTMLElement };
   }
 
-  it('kirajzolja a nevet, a leírás bekezdéseit és a technológiákat', () => {
+  it('renders the name, the paragraphs of the description and the technologies', () => {
     const { el } = render();
-    expect(el.querySelector('h3')?.textContent).toBe('Példa');
+    expect(el.querySelector('h3')?.textContent).toBe('Example');
     expect([...el.querySelectorAll('.description')].map((p) => p.textContent)).toEqual([
-      'Első bekezdés.',
-      'Második bekezdés.',
+      'First paragraph.',
+      'Second paragraph.',
     ]);
     expect(el.querySelectorAll('app-chip-list li').length).toBe(2);
   });
 
-  it('új lapon nyíló linket ad az élő oldalra, a felirat a nyelvet követi', () => {
+  it('gives a link opening in a new tab to the live site, the label follows the language', () => {
     const { fixture, el } = render();
     const link = el.querySelector('a[appButton]') as HTMLAnchorElement;
     expect(link.getAttribute('href')).toBe(project.url);
@@ -40,12 +40,12 @@ describe('ProjectCard', () => {
     expect(link.textContent?.trim()).toBe(contentEn.ui.sideProjects.visit);
   });
 
-  it('csak a meglévő linkeket mutatja: forráskód-link élő oldal nélkül', () => {
+  it('shows only the existing links: a source link without a live site', () => {
     const fixture = TestBed.createComponent(ProjectCard);
     fixture.componentRef.setInput('project', {
-      name: 'Csak kód',
+      name: 'Code only',
       sourceUrl: 'https://github.com/example/repo',
-      paragraphs: ['Leírás.'],
+      paragraphs: ['Description.'],
       tech: ['Angular'],
     });
     fixture.detectChanges();

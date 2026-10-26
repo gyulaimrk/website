@@ -1,27 +1,27 @@
-# Oldalak (`src/app/pages/`)
+# Pages (`src/app/pages/`)
 
-Az útvonalakhoz tartozó, legfelső szintű komponensek. Az útvonalakat az `app.routes.ts`, az előrenderelést az
-`app.routes.server.ts` írja le (lásd [Architektúra](../architecture.md)).
+The top-level components of the routes. The routes are described by `app.routes.ts`, the prerendering by
+`app.routes.server.ts` (see [Architecture](../architecture.md)).
 
 ### `app-portfolio-page` (`PortfolioPage`)
 
-A teljes portfólió egy oldalon, a `/hu` és az `/en` címen. A tartalomra ugró linket, a menüt, a `main` elemben a
-szekciókat (hero, rólam, eszköztár, AI, tapasztalat, mellékprojektek, tanulmányok, kapcsolat), majd a láblécet és a
-„vissza a tetejére” gombot fogja össze. Egy `effect` a nyelv minden változásakor frissíti a `SeoService`-t.
+The whole portfolio on one page, at `/hu` and `/en`. It puts together the skip-to-content link, the menu, the
+sections in the `main` element (hero, about, skills, AI, experience, side projects, studies, contact), then the footer and the
+“back to top” button. An `effect` updates the `SeoService` on every language change.
 
-**Tesztek:** `portfolio-page.spec.ts`: minden szekció felépül, van tartalomra ugró link (a `main` a célja), a cím a nyelvvel együtt változik.
+**Tests:** `portfolio-page.spec.ts`: every section is built, there is a skip-to-content link (`main` is its target), the title changes together with the language.
 
 ### `app-root-redirect` (`RootRedirect`)
 
-A gyökércím (`/`). A böngészőben az első megjelenítés után a látogató nyelvére irányít át (`LanguageService.preferred()`,
-előzmény nélkül, `replaceUrl`). A kiszolgált HTML-ben mindkét nyelvre mutató linkek vannak, hogy a keresők és a
-szkript nélküli látogatók se rekedjenek itt.
+The root address (`/`). In the browser, after the first render, it redirects to the visitor's language (`LanguageService.preferred()`,
+without history, `replaceUrl`). The served HTML has links to both languages, so search engines and
+visitors without scripting are not stuck here.
 
-**Tesztek:** `root-redirect.spec.ts`: mindkét nyelvre mutató link a szkript nélküli látogatóknak, és az első megjelenítés után a látogató nyelvére navigál, előzmény nélkül.
+**Tests:** `root-redirect.spec.ts`: links to both languages for visitors without scripting, and after the first render it navigates to the visitor's language, without history.
 
 ### `app-not-found` (`NotFound`)
 
-A 404-es oldal. Kétnyelvű, mert nincs nyelvi előtagja; az indulásakor `noindex`-et állít be (`SeoService.noindex`).
-A build ebből készíti a gyökérben lévő `404.html`-t.
+The 404 page. It is bilingual because it has no language prefix; on start it sets `noindex` (`SeoService.noindex`).
+The build makes the `404.html` in the root from it.
 
-**Tesztek:** `not-found.spec.ts`: mindkét nyelven tájékoztat és mindkét főoldalra visz; indexelés ellen jelöli az oldalt, és a címet is beállítja.
+**Tests:** `not-found.spec.ts`: it informs in both languages and leads to both home pages; it marks the page against indexing and also sets the title.

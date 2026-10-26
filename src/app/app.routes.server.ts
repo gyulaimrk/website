@@ -1,7 +1,7 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
 import { LANGS } from './data/content';
 
-/** Minden oldal statikus HTML-ként készül el a build során. */
+/** Every page is built as static HTML during the build. */
 export const serverRoutes: ServerRoute[] = [
   { path: '', renderMode: RenderMode.Prerender },
   {

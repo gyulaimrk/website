@@ -16,7 +16,7 @@ import { developerInstance } from './developer-instance';
 })
 export class Hero {
   protected readonly content = inject(ContentService).content;
-  /** A kódablak két fájlja: a profilból épített példány (ez az alapértelmezett), majd a Developer data class. */
+  /** The two files of the code window: the instance built from the profile (the default), then the Developer data class. */
   protected readonly files = computed<CodeFile[]>(() => {
     const { profile, codeSamples } = this.content();
     return [developerInstance(profile), ...codeSamples];

@@ -19,7 +19,7 @@ describe('Typewriter', () => {
     return { fixture, text };
   }
 
-  it('betűnként gépeli be a szót', async () => {
+  it('types the word letter by letter', async () => {
     const { fixture, text } = setup();
     await fixture.whenStable();
     vi.advanceTimersByTime(70);
@@ -30,7 +30,7 @@ describe('Typewriter', () => {
     expect(text()).toBe('Java');
   });
 
-  it('a szó végén törli, majd a következő szóra vált', async () => {
+  it('at the end of the word it deletes, then switches to the next word', async () => {
     const { fixture, text } = setup();
     await fixture.whenStable();
     vi.advanceTimersByTime(70 * 4 + 1600 + 35 * 4);
@@ -38,7 +38,7 @@ describe('Typewriter', () => {
     expect(text()).toBe('K');
   });
 
-  it('mozgáscsökkentésnél az első szót mutatja gépelés nélkül', async () => {
+  it('with reduced motion it shows the first word without typing', async () => {
     vi.stubGlobal('matchMedia', () => ({ matches: true }));
     const { fixture, text } = setup();
     await fixture.whenStable();

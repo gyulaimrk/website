@@ -4,7 +4,7 @@ import { AnchorLink } from '../anchor-link/anchor-link.directive';
 
 const SHOW_AFTER_PX = 700;
 
-/** Lebegő "vissza a tetejére" gomb, amely csak lejjebb görgetve jelenik meg. */
+/** Floating "back to top" button that only appears after scrolling down. */
 @Component({
   selector: 'app-back-to-top',
   imports: [AnchorLink],

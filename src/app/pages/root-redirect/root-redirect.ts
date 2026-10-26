@@ -4,9 +4,9 @@ import { LANGS } from '../../data/content';
 import { Lang } from '../../data/models';
 
 /**
- * A gyökércím (`/`): a böngészőben a látogató nyelvére visz, a kiszolgált HTML-ben
- * pedig mindkét nyelvre mutató linkek vannak, hogy a keresők és a szkript nélküli
- * látogatók se rekedjenek itt.
+ * The root address (`/`): in the browser it takes the visitor to their language, while the served HTML
+ * contains links to both languages, so search engines and visitors without scripting
+ * are not stuck here.
  */
 @Component({
   selector: 'app-root-redirect',

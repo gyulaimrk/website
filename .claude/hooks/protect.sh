@@ -1,9 +1,9 @@
 #!/bin/sh
-# PreToolUse: generált/érzékeny fájlok kézi szerkesztésének tiltása.
+# PreToolUse: blocks manual editing of generated or sensitive files.
 f=$(sed -n 's/.*"file_path"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p' | head -1)
 case "$f" in
   */package-lock.json|*/.env|*/.env.*|*/dist/*)
-    echo "Tiltott: $f generált vagy érzékeny fájl, ne szerkeszd kézzel (npm install / build kezeli)." >&2
+    echo "Forbidden: $f is a generated or sensitive file, do not edit it by hand (npm install / build handles it)." >&2
     exit 2 ;;
 esac
 exit 0

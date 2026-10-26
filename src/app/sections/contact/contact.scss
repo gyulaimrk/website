@@ -9,7 +9,7 @@ section {
   gap: 20px;
   padding: clamp(40px, 8vw, 96px) clamp(24px, 5vw, 64px);
   border-radius: calc(var(--radius) * 1.6);
-  /* A fény a háttér része, nem külön elem: így a lekerekített sarkokon sehol nem lóg ki. */
+  /* The glow is part of the background, not a separate element: so it never sticks out at the rounded corners. */
   background:
     radial-gradient(circle at 85% 0%, rgb(255 255 255 / 0.22), transparent 45%), var(--gradient);
   color: var(--on-accent);

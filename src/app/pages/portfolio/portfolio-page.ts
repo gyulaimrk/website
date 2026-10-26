@@ -15,7 +15,7 @@ import { Skills } from '../../sections/skills/skills';
 import { AnchorLink } from '../../shared/anchor-link/anchor-link.directive';
 import { BackToTop } from '../../shared/back-to-top/back-to-top';
 
-/** A teljes portfólió egy oldalon; a nyelvet az útvonal adja (`/hu`, `/en`). */
+/** The whole portfolio on one page; the language comes from the route (`/hu`, `/en`). */
 @Component({
   selector: 'app-portfolio-page',
   imports: [

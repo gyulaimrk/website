@@ -3,14 +3,14 @@ import { Job } from '../../../data/models';
 import { JobCard } from './job-card';
 
 const job: Job = {
-  company: 'Példa Kft.',
-  role: 'Fejlesztő',
+  company: 'Example Ltd.',
+  role: 'Developer',
   period: '2024 – 2025',
-  description: 'Leírás.',
+  description: 'Description.',
   tech: ['Java', 'SQL'],
   projects: [
-    { name: 'Alfa', subtitle: 'Tanácsadás', text: 'Szöveg.' },
-    { name: 'Béta', url: 'https://example.com', text: 'Link.' },
+    { name: 'Alpha', subtitle: 'Consulting', text: 'Text.' },
+    { name: 'Beta', url: 'https://example.com', text: 'Link.' },
   ],
 };
 
@@ -23,46 +23,46 @@ describe('JobCard', () => {
     return fixture.nativeElement as HTMLElement;
   }
 
-  it('kirajzolja a céget, a szerepet, az időszakot és a technológiákat', () => {
+  it('renders the company, the role, the period and the technologies', () => {
     const el = render();
-    expect(el.querySelector('h3')?.textContent).toBe('Példa Kft.');
-    expect(el.querySelector('.role')?.textContent).toBe('Fejlesztő');
+    expect(el.querySelector('h3')?.textContent).toBe('Example Ltd.');
+    expect(el.querySelector('.role')?.textContent).toBe('Developer');
     expect(el.querySelector('.period')?.textContent).toBe('2024 – 2025');
     expect(el.querySelectorAll('app-chip-list li').length).toBe(2);
   });
 
-  it('munkahely-szintű címkék nélkül nem rajzol címkesort a kártya aljára', () => {
+  it('without employer-level chips it draws no chip row at the bottom of the card', () => {
     const el = render({ tech: undefined, projects: undefined });
     expect(el.querySelector('app-card > app-chip-list')).toBeNull();
   });
 
-  it('a projekt alcíme a neve mellett áll, ha van', () => {
+  it('the project subtitle stands next to its name, if there is one', () => {
     const items = [...render().querySelectorAll('.projects > li')];
-    expect(items[0].querySelector('h4 span')?.textContent).toBe('Tanácsadás');
+    expect(items[0].querySelector('h4 span')?.textContent).toBe('Consulting');
     expect(items[1].querySelector('h4 span')).toBeNull();
   });
 
-  it('csak a linkes projekt kattintható', () => {
+  it('only the project with a link is clickable', () => {
     const links = render().querySelectorAll('.projects a');
     expect(links.length).toBe(1);
     expect(links[0].getAttribute('href')).toBe('https://example.com');
   });
 
-  it('a feladatlistát a projekt alatt mutatja, ha van', () => {
+  it('shows the task list under the project, if there is one', () => {
     const el = render({
-      projects: [{ name: 'Alfa', points: ['Első feladat', 'Második feladat'] }, { name: 'Béta' }],
+      projects: [{ name: 'Alpha', points: ['First task', 'Second task'] }, { name: 'Beta' }],
     });
     const items = [...el.querySelectorAll('.projects > li')];
     expect([...items[0].querySelectorAll('.points li')].map((li) => li.textContent)).toEqual([
-      'Első feladat',
-      'Második feladat',
+      'First task',
+      'Second task',
     ]);
     expect(items[1].querySelector('.points')).toBeNull();
   });
 
-  it('a projekt eszközeit címkékként mutatja, ha vannak', () => {
+  it('shows the project’s tools as chips, if there are any', () => {
     const el = render({
-      projects: [{ name: 'Alfa', tech: ['Jenkins', 'GitLab'] }, { name: 'Béta' }],
+      projects: [{ name: 'Alpha', tech: ['Jenkins', 'GitLab'] }, { name: 'Beta' }],
     });
     const items = [...el.querySelectorAll('.projects > li')];
     expect([...items[0].querySelectorAll('.tools li')].map((li) => li.textContent)).toEqual([
@@ -72,26 +72,26 @@ describe('JobCard', () => {
     expect(items[1].querySelector('.tools')).toBeNull();
   });
 
-  it('projektek nélkül nincs projektlista', () => {
+  it('without projects there is no project list', () => {
     expect(render({ projects: undefined }).querySelector('.projects')).toBeNull();
   });
 
-  it('a jelenlegi munkahely kiemelt kártyát kap', () => {
+  it('the current employer gets a featured card', () => {
     expect(render({}, true).querySelector('app-card')?.classList).toContain('featured');
   });
 
-  it('a leírás nélküli projekt is megjelenik, üres bekezdés nélkül', () => {
-    const el = render({ projects: [{ name: 'Csak név' }] });
-    expect(el.querySelector('.projects h4')?.textContent).toContain('Csak név');
+  it('a project without a description also appears, without an empty paragraph', () => {
+    const el = render({ projects: [{ name: 'Name only' }] });
+    expect(el.querySelector('.projects h4')?.textContent).toContain('Name only');
     expect(el.querySelector('.projects p')).toBeNull();
   });
 
-  it('a projektek összecsukható listában vannak, a darabszámmal a feliratban', () => {
+  it('the projects are in a collapsible list, with the count in the label', () => {
     const el = render();
     expect(el.querySelector('details > summary')?.textContent).toContain('Projektek (2)');
   });
 
-  it('alapból összecsukott, a jelenlegi munkahelynél nyitott', () => {
+  it('collapsed by default, open for the current employer', () => {
     expect((render({}, false).querySelector('details') as HTMLDetailsElement).open).toBe(false);
     expect((render({}, true).querySelector('details') as HTMLDetailsElement).open).toBe(true);
   });

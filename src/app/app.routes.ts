@@ -3,9 +3,9 @@ import { languageActivate, languageMatch } from './core/language.guard';
 import { PortfolioPage } from './pages/portfolio/portfolio-page';
 
 /**
- * A nyelv útvonal-paraméter (`:lang`), nem külön bejegyzés: így a két nyelv ugyanazt a
- * komponenspéldányt használja, nyelvváltáskor nem épül újra az oldal, és a görgetés
- * a helyén marad.
+ * The language is a route parameter (`:lang`), not a separate entry: this way both languages use the same
+ * component instance, the page is not rebuilt when the language changes, and the scroll position
+ * stays where it is.
  */
 export const routes: Routes = [
   {
@@ -19,12 +19,12 @@ export const routes: Routes = [
     canMatch: [languageMatch],
     canActivate: [languageActivate],
   },
-  // A 404-oldal saját címe: ebből készül statikus fájl, amelyet a postbuild a 404.html helyére másol
+  // The 404 page has its own address: a static file is built from it, which postbuild copies over 404.html
   {
     path: '404',
     loadComponent: () => import('./pages/not-found/not-found').then((m) => m.NotFound),
   },
-  // Ismeretlen cím: valódi 404-oldal, nem átirányítás
+  // Unknown address: a real 404 page, not a redirect
   {
     path: '**',
     loadComponent: () => import('./pages/not-found/not-found').then((m) => m.NotFound),

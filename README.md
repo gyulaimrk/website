@@ -1,37 +1,41 @@
-# Gyulai Márk – portfólió
+# Gyulai Márk – portfolio
 
-Kétnyelvű (magyar és angol) portfólió, Angular 22 és Node.js 24 LTS alapon. Az oldal statikusan előrenderelt,
-nyelvenként saját címmel (`/hu`, `/en`), Cloudflare-en tárolva.
+A bilingual (Hungarian and English) portfolio built on Angular 22 and Node.js 24 LTS. The site is statically prerendered,
+with its own address per language (`/hu`, `/en`), and hosted on Cloudflare.
 
 ```bash
 npm ci
-npm start                 # fejlesztői szerver: http://localhost:4200
-npm test -- --watch=false # egységtesztek (Vitest)
-npm run build             # éles build: dist/portfolio/browser
-npm run e2e               # E2E tesztek (Playwright), előbb: npm run build
-npm run cv                # a letölthető önéletrajz (PDF) újragyártása
+npm start                 # development server: http://localhost:4200
+npm test -- --watch=false # unit tests (Vitest)
+npm run build             # production build: dist/portfolio/browser
+npm run e2e               # E2E tests (Playwright), build first: npm run build
+npm run cv                # rebuild the downloadable résumé (PDF)
 ```
 
-## Dokumentáció
-A részletes dokumentáció a [`docs/`](docs/README.md) mappában van: architektúra, fejlesztés, tartalom és részegységenként a komponensek.
-A projekt szabályai a `CLAUDE.md`-ben, a Claude Code skillek a `.claude/skills/` mappában vannak.
+## Documentation
 
-## Tartalom
-Minden szöveg a `src/app/data/content.hu.ts` és `content.en.ts` fájlban van, a két nyelv szerkezete azonos
-kell legyen (a `content.spec.ts` ellenőrzi). Tartalomváltozás után futtasd az `npm run cv` parancsot,
-hogy az önéletrajz is frissüljön.
+The detailed documentation is in the [`docs/`](docs/README.md) folder: architecture, development, content and the components, part by part.
+The project rules are in `CLAUDE.md`, and the Claude Code skills are in the `.claude/skills/` folder.
+
+## Content
+
+Every text is in `src/app/data/content.hu.ts` and `content.en.ts`; the structure of the two languages must be identical
+(checked by `content.spec.ts`). After a content change run `npm run cv`,
+so the résumé is refreshed too.
 
 ## Cloudflare
-Statikus assetek Cloudflare Workers alatt (`wrangler.jsonc`).
+
+Static assets under Cloudflare Workers (`wrangler.jsonc`).
 
 ```bash
-npm run preview   # build + helyi Cloudflare előnézet
-npm run deploy    # build + éles telepítés (előtte: npx wrangler login)
+npm run preview   # build + local Cloudflare preview
+npm run deploy    # build + production deploy (first: npx wrangler login)
 ```
 
-A GitHub Actions (`.github/workflows/ci.yml`) minden pushra teszteli és buildeli az oldalt, lefuttatja az
-E2E teszteket, és a `main` ágon telepít, ha a `CLOUDFLARE_API_TOKEN` és a `CLOUDFLARE_ACCOUNT_ID` titkok be vannak állítva.
+GitHub Actions (`.github/workflows/ci.yml`) tests and builds the site on every push, runs the
+E2E tests, and deploys on the `main` branch if the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets are set.
 
-## Élesítés előtt
-Az oldal végleges címét egyszer kell megadni: `src/app/core/site-origin.ts`, `SITE_ORIGIN` (`https://…`,
-záró perjel nélkül). Ettől lesz canonical, hreflang, `og:url` és sitemap. Addig ezek kimaradnak.
+## Before going live
+
+The final address of the site has to be set once: `src/app/core/site-origin.ts`, `SITE_ORIGIN` (`https://…`,
+without a trailing slash). This is what produces canonical, hreflang, `og:url` and the sitemap. Until then they are left out.

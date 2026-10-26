@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { Reveal } from '../reveal/reveal.directive';
 
-/** Szekciócím egy rövid, magyarázó bevezetővel. */
+/** A section heading with a short explanatory lead. */
 @Component({
   selector: 'app-section-heading',
   imports: [Reveal],

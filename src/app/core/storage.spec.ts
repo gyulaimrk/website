@@ -3,18 +3,18 @@ import { readStored, writeStored } from './storage';
 describe('storage', () => {
   beforeEach(() => localStorage.clear());
 
-  it('visszaadja a mentett, megengedett értéket', () => {
+  it('returns the saved, allowed value', () => {
     writeStored('k', 'b');
     expect(readStored('k', ['a', 'b'] as const)).toBe('b');
   });
 
-  it('érvénytelen vagy hiányzó értéknél undefined', () => {
+  it('undefined for an invalid or missing value', () => {
     expect(readStored('k', ['a', 'b'] as const)).toBeUndefined();
     writeStored('k', 'x');
     expect(readStored('k', ['a', 'b'] as const)).toBeUndefined();
   });
 
-  it('nem dob hibát, ha a tárolás nem elérhető', () => {
+  it('does not throw when storage is unavailable', () => {
     vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
       throw new Error('tiltva');
     });

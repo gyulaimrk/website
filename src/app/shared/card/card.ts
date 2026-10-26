@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 
-/** Üveghatású kártya; kiemelt változatnak színátmenetes kerete van. */
+/** A glass-effect card; the featured variant has a gradient border. */
 @Component({
   selector: 'app-card',
   templateUrl: './card.html',

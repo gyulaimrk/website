@@ -1,28 +1,29 @@
 ---
 name: project-conventions
-description: A portfólió projekt szabályai (Angular, stílus, design, nyelv). Háttértudás minden kódváltoztatáshoz.
+description: The rules of the portfolio project (Angular, style, design, language). Background knowledge for every code change.
 user-invocable: false
 ---
 
-# Projektkonvenciók
+# Project conventions
 
-**Technológia:** Angular 22, standalone komponensek, signals, zoneless, új vezérlési szerkezetek (`@if`, `@for`), SCSS. Node 24 LTS. Hosting: Cloudflare (Wrangler), CI: GitHub Actions.
+**Technology:** Angular 22, standalone components, signals, zoneless, the new control flow (`@if`, `@for`), SCSS. Node 24 LTS. Hosting: Cloudflare (Wrangler), CI: GitHub Actions.
 
-**Felépítés:** `src/app/pages/` az útvonalak oldalai (`/hu`, `/en`, `/`, `404`), `src/app/cv/` az önéletrajz-PDF forrása, `src/app/sections/` a szekciók, `src/app/shared/` az újrahasznosítható építőelemek, `src/app/core/` a szolgáltatások (nyelv, tartalom, téma, SEO, scroll-spy) és segédek, `src/app/data/` a modellek és a kétnyelvű tartalom (`content.hu.ts`, `content.en.ts`), `src/styles.scss` a design tokenek.
+**Structure:** `src/app/pages/` holds the pages of the routes (`/hu`, `/en`, `/`, `404`), `src/app/cv/` the source of the résumé PDF, `src/app/sections/` the sections, `src/app/shared/` the reusable building blocks, `src/app/core/` the services (language, content, theme, SEO, scroll-spy) and helpers, `src/app/data/` the models and the bilingual content (`content.hu.ts`, `content.en.ts`), and `src/styles.scss` the design tokens.
 
-**Útvonalak és előrenderelés:** az oldal statikusan előrenderelt, nyelvenként saját címmel (`/hu`, `/en`). Böngészőspecifikus kód (`document`, `localStorage`, időzítő) csak `DOCUMENT`, `isPlatformBrowser` vagy `afterNextRender` mögött. Oldalon belüli ugráshoz `appAnchor`, nem sima `#id` link (a `<base href="/">` miatt).
+**Routes and prerendering:** the site is statically prerendered, with its own address per language (`/hu`, `/en`). Browser-specific code (`document`, `localStorage`, timers) only behind `DOCUMENT`, `isPlatformBrowser` or `afterNextRender`. For in-page jumps use `appAnchor`, not a plain `#id` link (because of `<base href="/">`).
 
-**Kétnyelvűség:** szöveg nem kerülhet a komponensekbe. Minden magyarul és angolul is a tartalomfájlokban van, a komponensek a `ContentService`-ből (`content()` signal) olvasnak. Új szöveg mindkét nyelven kell.
+**Bilingual site:** no text may go into the components. Everything is in the content files, in Hungarian and in English, and the components read from the `ContentService` (the `content()` signal). New text is needed in both languages.
 
-**Komponensek:** minden komponens saját mappában, külön `.ts`, `.html`, `.scss` és `.spec.ts` fájllal (nincs inline template vagy style). SOLID, DRY, KISS: egy felelősség komponensenként, az ismétlődő UI shared komponensbe kerül, bemenetek `input()`, kétirányú állapot `model()`, kimenet signalokkal; nincs felesleges absztrakció. Új komponenshez írj specet (Vitest, `ng test`).
+**Components:** every component in its own folder, with separate `.ts`, `.html`, `.scss` and `.spec.ts` files (no inline template or style). SOLID, DRY, KISS: one responsibility per component, repeated UI goes into a shared component, inputs are `input()`, two-way state is `model()`, outputs use signals; no needless abstraction. Write a spec for a new component (Vitest, `ng test`).
 
-**Design (modern fejlesztői portfólió):**
-- Betűk: Space Grotesk (címek) és Inter (szöveg), helyben betöltve. Színek és téma csak a tokenekből (`--bg`, `--card`, `--text`, `--muted`, `--accent`, `--accent-2`, `--accent-3`, `--gradient`); a világos és sötét téma tokenjei a `styles.scss`-ben.
-- Üveghatású kártyák (`app-card`), színátmenetes elsődleges gomb, hero gépelő szöveggel és kódablakkal. Idővonal csak időrendi tartalomhoz.
-- Mozgás: belépő animáció (`appReveal`), lebegő háttérfények, hover. `prefers-reduced-motion` tartalék kötelező.
+**Design (modern developer portfolio):**
 
-**Hozzáférhetőség:** a kontraszt legalább 4,5:1 mindkét témában; szövegszínnek `--accent-text`-et használj. Minden vezérlőnek legyen látható fókusza és (ikonnál) felirata, a felirat tartalmazza a látható szöveget.
+- Fonts: Space Grotesk (headings) and Inter (text), loaded locally. Colours and theme only from the tokens (`--bg`, `--card`, `--text`, `--muted`, `--accent`, `--accent-2`, `--accent-3`, `--gradient`); the tokens of the light and dark theme are in `styles.scss`.
+- Glass-effect cards (`app-card`), a gradient primary button, a hero with typewriter text and a code window. A timeline only for chronological content.
+- Motion: entrance animation (`appReveal`), floating background glows, hover. A `prefers-reduced-motion` fallback is mandatory.
 
-**Szöveg:** magyar. A tartalom csak valós adat lehet (önéletrajz, LinkedIn); nincs kitalált ügyfél, szám vagy idézet. Személyes adat (telefon, születési dátum, lakcím) nem kerül az oldalra.
+**Accessibility:** contrast of at least 4.5:1 in both themes; use `--accent-text` as the text colour. Every control needs a visible focus and (for an icon) a label, and the label contains the visible text.
 
-**Ellenőrzés:** `npm test -- --watch=false` és `npm run build` hibátlan legyen; felhasználói funkciónál `npm run e2e` is (előbb build). Tartalomváltozás után `npm run cv`. Vizuális változtatás után az inspector futtatása és a képernyőképek átnézése.
+**Language:** the site is shown in Hungarian and English, and those texts live only in the content files. Everything else in the repository (code, comments, test names, docs, scripts, commit messages) is written in English. The content may only be real data (résumé, LinkedIn); no invented client, number or quote. Personal data (phone, date of birth, address) does not go onto the site.
+
+**Verification:** `npm test -- --watch=false` and `npm run build` must be clean; for a user-facing feature `npm run e2e` too (build first). Run `npm run cv` after a content change. After a visual change run the inspector and look through the screenshots.

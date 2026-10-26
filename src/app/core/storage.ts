@@ -1,4 +1,4 @@
-/** Biztonságos olvasás a böngészőtárból; ha nem elérhető vagy érvénytelen az érték, `undefined`. */
+/** Safe read from browser storage; `undefined` if unavailable or the value is invalid. */
 export function readStored<T extends string>(key: string, allowed: readonly T[]): T | undefined {
   try {
     const value = localStorage.getItem(key);
@@ -8,11 +8,11 @@ export function readStored<T extends string>(key: string, allowed: readonly T[])
   }
 }
 
-/** Biztonságos mentés a böngészőtárba; hiba esetén csendben kihagyja. */
+/** Safe write to browser storage; silently skipped on error. */
 export function writeStored(key: string, value: string): void {
   try {
     localStorage.setItem(key, value);
   } catch {
-    /* a tárolás nem elérhető */
+    /* storage is unavailable */
   }
 }

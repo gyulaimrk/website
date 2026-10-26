@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { SeoService } from '../../core/seo.service';
 
-/** A 404-es oldal: kétnyelvű, mert nincs nyelvi előtagja; a keresők ne indexeljék. */
+/** The 404 page: bilingual, because it has no language prefix; search engines should not index it. */
 @Component({
   selector: 'app-not-found',
   templateUrl: './not-found.html',

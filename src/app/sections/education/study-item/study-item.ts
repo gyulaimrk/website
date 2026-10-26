@@ -1,7 +1,7 @@
 import { Component, computed, input } from '@angular/core';
 import { Study } from '../../../data/models';
 
-/** Egy tanulmány vagy tanúsítvány a listában: cím (linkként, ha van címe), kiállító, dátum, leírás. */
+/** One study or certificate in the list: title (as a link, if it has an address), issuer, date, description. */
 @Component({
   selector: 'li[appStudyItem]',
   templateUrl: './study-item.html',
@@ -10,7 +10,7 @@ import { Study } from '../../../data/models';
 export class StudyItem {
   readonly study = input.required<Study>();
 
-  /** A kiállító és a dátum egy sorban; ami hiányzik, azt kihagyja. */
+  /** The issuer and the date on one line; whatever is missing is left out. */
   protected readonly meta = computed(() =>
     [this.study().where, this.study().period].filter(Boolean).join(', '),
   );

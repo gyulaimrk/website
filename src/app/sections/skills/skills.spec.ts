@@ -3,7 +3,7 @@ import { contentHu } from '../../data/content';
 import { Skills } from './skills';
 
 describe('Skills', () => {
-  it('minden képességhez kártyát rajzol, a kiemeltet szélesebben és keretesen', () => {
+  it('renders a card for every skill, the featured one wider and with a border', () => {
     const fixture = TestBed.createComponent(Skills);
     fixture.detectChanges();
     const cards = [...fixture.nativeElement.querySelectorAll('app-card')] as HTMLElement[];
@@ -15,7 +15,7 @@ describe('Skills', () => {
     });
   });
 
-  it('a kártyák minden bekezdését külön bekezdésként kirajzolja', () => {
+  it('renders every paragraph of the cards as a separate paragraph', () => {
     const fixture = TestBed.createComponent(Skills);
     fixture.detectChanges();
     const cards = [...fixture.nativeElement.querySelectorAll('app-card')] as HTMLElement[];
@@ -25,7 +25,7 @@ describe('Skills', () => {
     });
   });
 
-  it('a címkéket a szöveg alatt mutatja, ha a kártyának vannak', () => {
+  it('shows the chips below the text, if the card has any', () => {
     const fixture = TestBed.createComponent(Skills);
     fixture.detectChanges();
     const cards = [...fixture.nativeElement.querySelectorAll('app-card')] as HTMLElement[];

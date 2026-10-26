@@ -1,12 +1,12 @@
 name: Links
 
-# Hetente ellenőrzi, hogy az oldalon szereplő külső linkek (projektek, tanúsítványok, profilok) élnek-e.
+# Weekly check that the external links on the site (projects, certificates, profiles) are alive.
 on:
   schedule:
     - cron: '17 6 * * 1'
   workflow_dispatch:
 
-# Alapból csak olvasási jog; a Cloudflare-titkokat külön kapja a telepítés.
+# Read-only by default; the deploy gets the Cloudflare secrets separately.
 permissions:
   contents: read
 

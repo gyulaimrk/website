@@ -1,71 +1,71 @@
-# Fejlesztés
+# Development
 
-## Környezet
+## Environment
 
-Node 24 LTS, npm. A függőségek a `package-lock.json` szerint települnek: `npm ci`.
+Node 24 LTS, npm. The dependencies are installed according to `package-lock.json`: `npm ci`.
 
-## Parancsok
+## Commands
 
-| Parancs                     | Mit csinál                                                                                                  |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `npm start`                 | fejlesztői szerver: http://localhost:4200                                                                   |
-| `npm test -- --watch=false` | egységtesztek (Vitest + jsdom, `ng test`)                                                                   |
-| `npm run build`             | éles build: előrenderelt `/hu`, `/en`, `404`, majd a `postbuild` szkript; kimenet: `dist/portfolio/browser` |
-| `npm run e2e`               | Playwright E2E tesztek az éles buildre, Cloudflare helyi szerveren (előbb `npm run build`)                  |
-| `npm run cv`                | a letölthető önéletrajz (PDF) újragyártása a `public/cv/` mappába                                           |
-| `npm run links`             | a külső linkek (projektek, tanúsítványok, profilok) ellenőrzése; a CI-ben hetente fut                       |
-| `npm run preview`           | build és helyi Cloudflare előnézet (`wrangler dev`)                                                         |
-| `npm run deploy`            | build és telepítés (`wrangler login` kell hozzá)                                                            |
+| Command                     | What it does                                                                                                     |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `npm start`                 | development server: http://localhost:4200                                                                        |
+| `npm test -- --watch=false` | unit tests (Vitest + jsdom, `ng test`)                                                                           |
+| `npm run build`             | production build: prerendered `/hu`, `/en`, `404`, then the `postbuild` script; output: `dist/portfolio/browser` |
+| `npm run e2e`               | Playwright E2E tests against the production build, on a local Cloudflare server (first `npm run build`)          |
+| `npm run cv`                | rebuilds the downloadable résumé (PDF) into the `public/cv/` folder                                              |
+| `npm run links`             | checks the external links (projects, certificates, profiles); runs weekly in CI                                  |
+| `npm run preview`           | build and local Cloudflare preview (`wrangler dev`)                                                              |
+| `npm run deploy`            | build and deploy (needs `wrangler login`)                                                                        |
 
-Ha nincs telepített Playwright-böngésző, az `E2E_CHROMIUM_PATH` környezeti változóval adható meg egy Chromium útvonala.
-Az `npm run cv` ugyanígy a `CHROME_PATH` változót használja.
+If no Playwright browser is installed, the path of a Chromium can be given with the `E2E_CHROMIUM_PATH` environment variable.
+`npm run cv` uses the `CHROME_PATH` variable in the same way.
 
-## Tesztelés
+## Testing
 
-- **Egységteszt** (`*.spec.ts`, a komponens mellett): a viselkedést ellenőrzi, nem a megvalósítást. A
-  `content.spec.ts` a két nyelv szerkezetének egyezését, a projektszámot és a személyes adatok hiányát is védi.
-- **E2E** (`e2e/`): a teljes útvonalat nézi az éles buildön: gyökér átirányítás, nyelvváltás, előrenderelt HTML
-  szkript nélkül, téma, mobilmenü, nyitható projektlisták, önéletrajz letöltése, 404. Az elvárt szövegeket a
-  tartalomfájlokból olvassa, nem másolja.
-- **Hozzáférhetőség** (`e2e/a11y.spec.ts`): az axe WCAG 2.1 A/AA szabályai `/hu` és `/en` címen, mindkét témában; ide tartoznak a kontraszt és az azonosítók ütközése is. Külön teszt (`e2e/security.spec.ts`) a biztonsági fejléceket és azt ellenőrzi, hogy a CSP nem tilt le semmit.
-- Módosítás után az egységtesztnek és a buildnek hibátlannak kell lennie; látható funkcióhoz E2E teszt is jár.
+- **Unit tests** (`*.spec.ts`, next to the component): they check the behaviour, not the implementation. The
+  `content.spec.ts` also guards the matching structure of the two languages, the project count and the absence of personal data.
+- **E2E** (`e2e/`): look at the whole route on the production build: root redirect, language switch, prerendered HTML
+  without scripting, theme, mobile menu, collapsible project lists, résumé download, 404. They read the expected texts from the
+  content files instead of copying them.
+- **Accessibility** (`e2e/a11y.spec.ts`): the WCAG 2.1 A/AA rules of axe on `/hu` and `/en`, in both themes; contrast and clashing ids are covered too. A separate test (`e2e/security.spec.ts`) checks the security headers and that the CSP blocks nothing.
+- After a change the unit tests and the build must be clean; a visible feature also needs an E2E test.
 
-## Biztonsági fejlécek és adatvédelem
+## Security headers and privacy
 
-A `public/_headers` a statikus biztonsági fejléceket adja (`X-Content-Type-Options`, `Referrer-Policy`,
-`Permissions-Policy`, `X-Frame-Options`, `Cross-Origin-Opener-Policy`). A `scripts/postbuild.mjs` a build után
-ugyanennek a `/*` szabálynak a végére írja a `Content-Security-Policy` sort: az oldal csak a saját forrásaiból
-tölthet be, és a végrehajtható beágyazott szkripteket (téma, eseményismétlés, CSS-csere) a sha256-lenyomatuk
-engedélyezi. Új beágyazott szkript esetén nincs teendő, a lenyomatot a build számolja. Ha külső szolgáltatást
-(például analitikát) adsz hozzá, a forrását a `postbuild.mjs` irányelvében is engedélyezni kell.
+`public/_headers` gives the static security headers (`X-Content-Type-Options`, `Referrer-Policy`,
+`Permissions-Policy`, `X-Frame-Options`, `Cross-Origin-Opener-Policy`). After the build `scripts/postbuild.mjs`
+writes the `Content-Security-Policy` line at the end of the same `/*` rule: the page may only load from its own sources,
+and the executable inline scripts (theme, event replay, CSS swap) are allowed by their sha256 hashes. For a new inline script there is nothing to do, the build
+calculates the hash. If you add an external service
+(for example analytics), its source must also be allowed in the policy of `postbuild.mjs`.
 
-## Folyamatos integráció
+## Continuous integration
 
-A `.github/workflows/ci.yml` minden pull requestre és a `main` ágra lefuttatja: telepítés, egységtesztek, build,
-a Playwright-böngésző telepítése, E2E tesztek. A futtató `ubuntu-24.04`, mert az `ubuntu-latest` már olyan
-verzió, amelyet a használt Playwright nem támogat. A `.github/workflows/links.yml` hetente lefuttatja a linkellenőrzést, a `.github/dependabot.yml` pedig hetente
-függőségfrissítést javasol (az Angular csomagok egy csoportban). A `main` ágon, ha a `CLOUDFLARE_API_TOKEN` és a
-`CLOUDFLARE_ACCOUNT_ID` titok be van állítva, telepít is: a build job által legyártott és letesztelt artifactot tölti le, nem épít újra.
+`.github/workflows/ci.yml` runs on every pull request and on the `main` branch: install, unit tests, build,
+installing the Playwright browser, E2E tests. The runner is `ubuntu-24.04`, because `ubuntu-latest` is already a
+version that the Playwright in use does not support. `.github/workflows/links.yml` runs the link check weekly, and `.github/dependabot.yml` proposes
+dependency updates weekly (the Angular packages in one group). On the `main` branch, if the `CLOUDFLARE_API_TOKEN` and
+`CLOUDFLARE_ACCOUNT_ID` secrets are set, it also deploys: it downloads the artifact produced and tested by the build job, it does not rebuild.
 
-## Kitelepítés
+## Deployment
 
-Az oldal Cloudflare Workers statikus assetként fut (`wrangler.jsonc`: `404-page`, `drop-trailing-slash`).
-Élesítés előtt egyszer meg kell adni az oldal címét a `src/app/core/site-origin.ts`-ben (`SITE_ORIGIN`,
-`https://…`, záró perjel nélkül): ettől lesz canonical, hreflang, `og:url` és sitemap.
+The site runs on Cloudflare Workers as static assets (`wrangler.jsonc`: `404-page`, `drop-trailing-slash`).
+Before going live the address of the site must be set once in `src/app/core/site-origin.ts` (`SITE_ORIGIN`,
+`https://…`, without a trailing slash): this is what produces canonical, hreflang, `og:url` and the sitemap.
 
-## Önéletrajz (PDF)
+## Résumé (PDF)
 
-A `scripts/build-cv.mjs` (a `scripts/bundle.mjs` segítségével, esbuilddel) lefordítja a `src/app/cv/` kódját, a két nyelv tartalmából HTML-t készít, és
-a Playwright Chromiummal PDF-be nyomtatja. A PDF-ek verziózottak, ezért tartalomváltozás után újra kell
-gyártani és commitolni őket. A gyártás hibával leáll, ha egy PDF kettőnél több oldalas lenne.
+`scripts/build-cv.mjs` (with the help of `scripts/bundle.mjs`, using esbuild) compiles the code of `src/app/cv/`, makes HTML from the content of the two languages, and
+prints it to PDF with Playwright Chromium. The PDFs are version-controlled, so after a content change they have to be
+rebuilt and committed. The build stops with an error if a PDF would have more than two pages.
 
 ## Claude Code
 
-A projekt skilljei a `.claude/skills/`, az ágens a `.claude/agents/`, a hookok a `.claude/hooks/` mappában vannak:
+The skills of the project are in `.claude/skills/`, the agent in `.claude/agents/`, the hooks in `.claude/hooks/`:
 
-| Skill / ágens           | Mire való                                       |
-| ----------------------- | ----------------------------------------------- |
-| `/edit-content`         | a tartalom szerkesztése mindkét nyelven         |
-| `/document-components`  | a részegységek dokumentálása a `docs/` mappában |
-| `project-conventions`   | háttértudás a konvenciókról                     |
-| `a11y-reviewer` (ágens) | hozzáférhetőségi átvizsgálás                    |
+| Skill / agent           | What it is for                              |
+| ----------------------- | ------------------------------------------- |
+| `/edit-content`         | editing the content in both languages       |
+| `/document-components`  | documenting the parts in the `docs/` folder |
+| `project-conventions`   | background knowledge about the conventions  |
+| `a11y-reviewer` (agent) | accessibility review                        |

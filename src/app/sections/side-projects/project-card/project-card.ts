@@ -5,7 +5,7 @@ import { Button } from '../../../shared/button/button';
 import { Card } from '../../../shared/card/card';
 import { ChipList } from '../../../shared/chip-list/chip-list';
 
-/** Egy mellékprojekt kártyája: név, leírás, technológiák és link az élő oldalra. */
+/** The card of one side project: name, description, technologies and a link to the live site. */
 @Component({
   selector: 'app-project-card',
   imports: [Button, Card, ChipList],

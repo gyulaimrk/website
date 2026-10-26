@@ -9,17 +9,17 @@ describe('LanguageService', () => {
   });
   afterEach(() => vi.unstubAllGlobals());
 
-  it('alapból magyar, amíg az útvonal nem állít be nyelvet', () => {
+  it('defaults to Hungarian until the route sets a language', () => {
     expect(TestBed.inject(LanguageService).lang()).toBe('hu');
   });
 
-  it('a megjegyzett nyelv előnyt élvez a böngészőnyelvvel szemben', () => {
+  it('the remembered language takes precedence over the browser language', () => {
     localStorage.setItem('lang', 'en');
     vi.stubGlobal('navigator', { language: 'hu-HU' });
     expect(TestBed.inject(LanguageService).preferred()).toBe('en');
   });
 
-  it('mentés nélkül a magyar böngészőnyelvnél magyar, egyébként angol', () => {
+  it('without a saved choice it is Hungarian for a Hungarian browser and English otherwise', () => {
     const service = TestBed.inject(LanguageService);
     vi.stubGlobal('navigator', { language: 'hu-HU' });
     expect(service.preferred()).toBe('hu');
@@ -27,7 +27,7 @@ describe('LanguageService', () => {
     expect(service.preferred()).toBe('en');
   });
 
-  it('beállításkor frissíti a dokumentum nyelvét, de nem jegyzi meg', () => {
+  it('on set it updates the document language but does not remember it', () => {
     const service = TestBed.inject(LanguageService);
     service.use('en');
     TestBed.tick();
@@ -35,7 +35,7 @@ describe('LanguageService', () => {
     expect(localStorage.getItem('lang')).toBeNull();
   });
 
-  it('az útvonal és az átirányítás nem írja felül a megjegyzett nyelvet', async () => {
+  it('the route and the redirect do not overwrite the remembered language', async () => {
     localStorage.setItem('lang', 'en');
     const service = TestBed.inject(LanguageService);
     vi.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
@@ -45,14 +45,14 @@ describe('LanguageService', () => {
     expect(localStorage.getItem('lang')).toBe('en');
   });
 
-  it('a tudatos váltást megjegyzi', async () => {
+  it('remembers a deliberate switch', async () => {
     const service = TestBed.inject(LanguageService);
     vi.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
     await service.toggle();
     expect(localStorage.getItem('lang')).toBe('en');
   });
 
-  it('a váltó a másik nyelv címére navigál', async () => {
+  it('the toggle navigates to the address of the other language', async () => {
     const service = TestBed.inject(LanguageService);
     const navigate = vi.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
     expect(service.other()).toBe('en');

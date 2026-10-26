@@ -10,7 +10,7 @@ describe('AiWorkflow', () => {
     return { fixture, el: fixture.nativeElement as HTMLElement };
   }
 
-  it('mind az öt gyakorlati pontot kirajzolja, bekezdésenként', () => {
+  it('renders all five practice points, paragraph by paragraph', () => {
     const { el } = render();
     expect(el.querySelectorAll('app-card h3').length).toBe(5);
     const texts = [...el.querySelectorAll('app-card p')].map((p) => p.textContent);
@@ -18,14 +18,14 @@ describe('AiWorkflow', () => {
     expect(el.querySelector('h2')?.textContent).toBe(contentHu.aiWorkflow.title);
   });
 
-  it('mellette a CLAUDE.md részletét mutatja színezve, a magyarázó megjegyzéssel', () => {
+  it('next to it shows the excerpt of CLAUDE.md highlighted, with the explanatory note', () => {
     const { el } = render();
     expect(el.querySelector('[role="tab"]')?.textContent?.trim()).toBe('CLAUDE.md');
     expect(el.querySelector('.heading')?.textContent).toContain('Gyulai Márk');
     expect(el.querySelector('.note')?.textContent).toBe(contentHu.aiWorkflow.note);
   });
 
-  it('a nyelvváltással angolra vált', () => {
+  it('switches to English with the language switch', () => {
     const { fixture, el } = render();
     TestBed.inject(LanguageService).use('en');
     fixture.detectChanges();

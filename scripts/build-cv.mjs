@@ -1,12 +1,12 @@
-// Legyártja a letölthető önéletrajzot (PDF) mindkét nyelven: public/cv/.
-// A tartalom a content.*.ts fájlokból jön, így az önéletrajz mindig egyezik az oldallal.
-// Futtatás: npm run cv (a PDF-eket verziókezeljük, tartalomváltozás után újra kell futtatni).
+// Builds the downloadable résumé (PDF) in both languages: public/cv/.
+// The content comes from the content.*.ts files, so the résumé always matches the site.
+// Run: npm run cv (the PDFs are version-controlled, rerun after a content change).
 import { chromium } from '@playwright/test';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { importTs, root } from './bundle.mjs';
 
-// Az önéletrajz legfeljebb ennyi oldalas lehet; ha a tartalom túlnő rajta, a gyártás hibával áll le.
+// The résumé may have at most this many pages; if the content outgrows it, the build stops with an error.
 const MAX_PAGES = 3;
 
 const outDir = join(root, 'public', 'cv');
@@ -27,7 +27,7 @@ const FONT_FACES = [
   ['Space Grotesk', 'space-grotesk', 'space-grotesk-latin-ext-700-normal.woff2', 700],
 ];
 
-/** A betűtípusok beágyazva; ha egy fájl hiányzik, a gyártás leáll, hogy ne készüljön tartalék betűs PDF. */
+/** The fonts are embedded; if a file is missing, the build stops so no PDF with fallback fonts is made. */
 async function fontCss() {
   const rules = await Promise.all(
     FONT_FACES.map(async ([family, pkg, file, weight]) => {
@@ -57,7 +57,7 @@ try {
     const pageCount = (pdf.toString('latin1').match(/\/Type\s*\/Page[^s]/g) ?? []).length;
     if (pageCount > MAX_PAGES) {
       throw new Error(
-        `${fileName}: ${pageCount} oldalas lett (a határ ${MAX_PAGES}). Rövidítsd a tartalmat, vagy szűkítsd a stílust a render-cv.ts-ben.`,
+        `${fileName}: ended up ${pageCount} pages (the limit is ${MAX_PAGES}). Shorten the content or tighten the style in render-cv.ts.`,
       );
     }
     await writeFile(join(outDir, fileName), pdf);

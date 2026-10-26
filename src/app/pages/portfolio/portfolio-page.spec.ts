@@ -18,7 +18,7 @@ describe('PortfolioPage', () => {
     return { fixture, el: fixture.nativeElement as HTMLElement };
   }
 
-  it('az oldal minden szekcióját felépíti', () => {
+  it('builds every section of the page', () => {
     const { el } = render();
     [
       'app-nav',
@@ -36,13 +36,13 @@ describe('PortfolioPage', () => {
     expect(el.querySelectorAll('h1').length).toBe(1);
   });
 
-  it('van tartalomra ugró link, és a main a célja', () => {
+  it('has a skip-to-content link, and main is its target', () => {
     const { el } = render();
     expect(el.querySelector('.skip')?.getAttribute('href')).toBe('/hu#main');
     expect(el.querySelector('main')?.id).toBe('main');
   });
 
-  it('a cím a nyelvvel együtt változik', () => {
+  it('the title changes together with the language', () => {
     const { fixture } = render();
     TestBed.tick();
     expect(TestBed.inject(Title).getTitle()).toBe(contentHu.ui.meta.title);

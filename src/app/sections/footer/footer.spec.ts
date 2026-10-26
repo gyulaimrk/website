@@ -3,7 +3,7 @@ import { contentHu } from '../../data/content';
 import { Footer } from './footer';
 
 describe('Footer', () => {
-  it('az elérhetőségeket és az aktuális évet mutatja', () => {
+  it('shows the contact links and the current year', () => {
     const fixture = TestBed.createComponent(Footer);
     fixture.detectChanges();
     const el = fixture.nativeElement as HTMLElement;

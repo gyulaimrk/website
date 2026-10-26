@@ -1,61 +1,61 @@
-# Szolgáltatások és segédek (`src/app/core/`)
+# Services and helpers (`src/app/core/`)
 
 ### `ContentService`
 
-Az aktuális nyelv tartalma. A `content()` jel a `CONTENTS[lang]`-ot adja a `LanguageService.lang()` szerint; a
-komponensek innen olvasnak, a nyers adatfájlokból nem.
+The content of the current language. The `content()` signal gives `CONTENTS[lang]` according to `LanguageService.lang()`; the
+components read from here, not from the raw data files.
 
 ### `LanguageService`
 
-Az oldal nyelve. A nyelv az útvonalból következik (`/hu`, `/en`), a `lang` jelet az útvonal őre állítja be a
-`use()`-szal, ami a `<html lang>` attribútumot is frissíti. Csak a tudatos váltást (`toggle()`) jegyzi meg, a
-gyökércím átirányításához (`preferred()`: a megjegyzett nyelv, különben a böngészőé); egy nyelvi cím puszta
-megnyitása nem ír a tárba.
+The language of the page. The language follows from the route (`/hu`, `/en`), and the `lang` signal is set by the route guard through
+`use()`, which also updates the `<html lang>` attribute. It only remembers the deliberate switch (`toggle()`), for redirecting the
+root address (`preferred()`: the remembered language, otherwise the browser's); merely opening a language address does not
+write to storage.
 
-| Tagja                       | Mit csinál                        |
-| --------------------------- | --------------------------------- |
-| `lang`                      | az aktuális nyelv (jel)           |
-| `use(lang)`                 | beállítja a nyelvet (az őr hívja) |
-| `preferred()`               | a látogató nyelve                 |
-| `other()`                   | a másik nyelv                     |
-| `navigateTo(lang, options)` | átvisz a nyelv címére             |
-| `toggle()`                  | átvisz a másik nyelvre            |
+| Member                      | What it does                             |
+| --------------------------- | ---------------------------------------- |
+| `lang`                      | the current language (signal)            |
+| `use(lang)`                 | sets the language (called by the guard)  |
+| `preferred()`               | the visitor's language                   |
+| `other()`                   | the other language                       |
+| `navigateTo(lang, options)` | navigates to the address of the language |
+| `toggle()`                  | navigates to the other language          |
 
-### `languageMatch` és `languageActivate` (`language.guard.ts`)
+### `languageMatch` and `languageActivate` (`language.guard.ts`)
 
-A nyelvi útvonal őrei. A `languageMatch` (`CanMatchFn`) csak a `/hu` és az `/en` címre illeszkedik, minden más 404.
-A `languageActivate` (`CanActivateFn`) beállítja az útvonal nyelvét, paraméterváltáskor is.
+The guards of the language route. `languageMatch` (`CanMatchFn`) only matches `/hu` and `/en`, everything else is a 404.
+`languageActivate` (`CanActivateFn`) sets the language of the route, also when the parameter changes.
 
 ### `ThemeService`
 
-Világos és sötét téma. Az első megjelenítés mindig sötét (hidratálás); utána a mentett vagy a rendszer szerinti téma
-kerül rá, a `data-theme` attribútumon keresztül. Ha a látogató az első megjelenítés előtt vált, az ő döntése marad.
-Csak a tudatos váltást menti a `storage` segédekkel; a rendszer szerinti témát nem. Az `index.html` kis szkriptje a festés előtt beállítja az attribútumot,
-így nincs villanás.
+Light and dark theme. The first render is always dark (hydration); afterwards the saved or system theme
+is applied, through the `data-theme` attribute. If the visitor switches before the first render, their decision stays.
+It only saves the deliberate switch with the `storage` helpers, not the system theme. A small script in `index.html` sets the attribute before the paint,
+so there is no flash.
 
 ### `SeoService`
 
-A cím, a leírás, a megosztási adatok és (ha a `SITE_ORIGIN` ki van töltve) a canonical, hreflang és `og:url`
-nyelvenként (a megosztási kép, az `og:url`, a canonical és a hreflang csak ismert `SITE_ORIGIN`-nel). `update(lang)` a portfólió oldalhoz, `noindex(title)` a 404-hez, `urlFor(lang)` a nyelv címéhez.
+The title, the description, the share data and (if `SITE_ORIGIN` is filled in) canonical, hreflang and `og:url`
+per language (the share image, `og:url`, canonical and hreflang only with a known `SITE_ORIGIN`). `update(lang)` is for the portfolio page, `noindex(title)` for the 404, `urlFor(lang)` for the address of a language.
 
 ### `ScrollSpyService`
 
-Megfigyeli, melyik szekció van a képernyő felső részén. Az `observe(sections)` indítja, az `active` jel adja az
-azonosítót (hash nélkül). A menü az `aria-current` jelöléshez használja.
+Watches which section is in the upper part of the screen. `observe(sections)` starts it, and the `active` signal gives the
+id (without the hash). The menu uses it for the `aria-current` marking.
 
-### `site-origin.ts` és `site.config.ts`
+### `site-origin.ts` and `site.config.ts`
 
-`SITE_ORIGIN`: az éles cím (`https://…`, záró perjel nélkül), amíg üres, a canonical, hreflang, `og:url` és a
-sitemap kimarad. A `site-origin.ts` tiszta érték, ezért a `scripts/postbuild.mjs` is ugyanezt használja (esbuilddel betöltve, nem szövegkereséssel). A `site.config.ts` `SITE_ORIGIN_TOKEN` néven injektálhatóan adja, hogy a tesztek más értéket adhassanak.
+`SITE_ORIGIN`: the live address (`https://…`, without a trailing slash); while empty, canonical, hreflang, `og:url` and the
+sitemap are left out. `site-origin.ts` is a plain value, so `scripts/postbuild.mjs` uses the same one (loaded with esbuild, not by text search). `site.config.ts` provides it injectably as `SITE_ORIGIN_TOKEN`, so tests can give another value.
 
 ### `storage.ts`
 
-`readStored(key, allowed)` és `writeStored(key, value)`: biztonságos `localStorage`-hozzáférés. Nem elérhető tár vagy
-érvénytelen érték esetén `undefined`, illetve csendes kihagyás.
+`readStored(key, allowed)` and `writeStored(key, value)`: safe `localStorage` access. With unavailable storage or an
+invalid value they give `undefined` or silently skip.
 
 ### `prefersReducedMotion()`
 
-Igaz, ha a látogató csökkentett mozgást kért (vagy a böngésző nem ismeri a lekérdezést). Minden mozgó elem ezt
-nézi.
+True if the visitor asked for reduced motion (or the browser does not support the query). Every moving element
+checks it.
 
-**Tesztek:** a szolgáltatásokhoz és a segédekhez tartozik `*.spec.ts` a `core/` mappában (a `site.config.ts` és a `language.guard.ts` kivételével, ez utóbbit az E2E tesztek fedik: érvénytelen cím 404-et ad, a nyelvváltás a másik nyelv címére visz).
+**Tests:** the services and helpers have a `*.spec.ts` in the `core/` folder (except `site.config.ts` and `language.guard.ts`; the latter is covered by the E2E tests: an invalid address gives a 404, and the language switch leads to the address of the other language).

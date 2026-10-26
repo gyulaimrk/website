@@ -12,8 +12,8 @@ import { LanguageService } from './core/language.service';
 import { routes } from './app.routes';
 
 /**
- * Beágyazott előnézetben (`inMemoryRouting`) a böngésző címsora nem módosítható, ezért
- * az útválasztó csak memóriában navigál, és nem használ hidratálást.
+ * In an embedded preview (`inMemoryRouting`) the browser address bar cannot be changed, so
+ * the router only navigates in memory and does not use hydration.
  */
 const standard: ApplicationConfig = {
   providers: [provideRouter(routes), provideClientHydration(withEventReplay())],

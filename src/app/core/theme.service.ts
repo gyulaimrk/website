@@ -7,17 +7,17 @@ const KEY = 'theme';
 const THEMES: readonly Theme[] = ['dark', 'light'];
 
 /**
- * Világos és sötét téma. Az első megjelenítés mindig sötét, hogy a kiszolgáló és a
- * böngésző ugyanazt a HTML-t építse (hidratálás); a mentett vagy rendszer szerinti téma
- * ezután kerül rá. Az `index.html` kis szkriptje már a festés előtt beállítja a
- * `data-theme` attribútumot, így a látogató nem lát villanást.
+ * Light and dark theme. The first render is always dark, so the server and the
+ * browser build the same HTML (hydration); the saved or system theme is applied
+ * afterwards. A small script in `index.html` sets the `data-theme` attribute before
+ * the first paint, so the visitor sees no flash.
  */
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
   private readonly document = inject(DOCUMENT);
   readonly theme = signal<Theme>('dark');
   private readonly ready = signal(false);
-  /** A látogató már választott, mielőtt az első megjelenítés lefutott: az ő döntése marad. */
+  /** The visitor already chose before the first render ran: their decision stays. */
   private chosen = false;
 
   constructor() {
@@ -32,7 +32,7 @@ export class ThemeService {
     });
   }
 
-  /** A látogató tudatos váltása: csak ezt jegyezzük meg, a rendszer szerinti témát nem. */
+  /** The visitor's deliberate switch: only this is remembered, not the system theme. */
   toggle() {
     this.chosen = true;
     const next: Theme = this.theme() === 'dark' ? 'light' : 'dark';

@@ -1,77 +1,77 @@
-# Architektúra
+# Architecture
 
-## Áttekintés
+## Overview
 
-Az oldal egy statikusan előrenderelt Angular 22 alkalmazás (standalone komponensek, signalok, zoneless). Nincs
-kiszolgálóoldali futás: a build kész HTML-t ad, amit a Cloudflare statikus assetként szolgál ki.
+The site is a statically prerendered Angular 22 application (standalone components, signals, zoneless). There is no
+server-side runtime: the build produces ready-made HTML, which Cloudflare serves as static assets.
 
 ```
 src/app/
-  data/       modellek és a két nyelv teljes tartalma
-  core/       szolgáltatások: nyelv, tartalom, téma, SEO, görgetésfigyelő
-  pages/      útvonalak oldalai
-  sections/   az oldal szekciói
-  shared/     újrahasznosítható építőelemek
-  cv/         a letölthető önéletrajz forrása
+  data/       models and the whole content of both languages
+  core/       services: language, content, theme, SEO, scroll spy
+  pages/      the pages of the routes
+  sections/   the sections of the page
+  shared/     reusable building blocks
+  cv/         the source of the downloadable résumé
 ```
 
-## Útvonalak
+## Routes
 
-| Cím                    | Oldal           | Megjegyzés                                                                   |
-| ---------------------- | --------------- | ---------------------------------------------------------------------------- |
-| `/`                    | `RootRedirect`  | a látogató nyelvére visz (megjegyzett választás, különben a böngésző nyelve) |
-| `/hu`, `/en`           | `PortfolioPage` | a teljes portfólió egy oldalon, nyelvenként saját címmel                     |
-| `/404`, ismeretlen cím | `NotFound`      | `noindex`; a Cloudflare a gyökér `404.html`-t adja valódi 404-es státusszal  |
+| Address                 | Page            | Note                                                                                        |
+| ----------------------- | --------------- | ------------------------------------------------------------------------------------------- |
+| `/`                     | `RootRedirect`  | takes the visitor to their language (the remembered choice, otherwise the browser language) |
+| `/hu`, `/en`            | `PortfolioPage` | the whole portfolio on one page, with its own address per language                          |
+| `/404`, unknown address | `NotFound`      | `noindex`; Cloudflare serves the root `404.html` with a real 404 status                     |
 
-Az útvonalak a `LANGS`-ból (`data/content.ts`) származnak. A `languageMatch` őr csak érvényes nyelvkódra
-illeszkedik, a `languageActivate` beállítja az oldal nyelvét.
+The routes come from `LANGS` (`data/content.ts`). The `languageMatch` guard only matches a valid language code,
+and `languageActivate` sets the language of the page.
 
-## Adatfolyam
+## Data flow
 
 ```
-content.hu.ts / content.en.ts  ->  CONTENTS  ->  ContentService.content()  ->  komponensek
+content.hu.ts / content.en.ts  ->  CONTENTS  ->  ContentService.content()  ->  components
                                                        ^
-                                           LanguageService.lang() (az útvonalból)
+                                           LanguageService.lang() (from the route)
 ```
 
-A komponensekben nincs szöveg: mind a `ContentService` `content()` jeléből olvas, ami az aktuális nyelv
-tartalmát adja. Nyelvváltáskor az útvonal változik, a jel frissül, a nézet újrarajzolódik.
+There is no text in the components: they all read from the `content()` signal of the `ContentService`, which gives the
+content of the current language. On a language switch the route changes, the signal updates, and the view is redrawn.
 
-## Előrenderelés és hidratálás
+## Prerendering and hydration
 
-Az `ng build` minden útvonalat előrendez (`app.routes.server.ts`, `outputMode: static`), a böngésző pedig
-hidratál eseményismétléssel. Ennek feltételei:
+`ng build` prerenders every route (`app.routes.server.ts`, `outputMode: static`), and the browser
+hydrates with event replay. The conditions for this:
 
-- Böngészőspecifikus kód (`document`, `localStorage`, időzítő) csak `DOCUMENT`, `isPlatformBrowser` vagy
-  `afterNextRender` mögött fut.
-- Az első megjelenítés determinisztikus: a téma `dark`-ról indul, a gépelő az első szót mutatja. A mentett vagy
-  rendszer szerinti téma az első megjelenítés után kerül rá.
-- Oldalon belüli ugrás a `<base href="/">` miatt az `appAnchor` direktívával megy.
+- Browser-specific code (`document`, `localStorage`, timers) only runs behind `DOCUMENT`, `isPlatformBrowser` or
+  `afterNextRender`.
+- The first render is deterministic: the theme starts from `dark`, the typewriter shows the first word. The saved or
+  system theme is applied after the first render.
+- In-page jumps use the `appAnchor` directive because of `<base href="/">`.
 
 ## SEO
 
-- Statikus meta, Open Graph és JSON-LD az `index.html`-ben.
-- A `SeoService` nyelvenként igazítja a címet és a leírást, és a canonical, hreflang és `og:url` címkéket csak
-  akkor teszi ki, ha a `SITE_ORIGIN` (`core/site-origin.ts`) ki van töltve. Amíg üres, a sitemap sem készül.
-- A `scripts/postbuild.mjs` a `404.html`-t a kimenet gyökerébe másolja, és `SITE_ORIGIN` esetén sitemapet
-  készít, a `robots.txt`-be pedig hivatkozást tesz rá.
+- Static meta, Open Graph and JSON-LD in `index.html`.
+- The `SeoService` adjusts the title and the description per language, and only adds the canonical, hreflang and `og:url` tags
+  if `SITE_ORIGIN` (`core/site-origin.ts`) is filled in. While it is empty, the sitemap is not built either.
+- `scripts/postbuild.mjs` copies `404.html` to the root of the output, and with `SITE_ORIGIN` builds a sitemap
+  and adds a reference to it in `robots.txt`.
 
-## Biztonság, nyomtatás, AI-barát kimenet
+## Security, printing, AI-friendly output
 
-- **Fejlécek:** a `_headers` biztonsági fejléceket és a build által számolt `Content-Security-Policy`-t ad
-  ([Fejlesztés](development.md)).
-- **Nyomtatás:** a `styles.scss` `@media print` szabálya mindig a világos témát használja, elrejti a navigációt, a
-  kódablakokat és a díszítő fényeket, és kinyitja az összecsukott részleteket.
-- **`llms.txt`:** a `postbuild` a tartalomfájlokból rövid, géppel olvasható összefoglalót készít az AI-eszközöknek
+- **Headers:** `_headers` gives security headers and the `Content-Security-Policy` calculated by the build
+  ([Development](development.md)).
+- **Printing:** the `@media print` rule of `styles.scss` always uses the light theme, hides the navigation, the
+  code windows and the decorative glows, and opens the collapsed details.
+- **`llms.txt`:** `postbuild` builds a short, machine-readable summary for AI tools from the content files
   (`src/app/data/llms-txt.ts`).
 
-## Hozzáférhetőség
+## Accessibility
 
-Egyetlen `h1`, tartalomra ugró link, `aria-current` az aktív menüponton (`ScrollSpyService`), látható fókusz,
-legalább 4,5:1 szövegkontraszt mindkét témában (szövegszínnek `--accent-text`), mozgáscsökkentési tartalék a
-mozgó elemeknél (`prefersReducedMotion`).
+A single `h1`, a skip-to-content link, `aria-current` on the active menu item (`ScrollSpyService`), a visible focus,
+a text contrast of at least 4.5:1 in both themes (`--accent-text` as the text colour), a reduced-motion fallback for
+the moving elements (`prefersReducedMotion`).
 
-## Önéletrajz
+## Résumé
 
-A `profile.cv` útvonalra mutató PDF-eket az `npm run cv` készíti a tartalomfájlokból (lásd
-[Önéletrajz](components/cv.md)).
+The PDFs the `profile.cv` path points to are built from the content files by `npm run cv` (see
+[Résumé](components/cv.md)).

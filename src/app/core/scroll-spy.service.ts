@@ -1,9 +1,9 @@
 import { Injectable, OnDestroy, signal } from '@angular/core';
 
-/** Megfigyeli, melyik szekció van éppen a képernyő felső részén. */
+/** Watches which section is currently in the upper part of the screen. */
 @Injectable({ providedIn: 'root' })
 export class ScrollSpyService implements OnDestroy {
-  /** A látható szekció azonosítója (hash nélkül), vagy üres. */
+  /** The id of the visible section (without the hash), or empty. */
   readonly active = signal('');
   private observer?: IntersectionObserver;
 

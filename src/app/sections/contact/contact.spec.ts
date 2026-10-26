@@ -3,7 +3,7 @@ import { contentHu } from '../../data/content';
 import { Contact } from './contact';
 
 describe('Contact', () => {
-  it('LinkedIn, önéletrajz-letöltés és e-mail gombot ad', () => {
+  it('gives LinkedIn, résumé download and email buttons', () => {
     const fixture = TestBed.createComponent(Contact);
     fixture.detectChanges();
     const hrefs = [...fixture.nativeElement.querySelectorAll('a[appButton]')].map((a) =>
@@ -16,7 +16,7 @@ describe('Contact', () => {
     ]);
   });
 
-  it('az önéletrajz gomb letöltésre van jelölve', () => {
+  it('the résumé button is marked for download', () => {
     const fixture = TestBed.createComponent(Contact);
     fixture.detectChanges();
     const cv = fixture.nativeElement.querySelector(`a[href="${contentHu.profile.cv}"]`);
@@ -24,7 +24,7 @@ describe('Contact', () => {
     expect(cv.textContent).toContain(contentHu.ui.contact.cv);
   });
 
-  it('kiírja, milyen megkeresésre nyitott', () => {
+  it('states what kind of enquiries it is open to', () => {
     const fixture = TestBed.createComponent(Contact);
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('.availability').textContent).toBe(

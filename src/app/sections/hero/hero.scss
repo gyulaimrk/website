@@ -109,7 +109,7 @@ h1 {
   color: var(--muted);
   font-size: var(--step-small);
 }
-/* Csak elmozdulás, átlátszóság nélkül: az átlátszó elem nem számít tartalmas festésnek, ez késleltetné a betöltésmérést (LCP). */
+/* Movement only, no transparency: a transparent element does not count as a contentful paint, which would delay the load measurement (LCP). */
 @keyframes rise {
   from {
     transform: translateY(24px);

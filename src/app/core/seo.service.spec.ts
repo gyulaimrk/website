@@ -13,7 +13,7 @@ describe('SeoService', () => {
       .forEach((l) => l.remove());
   });
 
-  it('a cím és a leírás az adott nyelvet követi', () => {
+  it('the title and the description follow the given language', () => {
     service().update('hu');
     expect(TestBed.inject(Title).getTitle()).toBe(contentHu.ui.meta.title);
     const meta = TestBed.inject(Meta);
@@ -25,51 +25,53 @@ describe('SeoService', () => {
     expect(meta.getTag('property="og:locale"')?.content).toBe('en_US');
   });
 
-  it('az oldal címének ismerete nélkül nem tesz fel canonical és hreflang címkét', () => {
+  it('without knowing the page address it does not add canonical and hreflang tags', () => {
     service().update('hu');
     expect(document.head.querySelector('link[rel="canonical"]')).toBeNull();
     expect(document.head.querySelector('link[hreflang]')).toBeNull();
     expect(service().urlFor('hu')).toBe('');
   });
 
-  it('a 404-es oldalt indexelés ellen jelöli, az oldal vissza engedi', () => {
-    service().noindex('Nincs ilyen oldal');
+  it('marks the 404 page against indexing and lets the other page back in', () => {
+    service().noindex('No such page');
     expect(TestBed.inject(Meta).getTag('name="robots"')?.content).toBe('noindex');
     service().update('hu');
     expect(TestBed.inject(Meta).getTag('name="robots"')?.content).toBe('index, follow');
   });
 
-  it('megadott oldalcímmel canonical, hreflang és og:url készül, x-default-tal', () => {
+  it('with a given page address it builds canonical, hreflang and og:url, with x-default', () => {
     TestBed.configureTestingModule({
-      providers: [{ provide: SITE_ORIGIN_TOKEN, useValue: 'https://pelda.hu' }],
+      providers: [{ provide: SITE_ORIGIN_TOKEN, useValue: 'https://example.com' }],
     });
     service().update('en');
     const href = (selector: string) => document.head.querySelector(selector)?.getAttribute('href');
-    expect(href('link[rel="canonical"]')).toBe('https://pelda.hu/en');
-    expect(href('link[hreflang="hu"]')).toBe('https://pelda.hu/hu');
-    expect(href('link[hreflang="en"]')).toBe('https://pelda.hu/en');
-    expect(href('link[hreflang="x-default"]')).toBe('https://pelda.hu/hu');
-    expect(TestBed.inject(Meta).getTag('property="og:url"')?.content).toBe('https://pelda.hu/en');
+    expect(href('link[rel="canonical"]')).toBe('https://example.com/en');
+    expect(href('link[hreflang="hu"]')).toBe('https://example.com/hu');
+    expect(href('link[hreflang="en"]')).toBe('https://example.com/en');
+    expect(href('link[hreflang="x-default"]')).toBe('https://example.com/hu');
+    expect(TestBed.inject(Meta).getTag('property="og:url"')?.content).toBe(
+      'https://example.com/en',
+    );
   });
 
-  it('megadott oldalcímmel megosztási kép is kerül a címkék közé, enélkül nem', () => {
+  it('with a given page address the share image is added to the tags too, without it it is not', () => {
     const meta = TestBed.inject(Meta);
     service().update('hu');
     expect(meta.getTag('property="og:image"')).toBeNull();
     expect(meta.getTag('name="twitter:image"')).toBeNull();
   });
 
-  it('az oldalcím ismeretében az og:image és a twitter:image abszolút cím', () => {
+  it('knowing the page address, og:image and twitter:image are absolute addresses', () => {
     TestBed.configureTestingModule({
-      providers: [{ provide: SITE_ORIGIN_TOKEN, useValue: 'https://pelda.hu' }],
+      providers: [{ provide: SITE_ORIGIN_TOKEN, useValue: 'https://example.com' }],
     });
     service().update('hu');
     const meta = TestBed.inject(Meta);
-    expect(meta.getTag('property="og:image"')?.content).toBe('https://pelda.hu/og-image.png');
-    expect(meta.getTag('name="twitter:image"')?.content).toBe('https://pelda.hu/og-image.png');
+    expect(meta.getTag('property="og:image"')?.content).toBe('https://example.com/og-image.png');
+    expect(meta.getTag('name="twitter:image"')?.content).toBe('https://example.com/og-image.png');
   });
 
-  it('az og:locale:alternate mindig a másik nyelv', () => {
+  it('og:locale:alternate is always the other language', () => {
     const meta = TestBed.inject(Meta);
     service().update('hu');
     expect(meta.getTag('property="og:locale:alternate"')?.content).toBe('en_US');
@@ -77,9 +79,9 @@ describe('SeoService', () => {
     expect(meta.getTag('property="og:locale:alternate"')?.content).toBe('hu_HU');
   });
 
-  it('nyelvváltáskor nem halmozódnak a címkék', () => {
+  it('the tags do not pile up on language switches', () => {
     TestBed.configureTestingModule({
-      providers: [{ provide: SITE_ORIGIN_TOKEN, useValue: 'https://pelda.hu' }],
+      providers: [{ provide: SITE_ORIGIN_TOKEN, useValue: 'https://example.com' }],
     });
     service().update('hu');
     service().update('en');

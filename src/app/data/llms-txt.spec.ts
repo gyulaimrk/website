@@ -2,28 +2,28 @@ import { CONTENTS, contentEn, contentHu } from './content';
 import { renderLlmsTxt } from './llms-txt';
 
 describe('renderLlmsTxt', () => {
-  const text = renderLlmsTxt(CONTENTS, 'https://pelda.hu');
+  const text = renderLlmsTxt(CONTENTS, 'https://example.com');
 
-  it('a névvel kezdődik, majd mindkét nyelv összefoglalója következik', () => {
+  it('starts with the name, then the summary of both languages follows', () => {
     expect(text.startsWith(`# ${contentHu.profile.name}\n`)).toBe(true);
     expect(text).toContain(`> ${contentHu.ui.meta.description}`);
     expect(text).toContain(`> ${contentEn.ui.meta.description}`);
   });
 
-  it('mindkét nyelvi oldalra és mindkét önéletrajzra abszolút címmel hivatkozik', () => {
-    expect(text).toContain('(https://pelda.hu/hu)');
-    expect(text).toContain('(https://pelda.hu/en)');
-    expect(text).toContain(`(https://pelda.hu/${contentHu.profile.cv})`);
-    expect(text).toContain(`(https://pelda.hu/${contentEn.profile.cv})`);
+  it('links to both language pages and both résumés with an absolute address', () => {
+    expect(text).toContain('(https://example.com/hu)');
+    expect(text).toContain('(https://example.com/en)');
+    expect(text).toContain(`(https://example.com/${contentHu.profile.cv})`);
+    expect(text).toContain(`(https://example.com/${contentEn.profile.cv})`);
   });
 
-  it('oldalcím nélkül a hivatkozások a webgyökérhez viszonyítottak', () => {
+  it('without a page address the links are relative to the web root', () => {
     const relative = renderLlmsTxt(CONTENTS);
     expect(relative).toContain('(/hu)');
     expect(relative).toContain(`(/${contentHu.profile.cv})`);
   });
 
-  it('a profilokra és nem másra mutat külső linkként, és nem tartalmaz személyes adatot', () => {
+  it('points to the profiles and nothing else as external links, and contains no personal data', () => {
     expect(text).toContain(contentHu.profile.linkedin);
     expect(text).not.toMatch(/\+36\s?\d/);
     expect(text).not.toContain('1997');

@@ -8,7 +8,7 @@ describe('StudyItem', () => {
     kind: 'certificate',
     title: 'Docker',
     where: 'LinkedIn Learning',
-    period: '2024. január',
+    period: 'January 2024',
   };
 
   function render(value: Study) {
@@ -18,17 +18,17 @@ describe('StudyItem', () => {
     return fixture.nativeElement as HTMLElement;
   }
 
-  it('a címet, a kiállítót és a dátumot mutatja', () => {
+  it('shows the title, the issuer and the date', () => {
     const el = render(study);
     expect(el.querySelector('strong')?.textContent).toBe('Docker');
-    expect(el.querySelector('span')?.textContent).toBe('LinkedIn Learning, 2024. január');
+    expect(el.querySelector('span')?.textContent).toBe('LinkedIn Learning, January 2024');
   });
 
-  it('link nélkül a cím sima szöveg', () => {
+  it('without a link the title is plain text', () => {
     expect(render(study).querySelector('a')).toBeNull();
   });
 
-  it('ha van címe, a cím új lapon nyíló link', () => {
+  it('if it has an address, the title is a link opening in a new tab', () => {
     const link = render({ ...study, url: 'https://example.com/cert' }).querySelector('a');
     expect(link?.getAttribute('href')).toBe('https://example.com/cert');
     expect(link?.getAttribute('target')).toBe('_blank');
@@ -36,14 +36,14 @@ describe('StudyItem', () => {
     expect(link?.textContent).toBe('Docker');
   });
 
-  it('kiállító és dátum nélkül nem ír üres sort', () => {
+  it('without issuer and date it does not write an empty line', () => {
     expect(render({ ...study, where: '', period: '' }).querySelector('span')).toBeNull();
   });
 
-  it('a leírást csak akkor mutatja, ha van', () => {
+  it('shows the description only if there is one', () => {
     expect(render(study).querySelector('p')).toBeNull();
-    expect(render({ ...study, description: 'Szöveg.' }).querySelector('p')?.textContent).toBe(
-      'Szöveg.',
+    expect(render({ ...study, description: 'Text.' }).querySelector('p')?.textContent).toBe(
+      'Text.',
     );
   });
 });

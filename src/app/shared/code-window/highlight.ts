@@ -46,7 +46,7 @@ const KOTLIN_KEYWORDS = new Set([
   'as',
 ]);
 
-/** Egy kódsort tokenekre bont: a megjegyzés, a karakterlánc, a szám, a kulcsszó és a típus külön színt kap. */
+/** Splits a line of code into tokens: comment, string, number, keyword and type each get their own colour. */
 function kotlinLine(line: string): Token[] {
   const tokens: Token[] = [];
   const pattern =
@@ -68,7 +68,7 @@ function kotlinLine(line: string): Token[] {
   return tokens;
 }
 
-/** Markdown-sor: cím, felsorolásjel és `kód` részek külön színt kapnak. */
+/** A Markdown line: heading, bullet and `code` parts each get their own colour. */
 function markdownLine(line: string): Token[] {
   if (/^#{1,6}\s/.test(line)) return [{ text: line, kind: 'heading' }];
   const tokens: Token[] = [];
@@ -81,7 +81,7 @@ function markdownLine(line: string): Token[] {
   return tokens;
 }
 
-/** A kódot soronként tokenekre bontja; az üres sor üres tokenlista. */
+/** Splits the code into tokens line by line; an empty line is an empty token list. */
 export function highlight(code: string, language: CodeLanguage): Token[][] {
   const line = language === 'kotlin' ? kotlinLine : markdownLine;
   return code.split('\n').map((text) => (text === '' ? [] : line(text)));

@@ -1,28 +1,28 @@
-# Önéletrajz (`src/app/cv/`)
+# Résumé (`src/app/cv/`)
 
-A letölthető önéletrajz (PDF) forrása. A tartalom ugyanaz, mint az oldalé, ezért nem térhet el tőle.
+The source of the downloadable résumé (PDF). The content is the same as the site's, so it cannot differ from it.
 
 ### `renderCv(lang, content, assets)` (`render-cv.ts`)
 
-Egy nyelv teljes önéletrajzának HTML-je: fejléc fotóval és elérhetőségekkel, bemutatkozás, tapasztalat
-(projektekkel és feladatokkal), eszköztár, mellékprojektek, tanulmányok és tanúsítványok. A szöveget HTML-escape-pel
-írja ki. Ha az összes további tanúsítványt ugyanaz a kiállító adta, azt egyszer, a címben mutatja.
+The HTML of the whole résumé in one language: a header with photo and contact details, introduction, experience
+(with projects and tasks), skills, side projects, studies and certificates. The text is written out with HTML escaping.
+If all the further certificates were issued by the same body, it is shown once, in the heading.
 
-| Paraméter | Jelentés                                                 |
-| --------- | -------------------------------------------------------- |
-| `lang`    | `'hu'` vagy `'en'`; a `<html lang>` értéke               |
-| `content` | az adott nyelv `Content` objektuma                       |
-| `assets`  | `photo` (data URL) és `fontCss` (beágyazott betűtípusok) |
+| Parameter | Meaning                                           |
+| --------- | ------------------------------------------------- |
+| `lang`    | `'hu'` or `'en'`; the value of `<html lang>`      |
+| `content` | the `Content` object of the given language        |
+| `assets`  | `photo` (data URL) and `fontCss` (embedded fonts) |
 
 ### `renderAllCv(assets)` (`cv-entry.ts`)
 
-Belépési pont a `scripts/build-cv.mjs` számára: nyelvenként a HTML-t és a PDF fájlnevét (a `profile.cv`
-útvonalából) adja.
+The entry point for `scripts/build-cv.mjs`: per language it gives the HTML and the file name of the PDF (from the
+`profile.cv` path).
 
-## Gyártás
+## Building
 
-`npm run cv`: esbuild lefordítja a belépési pontot, a Playwright Chromium PDF-be nyomtat, az eredmény a
-`public/cv/` mappába kerül. A gyártás hibával leáll, ha egy PDF kettőnél több oldalas.
+`npm run cv`: esbuild compiles the entry point, Playwright Chromium prints to PDF, and the result goes into the
+`public/cv/` folder. The build stops with an error if a PDF has more than two pages.
 
-**Tesztek:** `render-cv.spec.ts`: mindkét nyelven szerepel minden munkahely, projekt és tanúsítvány, nincs személyes adat, a
-szöveg escape-elt, a közös kiállító kezelése.
+**Tests:** `render-cv.spec.ts`: in both languages every employer, project and certificate appears, there is no personal data, the
+text is escaped, and the shared issuer is handled.

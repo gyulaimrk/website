@@ -1,6 +1,6 @@
 import { CodeFile, Profile } from '../../data/models';
 
-/** A `Developer` data class egy példánya a profilból, Kotlin forrásként (a kódablak `Main.kt` füle). */
+/** An instance of the `Developer` data class built from the profile, as Kotlin source (the `Main.kt` tab of the code window). */
 export function developerInstance(profile: Profile): CodeFile {
   const city = profile.location.split(',')[0];
   const code = [

@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 
-/** Címkék (technológiák) sora. */
+/** A row of chips (technologies). */
 @Component({
   selector: 'app-chip-list',
   templateUrl: './chip-list.html',

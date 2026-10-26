@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 
-/** Gomb linkként: `<a appButton href="...">Felirat</a>`. Elsődleges (színátmenetes) vagy szellem változat. */
+/** A button as a link: `<a appButton href="...">Label</a>`. Primary (gradient) or ghost variant. */
 @Component({
   selector: 'a[appButton]',
   templateUrl: './button.html',
@@ -15,6 +15,6 @@ import { Component, input } from '@angular/core';
 export class Button {
   readonly variant = input<'primary' | 'ghost'>('primary');
   readonly size = input<'normal' | 'small'>('normal');
-  /** Új lapon nyílik meg. */
+  /** Opens in a new tab. */
   readonly external = input(false);
 }

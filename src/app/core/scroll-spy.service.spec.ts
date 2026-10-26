@@ -18,7 +18,7 @@ describe('ScrollSpyService', () => {
   });
   afterEach(() => vi.unstubAllGlobals());
 
-  it('a legutóbb látható szekció lesz az aktív', () => {
+  it('the most recently visible section becomes the active one', () => {
     const service = TestBed.inject(ScrollSpyService);
     service.observe([document.createElement('section')]);
     report([
@@ -30,7 +30,7 @@ describe('ScrollSpyService', () => {
     expect(service.active()).toBe('tapasztalat');
   });
 
-  it('IntersectionObserver nélkül nem dob hibát', () => {
+  it('does not throw without IntersectionObserver', () => {
     vi.stubGlobal('IntersectionObserver', undefined);
     expect(() => TestBed.inject(ScrollSpyService).observe([])).not.toThrow();
   });

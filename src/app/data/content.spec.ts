@@ -1,6 +1,6 @@
 import { CONTENTS, LANGS, contentEn, contentHu } from './content';
 
-/** A tartalom "alakja": kulcsok és listahosszak, a szövegek nélkül. */
+/** The “shape” of the content: keys and list lengths, without the texts. */
 function shape(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(shape);
   if (value && typeof value === 'object') {
@@ -10,11 +10,11 @@ function shape(value: unknown): unknown {
 }
 
 describe('content', () => {
-  it('a magyar és az angol tartalom azonos szerkezetű', () => {
+  it('the Hungarian and the English content have the same structure', () => {
     expect(shape(contentEn)).toEqual(shape(contentHu));
   });
 
-  it('a linkek, a technológiák és a számok nyelvtől függetlenek', () => {
+  it('the links, technologies and numbers do not depend on the language', () => {
     expect(contentEn.profile.linkedin).toBe(contentHu.profile.linkedin);
     expect(contentEn.profile.email).toBe(contentHu.profile.email);
     expect(contentEn.jobs.map((j) => j.projects?.map((p) => p.url))).toEqual(
@@ -34,7 +34,7 @@ describe('content', () => {
   describe.each(LANGS)('%s', (lang) => {
     const content = CONTENTS[lang];
 
-    it('nincs feloldatlan helyettesítő, és a statisztikában a tapasztalat évei számként állnak', () => {
+    it('there is no unresolved placeholder, and in the statistics the years of experience are numbers', () => {
       expect(JSON.stringify(content)).not.toMatch(/\{(java|ai)Years\}/);
       expect(content.stats.slice(0, 2).map((stat) => stat.value)).toEqual([
         expect.stringMatching(/^\d+\+$/),
@@ -42,14 +42,14 @@ describe('content', () => {
       ]);
     });
 
-    it('mind a négy Anthropic-tanúsítványnak egyedi, hitelesítő linkje van', () => {
+    it('each of the four Anthropic certificates has a unique verification link', () => {
       const urls = content.studies.filter((s) => s.where === 'Anthropic').map((s) => s.url);
       expect(urls).toHaveLength(4);
       expect(new Set(urls).size).toBe(4);
       urls.forEach((url) => expect(url).toMatch(/^https:\/\/verify\.skilljar\.com\/c\/[a-z0-9]+$/));
     });
 
-    it('a profil kötelező mezői ki vannak töltve', () => {
+    it('the required profile fields are filled in', () => {
       expect(content.profile.name).toBeTruthy();
       expect(content.profile.email).toContain('@');
       expect(content.profile.linkedin).toMatch(/^https:\/\//);
@@ -57,20 +57,20 @@ describe('content', () => {
       expect(content.profile.photo.alt).toBeTruthy();
     });
 
-    it('nem tartalmaz személyes adatot (telefon, születési dátum)', () => {
+    it('contains no personal data (phone, date of birth)', () => {
       const all = JSON.stringify(content);
       expect(all).not.toMatch(/\+36\s?\d/);
       expect(all).not.toMatch(/1997/);
     });
 
-    it('a munkahelyek és képességek egyedi azonosítójúak', () => {
+    it('employers and skills have unique identifiers', () => {
       const keys = content.jobs.map((j) => j.company + j.period);
       expect(new Set(keys).size).toBe(keys.length);
       const titles = content.skills.map((s) => s.title);
       expect(new Set(titles).size).toBe(titles.length);
     });
 
-    it('a mellékprojektek ki vannak töltve, és van legalább egy linkjük', () => {
+    it('the side projects are filled in and have at least one link', () => {
       expect(content.sideProjects.length).toBeGreaterThan(0);
       content.sideProjects.forEach((p) => {
         const links = [p.url, p.sourceUrl].filter(Boolean);
@@ -80,7 +80,7 @@ describe('content', () => {
       });
     });
 
-    it('a különböző projektek száma (a két szerepnél is szereplő projekt egyszer számít) megegyezik a statisztikában szereplővel', () => {
+    it('the number of distinct projects (a project listed under two roles counts once) matches the one in the statistics', () => {
       const names = content.jobs
         .flatMap((job) => job.projects ?? [])
         .map((project) => `${project.name} – ${project.subtitle ?? ''}`);
@@ -88,7 +88,7 @@ describe('content', () => {
       expect(content.stats.map((s) => s.value)).toContain(String(total));
     });
 
-    it('a statisztikák és a felület szövegei nem üresek', () => {
+    it('the statistics and the UI texts are not empty', () => {
       content.stats.forEach((s) => {
         expect(s.value).toBeTruthy();
         expect(s.label).toBeTruthy();

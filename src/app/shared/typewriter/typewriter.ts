@@ -7,8 +7,8 @@ const DELETE_MS = 35;
 const HOLD_MS = 1600;
 
 /**
- * Szavakat gépel be és töröl. A kiszolgáló és a mozgáscsökkentést kérő látogató az első
- * szót látja, gépelés nélkül; így a kiszolgált HTML is teljes tartalmú.
+ * Types and deletes words. The server and a visitor who asked for reduced motion see the first
+ * word without typing; so the served HTML is complete too.
  */
 @Component({
   selector: 'app-typewriter',

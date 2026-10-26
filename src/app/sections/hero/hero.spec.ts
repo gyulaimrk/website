@@ -13,14 +13,14 @@ describe('Hero', () => {
     return { fixture, el: fixture.nativeElement as HTMLElement };
   }
 
-  it('egyetlen h1-ben köszön és a nevet mutatja', () => {
+  it('greets in a single h1 and shows the name', () => {
     const { el } = render();
     expect(el.querySelectorAll('h1').length).toBe(1);
     expect(el.querySelector('h1')?.textContent).toContain(contentHu.profile.name);
     expect(el.querySelector('.greeting')?.textContent).toBe(contentHu.ui.hero.greeting);
   });
 
-  it('a gépelő szerepeket a képernyőolvasó teljes listaként kapja, az animált rész rejtett', () => {
+  it('the screen reader gets the typewriter roles as a full list, the animated part is hidden', () => {
     const { el } = render();
     expect(el.querySelector('.role .sr-only')?.textContent).toBe(
       contentHu.profile.roles.join(', '),
@@ -28,13 +28,13 @@ describe('Hero', () => {
     expect(el.querySelector('.role [aria-hidden="true"] app-typewriter')).not.toBeNull();
   });
 
-  it('megmutatja a szerepet és a statisztikákat', () => {
+  it('shows the role and the statistics', () => {
     const { el } = render();
     expect(el.querySelector('app-typewriter')?.textContent).toContain(contentHu.profile.roles[0]);
     expect(el.querySelectorAll('.stats li').length).toBe(contentHu.stats.length);
   });
 
-  it('a kódablakban két fül van, alapból a Main.kt: a profilból épített példány', () => {
+  it('the code window has two tabs, by default Main.kt: the instance built from the profile', () => {
     const { el } = render();
     const tabs = [...el.querySelectorAll('[role="tab"]')] as HTMLButtonElement[];
     expect(tabs.map((t) => t.textContent?.trim())).toEqual(['Main.kt', 'Developer.kt']);
@@ -47,7 +47,7 @@ describe('Hero', () => {
     contentHu.profile.stack.forEach((item) => expect(code).toContain(`"${item}"`));
   });
 
-  it('a második fül a Developer data class', () => {
+  it('the second tab is the Developer data class', () => {
     const { fixture, el } = render();
     (el.querySelectorAll('[role="tab"]')[1] as HTMLButtonElement).click();
     fixture.detectChanges();
@@ -56,14 +56,14 @@ describe('Hero', () => {
     );
   });
 
-  it('a Munkáim gomb a tapasztalathoz, az önéletrajz gomb a PDF-re, a LinkedIn gomb a profilra visz', () => {
+  it('the My work button leads to the experience, the résumé button to the PDF, the LinkedIn button to the profile', () => {
     const hrefs = [...render().el.querySelectorAll('a[appButton]')].map((a) =>
       a.getAttribute('href'),
     );
     expect(hrefs).toEqual(['/hu#tapasztalat', contentHu.profile.cv, contentHu.profile.linkedin]);
   });
 
-  it('nyelvváltáskor angolra vált', () => {
+  it('switches to English on a language switch', () => {
     const { fixture, el } = render();
     TestBed.inject(LanguageService).use('en');
     fixture.detectChanges();

@@ -4,17 +4,17 @@ on:
   push:
     branches: [main]
   pull_request:
-  # Havonta újraépül és telepít, hogy a tapasztalat évei (5+, 3+…) az előrenderelt oldalon is frissüljenek.
+  # Rebuilds and deploys monthly, so the years of experience (5+, 3+…) are refreshed on the prerendered page too.
   schedule:
     - cron: '23 5 1 * *'
 
-# Alapból csak olvasási jog; a Cloudflare-titkokat külön kapja a telepítés.
+# Read-only by default; the deploy gets the Cloudflare secrets separately.
 permissions:
   contents: read
 
 jobs:
   build:
-    # Rögzített futtató: az ubuntu-latest már 26.04, amit a Playwright 1.56 nem támogat.
+    # Pinned runner: ubuntu-latest is already 26.04, which Playwright 1.56 does not support.
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -41,7 +41,7 @@ jobs:
           path: dist/portfolio/browser
 
   deploy:
-    # Csak a main ágon fut, és csak ha a Cloudflare titkok be vannak állítva.
+    # Runs only on the main branch, and only if the Cloudflare secrets are set.
     needs: build
     if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'schedule')
     runs-on: ubuntu-24.04
@@ -55,7 +55,7 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
-      # Pontosan azt telepítjük, amit a build job már legyártott és letesztelt.
+      # We deploy exactly what the build job already produced and tested.
       - uses: actions/download-artifact@v4
         with:
           name: site

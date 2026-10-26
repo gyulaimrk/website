@@ -1,8 +1,8 @@
-/** Alap (éles és fejlesztői) környezet. */
+/** Base (production and development) environment. */
 export const environment = {
   /**
-   * Igaz, ha az oldal olyan közegben fut, ahol a böngésző címsora nem módosítható
-   * (például beágyazott előnézet). Ilyenkor az útválasztó csak memóriában navigál.
+   * True if the page runs in an environment where the browser address bar cannot be changed
+   * (for example an embedded preview). The router then only navigates in memory.
    */
   inMemoryRouting: false,
 };

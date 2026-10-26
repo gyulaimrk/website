@@ -12,7 +12,7 @@ describe('RootRedirect', () => {
     navigate = vi.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
   });
 
-  it('mindkét nyelvre mutató linket tartalmaz a szkript nélküli látogatóknak', () => {
+  it('contains links to both languages for visitors without scripting', () => {
     const fixture = TestBed.createComponent(RootRedirect);
     fixture.detectChanges();
     const hrefs = [...fixture.nativeElement.querySelectorAll('a')].map((a) =>
@@ -21,7 +21,7 @@ describe('RootRedirect', () => {
     expect(hrefs).toEqual(['/hu', '/en']);
   });
 
-  it('az első megjelenítés után a látogató nyelvére navigál, előzmény nélkül', () => {
+  it('after the first render it navigates to the visitor’s language, without history', () => {
     localStorage.setItem('lang', 'en');
     TestBed.createComponent(RootRedirect).detectChanges();
     TestBed.tick();

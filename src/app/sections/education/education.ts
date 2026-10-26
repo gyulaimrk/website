@@ -25,7 +25,7 @@ export class Education {
     this.studies().filter((s) => s.kind === 'certificate' && !s.featured),
   );
 
-  /** Az összes tanúsítvány a LinkedIn-profilon (az egyes tanúsítványok linkje a `Study.url`). */
+  /** All certificates on the LinkedIn profile (the link of each certificate is `Study.url`). */
   protected readonly allCertificatesUrl = computed(
     () => `${this.content().profile.linkedin}/details/certifications/`,
   );

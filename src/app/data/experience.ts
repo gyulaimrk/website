@@ -1,18 +1,18 @@
-/** Mikortól számít az adott tapasztalat (`ÉÉÉÉ-HH`); az évek ebből számolódnak, ezért maguktól nőnek. */
+/** When the given experience starts (`YYYY-MM`); the years are calculated from it, so they grow on their own. */
 export const EXPERIENCE_START = {
-  /** Java 11 és 17 alatti munka: az EPAM-os junior kezdés. */
+  /** Work on Java 11 and 17: the start as an EPAM junior. */
   java: '2021-07',
-  /** Az AI használata a munkában. */
+  /** Using AI at work. */
   ai: '2023-07',
 } as const;
 
-/** A tartalomban használható helyettesítők: `{javaYears}` és `{aiYears}`. */
+/** The placeholders usable in the content: `{javaYears}` and `{aiYears}`. */
 const PLACEHOLDERS: Record<string, keyof typeof EXPERIENCE_START> = {
   '{javaYears}': 'java',
   '{aiYears}': 'ai',
 };
 
-/** Hány teljes év telt el `since` (`ÉÉÉÉ-HH`) óta. */
+/** How many full years have passed since `since` (`YYYY-MM`). */
 export function completedYears(since: string, now: Date): number {
   const [year, month] = since.split('-').map(Number);
   const years = now.getFullYear() - year;
@@ -20,8 +20,8 @@ export function completedYears(since: string, now: Date): number {
 }
 
 /**
- * A tartalom szövegeiben a `{javaYears}` és az `{aiYears}` helyére a betöltés pillanatában
- * érvényes, teljes évek számát írja. Az eredeti objektumot nem módosítja.
+ * Replaces `{javaYears}` and `{aiYears}` in the content texts with the number of full years
+ * valid at load time. Does not modify the original object.
  */
 export function withExperience<T>(content: T, now: Date = new Date()): T {
   const replacements = Object.entries(PLACEHOLDERS).map(

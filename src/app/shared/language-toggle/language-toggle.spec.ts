@@ -13,7 +13,7 @@ describe('LanguageToggle', () => {
     return { fixture, button: fixture.nativeElement.querySelector('button') as HTMLButtonElement };
   }
 
-  it('a másik nyelv kódját mutatja, és a felirata megnevezi a váltást', () => {
+  it('shows the code of the other language, and its label names the switch', () => {
     const { button } = render();
     expect(button.textContent?.trim()).toBe(contentHu.ui.toggles.otherLanguageCode);
     expect(button.getAttribute('aria-label')).toBe(
@@ -21,13 +21,13 @@ describe('LanguageToggle', () => {
     );
   });
 
-  it('kattintásra a másik nyelv címére navigál', () => {
+  it('on click it navigates to the address of the other language', () => {
     const navigate = vi.spyOn(TestBed.inject(Router), 'navigateByUrl').mockResolvedValue(true);
     render().button.click();
     expect(navigate).toHaveBeenCalledWith('/en', expect.anything());
   });
 
-  it('angol oldalon a magyar váltót mutatja', () => {
+  it('on the English page it shows the Hungarian toggle', () => {
     TestBed.inject(LanguageService).use('en');
     const { fixture, button } = render();
     fixture.detectChanges();

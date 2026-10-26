@@ -9,16 +9,16 @@ import { readStored, writeStored } from './storage';
 const KEY = 'lang';
 
 /**
- * Az oldal nyelve. A nyelv az útvonalból következik (`/hu`, `/en`), a `lang` jelet az
- * útvonal őre állítja be. A látogató tudatosan választott nyelve csak a gyökércím átirányításához
- * kell, ezért külön megjegyezzük.
+ * The language of the page. The language follows from the route (`/hu`, `/en`); the `lang` signal is set by the
+ * route guard. The language the visitor chose deliberately is only needed for redirecting the root address,
+ * so it is remembered separately.
  */
 @Injectable({ providedIn: 'root' })
 export class LanguageService {
   private readonly document = inject(DOCUMENT);
   private readonly router = inject(Router);
   private readonly current = signal<Lang>('hu');
-  /** Az útvonal által beállított nyelv; amíg nincs útvonal-nyelv, magyar. */
+  /** The language set by the route; Hungarian until there is a route language. */
   readonly lang = this.current.asReadonly();
   constructor() {
     effect(() => {
@@ -27,22 +27,22 @@ export class LanguageService {
     });
   }
 
-  /** Beállítja az oldal nyelvét (az útvonal őre hívja). */
+  /** Sets the page language (called by the route guard). */
   use(lang: Lang): void {
     this.current.set(lang);
   }
 
-  /** A látogató nyelve: a megjegyzett választás, különben a böngésző nyelve. */
+  /** The visitor's language: the remembered choice, otherwise the browser language. */
   preferred(): Lang {
     return readStored(KEY, LANGS) ?? this.browserLang();
   }
 
-  /** A másik nyelv, amelyre a váltó átvisz. */
+  /** The other language, which the toggle switches to. */
   other(): Lang {
     return this.lang() === 'hu' ? 'en' : 'hu';
   }
 
-  /** Átvisz a megadott nyelv címére. */
+  /** Navigates to the address of the given language. */
   navigateTo(lang: Lang, options: { replaceUrl?: boolean } = {}): Promise<boolean> {
     return this.router.navigateByUrl(`/${lang}`, {
       ...options,
@@ -50,7 +50,7 @@ export class LanguageService {
     });
   }
 
-  /** A látogató tudatos váltása: ezt jegyezzük meg a gyökércím átirányításához. */
+  /** The visitor's deliberate switch: this is what we remember for redirecting the root address. */
   toggle(): Promise<boolean> {
     const next = this.other();
     writeStored(KEY, next);

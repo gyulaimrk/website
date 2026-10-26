@@ -1,6 +1,6 @@
 import { Content } from './models';
 
-/** Az oldalon szereplő összes külső (https) cím, egyszer, a tartalomból összegyűjtve. */
+/** All external (https) addresses on the site, once, collected from the content. */
 export function externalLinks(content: Content): string[] {
   const { profile, jobs, sideProjects, studies } = content;
   const candidates = [

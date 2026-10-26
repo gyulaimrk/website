@@ -11,7 +11,7 @@ a {
   background: var(--gradient);
   color: var(--on-accent);
   box-shadow: 0 10px 30px color-mix(in srgb, var(--accent) 40%, transparent);
-  /* Rejtve kikerül a hozzáférhetőségi fából és a Tab-sorrendből is. */
+  /* When hidden it is also removed from the accessibility tree and the tab order. */
   visibility: hidden;
   opacity: 0;
   pointer-events: none;

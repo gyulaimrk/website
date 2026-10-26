@@ -41,7 +41,7 @@
   overflow-x: auto;
 }
 .tabs button:focus-visible {
-  /* A fülsáv görget, ezért a gyűrű belül marad, különben levágná a szegély. */
+  /* The tab bar scrolls, so the ring stays inside, otherwise the border would clip it. */
   outline-offset: -4px;
 }
 .tabs button {

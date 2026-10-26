@@ -1,9 +1,9 @@
 import { Content, Lang, Study } from '../data/models';
 
 export interface CvAssets {
-  /** A fotó data URL-ként (a PDF-be beágyazva). */
+  /** The photo as a data URL (embedded in the PDF). */
   photo: string;
-  /** A betűtípusok `@font-face` szabályai. */
+  /** The `@font-face` rules of the fonts. */
   fontCss: string;
 }
 
@@ -56,13 +56,13 @@ const studyLine = (study: Study, compact = false) => {
   return `<div class="item"><strong>${esc(study.title)}</strong>${meta ? `<span>${separator}${esc(meta)}</span>` : ''}</div>`;
 };
 
-/** A teljes önéletrajz HTML-je egy nyelven; ebből készül a letölthető PDF. */
+/** The whole résumé as HTML in one language; the downloadable PDF is built from it. */
 export function renderCv(lang: Lang, content: Content, assets: CvAssets): string {
   const { profile, jobs, skills, studies, sideProjects, ui } = content;
   const education = studies.filter((s) => s.kind === 'education');
   const featured = studies.filter((s) => s.kind === 'certificate' && s.featured);
   const others = studies.filter((s) => s.kind === 'certificate' && !s.featured);
-  // Ha minden további tanúsítványt ugyanaz adott ki, a kiállító csak egyszer, a címben szerepel.
+  // If all further certificates were issued by the same body, the issuer appears only once, in the heading.
   const issuers = [...new Set(others.map((s) => s.where).filter(Boolean))];
   const sharedIssuer = issuers.length === 1 ? issuers[0] : '';
 

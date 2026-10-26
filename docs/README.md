@@ -1,22 +1,22 @@
-# Dokumentáció
+# Documentation
 
-Gyulai Márk kétnyelvű (magyar és angol) portfóliója: Angular 22, előrenderelve, Cloudflare-en tárolva.
-Ez a mappa a fejlesztőknek szól; a gyors indulás a gyökér `README.md`-ben van.
+The bilingual (Hungarian and English) portfolio of Márk Gyulai: Angular 22, prerendered, hosted on Cloudflare.
+This folder is for developers; the quick start is in the root `README.md`.
 
-## Tartalom
+## Contents
 
-| Dokumentum                                     | Miről szól                                                    |
-| ---------------------------------------------- | ------------------------------------------------------------- |
-| [Architektúra](architecture.md)                | Szerkezet, útvonalak, adatfolyam, előrenderelés, SEO          |
-| [Fejlesztés](development.md)                   | Parancsok, tesztelés, CI, kitelepítés, az önéletrajz gyártása |
-| [Tartalom](content.md)                         | Hogyan szerkeszthető a tartalom, az adatmodell, a szabályok   |
-| [Oldalak](components/pages.md)                 | `src/app/pages/`: útvonalak oldalai                           |
-| [Szekciók](components/sections.md)             | `src/app/sections/`: az oldal szekciói                        |
-| [Megosztott építőelemek](components/shared.md) | `src/app/shared/`: gomb, kártya, kódablak, direktívák         |
-| [Szolgáltatások](components/core.md)           | `src/app/core/`: nyelv, téma, SEO, görgetésfigyelő            |
-| [Önéletrajz](components/cv.md)                 | `src/app/cv/`: a letölthető PDF forrása                       |
+| Document                                       | What it covers                                           |
+| ---------------------------------------------- | -------------------------------------------------------- |
+| [Architecture](architecture.md)                | Structure, routes, data flow, prerendering, SEO          |
+| [Development](development.md)                  | Commands, testing, CI, deployment, building the résumé   |
+| [Content](content.md)                          | How to edit the content, the data model, the rules       |
+| [Pages](components/pages.md)                   | `src/app/pages/`: the pages of the routes                |
+| [Sections](components/sections.md)             | `src/app/sections/`: the sections of the page            |
+| [Shared building blocks](components/shared.md) | `src/app/shared/`: button, card, code window, directives |
+| [Services](components/core.md)                 | `src/app/core/`: language, theme, SEO, scroll spy        |
+| [Résumé](components/cv.md)                     | `src/app/cv/`: the source of the downloadable PDF        |
 
-## Karbantartás
+## Maintenance
 
-A részegységek dokumentációját a `/document-components` skill frissíti; a szabályait a
-`.claude/skills/document-components/SKILL.md` írja le. A projekt szabályai a gyökér `CLAUDE.md`-ben vannak.
+The documentation of the parts is updated by the `/document-components` skill; its rules are described in
+`.claude/skills/document-components/SKILL.md`. The project rules are in the root `CLAUDE.md`.

@@ -32,7 +32,7 @@
   --section: clamp(72px, 10vw, 140px);
   color-scheme: dark;
 }
-/* A világos téma tokenjei: a képernyős világos téma és a nyomtatás is ezt használja. */
+/* The tokens of the light theme: the light theme on screen and printing both use it. */
 @mixin light-theme {
   --bg: #f2f7ff;
   --bg-soft: #ffffff;
@@ -135,7 +135,7 @@ button:focus-visible {
   }
 }
 
-/* Csak a képernyőolvasónak szóló szöveg. */
+/* Text meant only for screen readers. */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -148,7 +148,7 @@ button:focus-visible {
   border: 0;
 }
 
-/* Nyomtatás: mindig a világos téma, a navigáció és a díszítés nélkül. */
+/* Printing: always the light theme, without navigation and decoration. */
 @media print {
   :root {
     @include light-theme;
@@ -175,7 +175,7 @@ button:focus-visible {
     background: none;
     color: var(--text);
   }
-  /* A zárt részletek tartalma is nyomtatódjon. */
+  /* The content of closed details should be printed too. */
   details::details-content {
     content-visibility: visible;
     display: block;

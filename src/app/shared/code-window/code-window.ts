@@ -2,7 +2,7 @@ import { Component, computed, input, linkedSignal } from '@angular/core';
 import { CodeFile } from '../../data/models';
 import { highlight } from './highlight';
 
-/** Kódablak fülekkel: több fájl között lehet váltani, a kód színezve jelenik meg. */
+/** A code window with tabs: you can switch between several files, and the code is shown highlighted. */
 @Component({
   selector: 'app-code-window',
   templateUrl: './code-window.html',
@@ -10,9 +10,9 @@ import { highlight } from './highlight';
 })
 export class CodeWindow {
   readonly files = input.required<readonly CodeFile[]>();
-  /** Az azonosítók előtagja: egy oldalon több kódablak is lehet, ezért mindegyiké egyedi. */
+  /** The prefix of the ids: a page can have several code windows, so each needs a unique one. */
   readonly idPrefix = input.required<string>();
-  /** A kiválasztott fül; új fájllista esetén az elsőre áll vissza. */
+  /** The selected tab; it resets to the first one when the file list changes. */
   protected readonly active = linkedSignal<readonly CodeFile[], number>({
     source: this.files,
     computation: () => 0,
@@ -26,7 +26,7 @@ export class CodeWindow {
     this.active.set(index);
   }
 
-  /** Nyilakkal lehet fülek között lépni (Home/End a szélekre). */
+  /** Arrow keys move between tabs (Home/End to the edges). */
   protected onKeydown(event: KeyboardEvent) {
     const last = this.files().length - 1;
     const moves: Record<string, number> = {

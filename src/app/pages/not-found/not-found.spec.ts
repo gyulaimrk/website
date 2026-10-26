@@ -3,7 +3,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { NotFound } from './not-found';
 
 describe('NotFound', () => {
-  it('mindkét nyelven tájékoztat, és mindkét főoldalra visz', () => {
+  it('informs in both languages and leads to both home pages', () => {
     const fixture = TestBed.createComponent(NotFound);
     fixture.detectChanges();
     const el = fixture.nativeElement as HTMLElement;
@@ -15,7 +15,7 @@ describe('NotFound', () => {
     ]);
   });
 
-  it('indexelés ellen jelöli az oldalt, és a címet is beállítja', () => {
+  it('marks the page against indexing and also sets the title', () => {
     TestBed.createComponent(NotFound).detectChanges();
     expect(TestBed.inject(Title).getTitle()).toContain('404');
     expect(TestBed.inject(Meta).getTag('name="robots"')?.content).toBe('noindex');

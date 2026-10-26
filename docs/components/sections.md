@@ -1,86 +1,86 @@
-# Szekciók (`src/app/sections/`)
+# Sections (`src/app/sections/`)
 
-Egy szekció összeállít: a `ContentService`-ből olvas, és kis komponensekre bízza a megjelenítést. Szöveg nincs
-bennük. A szekciók `id`-ja a menü és a görgetésfigyelő horgonya.
+A section assembles: it reads from the `ContentService` and leaves the rendering to small components. There is no text
+in them. The `id` of the sections is the anchor of the menu and the scroll spy.
 
 ### `app-nav` (`Nav`)
 
-Fejléc és menü: márka (monogram és név), a szekciókra mutató linkek, nyelv- és témaváltó, a „Kapcsolat” gomb és
-mobilon hamburger. Az aktív menüponton `aria-current="true"` van (a `ScrollSpyService` alapján). A hamburger
-`aria-expanded` állapotú; az Escape és bármely link bezárja a menüt.
+The header and menu: brand (monogram and name), links to the sections, language and theme toggles, the “Contact” button and,
+on mobile, a hamburger. The active menu item has `aria-current="true"` (based on the `ScrollSpyService`). The hamburger has an
+`aria-expanded` state; Escape and any link close the menu.
 
-**Tesztek:** `nav.spec.ts`: monogram, név, menüpontok és kapcsolat gomb; a márkalink neve tartalmazza a látható szöveget; az aktív menüpont jelölése; a mobilmenü nyitása, zárása és az Escape.
+**Tests:** `nav.spec.ts`: monogram, name, menu items and contact button; the brand link's name contains the visible text; marking of the active menu item; opening and closing of the mobile menu and Escape.
 
 ### `app-hero` (`Hero`)
 
-Bemutatkozás: köszönés, a név az egyetlen `h1`-ben, gépelő szerep (`app-typewriter`), bemutatkozó szöveg, három
-gomb (Munkáim, önéletrajz letöltése, LinkedIn), statisztikák. A kódablak két fülét a komponens állítja össze: az
-első a profilból épített `Main.kt` (alapértelmezett, a `developerInstance()` függvény készíti a `developer-instance.ts`-ben), a második a `Developer.kt` data class (`codeSamples`).
+The introduction: greeting, the name in the single `h1`, the typewriter role (`app-typewriter`), the introduction text, three
+buttons (My work, résumé download, LinkedIn), statistics. The two tabs of the code window are assembled by the component: the
+first is the `Main.kt` built from the profile (the default, made by the `developerInstance()` function in `developer-instance.ts`), the second is the `Developer.kt` data class (`codeSamples`).
 
-**Tesztek:** `hero.spec.ts`: egyetlen `h1`, szerep és statisztikák, a két fül sorrendje és tartalma, a gombok hivatkozásai, nyelvváltás.
+**Tests:** `hero.spec.ts`: a single `h1`, role and statistics, the order and content of the two tabs, the links of the buttons, language switch.
 
 ### `app-about` (`About`)
 
-A bemutatkozó levél bekezdései és egy kártya a fotóval és a tényekkel (hely, szerep, nyelvek, jogosítvány, e-mail).
-A fotó lusta betöltésű, rögzített mérettel.
+The paragraphs of the introduction letter and a card with the photo and the facts (place, role, languages, driving licence, email).
+The photo is lazy-loaded with a fixed size.
 
-**Tesztek:** `about.spec.ts`: minden bekezdés és az öt tény, a fotó leíró felirattal, a feliratok követik a nyelvet.
+**Tests:** `about.spec.ts`: every paragraph and the five facts, the photo with a descriptive caption, the labels follow the language.
 
 ### `app-skills` (`Skills`)
 
-Az eszköztár kártyái: csoportcímke, cím és egy vagy több bekezdés (`paragraphs`), és ha van, technológiacímkék (`chips`, a Tesztelés kártyán). A kiemelt kártya (`highlight`) széles és színátmenetes keretű.
+The cards of the skills: a group label, a title and one or more paragraphs (`paragraphs`), and, if present, technology chips (`chips`, on the Testing card). The featured card (`highlight`) is wide and has a gradient border.
 
-**Tesztek:** `skills.spec.ts`: minden képességhez kártya, a kiemelt szélesebb és keretes.
+**Tests:** `skills.spec.ts`: a card for every skill, the featured one wider and with a border, the paragraphs and chips.
 
 ### `app-ai-workflow` (`AiWorkflow`)
 
-„Hogyan dolgozom AI-val”: öt pont kártyákon (egy vagy több bekezdéssel), mellette kódablakban a valódi `CLAUDE.md` rövidített részlete és
-egy megjegyzés.
+“How I work with AI”: five points on cards (each with one or more paragraphs), next to them in a code window the shortened excerpt of the real `CLAUDE.md` and
+a note.
 
-**Tesztek:** `ai-workflow.spec.ts`: mind az öt pont bekezdésenként, a színezett CLAUDE.md részlet a megjegyzéssel, nyelvváltás.
+**Tests:** `ai-workflow.spec.ts`: all five points paragraph by paragraph, the highlighted CLAUDE.md excerpt with the note, language switch.
 
-### `app-experience` (`Experience`) és `app-job-card` (`JobCard`)
+### `app-experience` (`Experience`) and `app-job-card` (`JobCard`)
 
-Időrend, a legfrissebb munkahellyel elöl. A `JobCard` egy munkahely kártyája: szerep, időszak, leírás,
-összecsukható projektlista (`<details>`, a darabszámmal a feliratban) és technológiák.
+The timeline, with the most recent employer first. `JobCard` is the card of one employer: role, period, description,
+a collapsible project list (`<details>`, with the count in the label) and technologies.
 
-| Bemenet   | Típus     | Alapérték | Jelentés                                                    |
-| --------- | --------- | --------- | ----------------------------------------------------------- |
-| `job`     | `Job`     | kötelező  | a megjelenített munkahely                                   |
-| `current` | `boolean` | `false`   | a jelenlegi munkahely: kiemelt kártya, nyitott projektlista |
+| Input     | Type      | Default  | Meaning                                                |
+| --------- | --------- | -------- | ------------------------------------------------------ |
+| `job`     | `Job`     | required | the employer shown                                     |
+| `current` | `boolean` | `false`  | the current employer: featured card, open project list |
 
-A projekt neve link, ha van `url`; a rövid szöveg és a feladatlista (`points`) csak akkor jelenik meg, ha van.
+The project name is a link if there is a `url`; the short text and the task list (`points`) are only shown if present.
 
-**Tesztek:** `experience.spec.ts` (egy idővonal-elem munkahelyenként, csak a legfrissebb kiemelt), `job-card.spec.ts` (projektlista, feladatlista, nyitott és zárt állapot).
+**Tests:** `experience.spec.ts` (one timeline item per employer, only the most recent featured), `job-card.spec.ts` (project list, task list, open and closed state).
 
-### `app-side-projects` (`SideProjects`) és `app-project-card` (`ProjectCard`)
+### `app-side-projects` (`SideProjects`) and `app-project-card` (`ProjectCard`)
 
-A mellékprojektek listája. A `ProjectCard` egy projekt kártyája (`project` bemenet, kötelező): leírás (bekezdésenként), technológiák, és
-az élő cím (`url`) vagy a forráskód (`sourceUrl`) gombja, ha van.
+The list of the side projects. `ProjectCard` is the card of one project (`project` input, required): the description (paragraph by paragraph), technologies, and
+the button of the live address (`url`) or the source code (`sourceUrl`), if there is one.
 
-**Tesztek:** `side-projects.spec.ts` (kártya minden mellékprojekthez), `project-card.spec.ts` (új lapon nyíló linkek, csak a meglévők).
+**Tests:** `side-projects.spec.ts` (a card for every side project), `project-card.spec.ts` (links opening in a new tab, only the existing ones).
 
-### `app-education` (`Education`) és `li[appStudyItem]` (`StudyItem`)
+### `app-education` (`Education`) and `li[appStudyItem]` (`StudyItem`)
 
-Három kártya: tanulmányok, az Anthropic-tanúsítványok (kiemelt), további tanúsítványok. A további tanúsítványok
-alatt link áll a LinkedIn-profil összes tanúsítványához. A `StudyItem` egy bejegyzés.
+Three cards: studies, the Anthropic certificates (featured), further certificates. Below the further certificates
+there is a link to all the certificates of the LinkedIn profile. `StudyItem` is one entry.
 
-| Bemenet | Típus   | Jelentés                                   |
-| ------- | ------- | ------------------------------------------ |
-| `study` | `Study` | kötelező; a cím linkké válik, ha van `url` |
+| Input   | Type    | Meaning                                                |
+| ------- | ------- | ------------------------------------------------------ |
+| `study` | `Study` | required; the title becomes a link if there is a `url` |
 
-A kiállítót és a dátumot egy sorban mutatja, ami hiányzik, azt kihagyja (nincs üres vessző).
+It shows the issuer and the date on one line, and leaves out what is missing (no empty comma).
 
-**Tesztek:** `education.spec.ts` (három kártya, minden bejegyzés egyszer, a LinkedIn-link), `study-item.spec.ts` (cím linkként, üres sorok kihagyása, leírás).
+**Tests:** `education.spec.ts` (three cards, every entry once, the LinkedIn link), `study-item.spec.ts` (title as a link, leaving out empty lines, description).
 
 ### `app-contact` (`Contact`)
 
-Kapcsolat panel: LinkedIn, önéletrajz-letöltés (`download` attribútummal) és e-mail gomb.
+The contact panel: LinkedIn, résumé download (with the `download` attribute) and email buttons.
 
-**Tesztek:** `contact.spec.ts`: LinkedIn, önéletrajz-letöltés és e-mail gomb; az önéletrajz gomb letöltésre jelölt.
+**Tests:** `contact.spec.ts`: LinkedIn, résumé download and email button; the résumé button is marked for download.
 
 ### `app-footer` (`Footer`)
 
-Szerzői jogi sor az aktuális évvel, és a LinkedIn és e-mail linkek (a feliratuk a tartalomfájlból jön).
+The copyright line with the current year, and the LinkedIn and email links (their labels come from the content file).
 
-**Tesztek:** `footer.spec.ts`: az elérhetőségek és az aktuális év.
+**Tests:** `footer.spec.ts`: the contact details and the current year.

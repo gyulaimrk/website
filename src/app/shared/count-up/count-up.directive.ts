@@ -4,21 +4,21 @@ import { prefersReducedMotion } from '../../core/prefers-reduced-motion';
 
 const DURATION_MS = 1100;
 
-/** A szövegben lévő egész számokat a `progress` (0–1) arányában mutatja: „8–25” felénél „4–13”. */
+/** Shows the whole numbers in the text in proportion to `progress` (0–1): at half of “8–25” it shows “4–13”. */
 export function scaleNumbers(text: string, progress: number): string {
   return text.replace(/\d+/g, (digits) => String(Math.round(Number(digits) * progress)));
 }
 
 /**
- * A szövegben lévő számok 0-ról a végértékig nőnek, amikor az elem először a képernyőre ér:
+ * The numbers in the text grow from 0 to their final value when the element first reaches the screen:
  * `<strong [appCountUp]="'5+'">5+</strong>`.
  *
- * A kiszolgált HTML, a szkript nélküli látogató, a mozgáscsökkentést kérő látogató és a nyomtatás
- * a végértéket látja; az animáció csak a böngészőben, a látható területre érve indul.
+ * The served HTML, a visitor without scripting, a visitor who asked for reduced motion and printing
+ * all see the final value; the animation only starts in the browser, on reaching the visible area.
  */
 @Directive({ selector: '[appCountUp]' })
 export class CountUp {
-  /** A végérték szövegként, például `5+` vagy `8–25`. */
+  /** The final value as text, for example `5+` or `8–25`. */
   readonly appCountUp = input.required<string>();
 
   private readonly el = inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;
@@ -31,7 +31,7 @@ export class CountUp {
         return;
       }
 
-      // Az Angular saját szövegcsomópontját írjuk, nem cseréljük le, hogy a kötés tovább működjön.
+      // We write Angular's own text node instead of replacing it, so the binding keeps working.
       const node = this.el.firstChild;
       if (node?.nodeType !== Node.TEXT_NODE) return;
 

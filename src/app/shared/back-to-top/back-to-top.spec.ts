@@ -8,7 +8,7 @@ describe('BackToTop', () => {
     window.dispatchEvent(new Event('scroll'));
   }
 
-  it('csak lejjebb görgetve jelenik meg, és az oldal tetejére mutat', () => {
+  it('appears only when scrolled further down, and points to the top of the page', () => {
     const fixture = TestBed.createComponent(BackToTop);
     fixture.detectChanges();
     const link = fixture.nativeElement.querySelector('a') as HTMLAnchorElement;

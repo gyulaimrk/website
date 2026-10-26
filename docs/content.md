@@ -1,44 +1,44 @@
-# Tartalom
+# Content
 
-Az oldal minden szövege két fájlban van: `src/app/data/content.hu.ts` és `content.en.ts`. A típusok a
-`src/app/data/models.ts`-ben vannak, a `content.ts` `CONTENTS` néven nyelv szerint adja ki a két tartalmat.
+Every text of the site is in two files: `src/app/data/content.hu.ts` and `content.en.ts`. The types are in
+`src/app/data/models.ts`, and `content.ts` exposes the two contents by language under the name `CONTENTS`.
 
-## Adatmodell
+## Data model
 
-| Típus         | Mit ír le                                                                                                                                                      |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Profile`     | név, szerep, elérhetőségek, fotó, bemutatkozás, nyelvek, jogosítvány, önéletrajz-útvonal, a hero kódablakában használt `roleConstants` (a `Role` enum értékei) |
-| `Job`         | munkahely: cég, szerep, időszak, leírás, projektek (`JobProject`), és opcionálisan a munkahelyre jellemző eszközök (`tech`, például a Plane az Adroitnál)      |
-| `JobProject`  | név, alcím (`subtitle`), link, rövid szöveg, konkrét feladatok (`points`) és a projekten használt technológiák és eszközök (`tech`)                                        |
-| `Skill`       | eszköztár-kártya: cím, címke, szöveg, kiemelés                                                                                                                 |
-| `SideProject` | mellékprojekt: leírás bekezdésekben (`paragraphs`), élő cím, forráskód, technológiák                                                                                                        |
-| `Study`       | tanulmány vagy tanúsítvány: cím, kiállító, időszak, leírás, nyilvános link (`url`)                                                                             |
-| `CodeFile`    | a kódablak egy fájlja: név, nyelv, tartalom                                                                                                                    |
-| `AiWorkflow`  | a „Hogyan dolgozom AI-val” szekció pontjai és a CLAUDE.md részlet                                                                                              |
-| `Ui`          | az összes felületi szöveg: menü, gombok, szekciócímek, címkék                                                                                                  |
+| Type          | What it describes                                                                                                                                                           |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Profile`     | name, role, contact details, photo, introduction, languages, driving licence, résumé path, the `roleConstants` used in the hero code window (the values of the `Role` enum) |
+| `Job`         | employer: company, role, period, description, projects (`JobProject`), and optionally tools that characterise the employer (`tech`, for example Plane at Adroit)            |
+| `JobProject`  | name, subtitle (`subtitle`), link, short text, concrete tasks (`points`) and the technologies and tools used on the project (`tech`)                                        |
+| `Skill`       | skills card: title, tag, paragraphs (`paragraphs`), optional chips (`chips`), highlight                                                                                     |
+| `SideProject` | side project: description in paragraphs (`paragraphs`), live address, source code, technologies                                                                             |
+| `Study`       | study or certificate: title, issuer, period, description, public link (`url`)                                                                                               |
+| `CodeFile`    | one file of the code window: name, language, content                                                                                                                        |
+| `AiWorkflow`  | the points of the “How I work with AI” section and the CLAUDE.md excerpt                                                                                                    |
+| `Ui`          | all the UI texts: menu, buttons, section headings, labels                                                                                                                   |
 
-## Szabályok
+## Rules
 
-- **Kétnyelvűség:** minden változtatás mindkét fájlban megtörténik, azonos szerkezettel. A `content.spec.ts`
-  jelzi, ha a két nyelv szerkezete eltér.
-- **Csak valós adat:** önéletrajz, LinkedIn és a tulajdonos közlése a forrás. Kitalálni nem szabad, hiányzó
-  adatnál kérdezni kell. Telefonszám, születési dátum és lakcím nem kerülhet az oldalra.
-- **Szöveg nem kerülhet komponensbe:** a komponensek a `ContentService`-ből olvasnak.
-- **Projektszám:** a statisztikában szereplő szám egyezik a munkahelyek alatt felsorolt különböző projektek
-  számával (a több szerepnél szereplő projekt egyszer számít); ezt is a `content.spec.ts` védi.
-- **Linkek, e-mail, számok és technológianevek** mindkét nyelven azonosak.
-- **Tanúsítványlink:** csak a tulajdonos által megadott valós cím kerülhet a `Study.url` mezőbe.
+- **Bilingual:** every change is made in both files, with an identical structure. `content.spec.ts`
+  reports if the structure of the two languages differs.
+- **Only real data:** the résumé, LinkedIn and what the owner says are the source. Nothing may be invented, and for missing
+  data you ask. A phone number, date of birth and home address must not appear on the site.
+- **No text in components:** the components read from the `ContentService`.
+- **Project count:** the number in the statistics equals the number of distinct projects listed under the employers
+  (a project listed under several roles counts once); `content.spec.ts` guards this too.
+- **Links, email, numbers and technology names** are the same in both languages.
+- **Certificate link:** only a real address given by the owner may go into the `Study.url` field.
 
-## Változtatás után
+## After a change
 
-1. `npm test -- --watch=false` és `npm run build`.
-2. `npm run cv`, és a `public/cv/` fájlokat is commitold, mert az önéletrajz a tartalomból készül.
-3. Látható funkció esetén `npm run e2e`.
+1. `npm test -- --watch=false` and `npm run build`.
+2. `npm run cv`, and commit the `public/cv/` files too, because the résumé is built from the content.
+3. For a visible feature, `npm run e2e`.
 
-## A tapasztalat évei
+## The years of experience
 
-A „több mint 5 éve” és a „3+” jellegű számok nincsenek beírva: a tartalomban `{javaYears}` és `{aiYears}` helyettesítő áll
-(a statisztikában `{javaYears}+`). A `data/experience.ts` a kezdő hónapokból (`EXPERIENCE_START`) számolja a teljes éveket, és a
-`data/content.ts` a betöltéskor cseréli be, ezért a böngészőben mindig az aktuális szám látszik. Az előrenderelt HTML a
-build idejét tükrözi, ezért a `ci.yml` havonta újraépít és telepít. Új kezdő dátumnál az `EXPERIENCE_START`-ot kell
-módosítani.
+Numbers such as “more than 5 years” and “3+” are not typed in: the content has the placeholders `{javaYears}` and `{aiYears}`
+(`{javaYears}+` in the statistics). `data/experience.ts` calculates the full years from the start months (`EXPERIENCE_START`), and
+`data/content.ts` substitutes them at load time, so the browser always shows the current number. The prerendered HTML
+reflects the build time, so `ci.yml` rebuilds and deploys monthly. For a new start date, change
+`EXPERIENCE_START`.

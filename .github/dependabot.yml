@@ -1,4 +1,4 @@
-# Heti függőségfrissítés: az Angular csomagok egy csoportban jönnek, hogy együtt frissüljenek.
+# Weekly dependency updates: the Angular packages come in one group, so they update together.
 version: 2
 updates:
   - package-ecosystem: npm

@@ -1,37 +1,37 @@
 export interface Profile {
   name: string;
   role: string;
-  /** A szerepek a hero kódablakában: a `Role` enum értékei a `Developer.kt` mintából. */
+  /** The roles in the hero code window: the values of the `Role` enum in the `Developer.kt` sample. */
   roleConstants: string[];
   email: string;
   linkedin: string;
   github: string;
   location: string;
-  /** Portréfotó a `public/` mappából. */
+  /** Portrait photo from the `public/` folder. */
   photo: { src: string; alt: string };
-  /** A letölthető önéletrajz (PDF) elérési útja a webgyökértől; az `npm run cv` készíti. */
+  /** Path of the downloadable résumé (PDF) from the web root; built by `npm run cv`. */
   cv: string;
   intro: string;
-  /** Beszélt nyelvek, nyelvenként egy elem. */
+  /** Spoken languages, one item per language. */
   languages: string[];
-  /** Jogosítvány kategóriája. */
+  /** Driving licence category. */
   license: string;
-  /** A hero kódablakában megjelenő technológiák. */
+  /** The technologies shown in the hero code window. */
   stack: string[];
-  /** A hero gépelő szövegének szerepei. */
+  /** The roles of the hero typewriter text. */
   roles: string[];
   letter: string[];
 }
 
 export interface JobProject {
   name: string;
-  /** A projekt rövid megnevezése a név mellett (például „Autóbérlési rendszer”). */
+  /** A short name for the project next to its name (for example “Car rental system”). */
   subtitle?: string;
   url?: string;
   text?: string;
-  /** A projekten használt CI/CD és verziókezelő eszközök. */
+  /** The CI/CD and version control tools used on the project. */
   tech?: string[];
-  /** Konkrét feladatok felsorolásként a projekt alatt. */
+  /** Concrete tasks as a list under the project. */
   points?: string[];
 }
 
@@ -41,7 +41,7 @@ export interface Job {
   period: string;
   description: string;
   projects?: JobProject[];
-  /** A munkahelyre jellemző, egyik projekthez sem tartozó eszközök. */
+  /** Tools that characterise the employer and belong to no single project. */
   tech?: string[];
 }
 
@@ -50,15 +50,15 @@ export interface Skill {
   title: string;
   tag: string;
   paragraphs: string[];
-  /** Technológiák címkeként a szöveg alatt, ha a kártyának van ilyen. */
+  /** Technologies as chips below the text, if the card has any. */
   chips?: string[];
 }
 
 export interface SideProject {
   name: string;
-  /** Az élő oldal címe, ha van. */
+  /** The address of the live site, if any. */
   url?: string;
-  /** A forráskód címe, ha nyilvános. */
+  /** The address of the source code, if public. */
   sourceUrl?: string;
   paragraphs: string[];
   tech: string[];
@@ -66,20 +66,20 @@ export interface SideProject {
 
 export interface Study {
   kind: 'education' | 'certificate';
-  /** Kiemelt tanúsítvány (az Anthropic-é), külön kártyán jelenik meg. */
+  /** A featured certificate (Anthropic's), shown on a separate card. */
   featured?: boolean;
   title: string;
   where: string;
   period: string;
-  /** Rövid, mondatokban megfogalmazott leírás (csak ahol van mit elmondani). */
+  /** A short description in sentences (only where there is something to say). */
   description?: string;
-  /** A tanúsítvány nyilvános oldala, ha van; ezzel a cím linkké válik. */
+  /** The public page of the certificate, if any; the title becomes a link. */
   url?: string;
 }
 
 export type CodeLanguage = 'kotlin' | 'markdown';
 
-/** Egy fájl a kódablakban: neve, nyelve és tartalma. */
+/** A file in the code window: its name, language and content. */
 export interface CodeFile {
   name: string;
   language: CodeLanguage;
@@ -91,12 +91,12 @@ export interface AiPoint {
   paragraphs: string[];
 }
 
-/** A „Hogyan dolgozom AI-val” szekció tartalma. */
+/** The content of the “How I work with AI” section. */
 export interface AiWorkflowContent {
   title: string;
   lead: string;
   points: AiPoint[];
-  /** A projekt valódi CLAUDE.md-jének rövidített részlete. */
+  /** A shortened excerpt of the project's real CLAUDE.md. */
   file: CodeFile;
   note: string;
 }
@@ -109,12 +109,12 @@ export interface Stat {
 export type Lang = 'hu' | 'en';
 
 export interface NavLink {
-  /** A cél szekció azonosítója `#` nélkül. */
+  /** The id of the target section without `#`. */
   fragment: string;
   label: string;
 }
 
-/** A felület összes (nem tartalmi) szövege egy nyelven. */
+/** All the (non-content) UI texts in one language. */
 export interface Ui {
   meta: { title: string; description: string };
   skipLink: string;
@@ -155,13 +155,13 @@ export interface Ui {
   backToTop: string;
 }
 
-/** Egy nyelv teljes tartalma. */
+/** The whole content of one language. */
 export interface Content {
   profile: Profile;
   jobs: Job[];
   skills: Skill[];
   aiWorkflow: AiWorkflowContent;
-  /** A nyitóoldal kódablakának rögzített fájljai (a Developer data class); a példányt a profilból építjük. */
+  /** The fixed files of the landing code window (the Developer data class); the instance is built from the profile. */
   codeSamples: CodeFile[];
   sideProjects: SideProject[];
   studies: Study[];

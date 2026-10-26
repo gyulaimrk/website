@@ -1,89 +1,89 @@
-# Megosztott építőelemek (`src/app/shared/`)
+# Shared building blocks (`src/app/shared/`)
 
-Újrahasznosítható, tartalomtól független elemek. A látható szöveget a hívó vagy a `ContentService` adja.
+Reusable elements independent of the content. The visible text is given by the caller or the `ContentService`.
 
 ### `a[appAnchor]` (`AnchorLink`)
 
-Oldalon belüli ugrás. A `<base href="/">` miatt a sima `#id` link nem működik, ezért minden belső ugráshoz ezt
-használd. A `href` a nyelv valódi címe (`/hu#id`), így szkript nélkül is a jó oldalra visz.
+An in-page jump. Because of `<base href="/">` a plain `#id` link does not work, so use this for every internal jump.
+The `href` is the real address of the language (`/hu#id`), so it leads to the right page even without scripting.
 
-| Bemenet     | Típus    | Jelentés                                    |
-| ----------- | -------- | ------------------------------------------- |
-| `appAnchor` | `string` | kötelező; a cél elem azonosítója `#` nélkül |
+| Input       | Type     | Meaning                                             |
+| ----------- | -------- | --------------------------------------------------- |
+| `appAnchor` | `string` | required; the id of the target element, without `#` |
 
 ```html
-<a appAnchor="tapasztalat">Tapasztalat</a>
+<a appAnchor="tapasztalat">Experience</a>
 ```
 
-Kattintásra a célhoz görget (sima ugrás, ha a látogató csökkentett mozgást kért), és a fókuszt is odaviszi, ha a
-célnak van `tabindex`-e.
+On click it scrolls to the target (a plain jump if the visitor asked for reduced motion), and moves focus there too if the
+target has a `tabindex`.
 
 ### `app-back-to-top` (`BackToTop`)
 
-Lebegő gomb, amely az oldalon lejjebb görgetve jelenik meg, és a tetejére visz (`appAnchor`-ral). Rejtve `visibility: hidden` és `aria-hidden`, így a képernyőolvasó és a Tab sem éri el.
+A floating button that appears when scrolled further down the page, and leads to the top (with `appAnchor`). While hidden it is `visibility: hidden` and `aria-hidden`, so neither the screen reader nor Tab reaches it.
 
 ### `a[appButton]` (`Button`)
 
-Gomb linkként.
+A button as a link.
 
-| Bemenet    | Típus                  | Alapérték   | Jelentés                                              |
-| ---------- | ---------------------- | ----------- | ----------------------------------------------------- |
-| `variant`  | `'primary' \| 'ghost'` | `'primary'` | színátmenetes vagy szellem megjelenés                 |
-| `size`     | `'normal' \| 'small'`  | `'normal'`  | méret                                                 |
-| `external` | `boolean`              | `false`     | új lapon nyílik (`target="_blank"`, `rel="noopener"`) |
+| Input      | Type                   | Default     | Meaning                                                  |
+| ---------- | ---------------------- | ----------- | -------------------------------------------------------- |
+| `variant`  | `'primary' \| 'ghost'` | `'primary'` | gradient or ghost appearance                             |
+| `size`     | `'normal' \| 'small'`  | `'normal'`  | size                                                     |
+| `external` | `boolean`              | `false`     | opens in a new tab (`target="_blank"`, `rel="noopener"`) |
 
 ### `app-card` (`Card`)
 
-Üveghatású kártya, `<ng-content>` tartalommal. A `featured` bemenet (alapérték `false`) színátmenetes keretet ad.
+A glass-effect card with `<ng-content>` content. The `featured` input (default `false`) gives a gradient border.
 
 ### `app-chip-list` (`ChipList`)
 
-Címkék (technológiák) sora. Bemenet: `items` (`readonly string[]`, kötelező). A szövegszíne az `--accent-ink` token, amely a világos témában a kontraszt miatt sötétebb kék.
+A row of chips (technologies). Input: `items` (`readonly string[]`, required). Its text colour is the `--accent-ink` token, which is a darker blue in the light theme for contrast.
 
 ### `app-code-window` (`CodeWindow`)
 
-Kódablak fülekkel és színezéssel. Bemenetek: `files` (`readonly CodeFile[]`, kötelező) és `idPrefix` (`string`, kötelező): a fülek és a panel azonosítóinak előtagja, mert egy oldalon több kódablak is lehet (a hero-ban `hero-code`, az AI szekcióban `ai-code`). A kiválasztott fül új
-fájllistánál az elsőre áll vissza. A fülek `tablist` szemantikájúak: a nyilak lépnek, a Home és az End a szélekre
-visz. A színezést a `highlight()` végzi (Kotlin és Markdown), soronként tokenekre bontva. Az árnyékát a beágyazó elem
-a `--code-window-shadow` CSS-változóval cserélheti le (az AI szekció a visszafogottabb `--shadow-soft` tokent adja, hogy
-ne lógjon rá az alatta álló megjegyzésre).
+A code window with tabs and highlighting. Inputs: `files` (`readonly CodeFile[]`, required) and `idPrefix` (`string`, required): the prefix of the tab and panel ids, because a page can have several code windows (`hero-code` in the hero, `ai-code` in the AI section). The selected tab resets to the first one on a new
+file list. The tabs have `tablist` semantics: the arrows step, Home and End jump to
+the edges. The highlighting is done by `highlight()` (Kotlin and Markdown), split into tokens line by line. The embedding element
+can replace its shadow with the `--code-window-shadow` CSS variable (the AI section gives the more restrained `--shadow-soft` token, so that
+it does not spill onto the note below it).
 
-**Tesztek:** `code-window.spec.ts`, `highlight.spec.ts`.
+**Tests:** `code-window.spec.ts`, `highlight.spec.ts`.
 
 ### `appCountUp` (`CountUp`)
 
-A szövegben lévő számok 0-ról a végértékig nőnek, amikor az elem először a képernyőre ér (kb. 1,1 mp, lassuló
-görbével). Bemenet: `appCountUp`, a végérték szövegként (például `5+` vagy `8–25`; minden egész szám külön nő).
+The numbers in the text grow from 0 to the final value when the element first reaches the screen (about 1.1 s, with a decelerating
+curve). Input: `appCountUp`, the final value as text (for example `5+` or `8–25`; every whole number grows separately).
 
 ```html
 <strong [appCountUp]="'5+'">5+</strong>
 ```
 
-A kiszolgált HTML, a szkript nélküli látogató, a mozgáscsökkentést kérő látogató és a nyomtatás a végértéket
-látja. Az animáció az Angular saját szövegcsomópontját írja, és pontosan a végértéken áll meg. A hero statisztikái
-használják.
+The served HTML, a visitor without scripting, a visitor who asked for reduced motion and printing see the final value.
+The animation writes Angular's own text node, and stops exactly at the final value. The statistics of the hero
+use it.
 
 ### `app-language-toggle` (`LanguageToggle`)
 
-Nyelvváltó gomb, amely a másik nyelv kódját mutatja (`HU` vagy `EN`), és a `LanguageService.toggle()`-t hívja.
+A language toggle button that shows the code of the other language (`HU` or `EN`), and calls `LanguageService.toggle()`.
 
 ### `appReveal` (`Reveal`)
 
-Belépő animáció: egyszer, amikor az elem a képernyőre ér. Bemenet: `appReveal`, a késleltetés lépésekben (1 lépés =
-80 ms, alapérték 0, számmá alakítva). Mozgáscsökkentésnél, vagy ha nincs `IntersectionObserver`, az elem azonnal
-látszik.
+An entrance animation: once, when the element reaches the screen. Input: `appReveal`, the delay in steps (1 step =
+80 ms, default 0, converted to a number). With reduced motion, or without `IntersectionObserver`, the element is
+visible immediately.
 
 ### `app-section-heading` (`SectionHeading`)
 
-Szekciócím rövid bevezetővel. Bemenetek: `title` (kötelező) és `lead` (alapérték: üres).
+A section heading with a short lead. Inputs: `title` (required) and `lead` (default: empty).
 
 ### `app-theme-toggle` (`ThemeToggle`)
 
-Téma váltó gomb: nap- vagy holdikon, a felirat a következő témát nevezi meg. A `ThemeService.toggle()`-t hívja.
+A theme toggle button: a sun or moon icon, and the label names the next theme. It calls `ThemeService.toggle()`.
 
 ### `app-typewriter` (`Typewriter`)
 
-Szavakat gépel be és töröl. Bemenet: `words` (`readonly string[]`, kötelező). A kiszolgáló és a mozgáscsökkentést
-kérő látogató az első szót látja, gépelés nélkül, így a kiszolgált HTML is teljes tartalmú.
+Types and deletes words. Input: `words` (`readonly string[]`, required). The server and a visitor who asked for reduced motion
+see the first word, without typing, so the served HTML is complete too.
 
-**Tesztek:** minden elemhez tartozik `*.spec.ts` a saját mappájában.
+**Tests:** every element has a `*.spec.ts` in its own folder.

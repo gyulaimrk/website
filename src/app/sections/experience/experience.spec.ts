@@ -9,18 +9,18 @@ describe('Experience', () => {
     return fixture.nativeElement as HTMLElement;
   }
 
-  it('minden munkahelyhez egy idővonal-elemet készít', () => {
+  it('builds one timeline item for every employer', () => {
     expect(render().querySelectorAll('ol > li').length).toBe(contentHu.jobs.length);
   });
 
-  it('csak a legfrissebb kártya kiemelt', () => {
+  it('only the most recent card is featured', () => {
     const cards = [...render().querySelectorAll('app-job-card app-card')];
     expect(cards.map((c) => c.classList.contains('featured'))).toEqual(
       contentHu.jobs.map((_, i) => i === 0),
     );
   });
 
-  it('a GLI Solutions és a MOL Limo projekt megjelenik', () => {
+  it('the GLI Solutions and the MOL Limo projects appear', () => {
     const text = render().textContent ?? '';
     expect(text).toContain('GLI Solutions');
     expect(text).toContain('MOL Limo');

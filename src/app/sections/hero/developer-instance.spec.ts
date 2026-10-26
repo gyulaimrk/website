@@ -2,13 +2,13 @@ import { contentEn, contentHu } from '../../data/content';
 import { developerInstance } from './developer-instance';
 
 describe('developerInstance', () => {
-  it('Kotlin fájlt ad Main.kt néven', () => {
+  it('gives a Kotlin file named Main.kt', () => {
     const file = developerInstance(contentHu.profile);
     expect(file.name).toBe('Main.kt');
     expect(file.language).toBe('kotlin');
   });
 
-  it('a profil nevét, minden szerepét (enum-értékként) és minden stack-elemét kiírja', () => {
+  it('writes out the profile’s name, all its roles (as enum values) and all its stack items', () => {
     const { code } = developerInstance(contentHu.profile);
     expect(code).toContain(`name = "${contentHu.profile.name}"`);
     contentHu.profile.roleConstants.forEach((constant) =>
@@ -17,17 +17,17 @@ describe('developerInstance', () => {
     contentHu.profile.stack.forEach((item) => expect(code).toContain(`"${item}"`));
   });
 
-  it('a helyszínből csak a várost írja ki', () => {
+  it('from the location it writes only the city', () => {
     const { code } = developerInstance(contentHu.profile);
     expect(code).toContain('location = "Nyíregyháza"');
     expect(code).not.toContain('Magyarország');
   });
 
-  it('a nyelv szerinti profilból épül', () => {
+  it('is built from the profile of the language', () => {
     expect(developerInstance(contentEn.profile).code).toContain(contentEn.profile.name);
   });
 
-  it('minden szerep olyan enum-érték, amely a Developer.kt mintában is szerepel', () => {
+  it('every role is an enum value that also appears in the Developer.kt sample', () => {
     const sample = contentHu.codeSamples[0].code;
     expect(sample).toContain('enum class Role {');
     expect(contentHu.profile.roleConstants.length).toBeGreaterThan(1);
@@ -36,7 +36,7 @@ describe('developerInstance', () => {
     );
   });
 
-  it('a mezői megegyeznek a Developer data class mezőivel', () => {
+  it('its fields match the fields of the Developer data class', () => {
     const fields = (source: string) =>
       [...source.matchAll(/(?:val )?(\w+)\s*[:=]/g)].map((m) => m[1]);
     const sample = contentHu.codeSamples[0].code;

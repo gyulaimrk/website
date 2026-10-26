@@ -10,7 +10,7 @@ describe('ThemeToggle', () => {
   });
   afterEach(() => vi.unstubAllGlobals());
 
-  it('kattintásra vált, és a felirata a következő módot nevezi meg', () => {
+  it('switches on click, and its label names the next mode', () => {
     const fixture = TestBed.createComponent(ThemeToggle);
     fixture.detectChanges();
     const button = fixture.nativeElement.querySelector('button') as HTMLButtonElement;

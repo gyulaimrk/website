@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 import { App } from './app';
 
 describe('App', () => {
-  it('az útválasztó kimenetét tartalmazza', () => {
+  it('contains the router outlet', () => {
     TestBed.configureTestingModule({ providers: [provideRouter([])] });
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();

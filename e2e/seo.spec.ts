@@ -6,7 +6,7 @@ test.describe('SEO', () => {
     ['/hu', contentHu],
     ['/en', contentEn],
   ] as const) {
-    test(`${path}: cím és leírás a saját nyelvén`, async ({ page }) => {
+    test(`${path}: title and description in its own language`, async ({ page }) => {
       await page.goto(path);
       await expect(page).toHaveTitle(content.ui.meta.title);
       await expect(page.locator('meta[name="description"]')).toHaveAttribute(
@@ -16,13 +16,15 @@ test.describe('SEO', () => {
     });
   }
 
-  test('a robots.txt és a 404.html kiszolgálódik', async ({ request }) => {
+  test('robots.txt and 404.html are served', async ({ request }) => {
     expect((await request.get('/robots.txt')).status()).toBe(200);
     const notFound = await request.get('/404.html');
     expect(notFound.status()).toBe(200);
   });
 
-  test('amíg nincs végleges cím, nincs hamis canonical és hreflang', async ({ request }) => {
+  test('until there is a final address, there is no false canonical and hreflang', async ({
+    request,
+  }) => {
     const html = await (await request.get('/hu')).text();
     expect(html).not.toContain('rel="canonical"');
     expect(html).not.toContain('hreflang');

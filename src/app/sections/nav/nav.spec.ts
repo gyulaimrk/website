@@ -13,7 +13,7 @@ describe('Nav', () => {
     return { fixture, el: fixture.nativeElement as HTMLElement };
   }
 
-  it('a monogramot, a nevet, a menüpontokat és a kapcsolat gombot mutatja', () => {
+  it('shows the monogram, the name, the menu items and the contact button', () => {
     const { el } = render();
     expect(el.querySelector('.logo')?.textContent).toBe('GM');
     expect(el.querySelector('.name')?.textContent).toBe(contentHu.profile.name);
@@ -21,7 +21,7 @@ describe('Nav', () => {
     expect(el.querySelector('a[appButton]')?.getAttribute('href')).toBe('/hu#kapcsolat');
   });
 
-  it('a márkalink neve a látható nevet és a célját is tartalmazza, aria-label nélkül', () => {
+  it('the brand link’s name contains the visible name and its purpose, without aria-label', () => {
     const brand = render().el.querySelector('.brand') as HTMLElement;
     expect(brand.hasAttribute('aria-label')).toBe(false);
     expect(brand.querySelector('.name')?.textContent).toBe(contentHu.profile.name);
@@ -32,7 +32,7 @@ describe('Nav', () => {
     );
   });
 
-  it('az Escape billentyű bezárja a mobilmenüt', () => {
+  it('the Escape key closes the mobile menu', () => {
     const { fixture, el } = render();
     (el.querySelector('.burger') as HTMLButtonElement).click();
     fixture.detectChanges();
@@ -41,7 +41,7 @@ describe('Nav', () => {
     expect(el.querySelector('nav')?.classList).not.toContain('open');
   });
 
-  it('az aktív szekció menüpontját megjelöli', () => {
+  it('marks the menu item of the active section', () => {
     const { fixture, el } = render();
     TestBed.inject(ScrollSpyService).active.set('tapasztalat');
     fixture.detectChanges();
@@ -51,7 +51,7 @@ describe('Nav', () => {
     expect(current.map((a) => a.getAttribute('href'))).toEqual(['/hu#tapasztalat']);
   });
 
-  it('a mobilmenü gombra nyílik, linkre kattintva bezárul', () => {
+  it('the mobile menu opens with its button and closes on clicking a link', () => {
     const { fixture, el } = render();
     const burger = el.querySelector('.burger') as HTMLButtonElement;
     expect(burger.getAttribute('aria-expanded')).toBe('false');

@@ -4,7 +4,7 @@ import { Reveal } from '../../shared/reveal/reveal.directive';
 import { SectionHeading } from '../../shared/section-heading/section-heading';
 import { JobCard } from './job-card/job-card';
 
-/** Idővonal: a legfrissebb munkahely elöl, mert az időrend valódi sorrend. */
+/** Timeline: the most recent employer first, because chronological order is a real order. */
 @Component({
   selector: 'app-experience',
   imports: [JobCard, Reveal, SectionHeading],

@@ -6,12 +6,12 @@ import { Lang } from '../data/models';
 import { SITE_ORIGIN_TOKEN } from './site.config';
 
 const LOCALES: Record<Lang, string> = { hu: 'hu_HU', en: 'en_US' };
-/** A megosztási kép a webgyökérben van (`public/og-image.png`, 1200×630). */
+/** The share image is in the web root (`public/og-image.png`, 1200×630). */
 const SHARE_IMAGE_PATH = '/og-image.png';
 
 /**
- * A böngészőfül címét, a leírást, a megosztási adatokat és (ha ismert az oldal címe) a
- * canonical és hreflang kapcsolatokat az adott nyelvhez igazítja.
+ * Adjusts the browser tab title, the description, the share data and (if the site address is known)
+ * the canonical and hreflang links to the given language.
  */
 @Injectable({ providedIn: 'root' })
 export class SeoService {
@@ -20,7 +20,7 @@ export class SeoService {
   private readonly document = inject(DOCUMENT);
   private readonly origin = inject(SITE_ORIGIN_TOKEN);
 
-  /** Az oldal URL-je nyelvenként, vagy üres, amíg nincs megadva az oldal címe. */
+  /** The page URL per language, or empty until the site address is set. */
   urlFor(lang: Lang): string {
     return this.origin ? `${this.origin}/${lang}` : '';
   }
@@ -40,13 +40,13 @@ export class SeoService {
     this.updateSiteUrls(lang);
   }
 
-  /** Olyan oldalnak (például 404), amelyet a keresők ne indexeljenek. */
+  /** For a page (for example the 404) that search engines should not index. */
   noindex(title: string): void {
     this.title.setTitle(title);
     this.meta.updateTag({ name: 'robots', content: 'noindex' });
   }
 
-  /** Az abszolút címet igénylő adatok (canonical, hreflang, og:url, megosztási kép): csak ismert oldalcímmel. */
+  /** Data that needs an absolute address (canonical, hreflang, og:url, share image): only with a known site address. */
   private updateSiteUrls(lang: Lang) {
     this.removeLinks('link[rel="canonical"], link[rel="alternate"][hreflang]');
     const url = this.urlFor(lang);

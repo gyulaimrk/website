@@ -1,14 +1,14 @@
 /**
- * Build utáni igazítás: az `npm run build` után magától lefut (`postbuild`).
+ * Post-build adjustment: runs on its own after `npm run build` (`postbuild`).
  *
- * 1. A Cloudflare `not_found_handling: "404-page"` beállítása a kimenet gyökerében lévő
- *    `404.html`-t szolgálja ki, valódi 404-es státusszal. Az Angular `404/index.html`-t
- *    készít, ezért ide másoljuk a helyére.
- * 2. A `_headers` fájlba tartalombiztonsági irányelv (CSP) kerül: az oldal csak a saját forrásaiból
- *    tölthet be, a végrehajtható beágyazott szkripteket pedig a lenyomatuk (hash) engedélyezi.
- * 3. Az `llms.txt` (rövid, géppel olvasható összefoglaló az AI-eszközöknek) a tartalomfájlokból készül.
- * 4. Ha a `SITE_ORIGIN` (src/app/core/site-origin.ts) ki van töltve, sitemap.xml készül
- *    nyelvváltozatonként, és a robots.txt hivatkozik rá. Üres címnél egyik sem készül el.
+ * 1. Cloudflare's `not_found_handling: "404-page"` setting serves the `404.html` in the root of the
+ *    output, with a real 404 status. Angular builds `404/index.html`,
+ *    so we copy it into its place.
+ * 2. A content security policy (CSP) goes into the `_headers` file: the page may only load from its own sources,
+ *    and the executable inline scripts are allowed by their hash.
+ * 3. `llms.txt` (a short, machine-readable summary for AI tools) is built from the content files.
+ * 4. If `SITE_ORIGIN` (src/app/core/site-origin.ts) is filled in, a sitemap.xml is built
+ *    per language version, and robots.txt refers to it. With an empty address neither is built.
  */
 import { createHash } from 'node:crypto';
 import { access, copyFile, readFile, readdir, writeFile } from 'node:fs/promises';
@@ -22,12 +22,12 @@ async function copy404() {
   try {
     await access(from);
   } catch {
-    console.error(`Hiányzik az előrenderelt 404-oldal: ${from}`);
-    console.error('A "404" útvonalnak szerepelnie kell az app.routes.server.ts-ben.');
+    console.error(`The prerendered 404 page is missing: ${from}`);
+    console.error('The "404" route must be in app.routes.server.ts.');
     process.exit(1);
   }
   await copyFile(from, `${OUT}/404.html`);
-  console.log('404.html a kimenet gyökerébe másolva');
+  console.log('404.html copied to the output root');
 }
 
 function sitemapXml(origin, langs) {
@@ -41,7 +41,7 @@ function sitemapXml(origin, langs) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries}\n</urlset>\n`;
 }
 
-/** A robots.txt-be egyetlen Sitemap-sort tesz, akárhányszor fut le a szkript. */
+/** Puts a single Sitemap line into robots.txt, however many times the script runs. */
 async function linkSitemapInRobots(origin) {
   const path = `${OUT}/robots.txt`;
   const current = await readFile(path, 'utf8');
@@ -61,7 +61,7 @@ async function htmlFiles(dir) {
   return nested.flat();
 }
 
-/** A végrehajtható beágyazott szkriptek sha256-lenyomata (a JSON és a JSON-LD adatblokkokat nem hajtja végre a böngésző). */
+/** The sha256 hashes of the executable inline scripts (the browser does not execute JSON and JSON-LD data blocks). */
 async function inlineScriptHashes(files) {
   const hashes = new Set();
   for (const file of files) {
@@ -78,16 +78,16 @@ async function inlineScriptHashes(files) {
 }
 
 /**
- * A CSP-t a `_headers` `/*` szabályába írja, a többi biztonsági fejléc mellé (egyetlen szabályba,
- * mert a helyi Cloudflare-szerver nem fésüli össze az azonos mintájú szabályokat). Újrafuttatáskor
- * lecseréli a korábbi sort, így idempotens.
+ * Writes the CSP into the `/*` rule of `_headers`, next to the other security headers (into a single rule,
+ * because the local Cloudflare server does not merge rules with the same pattern). On a rerun it
+ * replaces the previous line, so it is idempotent.
  */
 async function writeSecurityHeaders() {
   const hashes = await inlineScriptHashes(await htmlFiles(OUT));
   const policy = [
     "default-src 'self'",
     `script-src 'self' ${hashes.join(' ')}`,
-    // Az Angular a komponensek stíluslapját beágyazva adja.
+    // Angular embeds the stylesheets of the components.
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data:",
     "font-src 'self'",
@@ -103,12 +103,12 @@ async function writeSecurityHeaders() {
     .filter((line) => !line.trimStart().startsWith('Content-Security-Policy:'));
   const rule = lines.indexOf('/*');
   if (rule === -1) {
-    console.error('A _headers fájlban nincs "/*" szabály, ide kerülne a CSP.');
+    console.error('There is no "/*" rule in the _headers file, where the CSP would go.');
     process.exit(1);
   }
   lines.splice(rule + 1, 0, `  Content-Security-Policy: ${policy}`);
   await writeFile(path, lines.join('\n'));
-  console.log(`CSP a _headers fájlban (${hashes.length} beágyazott szkript engedélyezve)`);
+  console.log(`CSP in the _headers file (${hashes.length} inline scripts allowed)`);
 }
 
 async function writeLlmsTxt() {
@@ -118,7 +118,7 @@ export { SITE_ORIGIN } from './src/app/core/site-origin';
 export { renderLlmsTxt } from './src/app/data/llms-txt';`,
   });
   await writeFile(`${OUT}/llms.txt`, renderLlmsTxt(CONTENTS, SITE_ORIGIN));
-  console.log('llms.txt elkészült');
+  console.log('llms.txt built');
 }
 
 async function writeSitemap() {
@@ -127,12 +127,12 @@ async function writeSitemap() {
 export { LANGS } from './src/app/data/content';`,
   });
   if (!SITE_ORIGIN) {
-    console.log('SITE_ORIGIN üres: sitemap.xml nem készül');
+    console.log('SITE_ORIGIN is empty: sitemap.xml is not built');
     return;
   }
   await writeFile(`${OUT}/sitemap.xml`, sitemapXml(SITE_ORIGIN, LANGS));
   await linkSitemapInRobots(SITE_ORIGIN);
-  console.log(`sitemap.xml elkészült (${LANGS.join(', ')}) a(z) ${SITE_ORIGIN} címhez`);
+  console.log(`sitemap.xml built (${LANGS.join(', ')}) for the address ${SITE_ORIGIN}`);
 }
 
 await copy404();

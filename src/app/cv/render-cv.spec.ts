@@ -5,7 +5,7 @@ import { renderCv } from './render-cv';
 const assets = { photo: 'data:image/jpeg;base64,AAAA', fontCss: '' };
 
 describe('renderCv', () => {
-  it('a magyar önéletrajzban minden munkahely, projekt és tanúsítvány szerepel', () => {
+  it('the Hungarian résumé includes every employer, project and certificate', () => {
     const html = renderCv('hu', contentHu, assets);
     contentHu.jobs.forEach((job) => expect(html).toContain(job.company));
     contentHu.jobs
@@ -15,7 +15,7 @@ describe('renderCv', () => {
     expect(html).toContain('<html lang="hu">');
   });
 
-  it('az angol önéletrajz angol szöveget és angol nyelvi jelölést használ', () => {
+  it('the English résumé uses English text and English language markup', () => {
     const html = renderCv('en', contentEn, assets);
     expect(html).toContain('<html lang="en">');
     expect(html).toContain(contentEn.ui.experience.title);
@@ -23,7 +23,7 @@ describe('renderCv', () => {
     expect(html).not.toContain(contentHu.ui.experience.title);
   });
 
-  it('nem tartalmaz személyes adatot: telefonszámot és születési dátumot', () => {
+  it('contains no personal data: phone number or date of birth', () => {
     (['hu', 'en'] as const).forEach((lang) => {
       const html = renderCv(lang, lang === 'hu' ? contentHu : contentEn, assets);
       expect(html).not.toMatch(/\+36\s?\d/);
@@ -31,69 +31,69 @@ describe('renderCv', () => {
     });
   });
 
-  it('a kapcsolati sorban az e-mail és a LinkedIn szerepel, rövidítve', () => {
+  it('the contact line has the email and LinkedIn, shortened', () => {
     const html = renderCv('hu', contentHu, assets);
     expect(html).toContain('linkedin.com/in/mark-gyulai-6aa690264');
     expect(html).toContain(contentHu.profile.email);
   });
 
-  it('a nyelveket listaként sorolja fel', () => {
+  it('lists the languages as a list', () => {
     const html = renderCv('hu', contentHu, assets);
     contentHu.profile.languages.forEach((language) =>
       expect(html).toContain(`<li>${language}</li>`),
     );
   });
 
-  it('nincs benne GitHub-link (sem a profil, sem a mellékprojektek forráskódja)', () => {
+  it('has no GitHub link (neither the profile nor the side projects’ source code)', () => {
     const html = renderCv('hu', contentHu, assets);
     expect(html).not.toContain('github.com');
   });
 
-  it('a szöveget HTML-ben biztonságosan kezeli (nem enged be címkéket)', () => {
+  it('handles text in HTML safely (lets no tags in)', () => {
     const evil: Content = structuredClone(contentHu);
-    evil.profile.intro = '<script>alert(1)</script> & "idézet"';
+    evil.profile.intro = '<script>alert(1)</script> & "quote"';
     const html = renderCv('hu', evil, assets);
     expect(html).not.toContain('<script>alert');
-    expect(html).toContain('&lt;script&gt;alert(1)&lt;/script&gt; &amp; &quot;idézet&quot;');
+    expect(html).toContain('&lt;script&gt;alert(1)&lt;/script&gt; &amp; &quot;quote&quot;');
   });
 
-  it('a leírás nélküli projektet is felsorolja, kettőspont nélkül', () => {
+  it('also lists a project without a description, without a colon', () => {
     const bare: Content = structuredClone(contentHu);
-    bare.jobs[0].projects = [{ name: 'Csak név' }];
+    bare.jobs[0].projects = [{ name: 'Name only' }];
     const html = renderCv('hu', bare, assets);
-    expect(html).toContain('<strong>Csak név</strong></li>');
+    expect(html).toContain('<strong>Name only</strong></li>');
   });
 
-  it('a projekt eszközeit zárójelben a név után írja ki', () => {
+  it('writes the project’s tools in brackets after the name', () => {
     const html = renderCv('hu', contentHu, assets);
     const project = contentHu.jobs.flatMap((job) => job.projects ?? []).find((p) => p.tech?.length);
     expect(html).toContain(`<span class="tools">(${project?.tech?.join(', ')})</span>`);
   });
 
-  it('a projekt feladatait is felsorolja', () => {
+  it('also lists the project’s tasks', () => {
     const html = renderCv('hu', contentHu, assets);
     const point = contentHu.jobs[0].projects![0].points![0];
     expect(html).toContain(`<li>${point}</li>`);
   });
 
-  it('a nyelvvizsga és a jogosítvány is megjelenik', () => {
+  it('the language exam and the driving licence also appear', () => {
     const html = renderCv('hu', contentHu, assets);
     expect(html).toContain('Angol nyelvvizsga, B2');
     expect(html).toContain(contentHu.profile.license);
   });
 
-  it('a további tanúsítványok közös kiállítóját egyszer, a címben írja ki', () => {
+  it('the shared issuer of the further certificates is written once, in the heading', () => {
     const html = renderCv('hu', contentHu, assets);
     expect(html).toContain('(LinkedIn Learning)');
     expect(html.match(/LinkedIn Learning/g)).toHaveLength(1);
   });
 
-  it('eltérő kiállítóknál minden tanúsítványnál kiírja a sajátját', () => {
+  it('with different issuers every certificate shows its own', () => {
     const mixed: Content = structuredClone(contentHu);
     const other = mixed.studies.find((s) => s.kind === 'certificate' && !s.featured)!;
-    other.where = 'Másik Kft.';
+    other.where = 'Other Ltd.';
     const html = renderCv('hu', mixed, assets);
-    expect(html).toContain('Másik Kft.');
+    expect(html).toContain('Other Ltd.');
     expect(html).not.toContain('(LinkedIn Learning)');
     expect(html).toContain('LinkedIn Learning');
   });

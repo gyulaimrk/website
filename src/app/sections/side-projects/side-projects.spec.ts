@@ -3,7 +3,7 @@ import { contentHu } from '../../data/content';
 import { SideProjects } from './side-projects';
 
 describe('SideProjects', () => {
-  it('minden mellékprojekthez kártyát rajzol, köztük a lizacover.hu-hoz', () => {
+  it('renders a card for every side project, including lizacover.hu', () => {
     const fixture = TestBed.createComponent(SideProjects);
     fixture.detectChanges();
     const el = fixture.nativeElement as HTMLElement;

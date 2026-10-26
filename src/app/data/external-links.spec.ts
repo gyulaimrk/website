@@ -4,12 +4,12 @@ import { externalLinks } from './external-links';
 describe('externalLinks', () => {
   const links = externalLinks(contentHu);
 
-  it('csak https címeket ad, ismétlés nélkül', () => {
+  it('gives only https addresses, without repetition', () => {
     links.forEach((url) => expect(url).toMatch(/^https:\/\//));
     expect(new Set(links).size).toBe(links.length);
   });
 
-  it('tartalmazza a profilt, a projektek és a tanúsítványok linkjeit', () => {
+  it('includes the profile, the project and the certificate links', () => {
     expect(links).toContain(contentHu.profile.linkedin);
     expect(links).toContain(`${contentHu.profile.linkedin}/details/certifications/`);
     expect(links).toContain('https://rentacar.mollimo.hu/rent/start');
@@ -18,7 +18,7 @@ describe('externalLinks', () => {
       .forEach((study) => expect(links).toContain(study.url));
   });
 
-  it('a két nyelv ugyanazokat a külső címeket használja', () => {
+  it('the two languages use the same external addresses', () => {
     expect(externalLinks(contentEn).sort()).toEqual([...links].sort());
   });
 });

@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import { contentHu } from '../src/app/data/content';
 
 test.describe('llms.txt', () => {
-  test('a webgyökérben van, és a tartalomból készült összefoglalót ad', async ({ request }) => {
+  test('it is in the web root, and gives a summary built from the content', async ({ request }) => {
     const response = await request.get('/llms.txt');
     expect(response.status()).toBe(200);
     const text = await response.text();
@@ -13,8 +13,8 @@ test.describe('llms.txt', () => {
   });
 });
 
-test.describe('nyomtatás', () => {
-  test('mindig világos, a navigáció és a díszítés nélkül, és minden tartalom látszik', async ({
+test.describe('printing', () => {
+  test('always light, without navigation and decoration, and all content is visible', async ({
     page,
   }) => {
     await page.addInitScript(() => localStorage.setItem('theme', 'dark'));
@@ -25,11 +25,11 @@ test.describe('nyomtatás', () => {
     await expect(page.locator('app-nav')).toBeHidden();
     await expect(page.locator('app-back-to-top')).toBeHidden();
     await expect(page.locator('app-code-window').first()).toBeHidden();
-    // A háttér átmenetesen vált (transition), ezért várjuk a végállapotot.
+    // The background changes gradually (transition), so we wait for the end state.
     await expect
       .poll(() => page.evaluate(() => getComputedStyle(document.body).backgroundColor))
       .toBe('rgb(255, 255, 255)');
-    // A görgetésre várakozó belépő animáció elemei is látszanak.
+    // The elements of the entrance animation waiting for scrolling are visible too.
     const hidden = await page.evaluate(
       () =>
         [...document.querySelectorAll('.rv')].filter((el) => getComputedStyle(el).opacity !== '1')
@@ -40,19 +40,19 @@ test.describe('nyomtatás', () => {
   });
 });
 
-test.describe('számlálás megjelenéskor', () => {
-  test('a statisztikák számai 0-ról nőnek a végértékig, és a végértéken állnak meg', async ({
+test.describe('counting up on appearance', () => {
+  test('the numbers of the statistics grow from 0 to the final value, and stop at the final value', async ({
     page,
   }) => {
     await page.goto('/hu');
     const values = page.locator('.stats li strong');
     const finals = contentHu.stats.map((stat) => stat.value);
 
-    // Az animáció végén pontosan a tartalomban szereplő szám áll ott.
+    // At the end of the animation exactly the number from the content is there.
     await expect(values).toHaveText(finals, { timeout: 5000 });
   });
 
-  test('mozgáscsökkentésnél azonnal a végérték látszik', async ({ page }) => {
+  test('with reduced motion the final value is shown immediately', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto('/hu');
     await expect(page.locator('.stats li strong')).toHaveText(
@@ -61,7 +61,7 @@ test.describe('számlálás megjelenéskor', () => {
     );
   });
 
-  test('a szkript nélküli, kiszolgált HTML a végértékeket tartalmazza', async ({ request }) => {
+  test('the served HTML without scripting contains the final values', async ({ request }) => {
     const html = await (await request.get('/hu')).text();
     contentHu.stats.forEach((stat) => expect(html).toContain(`>${stat.value}</strong>`));
   });

@@ -6,7 +6,7 @@ import { CountUp, scaleNumbers } from './count-up.directive';
 class Host {}
 
 describe('scaleNumbers', () => {
-  it('minden egész számot a megadott arányban mutat, a többi szöveget változatlanul', () => {
+  it('shows every whole number in the given proportion, and the rest of the text unchanged', () => {
     expect(scaleNumbers('8–25', 0)).toBe('0–0');
     expect(scaleNumbers('8–25', 0.5)).toBe('4–13');
     expect(scaleNumbers('5+', 1)).toBe('5+');
@@ -45,12 +45,12 @@ describe('CountUp', () => {
     return fixture.nativeElement.querySelector('strong') as HTMLElement;
   }
 
-  it('a képernyőre érés előtt a végértéket mutatja', () => {
+  it('before reaching the screen it shows the final value', () => {
     expect(render().textContent).toBe('8–25');
     expect(observed).toBe(1);
   });
 
-  it('látható területre érve 0-ról a végértékig számol, és pontosan a végértéken áll meg', () => {
+  it('on reaching the visible area it counts from 0 to the final value, and stops exactly at it', () => {
     const el = render();
     trigger(true);
     vi.advanceTimersByTime(100);
@@ -60,14 +60,14 @@ describe('CountUp', () => {
     expect(el.textContent).toBe('8–25');
   });
 
-  it('nem indul el, amíg az elem nem látszik', () => {
+  it('does not start while the element is not visible', () => {
     const el = render();
     trigger(false);
     vi.advanceTimersByTime(500);
     expect(el.textContent).toBe('8–25');
   });
 
-  it('mozgáscsökkentésnél nem animál, a végértéket hagyja', () => {
+  it('with reduced motion it does not animate, and keeps the final value', () => {
     vi.stubGlobal('matchMedia', () => ({ matches: true }));
     const el = render();
     expect(observed).toBe(0);

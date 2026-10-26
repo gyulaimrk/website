@@ -9,10 +9,10 @@ import {
 } from '@angular/core';
 import { prefersReducedMotion } from '../../core/prefers-reduced-motion';
 
-/** Belépő animáció: egyszer, amikor az elem a képernyőre ér. Mozgáscsökkentésnél azonnal látszik. */
+/** Entrance animation: once, when the element reaches the screen. With reduced motion it shows immediately. */
 @Directive({ selector: '[appReveal]' })
 export class Reveal implements OnInit, OnDestroy {
-  /** Késleltetés lépésben (1 lépés = 80ms). */
+  /** Delay in steps (1 step = 80ms). */
   readonly appReveal = input(0, { transform: (value: unknown) => numberAttribute(value, 0) });
 
   private readonly el = inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;

@@ -4,7 +4,7 @@ import { ContentService } from './content.service';
 import { LanguageService } from './language.service';
 
 describe('ContentService', () => {
-  it('a nyelvváltással együtt cseréli a tartalmat', () => {
+  it('swaps the content together with the language', () => {
     const language = TestBed.inject(LanguageService);
     const service = TestBed.inject(ContentService);
     language.use('hu');

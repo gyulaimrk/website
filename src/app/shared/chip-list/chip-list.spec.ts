@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { ChipList } from './chip-list';
 
 describe('ChipList', () => {
-  it('kirajzolja a címkéket', () => {
+  it('renders the chips', () => {
     const fixture = TestBed.createComponent(ChipList);
     fixture.componentRef.setInput('items', ['Java', 'SQL']);
     fixture.detectChanges();

@@ -1,5 +1,5 @@
-// TypeScript-forrás használata a szkriptekből: esbuild lefordítja, majd betöltjük.
-// Így a szkriptek ugyanazt az adatot használják, mint az oldal, és nem szövegkeresés (regex) kell hozzá.
+// Using TypeScript sources from scripts: esbuild compiles them, then we load them.
+// This way the scripts use the same data as the site, and no text search (regex) is needed.
 import { build } from 'esbuild';
 import { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -9,8 +9,8 @@ import { pathToFileURL } from 'node:url';
 export const root = resolve(import.meta.dirname, '..');
 
 /**
- * Lefordítja és betölti a megadott TypeScript-modult.
- * `entry`: a `root`-hoz viszonyított fájl, vagy `{ contents }` egy kis, kódban megadott belépési pont.
+ * Compiles and loads the given TypeScript module.
+ * `entry`: a file relative to `root`, or `{ contents }` for a small entry point given in code.
  */
 export async function importTs(entry) {
   const dir = await mkdtemp(join(tmpdir(), 'portfolio-script-'));

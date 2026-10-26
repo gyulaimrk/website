@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
 import { contentEn, contentHu } from '../src/app/data/content';
 
-test.describe('címek és nyelv', () => {
-  test('a gyökércím a böngésző nyelvére visz: magyar', async ({ browser }) => {
+test.describe('addresses and language', () => {
+  test('the root address leads to the browser’s language: Hungarian', async ({ browser }) => {
     const context = await browser.newContext({ locale: 'hu-HU' });
     const page = await context.newPage();
     await page.goto('/');
@@ -11,7 +11,7 @@ test.describe('címek és nyelv', () => {
     await context.close();
   });
 
-  test('a gyökércím a böngésző nyelvére visz: angol', async ({ browser }) => {
+  test('the root address leads to the browser’s language: English', async ({ browser }) => {
     const context = await browser.newContext({ locale: 'en-US' });
     const page = await context.newPage();
     await page.goto('/');
@@ -20,7 +20,7 @@ test.describe('címek és nyelv', () => {
     await context.close();
   });
 
-  test('a /hu és az /en szkript nélkül, a kiszolgált HTML-ben is teljes tartalmú', async ({
+  test('/hu and /en have full content even in the served HTML, without scripting', async ({
     request,
   }) => {
     for (const [path, lang, content] of [
@@ -37,7 +37,7 @@ test.describe('címek és nyelv', () => {
     }
   });
 
-  test('a nyelvváltó a másik nyelv címére visz, és ott marad frissítés után is', async ({
+  test('the language toggle leads to the address of the other language, and stays there after a refresh', async ({
     page,
   }) => {
     await page.goto('/hu');
@@ -50,7 +50,7 @@ test.describe('címek és nyelv', () => {
     await expect(page.getByRole('navigation', { name: contentEn.ui.nav.label })).toBeVisible();
   });
 
-  test('a választott nyelvet a következő látogatáskor a gyökércím is megjegyzi', async ({
+  test('the chosen language is remembered by the root address on the next visit too', async ({
     page,
   }) => {
     await page.goto('/hu');
@@ -60,7 +60,7 @@ test.describe('címek és nyelv', () => {
     await expect(page).toHaveURL(/\/en$/);
   });
 
-  test('egy nyelvi cím puszta megnyitása nem írja felül a böngésző nyelvéből adódó alapértéket', async ({
+  test('merely opening a language address does not overwrite the default coming from the browser language', async ({
     browser,
   }) => {
     const context = await browser.newContext({ locale: 'hu-HU' });
@@ -71,8 +71,8 @@ test.describe('címek és nyelv', () => {
     await context.close();
   });
 
-  test('nem létező cím 404-es státuszt kap, de használható oldalt mutat', async ({ page }) => {
-    const response = await page.goto('/nincs-ilyen-oldal');
+  test('a non-existent address gets a 404 status, but shows a usable page', async ({ page }) => {
+    const response = await page.goto('/no-such-page');
     expect(response?.status()).toBe(404);
     await expect(page.locator('h1')).toBeVisible();
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);

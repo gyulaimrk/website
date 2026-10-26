@@ -1,8 +1,10 @@
 import { expect, test } from '@playwright/test';
 
-test.describe('biztonsági fejlécek', () => {
-  test('az oldal küldi a CSP-t és a keretbe ágyazás elleni fejléceket', async ({ request }) => {
-    for (const path of ['/hu', '/en', '/nincs-ilyen-oldal']) {
+test.describe('security headers', () => {
+  test('the site sends the CSP and the headers against embedding in a frame', async ({
+    request,
+  }) => {
+    for (const path of ['/hu', '/en', '/no-such-page']) {
       const headers = (await request.get(path)).headers();
       expect(headers['content-security-policy'], path).toContain("default-src 'self'");
       expect(headers['content-security-policy'], path).toContain("frame-ancestors 'none'");
@@ -12,9 +14,7 @@ test.describe('biztonsági fejlécek', () => {
     }
   });
 
-  test('a CSP nem tilt le semmit: nincs szabálysértés és konzolhiba a használat közben', async ({
-    page,
-  }) => {
+  test('the CSP blocks nothing: no violation and no console error during use', async ({ page }) => {
     const problems: string[] = [];
     page.on('console', (message) => {
       if (['error', 'warning'].includes(message.type())) problems.push(message.text());
@@ -22,7 +22,7 @@ test.describe('biztonsági fejlécek', () => {
     page.on('pageerror', (error) => problems.push(error.message));
 
     await page.goto('/hu');
-    // A beágyazott szkriptek (téma, eseményismétlés) és a hidratálás is lefut.
+    // The inline scripts (theme, event replay) and the hydration run too.
     await expect(page.locator('html')).toHaveAttribute('data-theme', /dark|light/);
     await page.getByRole('button', { name: /^EN/ }).click();
     await expect(page).toHaveURL(/\/en$/);

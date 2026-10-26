@@ -3,10 +3,10 @@ import { contentHu as rawContentHu } from './content.hu';
 import { withExperience } from './experience';
 import { Content, Lang } from './models';
 
-/** A tartalom a betöltés pillanatában: a tapasztalat éveit (`{javaYears}`, `{aiYears}`) már kiszámolva. */
+/** The content at load time: the years of experience (`{javaYears}`, `{aiYears}`) already calculated. */
 export const contentHu: Content = withExperience(rawContentHu);
 export const contentEn: Content = withExperience(rawContentEn);
 
-/** Nyelvenként a teljes tartalom. */
+/** The whole content per language. */
 export const CONTENTS: Record<Lang, Content> = { hu: contentHu, en: contentEn };
 export const LANGS = Object.keys(CONTENTS) as Lang[];

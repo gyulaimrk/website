@@ -8,34 +8,34 @@ describe('ThemeService', () => {
   });
   afterEach(() => vi.unstubAllGlobals());
 
-  /** Elindítja a szolgáltatást, és lefuttatja az első megjelenítés utáni lépéseket. */
+  /** Starts the service and runs the steps after the first render. */
   function start() {
     const service = TestBed.inject(ThemeService);
     TestBed.tick();
     return service;
   }
 
-  it('az első megjelenítés előtt sötét, a hidratálás miatt', () => {
+  it('dark before the first render, because of hydration', () => {
     expect(TestBed.inject(ThemeService).theme()).toBe('dark');
   });
 
-  it('a rendszer világos beállítását az első megjelenítés után követi', () => {
+  it('follows the system light setting after the first render', () => {
     vi.stubGlobal('matchMedia', () => ({ matches: true }));
     expect(start().theme()).toBe('light');
   });
 
-  it('a mentett választás előnyt élvez', () => {
+  it('the saved choice takes precedence', () => {
     localStorage.setItem('theme', 'light');
     expect(start().theme()).toBe('light');
   });
 
-  it('a mentett értéket nem írja felül az indulás előtt', () => {
+  it('does not overwrite the saved value before startup', () => {
     localStorage.setItem('theme', 'light');
     TestBed.inject(ThemeService);
     expect(localStorage.getItem('theme')).toBe('light');
   });
 
-  it('váltáskor frissíti a dokumentumot és elmenti a választást', () => {
+  it('on toggle it updates the document and saves the choice', () => {
     const service = start();
     service.toggle();
     TestBed.tick();
@@ -44,7 +44,7 @@ describe('ThemeService', () => {
     expect(document.documentElement.dataset['theme']).toBe('light');
   });
 
-  it('az első megjelenítés előtti váltást nem írja felül a mentett vagy a rendszer szerinti téma', () => {
+  it('a toggle before the first render is not overwritten by the saved or system theme', () => {
     localStorage.setItem('theme', 'dark');
     const service = TestBed.inject(ThemeService);
     service.toggle();
@@ -54,7 +54,7 @@ describe('ThemeService', () => {
     expect(localStorage.getItem('theme')).toBe('light');
   });
 
-  it('a rendszer szerinti témát nem menti el, csak a tudatos váltást', () => {
+  it('does not save the system theme, only a deliberate switch', () => {
     vi.stubGlobal('matchMedia', () => ({ matches: true }));
     const service = start();
     expect(service.theme()).toBe('light');

@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { ContentService } from '../../core/content.service';
 import { LanguageService } from '../../core/language.service';
 
-/** Nyelvváltó: a gomb a másik nyelv kódját mutatja. */
+/** Language toggle: the button shows the code of the other language. */
 @Component({
   selector: 'app-language-toggle',
   templateUrl: './language-toggle.html',

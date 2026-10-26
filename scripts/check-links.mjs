@@ -1,9 +1,9 @@
-// Ellenőrzi, hogy az oldalon szereplő külső linkek élnek-e.
-// Futtatás: npm run links (a CI-ben hetente, a .github/workflows/links.yml-ben).
+// Checks whether the external links on the site are alive.
+// Run: npm run links (weekly in CI, in .github/workflows/links.yml).
 import { importTs } from './bundle.mjs';
 
 const TIMEOUT_MS = 15_000;
-/** Ezeknél a válaszoknál a szerver valószínűleg a robotot utasítja el, nem a link hibás. */
+/** For these responses the server probably rejects the robot, the link is not broken. */
 const BOT_BLOCKED = new Set([401, 403, 405, 429, 999]);
 
 const { CONTENTS, externalLinks } = await importTs({
@@ -31,12 +31,12 @@ async function check(url) {
 }
 
 const results = await Promise.all(urls.map(check));
-const label = { ok: 'OK        ', unverified: 'NEM ELLENŐRIZHETŐ', broken: 'HIBÁS     ' };
+const label = { ok: 'OK        ', unverified: 'UNVERIFIABLE', broken: 'BROKEN    ' };
 for (const { url, state, detail } of results) console.log(`${label[state]} ${detail}  ${url}`);
 
 const broken = results.filter((result) => result.state === 'broken');
 const unverified = results.filter((result) => result.state === 'unverified');
 console.log(
-  `\n${results.length} link: ${results.length - broken.length - unverified.length} rendben, ${unverified.length} nem ellenőrizhető (robotokat elutasító oldal), ${broken.length} hibás`,
+  `\n${results.length} links: ${results.length - broken.length - unverified.length} ok, ${unverified.length} unverifiable (site rejecting robots), ${broken.length} broken`,
 );
 process.exit(broken.length ? 1 : 0);
