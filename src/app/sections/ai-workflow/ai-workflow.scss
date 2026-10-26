@@ -26,6 +26,7 @@ h3 {
 .file {
   position: sticky;
   top: 96px;
+  --code-window-shadow: var(--shadow-soft);
 }
 .note {
   margin-top: 12px;
