@@ -99,7 +99,7 @@ async function writeSecurityHeaders() {
   ].join('; ');
   const path = `${OUT}/_headers`;
   const lines = (await readFile(path, 'utf8'))
-    .split('\n')
+    .split(/\r?\n/)
     .filter((line) => !line.trimStart().startsWith('Content-Security-Policy:'));
   const rule = lines.indexOf('/*');
   if (rule === -1) {
