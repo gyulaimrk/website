@@ -41,7 +41,7 @@ Every component, directive and service gets a `###` heading with its selector or
 
 ## Rules
 
-- Write in English, in short sentences, in flowing text rather than bullet lists where you explain.
+- Write in English (the site texts in the content files are the only Hungarian text in the repository), in short sentences, in flowing text rather than bullet lists where you explain.
 - Mark code, commands and file names in `code format`.
 - Do not paste the source code; the documentation says what is not immediately visible from the code.
 - Do not invent a property: read what is not certain from the code or leave it out.

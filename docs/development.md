@@ -20,6 +20,10 @@ Node 24 LTS, npm. The dependencies are installed according to `package-lock.json
 If no Playwright browser is installed, the path of a Chromium can be given with the `E2E_CHROMIUM_PATH` environment variable.
 `npm run cv` uses the `CHROME_PATH` variable in the same way.
 
+## Language of the repository
+
+Only the texts shown on the site are Hungarian (the content files, the bilingual 404 and root pages, the Hungarian SEO meta in `index.html`, the `llms.txt` labels). Code, comments, test names, documentation, skills, scripts, workflows and commit messages are English.
+
 ## Testing
 
 - **Unit tests** (`*.spec.ts`, next to the component): they check the behaviour, not the implementation. The

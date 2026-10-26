@@ -6,6 +6,8 @@ disable-model-invocation: true
 
 # Editing the content
 
+The site texts are the only Hungarian text in the repository: this skill, the code, comments, test names, documentation and commit messages are written in English.
+
 Every text of the site lives in two files: `src/app/data/content.hu.ts` (Hungarian) and `src/app/data/content.en.ts` (English). The components read from the `ContentService`.
 
 1. Read both files and **make the same change in both**. The structure of the two languages (keys, list lengths) must be identical; `content.spec.ts` checks this.

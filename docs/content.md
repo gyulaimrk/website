@@ -19,6 +19,7 @@ Every text of the site is in two files: `src/app/data/content.hu.ts` and `conten
 
 ## Rules
 
+- **Language of the repository:** the site texts are the only Hungarian text. Everything around them (code, comments, test names, docs, skills, scripts, commit messages) is English.
 - **Bilingual:** every change is made in both files, with an identical structure. `content.spec.ts`
   reports if the structure of the two languages differs.
 - **Only real data:** the résumé, LinkedIn and what the owner says are the source. Nothing may be invented, and for missing

@@ -17,6 +17,10 @@ npm run cv                # rebuild the downloadable résumé (PDF)
 The detailed documentation is in the [`docs/`](docs/README.md) folder: architecture, development, content and the components, part by part.
 The project rules are in `CLAUDE.md`, and the Claude Code skills are in the `.claude/skills/` folder.
 
+## Language of the repository
+
+The site is shown in Hungarian and English, and those texts live only in the content files. Everything else is written in English: code, comments, test names, documentation, skills, scripts, workflow files and commit messages. Keep it that way in new work.
+
 ## Content
 
 Every text is in `src/app/data/content.hu.ts` and `content.en.ts`; the structure of the two languages must be identical
