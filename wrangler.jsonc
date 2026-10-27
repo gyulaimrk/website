@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "gyulai-mark-portfolio",
+  "compatibility_date": "2026-10-20",
+  "assets": {
+    "directory": "./dist/portfolio/browser",
+    // For a non-existent address the 404.html in the root goes out with a real 404 status
+    // (the postbuild script copies it here), not the home page with 200.
+    "not_found_handling": "404-page",
+    // /hu and /en are available without a trailing slash, as the links advertise.
+    "html_handling": "drop-trailing-slash",
+  },
+}

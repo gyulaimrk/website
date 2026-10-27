@@ -1,0 +1,41 @@
+section {
+  max-width: var(--max);
+  margin: var(--section) auto 0;
+  padding: 0 var(--gutter);
+}
+.panel {
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+  padding: clamp(40px, 8vw, 96px) clamp(24px, 5vw, 64px);
+  border-radius: calc(var(--radius) * 1.6);
+  /* The glow is part of the background, not a separate element: so it never sticks out at the rounded corners. */
+  background:
+    radial-gradient(circle at 85% 0%, rgb(255 255 255 / 0.22), transparent 45%), var(--gradient);
+  color: var(--on-accent);
+  text-align: center;
+}
+h2 {
+  font-size: var(--step-title);
+}
+p {
+  max-width: 46ch;
+  font-size: var(--step-lead);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+.actions a {
+  --on-accent: #071226;
+  background: #fff;
+  color: #071226;
+  box-shadow: none;
+}
+.actions a:hover {
+  background: #071226;
+  color: #fff;
+}

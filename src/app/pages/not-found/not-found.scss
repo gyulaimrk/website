@@ -1,0 +1,18 @@
+main {
+  display: grid;
+  place-content: center;
+  gap: 16px;
+  min-height: 100svh;
+  padding: var(--gutter);
+  text-align: center;
+}
+.links,
+p {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-weight: 600;
+}
+h1 {
+  font-size: var(--step-hero);
+}

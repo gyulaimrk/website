@@ -1,0 +1,9 @@
+<footer>
+  <p>&copy; {{ year }} {{ content().profile.name }}</p>
+  <nav [attr.aria-label]="content().ui.footer.label">
+    <a [href]="content().profile.linkedin" target="_blank" rel="noopener">{{
+      content().ui.footer.linkedin
+    }}</a>
+    <a [href]="'mailto:' + content().profile.email">{{ content().ui.footer.email }}</a>
+  </nav>
+</footer>

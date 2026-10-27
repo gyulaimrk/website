@@ -1,0 +1,37 @@
+<section id="tanulmanyok">
+  <app-section-heading
+    [title]="content().ui.education.title"
+    [lead]="content().ui.education.lead"
+  />
+  <div class="grid">
+    <app-card appReveal>
+      <h3>{{ content().ui.education.studies }}</h3>
+      <ul>
+        @for (study of education(); track study.title) {
+          <li appStudyItem [study]="study"></li>
+        }
+      </ul>
+    </app-card>
+    <app-card [featured]="true" appReveal="2">
+      <h3>{{ content().ui.education.featured }}</h3>
+      <ul>
+        @for (study of featuredCertificates(); track study.title) {
+          <li appStudyItem [study]="study"></li>
+        }
+      </ul>
+    </app-card>
+    <app-card class="wide" appReveal>
+      <h3>{{ content().ui.education.certificates }}</h3>
+      <ul class="columns">
+        @for (study of certificates(); track study.title) {
+          <li appStudyItem [study]="study"></li>
+        }
+      </ul>
+      <p class="all">
+        <a appButton variant="ghost" size="small" [external]="true" [href]="allCertificatesUrl()">{{
+          content().ui.education.allCertificates
+        }}</a>
+      </p>
+    </app-card>
+  </div>
+</section>

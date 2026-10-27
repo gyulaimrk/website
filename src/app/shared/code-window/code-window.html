@@ -1,0 +1,30 @@
+<div class="window">
+  <div class="bar">
+    <span class="dot red" aria-hidden="true"></span>
+    <span class="dot yellow" aria-hidden="true"></span>
+    <span class="dot green" aria-hidden="true"></span>
+    <div class="tabs" role="tablist" (keydown)="onKeydown($event)">
+      @for (file of files(); track file.name; let i = $index) {
+        <button
+          type="button"
+          role="tab"
+          [id]="idPrefix() + '-tab-' + i"
+          [class.on]="i === active()"
+          [attr.aria-selected]="i === active()"
+          [attr.aria-controls]="idPrefix() + '-panel'"
+          [attr.tabindex]="i === active() ? 0 : -1"
+          (click)="select(i)"
+        >
+          {{ file.name }}
+        </button>
+      }
+    </div>
+  </div>
+  <pre
+    [id]="idPrefix() + '-panel'"
+    [class.wrap]="current().language === 'markdown'"
+    role="tabpanel"
+    tabindex="0"
+    [attr.aria-labelledby]="idPrefix() + '-tab-' + active()"
+  ><code>@for (line of lines(); track $index) {<span class="line">@for (token of line; track $index) {<span [class]="token.kind">{{ token.text }}</span>}</span>}</code></pre>
+</div>

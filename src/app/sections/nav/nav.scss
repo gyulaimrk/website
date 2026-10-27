@@ -1,0 +1,115 @@
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: var(--max);
+  height: 72px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-decoration: none;
+}
+.logo {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--gradient);
+  color: var(--on-accent);
+  font-size: 0.95rem;
+}
+nav {
+  display: flex;
+  gap: 4px;
+}
+nav a {
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: var(--step-small);
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+nav a:hover {
+  background: var(--card);
+  color: var(--text);
+}
+nav a[aria-current='true'] {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--text);
+}
+.tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--card);
+  cursor: pointer;
+}
+.burger span {
+  height: 2px;
+  border-radius: 1px;
+  background: var(--text);
+}
+@media (max-width: 900px) {
+  .burger {
+    display: flex;
+  }
+  nav {
+    position: absolute;
+    top: 100%;
+    right: var(--gutter);
+    left: var(--gutter);
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-soft);
+    box-shadow: var(--shadow);
+  }
+  nav.open {
+    display: flex;
+  }
+  nav a {
+    padding: 14px 16px;
+    font-size: var(--step-body);
+  }
+}
+@media (max-width: 560px) {
+  .name,
+  .cta {
+    display: none;
+  }
+}

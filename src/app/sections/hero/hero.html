@@ -1,0 +1,38 @@
+<section id="top">
+  <div class="glow one" aria-hidden="true"></div>
+  <div class="glow two" aria-hidden="true"></div>
+  <div class="inner">
+    <div class="copy">
+      <p class="greeting">{{ content().ui.hero.greeting }}</p>
+      <h1>
+        <span class="gradient-text">{{ content().profile.name }}</span>
+        {{ content().ui.hero.nameSuffix }}
+      </h1>
+      <p class="role">
+        <span class="sr-only">{{ content().profile.roles.join(', ') }}</span>
+        <span aria-hidden="true"><app-typewriter [words]="content().profile.roles" /></span>
+      </p>
+      <p class="lead">{{ content().profile.intro }}</p>
+      <div class="actions">
+        <a appButton appAnchor="tapasztalat">{{ content().ui.hero.projects }}</a>
+        <a appButton variant="ghost" download [href]="content().profile.cv">
+          {{ content().ui.hero.cv }}
+        </a>
+        <a appButton variant="ghost" [external]="true" [href]="content().profile.linkedin">
+          {{ content().ui.hero.linkedin }}
+        </a>
+      </div>
+    </div>
+    <div class="code">
+      <app-code-window idPrefix="hero-code" [files]="files()" />
+    </div>
+  </div>
+  <ul class="stats">
+    @for (stat of content().stats; track stat.value) {
+      <li>
+        <strong class="gradient-text" [appCountUp]="stat.value">{{ stat.value }}</strong>
+        <span>{{ stat.label }}</span>
+      </li>
+    }
+  </ul>
+</section>

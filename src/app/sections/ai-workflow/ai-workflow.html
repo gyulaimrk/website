@@ -1,0 +1,19 @@
+<section id="ai">
+  <app-section-heading [title]="workflow().title" [lead]="workflow().lead" />
+  <div class="layout">
+    <div class="points">
+      @for (point of workflow().points; track point.title; let i = $index) {
+        <app-card [appReveal]="i">
+          <h3>{{ point.title }}</h3>
+          @for (paragraph of point.paragraphs; track $index) {
+            <p>{{ paragraph }}</p>
+          }
+        </app-card>
+      }
+    </div>
+    <div class="file" appReveal="2">
+      <app-code-window idPrefix="ai-code" [files]="files()" />
+      <p class="note">{{ workflow().note }}</p>
+    </div>
+  </div>
+</section>

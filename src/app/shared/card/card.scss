@@ -1,0 +1,25 @@
+:host {
+  display: block;
+  position: relative;
+  padding: clamp(22px, 3vw, 36px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.25s,
+    background-color 0.25s,
+    border-color 0.25s;
+}
+:host(:hover) {
+  transform: translateY(-4px);
+  background: var(--card-hover);
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+}
+:host(.featured) {
+  border-color: transparent;
+  background:
+    linear-gradient(var(--bg-soft), var(--bg-soft)) padding-box,
+    var(--gradient) border-box;
+}

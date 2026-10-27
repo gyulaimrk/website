@@ -1,0 +1,11 @@
+<section id="mellekprojektek">
+  <app-section-heading
+    [title]="content().ui.sideProjects.title"
+    [lead]="content().ui.sideProjects.lead"
+  />
+  <div class="list">
+    @for (project of content().sideProjects; track project.name) {
+      <app-project-card appReveal [project]="project" />
+    }
+  </div>
+</section>

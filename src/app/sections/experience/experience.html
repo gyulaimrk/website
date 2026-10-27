@@ -1,0 +1,13 @@
+<section id="tapasztalat">
+  <app-section-heading
+    [title]="content().ui.experience.title"
+    [lead]="content().ui.experience.lead"
+  />
+  <ol>
+    @for (job of content().jobs; track job.company + job.period; let i = $index) {
+      <li appReveal>
+        <app-job-card [job]="job" [current]="i === 0" />
+      </li>
+    }
+  </ol>
+</section>

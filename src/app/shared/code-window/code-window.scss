@@ -1,0 +1,112 @@
+:host {
+  display: block;
+}
+.window {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #08152e;
+  --default-shadow: var(--shadow), 0 0 80px color-mix(in srgb, var(--accent) 30%, transparent);
+  box-shadow: var(--code-window-shadow, var(--default-shadow));
+}
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 18px;
+  background: rgb(255 255 255 / 0.05);
+}
+.dot {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.red {
+  background: #ff5f57;
+}
+.yellow {
+  background: #febc2e;
+}
+.green {
+  background: #28c840;
+}
+.tabs {
+  display: flex;
+  min-width: 0;
+  margin-left: 12px;
+  overflow-x: auto;
+}
+.tabs button:focus-visible {
+  /* The tab bar scrolls, so the ring stays inside, otherwise the border would clip it. */
+  outline-offset: -4px;
+}
+.tabs button {
+  flex: none;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: #a9bde6;
+  font: 500 var(--step-small) / 1 var(--font-text);
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+.tabs button:hover {
+  color: #fff;
+}
+.tabs button.on {
+  border-bottom-color: #6aa5ff;
+  color: #fff;
+}
+pre {
+  margin: 0;
+  padding: 22px 24px 26px;
+  overflow-x: auto;
+  color: #e6f0ff;
+  font:
+    400 clamp(0.8rem, 0.75rem + 0.3vw, 0.95rem) / 1.75 ui-monospace,
+    'SFMono-Regular',
+    Menlo,
+    Consolas,
+    monospace;
+}
+.line {
+  display: block;
+  min-height: 1.75em;
+  white-space: pre;
+}
+.wrap .line {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.keyword {
+  color: #a78bfa;
+}
+.type {
+  color: #ffcb6b;
+}
+.function {
+  color: #82aaff;
+}
+.string,
+.code {
+  color: #c3e88d;
+}
+.comment {
+  color: #8fa6d4;
+  font-style: italic;
+}
+.number {
+  color: #f78c6c;
+}
+.heading {
+  color: #82aaff;
+  font-weight: 700;
+}
+.bullet {
+  color: #89ddff;
+}

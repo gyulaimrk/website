@@ -1,0 +1,23 @@
+# Weekly dependency updates: the Angular packages come in one group, so they update together.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    groups:
+      angular:
+        patterns:
+          - '@angular/*'
+          - '@angular-devkit/*'
+      playwright:
+        patterns:
+          - '@playwright/test'
+          - '@axe-core/playwright'
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday

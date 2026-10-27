@@ -1,0 +1,21 @@
+<section id="eszkoztar">
+  <app-section-heading [title]="content().ui.skills.title" [lead]="content().ui.skills.lead" />
+  <div class="grid">
+    @for (skill of content().skills; track skill.title; let i = $index) {
+      <app-card
+        [featured]="skill.highlight ?? false"
+        [class.wide]="skill.highlight"
+        [appReveal]="i % 3"
+      >
+        <p class="tag">{{ skill.tag }}</p>
+        <h3>{{ skill.title }}</h3>
+        @for (paragraph of skill.paragraphs; track $index) {
+          <p class="text">{{ paragraph }}</p>
+        }
+        @if (skill.chips) {
+          <app-chip-list class="chips" [items]="skill.chips" />
+        }
+      </app-card>
+    }
+  </div>
+</section>

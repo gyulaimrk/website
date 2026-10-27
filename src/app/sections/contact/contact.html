@@ -1,0 +1,18 @@
+<section id="kapcsolat">
+  <div class="panel" appReveal>
+    <h2>{{ content().ui.contact.title }}</h2>
+    <p>{{ content().ui.contact.text }}</p>
+    <p class="availability">{{ content().ui.contact.availability }}</p>
+    <div class="actions">
+      <a appButton [external]="true" [href]="content().profile.linkedin">{{
+        content().ui.contact.linkedin
+      }}</a>
+      <a appButton variant="ghost" download [href]="content().profile.cv">{{
+        content().ui.contact.cv
+      }}</a>
+      <a appButton variant="ghost" [href]="'mailto:' + content().profile.email">{{
+        content().profile.email
+      }}</a>
+    </div>
+  </div>
+</section>

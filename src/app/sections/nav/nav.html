@@ -1,0 +1,37 @@
+<header>
+  <div class="bar">
+    <a class="brand" appAnchor="top" (click)="closeMenu()">
+      <span class="logo" aria-hidden="true">{{ initials(content().profile.name) }}</span>
+      <span class="name" aria-hidden="true">{{ content().profile.name }}</span>
+      <span class="sr-only">{{ content().profile.name }}: {{ content().ui.nav.home }}</span>
+    </a>
+    <nav id="site-nav" [class.open]="menuOpen()" [attr.aria-label]="content().ui.nav.label">
+      @for (link of content().ui.nav.links; track link.fragment) {
+        <a
+          [appAnchor]="link.fragment"
+          [attr.aria-current]="isActive(link.fragment) ? 'true' : null"
+          (click)="closeMenu()"
+        >
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+    <div class="tools">
+      <app-language-toggle />
+      <app-theme-toggle />
+      <a appButton size="small" class="cta" appAnchor="kapcsolat">{{ content().ui.nav.contact }}</a>
+      <button
+        type="button"
+        class="burger"
+        aria-controls="site-nav"
+        [attr.aria-expanded]="menuOpen()"
+        [attr.aria-label]="menuOpen() ? content().ui.nav.closeMenu : content().ui.nav.openMenu"
+        (click)="toggleMenu()"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>

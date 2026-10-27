@@ -1,0 +1,31 @@
+<section id="rolam">
+  <app-section-heading [title]="content().ui.about.title" [lead]="content().ui.about.lead" />
+  <div class="grid">
+    <div class="story" appReveal>
+      @for (paragraph of content().profile.letter; track $index) {
+        <p>{{ paragraph }}</p>
+      }
+    </div>
+    <app-card appReveal="2">
+      <img
+        class="photo"
+        [src]="content().profile.photo.src"
+        [alt]="content().profile.photo.alt"
+        width="400"
+        height="400"
+        loading="lazy"
+        decoding="async"
+      />
+      <dl>
+        @for (fact of facts(); track fact.label) {
+          <div>
+            <dt>{{ fact.label }}</dt>
+            @for (value of fact.values; track value) {
+              <dd>{{ value }}</dd>
+            }
+          </div>
+        }
+      </dl>
+    </app-card>
+  </div>
+</section>

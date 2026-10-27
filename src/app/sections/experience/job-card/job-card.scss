@@ -1,0 +1,130 @@
+:host {
+  display: block;
+}
+app-card {
+  display: grid;
+  gap: 16px;
+}
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+}
+h3 {
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+}
+.role {
+  margin-top: 4px;
+  color: var(--accent-text);
+  font-weight: 600;
+}
+.period {
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: var(--card-hover);
+  font-size: var(--step-small);
+  font-weight: 500;
+}
+.period.now {
+  background: color-mix(in srgb, var(--accent-3) 20%, transparent);
+  color: var(--accent-text);
+}
+.description {
+  color: var(--muted);
+}
+.projects-box summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+.projects-box summary::-webkit-details-marker {
+  display: none;
+}
+.projects-box summary::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.2s;
+}
+.projects-box[open] summary::after {
+  transform: translateY(2px) rotate(-135deg);
+}
+.projects-box summary:hover {
+  background: var(--card-hover);
+  border-color: var(--accent);
+}
+.projects-box .projects {
+  margin-top: 14px;
+}
+.projects {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.projects li {
+  display: grid;
+  gap: 4px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+h4 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  font-family: var(--font-text);
+  font-size: var(--step-body);
+  font-weight: 600;
+}
+h4 span {
+  color: var(--accent-text);
+  font-size: var(--step-small);
+}
+h4 a {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.projects p {
+  color: var(--muted);
+  font-size: var(--step-small);
+}
+
+.projects .points {
+  display: grid;
+  gap: 4px;
+  margin-top: 6px;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: var(--step-small);
+  list-style: disc;
+}
+.projects .points li {
+  display: list-item;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+}
+
+.tools {
+  display: block;
+  margin-top: 8px;
+}

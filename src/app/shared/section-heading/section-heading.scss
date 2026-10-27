@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+h2 {
+  font-size: var(--step-title);
+}
+h2::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 5px;
+  margin-top: 16px;
+  border-radius: 3px;
+  background: var(--gradient);
+}
+p {
+  max-width: 56ch;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: var(--step-lead);
+}

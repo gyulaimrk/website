@@ -1,0 +1,47 @@
+<app-card [featured]="current()">
+  <div class="head">
+    <div>
+      <h3>{{ job().company }}</h3>
+      <p class="role">{{ job().role }}</p>
+    </div>
+    <p class="period" [class.now]="current()">{{ job().period }}</p>
+  </div>
+  <p class="description">{{ job().description }}</p>
+  @if (job().projects; as projects) {
+    <details class="projects-box" [open]="current()">
+      <summary>{{ content().ui.experience.projects }} ({{ projects.length }})</summary>
+      <ul class="projects">
+        @for (project of projects; track $index) {
+          <li>
+            <h4>
+              @if (project.url) {
+                <a [href]="project.url" target="_blank" rel="noopener">{{ project.name }}</a>
+              } @else {
+                {{ project.name }}
+              }
+              @if (project.subtitle) {
+                <span>{{ project.subtitle }}</span>
+              }
+            </h4>
+            @if (project.text) {
+              <p>{{ project.text }}</p>
+            }
+            @if (project.points; as points) {
+              <ul class="points">
+                @for (point of points; track point) {
+                  <li>{{ point }}</li>
+                }
+              </ul>
+            }
+            @if (project.tech; as tech) {
+              <app-chip-list class="tools" [items]="tech" />
+            }
+          </li>
+        }
+      </ul>
+    </details>
+  }
+  @if (job().tech; as tech) {
+    <app-chip-list [items]="tech" />
+  }
+</app-card>

@@ -1,0 +1,14 @@
+main {
+  display: grid;
+  place-content: center;
+  gap: 16px;
+  min-height: 100svh;
+  padding: var(--gutter);
+  text-align: center;
+}
+p {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-weight: 600;
+}

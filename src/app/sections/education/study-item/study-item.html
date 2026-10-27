@@ -1,0 +1,13 @@
+@if (study().url; as url) {
+  <strong
+    ><a [href]="url" target="_blank" rel="noopener">{{ study().title }}</a></strong
+  >
+} @else {
+  <strong>{{ study().title }}</strong>
+}
+@if (meta()) {
+  <span>{{ meta() }}</span>
+}
+@if (study().description) {
+  <p>{{ study().description }}</p>
+}

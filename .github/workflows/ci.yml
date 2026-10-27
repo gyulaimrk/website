@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  # Rebuilds and deploys monthly, so the years of experience (5+, 3+…) are refreshed on the prerendered page too.
+  schedule:
+    - cron: '23 5 1 * *'
+
+# Read-only by default; the deploy gets the Cloudflare secrets separately.
+permissions:
+  contents: read
+
+jobs:
+  build:
+    # Pinned runner: ubuntu-latest is already 26.04, which Playwright 1.56 does not support.
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test -- --watch=false
+      - run: npm run build
+      - name: Install the browser for the end-to-end tests
+        run: npx playwright install --with-deps chromium
+      - name: End-to-end tests
+        run: npm run e2e
+      - name: Keep the traces of failed end-to-end tests
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-traces
+          path: e2e/test-output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: dist/portfolio/browser
+
+  deploy:
+    # Runs only on the main branch, and only if the Cloudflare secrets are set.
+    needs: build
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'schedule')
+    runs-on: ubuntu-24.04
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      # We deploy exactly what the build job already produced and tested.
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: dist/portfolio/browser
+      - name: Deploy to Cloudflare
+        if: env.CLOUDFLARE_API_TOKEN != ''
+        run: npx wrangler deploy

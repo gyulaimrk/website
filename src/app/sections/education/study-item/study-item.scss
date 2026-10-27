@@ -1,0 +1,22 @@
+:host {
+  display: grid;
+}
+p {
+  max-width: 60ch;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: var(--step-small);
+}
+span {
+  color: var(--muted);
+  font-size: var(--step-small);
+}
+a {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent-text) 40%, transparent);
+  text-underline-offset: 3px;
+}
+a:hover {
+  text-decoration-color: currentColor;
+}

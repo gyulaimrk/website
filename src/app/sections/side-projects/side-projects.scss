@@ -1,0 +1,9 @@
+section {
+  max-width: var(--max);
+  margin: var(--section) auto 0;
+  padding: 0 var(--gutter);
+}
+.list {
+  display: grid;
+  gap: 20px;
+}
