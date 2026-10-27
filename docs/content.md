@@ -8,7 +8,7 @@ Every text of the site is in two files: `src/app/data/content.hu.ts` and `conten
 | Type          | What it describes                                                                                                                                                           |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Profile`     | name, role, contact details, photo, introduction, languages, driving licence, résumé path, the `roleConstants` used in the hero code window (the values of the `Role` enum) |
-| `Job`         | employer: company, role, period, description, projects (`JobProject`), and optionally tools that characterise the employer (`tech`, for example Plane at Adroit)            |
+| `Job`         | employer: company, role, period, description, projects (`JobProject`), and optionally tools that characterise the employer (`tech`; currently none is used)                 |
 | `JobProject`  | name, subtitle (`subtitle`), link, short text, concrete tasks (`points`) and the technologies and tools used on the project (`tech`)                                        |
 | `Skill`       | skills card: title, tag, paragraphs (`paragraphs`), optional chips (`chips`), highlight                                                                                     |
 | `SideProject` | side project: description in paragraphs (`paragraphs`), live address, source code, technologies                                                                             |

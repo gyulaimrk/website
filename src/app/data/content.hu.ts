@@ -109,7 +109,6 @@ const jobs: Content['jobs'] = [
         ],
       },
     ],
-    tech: ['Plane'],
   },
   {
     company: 'RDI Software Hungary',
@@ -630,9 +629,9 @@ const ui: Content['ui'] = {
     home: 'Ugrás az oldal tetejére',
     links: [
       { fragment: 'rolam', label: 'Rólam' },
+      { fragment: 'tapasztalat', label: 'Tapasztalat' },
       { fragment: 'eszkoztar', label: 'Eszköztár' },
       { fragment: 'ai', label: 'AI' },
-      { fragment: 'tapasztalat', label: 'Tapasztalat' },
       { fragment: 'mellekprojektek', label: 'Mellékprojektek' },
       { fragment: 'tanulmanyok', label: 'Tanulmányok' },
     ],

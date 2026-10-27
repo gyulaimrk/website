@@ -6,7 +6,7 @@ The top-level components of the routes. The routes are described by `app.routes.
 ### `app-portfolio-page` (`PortfolioPage`)
 
 The whole portfolio on one page, at `/hu` and `/en`. It puts together the skip-to-content link, the menu, the
-sections in the `main` element (hero, about, skills, AI, experience, side projects, studies, contact), then the footer and the
+sections in the `main` element (hero, about, experience, skills, AI, side projects, studies, contact), then the footer and the
 “back to top” button. An `effect` updates the `SeoService` on every language change.
 
 **Tests:** `portfolio-page.spec.ts`: every section is built, there is a skip-to-content link (`main` is its target), the title changes together with the language.
