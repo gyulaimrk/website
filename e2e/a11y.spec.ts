@@ -14,6 +14,14 @@ test.describe('accessibility (axe)', () => {
         await page.addInitScript((value) => localStorage.setItem('theme', value), theme);
         await page.goto(`/${lang}`);
         await expect(page.locator('html')).toHaveAttribute('data-theme', theme);
+        // The theme switch starts CSS transitions, and a transition only reaches its end value
+        // once a frame has been rendered; wait for two frames so axe never reads half-way colours.
+        await page.evaluate(
+          () =>
+            new Promise<void>((resolve) =>
+              requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+            ),
+        );
         // The content of the closed project lists is checked too.
         await page.evaluate(() =>
           document.querySelectorAll('details').forEach((details) => (details.open = true)),
@@ -28,6 +36,7 @@ test.describe('accessibility (axe)', () => {
             rule: v.id,
             impact: v.impact,
             targets: v.nodes.map((n) => n.target.join(' ')).slice(0, 5),
+            detail: v.nodes.slice(0, 3).map((n) => n.any[0]?.message),
           })),
         ).toEqual([]);
       });
@@ -83,7 +92,7 @@ test.describe('hidden element and name', () => {
     await expect(link).toBeVisible();
   });
 
-  test.describe('mobilon', () => {
+  test.describe('on mobile', () => {
     test.use({ viewport: { width: 390, height: 800 } });
 
     test('the brand link’s name is complete even when the visible name is hidden', async ({
