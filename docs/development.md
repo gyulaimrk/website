@@ -53,7 +53,7 @@ dependency updates weekly (the Angular packages in one group). On the `main` bra
 
 ## Dependency overrides
 
-`package.json` pins `vite` to `~8.3.5` and `miniflare`'s `undici` to `^7.30.1` with npm `overrides`, to pull in security fixes before the parent packages (`@angular/build`, `wrangler`) release them. Remove an override as soon as the parent package requires a fixed version itself; otherwise it blocks later updates (Dependabot included). Check them whenever Angular or wrangler is upgraded.
+`package.json` pins `vite` to `~8.3.5` and every `undici@7.29.1` (pulled in by `miniflare`) to `^7.30.1` with npm `overrides`, to get security fixes before the parent packages (`@angular/build`, `wrangler`) release them. The `undici@7.29.1` selector form is deliberate: the nested form (`"miniflare": { "undici": … }`) is not honoured by npm 10.9.4, which Cloudflare uses, and `npm ci` then fails with “Missing: undici@7.29.1 from lock file”. After touching `overrides`, check both `npm ci --dry-run` with npm 10.9.4 and with the latest npm. Remove an override as soon as the parent package requires a fixed version itself; otherwise it blocks later updates (Dependabot included). Check them whenever Angular or wrangler is upgraded.
 
 ## Deployment
 
