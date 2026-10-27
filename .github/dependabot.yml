@@ -7,6 +7,11 @@ updates:
       interval: weekly
       day: monday
     open-pull-requests-limit: 5
+    ignore:
+      # @angular/build accepts only TypeScript 6.0.x (peer range >=6.0 <6.1), so a newer
+      # TypeScript breaks `npm ci`. Patch updates are fine; revisit when Angular moves on.
+      - dependency-name: typescript
+        update-types: ['version-update:semver-major', 'version-update:semver-minor']
     groups:
       angular:
         patterns:
