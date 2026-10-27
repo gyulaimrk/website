@@ -36,6 +36,32 @@ describe('PortfolioPage', () => {
     expect(el.querySelectorAll('h1').length).toBe(1);
   });
 
+  it('puts the experience between the about and the skills sections, as the menu lists them', () => {
+    const { el } = render();
+    const order = [...el.querySelectorAll('main > *')].map((section) =>
+      section.tagName.toLowerCase(),
+    );
+    expect(order).toEqual([
+      'app-hero',
+      'app-about',
+      'app-experience',
+      'app-skills',
+      'app-ai-workflow',
+      'app-side-projects',
+      'app-education',
+      'app-contact',
+    ]);
+    const fragments = contentHu.ui.nav.links.map((link) => link.fragment);
+    expect(fragments).toEqual([
+      'rolam',
+      'tapasztalat',
+      'eszkoztar',
+      'ai',
+      'mellekprojektek',
+      'tanulmanyok',
+    ]);
+  });
+
   it('has a skip-to-content link, and main is its target', () => {
     const { el } = render();
     expect(el.querySelector('.skip')?.getAttribute('href')).toBe('/hu#main');
