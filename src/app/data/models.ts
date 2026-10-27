@@ -5,7 +5,6 @@ export interface Profile {
   roleConstants: string[];
   email: string;
   linkedin: string;
-  github: string;
   location: string;
   /** Portrait photo from the `public/` folder. */
   photo: { src: string; alt: string };

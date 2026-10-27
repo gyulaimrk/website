@@ -51,6 +51,10 @@ version that the Playwright in use does not support. `.github/workflows/links.ym
 dependency updates weekly (the Angular packages in one group). On the `main` branch, if the `CLOUDFLARE_API_TOKEN` and
 `CLOUDFLARE_ACCOUNT_ID` secrets are set, it also deploys: it downloads the artifact produced and tested by the build job, it does not rebuild.
 
+## Dependency overrides
+
+`package.json` pins `vite` to `~8.3.5` and `miniflare`'s `undici` to `^7.30.1` with npm `overrides`, to pull in security fixes before the parent packages (`@angular/build`, `wrangler`) release them. Remove an override as soon as the parent package requires a fixed version itself; otherwise it blocks later updates (Dependabot included). Check them whenever Angular or wrangler is upgraded.
+
 ## Deployment
 
 The site runs on Cloudflare Workers as static assets (`wrangler.jsonc`: `404-page`, `drop-trailing-slash`).

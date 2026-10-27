@@ -7,7 +7,6 @@ const profile: Content['profile'] = {
   roleConstants: ['SENIOR_JAVA_DEVELOPER', 'KOTLIN_DEVELOPER', 'AI_CONSULTANT'],
   email: 'gyulai.mrk2@live.com',
   linkedin: 'https://www.linkedin.com/in/mark-gyulai-6aa690264',
-  github: 'https://github.com/gyulaimrk',
   location: 'Nyíregyháza, Magyarország',
   photo: { src: 'mark-gyulai.jpg', alt: 'Gyulai Márk portréfotója' },
   cv: 'cv/gyulai-mark-oneletrajz.pdf',
@@ -20,7 +19,7 @@ const profile: Content['profile'] = {
   letter: [
     'Senior Java fejlesztőként több mint {javaYears} év szakmai tapasztalattal rendelkezem Java-alapú backend rendszerek fejlesztésében. Java 11 és Java 17 környezetben szerzett tapasztalataim mellett a Java 8-tól a Java 25-ig terjedő verziók nyelvi lehetőségeit is ismerem. Elsősorban Spring és Spring Boot technológiákkal dolgozom, a rendszertervezéstől és a megvalósítástól kezdve a tesztelésen át egészen az alkalmazások hosszú távú karbantartásáig.',
     'A fejlesztés során kiemelt figyelmet fordítok a kód minőségére, az átlátható architektúrára és a fenntarthatóságra. Munkámban a Clean Code, a SOLID, a DRY és a KISS alapelveire támaszkodom, és az adott problémához illeszkedő tervezési mintákat alkalmazok. A tesztelést a fejlesztési folyamat szerves részének tekintem: egység-, rendszer- és felületi tesztekkel támogatom a megbízható működést, emellett a meglévő rendszerek tesztlefedettségének javításában is vállaltam szerepet.',
-    'Önállóan és csapatban egyaránt hatékonyan dolgozom, agilis környezetben is. Egy pénzügyi platform, a McDonald’s és a Helvo projektjein nemzetközi csapatok tagjaként szereztem tapasztalatot, így a különböző szakmai és kulturális háttérrel rendelkező kollégákkal való együttműködés a mindennapi munkám természetes része. Fontosnak tartom a nyílt kommunikációt, az ügyfelekkel történő rendszeres egyeztetést és a társterületekkel való hatékony együttműködést. Az EPAM-nál és az RDI-nál junior fejlesztők mentorálásában is részt vettem.',
+    'Önállóan és csapatban egyaránt hatékonyan dolgozom, agilis környezetben is. Egy pénzügyi platform, egy nemzetközi nagyvállalat alkalmazása és egy svájci pénzügyi startup projektjein nemzetközi csapatok tagjaként szereztem tapasztalatot, így a különböző szakmai és kulturális háttérrel rendelkező kollégákkal való együttműködés a mindennapi munkám természetes része. Fontosnak tartom a nyílt kommunikációt, az ügyfelekkel történő rendszeres egyeztetést és a társterületekkel való hatékony együttműködést. Az EPAM-nál és az RDI-nál junior fejlesztők mentorálásában is részt vettem.',
     'Folyamatosan fejlesztem a szakmai tudásomat, az új technológiákat pedig gyakorlati mellékprojekteken keresztül ismerem meg. A mesterséges intelligenciát tudatosan építem be a fejlesztési folyamataimba: strukturált promptokat készítek, saját AI-skilleket alakítok ki, és a CLAUDE.md fájlok segítségével rögzítem a projektek technikai irányelveit és fejlesztési szabályait, hogy az AI-asszisztensek következetesen illeszkedjenek a projekt elvárásaihoz.',
     'Bár a fő szakterületem a backendfejlesztés, a frontendtechnológiák iránt is érdeklődöm, és szívesen dolgozom a teljes alkalmazás működését átfogó megoldásokon.',
     'A munkán kívül szívesen vezetek, filmeket nézek, és a barátaimmal játszom.',
@@ -36,8 +35,7 @@ const jobs: Content['jobs'] = [
       'Három különböző projekten dolgozom, amelyek közül kettő Kotlin-alapú. Backendfejlesztési feladatok mellett részt veszek a technikai tervezésben, az API-k kialakításában, a tesztelésben és a kódminőség fenntartásában. Munkám része az AI gyakorlati alkalmazási lehetőségeinek feltárása és a kapcsolódó fejlesztések megvalósítása is.',
     projects: [
       {
-        name: 'MOL Limo',
-        subtitle: 'Autóbérlési rendszer',
+        name: 'Autóbérlési rendszer',
         tech: [
           'Kotlin',
           'Spring Boot',
@@ -50,8 +48,7 @@ const jobs: Content['jobs'] = [
           'Confluence',
           'Claude',
         ],
-        url: 'https://rentacar.mollimo.hu/rent/start',
-        text: 'A MOL Limo autóbérlési szolgáltatásának backendfejlesztésén dolgozom Kotlin és Spring Boot technológiákkal.',
+        text: 'Egy autóbérlési szolgáltatás backendfejlesztésén dolgozom Kotlin és Spring Boot technológiákkal.',
         points: [
           'Üzleti logika és összetettebb számítások megvalósítása, adatok feldolgozása és összesítése',
           'Aszinkron szinkronizáció kialakítása egy kapcsolódó alrendszerrel',
@@ -64,8 +61,7 @@ const jobs: Content['jobs'] = [
         ],
       },
       {
-        name: 'Helvo',
-        subtitle: 'Pénzügyi alkalmazás',
+        name: 'Pénzügyi alkalmazás',
         tech: [
           'Kotlin',
           'Spring Boot 4',
@@ -85,8 +81,7 @@ const jobs: Content['jobs'] = [
         ],
       },
       {
-        name: 'GLI Solutions',
-        subtitle: 'AI-konzultáció és szoftverfejlesztés',
+        name: 'AI-konzultáció és szoftverfejlesztés',
         tech: [
           'C#',
           '.NET',
@@ -121,11 +116,10 @@ const jobs: Content['jobs'] = [
     role: 'Software Engineer',
     period: '2024. augusztus – 2025. október',
     description:
-      'A McDonald’s alkalmazásának fejlesztésén dolgoztam egy felhasználói fiókokkal, hitelesítéssel és jogosultságkezeléssel foglalkozó csapat tagjaként. Feladataim közé tartozott a mikroszolgáltatások fejlesztése és karbantartása, az API-integrációk megvalósítása, az adatbázis-műveletek kezelése és a tesztelés. A csapaton belül code review-kban vettem részt, valamint egy junior fejlesztő szakmai támogatását is vállaltam.',
+      'Egy nemzetközi nagyvállalat alkalmazásának fejlesztésén dolgoztam egy felhasználói fiókokkal, hitelesítéssel és jogosultságkezeléssel foglalkozó csapat tagjaként. Feladataim közé tartozott a mikroszolgáltatások fejlesztése és karbantartása, az API-integrációk megvalósítása, az adatbázis-műveletek kezelése és a tesztelés. A csapaton belül code review-kban vettem részt, valamint egy junior fejlesztő szakmai támogatását is vállaltam.',
     projects: [
       {
-        name: 'McDonald’s',
-        subtitle: 'Felhasználói fiókok és hitelesítés',
+        name: 'Felhasználói fiókok és hitelesítés',
         tech: [
           'Java',
           'Mikroszolgáltatások',
@@ -315,7 +309,7 @@ const skills: Content['skills'] = [
     tag: 'Mesterséges intelligencia',
     paragraphs: [
       'Több mint {aiYears} éve használok mesterséges intelligenciára épülő eszközöket a fejlesztési munkám támogatására. Strukturált promptokat készítek, saját AI-skilleket fejlesztek, és a CLAUDE.md fájlok segítségével rögzítem a projektek technikai irányelveit és fejlesztési szabályait, biztosítva a következetes munkavégzést az AI-asszisztensekkel.',
-      'Az Adroit Group GLI Solutions projektjén AI-konzultánsként a mesterséges intelligencia gyakorlati alkalmazási lehetőségeit vizsgálom, különös tekintettel az üzleti folyamatokba és a meglévő rendszerekbe történő integrációra.',
+      'Az Adroit Group egyik projektjén AI-konzultánsként a mesterséges intelligencia gyakorlati alkalmazási lehetőségeit vizsgálom, különös tekintettel az üzleti folyamatokba és a meglévő rendszerekbe történő integrációra.',
       '2026 márciusában négy Anthropic-tanúsítványt szereztem a Claude API, a Model Context Protocol (MCP), az Agent Skills és a Claude Code témaköreiben.',
     ],
   },
@@ -330,7 +324,7 @@ const skills: Content['skills'] = [
     title: 'Kotlin',
     tag: 'Programozási nyelvek',
     paragraphs: [
-      'Az Adroit Groupnál két Kotlin-alapú projektben vettem részt: a MOL Limo autómegosztó szolgáltatás, valamint a Helvo fejlesztésében. Az adatbázis-hozzáférés megvalósításához az Exposed keretrendszert használom.',
+      'Az Adroit Groupnál két Kotlin-alapú projektben vettem részt: egy autóbérlési szolgáltatás és egy svájci pénzügyi startup alkalmazásának fejlesztésében. Az adatbázis-hozzáférés megvalósításához az Exposed keretrendszert használom.',
     ],
   },
   {
@@ -370,7 +364,7 @@ const skills: Content['skills'] = [
     tag: 'Frontendfejlesztés',
     paragraphs: [
       'Bár a fő szakterületem a backendfejlesztés, frontendalkalmazások készítésében is van gyakorlati tapasztalatom. Az oldalt Angular 22 használatával, standalone komponensekkel, signalokkal és Vitest-alapú tesztekkel építettem.',
-      'Angular technológiával készült a lizacover.hu weboldal és a GLI Solutions tesztelési platformja is. A frontendfejlesztést a teljes alkalmazás működését átfogó szemlélet részeként kezelem.',
+      'Angular technológiával készült a lizacover.hu weboldal és az Adroit Group egyik projektjének tesztelési platformja is. A frontendfejlesztést a teljes alkalmazás működését átfogó szemlélet részeként kezelem.',
     ],
   },
 ];

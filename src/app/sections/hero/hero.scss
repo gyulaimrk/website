@@ -102,6 +102,7 @@ h1 {
 }
 .stats strong {
   font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
   font-size: clamp(2rem, 1.4rem + 2vw, 3rem);
   line-height: 1;
 }

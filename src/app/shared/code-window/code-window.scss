@@ -6,11 +6,8 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: #08152e;
-  box-shadow: var(
-    --code-window-shadow,
-    var(--shadow),
-    0 0 80px color-mix(in srgb, var(--accent) 30%, transparent)
-  );
+  --default-shadow: var(--shadow), 0 0 80px color-mix(in srgb, var(--accent) 30%, transparent);
+  box-shadow: var(--code-window-shadow, var(--default-shadow));
 }
 .bar {
   display: flex;

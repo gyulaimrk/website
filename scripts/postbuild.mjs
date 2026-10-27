@@ -44,7 +44,7 @@ function sitemapXml(origin, langs) {
 /** Puts a single Sitemap line into robots.txt, however many times the script runs. */
 async function linkSitemapInRobots(origin) {
   const path = `${OUT}/robots.txt`;
-  const current = await readFile(path, 'utf8');
+  const current = (await readFile(path, 'utf8')).replace(/\r\n/g, '\n');
   const withoutSitemap = current.replace(/^Sitemap:.*$/gim, '').trimEnd();
   await writeFile(path, `${withoutSitemap}\n\nSitemap: ${origin}/sitemap.xml\n`);
 }
@@ -101,7 +101,7 @@ async function writeSecurityHeaders() {
   const lines = (await readFile(path, 'utf8'))
     .split(/\r?\n/)
     .filter((line) => !line.trimStart().startsWith('Content-Security-Policy:'));
-  const rule = lines.indexOf('/*');
+  const rule = lines.findIndex((line) => line.trim() === '/*');
   if (rule === -1) {
     console.error('There is no "/*" rule in the _headers file, where the CSP would go.');
     process.exit(1);

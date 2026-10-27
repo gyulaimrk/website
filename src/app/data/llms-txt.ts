@@ -19,7 +19,7 @@ export function renderLlmsTxt(contents: Record<Lang, Content>, origin = ''): str
   const resumes = langs.map(
     (lang) => `- [${LABELS[lang].cv}](${origin}/${contents[lang].profile.cv})`,
   );
-  const links = [`- [LinkedIn](${profile.linkedin})`, `- [GitHub](${profile.github})`];
+  const links = [`- [LinkedIn](${profile.linkedin})`];
 
   return [
     `# ${profile.name}`,

@@ -7,7 +7,6 @@ const profile: Content['profile'] = {
   roleConstants: ['SENIOR_JAVA_DEVELOPER', 'KOTLIN_DEVELOPER', 'AI_CONSULTANT'],
   email: 'gyulai.mrk2@live.com',
   linkedin: 'https://www.linkedin.com/in/mark-gyulai-6aa690264',
-  github: 'https://github.com/gyulaimrk',
   location: 'Nyíregyháza, Hungary',
   photo: { src: 'mark-gyulai.jpg', alt: 'Portrait of Márk Gyulai' },
   cv: 'cv/mark-gyulai-cv.pdf',
@@ -20,7 +19,7 @@ const profile: Content['profile'] = {
   letter: [
     'As a senior Java developer, I have more than {javaYears} years of professional experience building Java-based backend systems. Besides working in Java 11 and Java 17 environments, I know the language features of every version from Java 8 up to Java 25. I work mainly with Spring and Spring Boot, from system design and implementation through testing to the long-term maintenance of applications.',
     'In development, I pay particular attention to code quality, clear architecture and sustainability. I rely on the principles of Clean Code, SOLID, DRY and KISS, and apply design patterns that fit the problem at hand. I regard testing as an integral part of the development process: I support reliable operation with unit, system and UI tests, and I have also taken part in improving the test coverage of existing systems.',
-    'I work effectively both on my own and in a team, including in agile environments. On the projects of a financial platform, McDonald’s and Helvo I gained experience as a member of international teams, so working with colleagues from different professional and cultural backgrounds is a natural part of my everyday work. I value open communication, regular meetings with clients and effective cooperation with neighbouring teams. At EPAM and at RDI I also took part in mentoring junior developers.',
+    'I work effectively both on my own and in a team, including in agile environments. On the projects of a financial platform, an international enterprise application and a Swiss financial startup I gained experience as a member of international teams, so working with colleagues from different professional and cultural backgrounds is a natural part of my everyday work. I value open communication, regular meetings with clients and effective cooperation with neighbouring teams. At EPAM and at RDI I also took part in mentoring junior developers.',
     'I keep developing my professional knowledge and get to know new technologies through hands-on side projects. I build artificial intelligence into my development process deliberately: I write structured prompts, create my own AI skills, and use CLAUDE.md files to record a project’s technical guidelines and development rules, so that AI assistants fit the project’s expectations consistently.',
     'Although my main field is backend development, I am also interested in frontend technologies, and I enjoy working on solutions that cover the whole application.',
     'Outside work, I like driving, watching movies and playing games with friends.',
@@ -36,8 +35,7 @@ const jobs: Content['jobs'] = [
       'I work on three different projects, two of which are Kotlin-based. Alongside backend development, I take part in technical design, API design, testing and maintaining code quality. My work also includes exploring practical applications of AI and implementing the related developments.',
     projects: [
       {
-        name: 'MOL Limo',
-        subtitle: 'Car rental system',
+        name: 'Car rental system',
         tech: [
           'Kotlin',
           'Spring Boot',
@@ -50,8 +48,7 @@ const jobs: Content['jobs'] = [
           'Confluence',
           'Claude',
         ],
-        url: 'https://rentacar.mollimo.hu/rent/start',
-        text: 'I work on the backend of MOL Limo’s car rental service with Kotlin and Spring Boot.',
+        text: 'I work on the backend of a car rental service with Kotlin and Spring Boot.',
         points: [
           'Implementing business logic and more complex calculations, processing and aggregating data',
           'Building asynchronous synchronization with a related subsystem',
@@ -64,8 +61,7 @@ const jobs: Content['jobs'] = [
         ],
       },
       {
-        name: 'Helvo',
-        subtitle: 'Financial application',
+        name: 'Financial application',
         tech: [
           'Kotlin',
           'Spring Boot 4',
@@ -85,8 +81,7 @@ const jobs: Content['jobs'] = [
         ],
       },
       {
-        name: 'GLI Solutions',
-        subtitle: 'AI consulting and software development',
+        name: 'AI consulting and software development',
         tech: [
           'C#',
           '.NET',
@@ -121,11 +116,10 @@ const jobs: Content['jobs'] = [
     role: 'Software Engineer',
     period: 'August 2024 – October 2025',
     description:
-      'I worked on the development of the McDonald’s application as a member of a team responsible for user accounts, authentication and access management. My tasks included developing and maintaining microservices, implementing API integrations, handling database operations and testing. Within the team I took part in code reviews, and I also provided professional support to a junior developer.',
+      'I worked on the development of an international enterprise’s application as a member of a team responsible for user accounts, authentication and access management. My tasks included developing and maintaining microservices, implementing API integrations, handling database operations and testing. Within the team I took part in code reviews, and I also provided professional support to a junior developer.',
     projects: [
       {
-        name: 'McDonald’s',
-        subtitle: 'User accounts and authentication',
+        name: 'User accounts and authentication',
         tech: [
           'Java',
           'Microservices',
@@ -315,7 +309,7 @@ const skills: Content['skills'] = [
     tag: 'Artificial intelligence',
     paragraphs: [
       'For more than {aiYears} years I have used tools built on artificial intelligence to support my development work. I write structured prompts, build my own AI skills, and use CLAUDE.md files to record a project’s technical guidelines and development rules, so that work with AI assistants stays consistent.',
-      'On the GLI Solutions project at Adroit Group, as an AI consultant, I examine the practical uses of artificial intelligence, with particular attention to integrating it into business processes and existing systems.',
+      'On a project at Adroit Group, as an AI consultant, I examine the practical uses of artificial intelligence, with particular attention to integrating it into business processes and existing systems.',
       'In March 2026 I earned four Anthropic certificates, covering the Claude API, the Model Context Protocol (MCP), Agent Skills and Claude Code.',
     ],
   },
@@ -330,7 +324,7 @@ const skills: Content['skills'] = [
     title: 'Kotlin',
     tag: 'Programming languages',
     paragraphs: [
-      'At Adroit Group I took part in two Kotlin-based projects: the MOL Limo car-sharing service and Helvo. I use the Exposed framework for database access.',
+      'At Adroit Group I took part in two Kotlin-based projects: the development of a car rental service and of a Swiss financial startup’s application. I use the Exposed framework for database access.',
     ],
   },
   {
@@ -370,7 +364,7 @@ const skills: Content['skills'] = [
     tag: 'Frontend development',
     paragraphs: [
       'Although my main field is backend development, I also have hands-on experience building frontend applications. I built this site with Angular 22, using standalone components, signals and Vitest-based tests.',
-      'The lizacover.hu website and the GLI Solutions testing platform are built with Angular too. I treat frontend development as part of an approach that covers the whole application.',
+      'The lizacover.hu website and the testing platform of one of Adroit Group’s projects are built with Angular too. I treat frontend development as part of an approach that covers the whole application.',
     ],
   },
 ];

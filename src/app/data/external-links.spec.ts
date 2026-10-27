@@ -12,7 +12,10 @@ describe('externalLinks', () => {
   it('includes the profile, the project and the certificate links', () => {
     expect(links).toContain(contentHu.profile.linkedin);
     expect(links).toContain(`${contentHu.profile.linkedin}/details/certifications/`);
-    expect(links).toContain('https://rentacar.mollimo.hu/rent/start');
+    contentHu.sideProjects
+      .flatMap((project) => [project.url, project.sourceUrl])
+      .filter(Boolean)
+      .forEach((url) => expect(links).toContain(url));
     contentHu.studies
       .filter((study) => study.url)
       .forEach((study) => expect(links).toContain(study.url));

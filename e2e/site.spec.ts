@@ -82,7 +82,7 @@ test.describe('use on the Hungarian page', () => {
     }
   });
 
-  test('the tasks of the McDonald’s project can be opened and read', async ({ page }) => {
+  test('the tasks of the RDI project can be opened and read', async ({ page }) => {
     const job = contentHu.jobs.find((j) => j.company.startsWith('RDI'))!;
     const card = page.locator('app-job-card', { hasText: job.company });
     await card.locator('summary').click();

@@ -6,7 +6,6 @@ export function externalLinks(content: Content): string[] {
   const candidates = [
     profile.linkedin,
     `${profile.linkedin}/details/certifications/`,
-    profile.github,
     ...jobs.flatMap((job) => (job.projects ?? []).map((project) => project.url)),
     ...sideProjects.flatMap((project) => [project.url, project.sourceUrl]),
     ...studies.map((study) => study.url),

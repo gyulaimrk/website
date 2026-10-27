@@ -1,0 +1,2 @@
+# Keep every text file LF, so scripts that read files (postbuild, build-cv) behave the same on every OS.
+* text=auto eol=lf

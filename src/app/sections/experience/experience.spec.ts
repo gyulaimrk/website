@@ -20,9 +20,9 @@ describe('Experience', () => {
     );
   });
 
-  it('the GLI Solutions and the MOL Limo projects appear', () => {
+  it('the AI consulting and the car rental projects of the current employer appear', () => {
     const text = render().textContent ?? '';
-    expect(text).toContain('GLI Solutions');
-    expect(text).toContain('MOL Limo');
+    expect(text).toContain('AI-konzultáció és szoftverfejlesztés');
+    expect(text).toContain('Autóbérlési rendszer');
   });
 });

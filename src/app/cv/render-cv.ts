@@ -20,34 +20,34 @@ const shortUrl = (url: string) => url.replace(/^https?:\/\/(www\.)?/, '').replac
 const STYLE = `
   @page { size: A4; margin: 11mm 13mm; }
   * { box-sizing: border-box; }
-  body { margin: 0; color: #141a38; font: 400 8.9pt/1.36 'Inter', sans-serif; }
+  body { margin: 0; color: #0f1d3d; font: 400 8.9pt/1.36 'Inter', sans-serif; }
   h1, h2, h3 { font-family: 'Space Grotesk', 'Inter', sans-serif; margin: 0; line-height: 1.15; }
   header { display: flex; gap: 16px; align-items: center; margin-bottom: 14px; }
   header img { width: 26mm; height: 26mm; border-radius: 6mm; object-fit: cover; }
   h1 { font-size: 24pt; }
-  .role { margin-top: 2px; color: #3a45a8; font-size: 12pt; font-weight: 600; }
-  .contact { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 2px 14px; color: #4b5686; font-size: 9pt; }
+  .role { margin-top: 2px; color: #1d3f9e; font-size: 12pt; font-weight: 600; }
+  .contact { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 2px 14px; color: #46567f; font-size: 9pt; }
   h2 { margin: 10px 0 5px; padding-bottom: 3px; border-bottom: 1.5px solid #2563eb; color: #1d3f9e; font-size: 11.5pt; break-after: avoid; }
   p { margin: 0; }
   .job { margin-bottom: 6px; }
   .job li li { break-inside: avoid; }
   .job-head { display: flex; break-after: avoid; justify-content: space-between; gap: 12px; align-items: baseline; }
   h3 { font-size: 10.8pt; }
-  .meta { color: #4b5686; font-size: 9pt; white-space: nowrap; }
-  .job-role { color: #3a45a8; font-weight: 600; }
+  .meta { color: #46567f; font-size: 9pt; white-space: nowrap; }
+  .job-role { color: #1d3f9e; font-weight: 600; }
   ul { margin: 3px 0 0; padding-left: 15px; }
   li { margin: 0; }
-  .tools { color: #4b5686; font-size: 8.8pt; }
-  .tags { margin-top: 3px; color: #4b5686; font-size: 8.8pt; }
+  .tools { color: #46567f; font-size: 8.8pt; }
+  .tags { margin-top: 3px; color: #46567f; font-size: 8.8pt; }
   .skills { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 0; padding: 0; list-style: none; }
-  .skills li { padding: 1px 9px; border-radius: 99px; background: #e9ecff; font-weight: 500; }
+  .skills li { padding: 1px 9px; border-radius: 99px; background: #e8f0ff; font-weight: 500; }
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; align-items: start; }
   .cols { columns: 3; column-gap: 14px; font-size: 8.6pt; }
   .cols .item { margin-bottom: 2px; }
   h3.sub { margin: 8px 0 3px; }
   .item { margin-bottom: 4px; break-inside: avoid; }
-  .item span { color: #4b5686; font-size: 8.8pt; }
-  .langs { margin: 1px 0 0; color: #4b5686; font-size: 8.8pt; }
+  .item span { color: #46567f; font-size: 8.8pt; }
+  .langs { margin: 1px 0 0; color: #46567f; font-size: 8.8pt; }
 `;
 
 const studyLine = (study: Study, compact = false) => {
